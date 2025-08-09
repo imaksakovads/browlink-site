@@ -1,142 +1,26 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>До / После — Brow & Lash Studio</title>
-  <meta name="description" content="Интерактивные сравнения до/после: ламинирование бровей и ресниц. Перетяни ползунок, чтобы увидеть результат." />
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    .ba-wrap{position:relative; overflow:hidden; border-radius:1rem;}
-    .ba-img{display:block; width:100%; height:auto; object-fit:cover;}
-    .ba-top{position:absolute; inset:0; width:50%; overflow:hidden;}
-    .ba-top img{width:200%; height:100%; object-fit:cover;}
-    .ba-handle{position:absolute; top:0; bottom:0; left:50%; width:0;}
-    .ba-line{position:absolute; top:0; bottom:0; width:2px; background:rgba(255,255,255,.9); box-shadow:0 0 0 1px rgba(0,0,0,.08);} 
-    .ba-knob{position:absolute; left:-20px; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:9999px; background:#fff; box-shadow:0 6px 16px rgba(0,0,0,.18); display:flex; align-items:center; justify-content:center;}
-    .ba-knob:after{content:""; display:block; width:14px; height:14px; border-right:2px solid #111; border-left:2px solid #111;}
-    @media(min-width:640px){ .ba-knob{width:44px; height:44px; left:-22px} .ba-line{width:3px} }
-  </style>
-</head>
-<body class="min-h-screen bg-gradient-to-b from-rose-50 via-white to-rose-50 text-zinc-900">
-  <header class="mx-auto max-w-3xl px-5 pt-8 pb-4">
-    <div class="flex items-center justify-between">
-      <a href="/" class="inline-flex items-center gap-2 text-zinc-600 hover:text-zinc-900">
-        <i data-lucide="arrow-left" class="h-5 w-5"></i>
-        <span class="text-sm">На главную</span>
-      </a>
-      <h1 class="text-lg font-semibold">До / После</h1>
-      <div class="w-16"></div>
+<section class="mx-auto mt-8 max-w-md px-5" id="why-us">
+  <h3 class="mb-3 text-lg font-semibold">Почему выбирают нас</h3>
+  <div class="grid gap-3">
+    
+    <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+      <span class="text-rose-500 text-xl">🏆</span>
+      <p class="text-sm"><strong>5+ лет опыта</strong> и более <strong>1500 кейсов</strong> красивых бровей и ресниц.</p>
     </div>
-    <p class="mt-2 text-sm text-zinc-600">Перетяни ползунок по фото, чтобы сравнить результат.</p>
-  </header>
 
-  <main class="mx-auto max-w-3xl px-5 pb-24">
-    <!-- Comparison #1 -->
-    <section class="mb-6">
-      <div class="ba-wrap aspect-[4/5] bg-white shadow-sm ring-1 ring-zinc-200">
-        <!-- Нижний слой — ПОСЛЕ -->
-        <img class="ba-img" src="https://i.postimg.cc/NKSBzzgJ/photo-2025-08-09-17-25-54.jpg" alt="После: ламинирование бровей" loading="lazy" />
-        <!-- Верхний слой — ДО (обрезается) -->
-        <div class="ba-top">
-          <img class="ba-img" src="https://i.postimg.cc/jjg5f8rJ/photo-2025-08-09-17-23-08.jpg" alt="До: естественные брови" loading="lazy" />
-        </div>
-        <!-- Ручка -->
-        <div class="ba-handle" aria-hidden="true">
-          <span class="ba-line" style="left:-1px"></span>
-          <span class="ba-knob"></span>
-        </div>
-      </div>
-      <div class="mt-2 text-xs text-zinc-600">Ламинирование бровей: <span class="font-medium">до</span> / <span class="font-medium">после</span></div>
-    </section>
+    <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+      <span class="text-rose-500 text-xl">🧪</span>
+      <p class="text-sm"><strong>Медицинская стерильность</strong> — одноразовые расходники и дезинфекция на каждом этапе.</p>
+    </div>
 
-    <!-- Comparison #2 -->
-    <section class="mb-6">
-      <div class="ba-wrap aspect-[4/5] bg-white shadow-sm ring-1 ring-zinc-200">
-        <img class="ba-img" src="https://i.postimg.cc/8kbYmx03/photo-2025-08-09-17-37-12.jpg" alt="После: ресницы ламинирование" loading="lazy" />
-        <div class="ba-top">
-          <img class="ba-img" src="https://i.postimg.cc/rpPVsKS1/photo-2025-08-09-17-23-36.jpg" alt="До: ресницы естественные" loading="lazy" />
-        </div>
-        <div class="ba-handle" aria-hidden="true">
-          <span class="ba-line" style="left:-1px"></span>
-          <span class="ba-knob"></span>
-        </div>
-      </div>
-      <div class="mt-2 text-xs text-zinc-600">Ламинирование ресниц: <span class="font-medium">до</span> / <span class="font-medium">после</span></div>
-    </section>
+    <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+      <span class="text-rose-500 text-xl">🎯</span>
+      <p class="text-sm">Индивидуальный подбор <strong>формы и цвета</strong> под ваши черты лица и стиль.</p>
+    </div>
 
-    <!-- Comparison #3 -->
-    <section class="mb-8">
-      <div class="ba-wrap aspect-[4/5] bg-white shadow-sm ring-1 ring-zinc-200">
-        <img class="ba-img" src="https://i.postimg.cc/ppyNMJcg/photo-2025-08-09-17-29-52.jpg" alt="После: коррекция формы" loading="lazy" />
-        <div class="ba-top">
-          <img class="ba-img" src="https://i.postimg.cc/xq6rZ45v/photo-2025-08-09-17-36-09.jpg" alt="До: форма бровей до коррекции" loading="lazy" />
-        </div>
-        <div class="ba-handle" aria-hidden="true">
-          <span class="ba-line" style="left:-1px"></span>
-          <span class="ba-knob"></span>
-        </div>
-      </div>
-      <div class="mt-2 text-xs text-zinc-600">Оформление бровей: <span class="font-medium">до</span> / <span class="font-medium">после</span></div>
-    </section>
+    <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+      <span class="text-rose-500 text-xl">🔒</span>
+      <p class="text-sm"><strong>Гарантия корректировки</strong> в течение 7 дней — без доплат.</p>
+    </div>
 
-    <!-- CTA -->
-    <section class="mt-8">
-      <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-        <p class="text-sm text-zinc-700">Понравился результат? Запишитесь на удобное время — WhatsApp/Telegram.</p>
-        <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white">
-            <i data-lucide="message-circle" class="h-5 w-5"></i> WhatsApp
-          </a>
-          <a href="https://t.me/KateOstin666" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white">
-            <i data-lucide="send" class="h-5 w-5"></i> Telegram
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="mx-auto max-w-3xl px-5 py-8 text-center text-xs text-zinc-500">
-    © <span id="year"></span> Brow & Lash Studio • До/После
-  </footer>
-
-  <script>
-    // init icons & year
-    window.addEventListener('DOMContentLoaded', () => {
-      if (window.lucide && lucide.createIcons) lucide.createIcons();
-      const y=document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
-    });
-
-    // Before/After slider logic (vanilla, works with any count)
-    function initBA(root){
-      const top = root.querySelector('.ba-top');
-      const handle = root.querySelector('.ba-handle');
-      const wrapRect = () => root.getBoundingClientRect();
-      function setX(clientX){
-        const r = wrapRect();
-        let x = Math.min(Math.max(clientX - r.left, 0), r.width); // clamp 0..width
-        const perc = (x / r.width) * 100;
-        top.style.width = perc + '%';
-        handle.style.left = perc + '%';
-      }
-      // start in middle
-      setX(wrapRect().left + wrapRect().width / 2);
-      let dragging = false;
-      const start = (e)=>{ dragging = true; setX((e.touches?e.touches[0].clientX:e.clientX)); e.preventDefault(); };
-      const move  = (e)=>{ if(!dragging) return; setX((e.touches?e.touches[0].clientX:e.clientX)); };
-      const end   = ()=> dragging = false;
-      root.addEventListener('mousedown', start);
-      window.addEventListener('mousemove', move);
-      window.addEventListener('mouseup', end);
-      root.addEventListener('touchstart', start, {passive:false});
-      window.addEventListener('touchmove', move, {passive:false});
-      window.addEventListener('touchend', end);
-      window.addEventListener('resize', ()=> setX(wrapRect().left + wrapRect().width / 2));
-    }
-    document.querySelectorAll('.ba-wrap').forEach(initBA);
-  </script>
-</body>
-</html>
+  </div>
+</section>
