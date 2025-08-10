@@ -418,11 +418,26 @@ const captions = [
 
   let current = 0, startX = 0;
 
-  function show(i){
-    img.src = sources[i];
-    card.classList.remove("lb-exiting","lb-entering");
-    void card.offsetWidth;          // перезапуск анимации
-    card.classList.add("lb-entering");
+ function show(i){
+  img.src = sources[i];
+
+  // Подпись «До/После»
+  if (lbCaption) {
+    const c = captions[(i % captions.length + captions.length) % captions.length] || {};
+    lbCaption.innerHTML = `
+      <div class="mb-1 text-[13px] font-semibold text-rose-600">${c.title || "Работа студии"}</div>
+      ${c.before ? `<div class="mb-0.5"><span class="font-semibold text-zinc-700">До:</span> ${c.before}</div>` : ""}
+      <div><span class="font-semibold text-zinc-700">${c.before ? "После" : "Результат"}:</span> ${c.after || "—"}</div>
+      <div class="mt-2 text-xs text-zinc-500">${c.extra || ""}</div>
+    `;
+  }
+
+  // перезапуск анимации появления
+  card.classList.remove("lb-exiting","lb-entering");
+  void card.offsetWidth;
+  card.classList.add("lb-entering");
+}
+
   }
   function open(i){
     current = i;
