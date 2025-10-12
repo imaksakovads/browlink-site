@@ -18,7 +18,7 @@
   <meta name="description" content="Брови и ресницы в Москве (м. Белорусская). Запись в WhatsApp и Telegram. Ламинирование, коррекция, окрашивание. Портфолио до/после, услуги и цены." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f43f5e' d='M12 2C7 2 3 6 3 11s5 11 9 11 9-6 9-11S17 2 12 2Z'/%3E%3C/svg%3E" />
+  <link rel="icon" href="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f43f5e' d='M12 2C7 2 3 6 3 11s5 11 9 11 9-6 9-11S17 2 12 2Z'/%3E%3C/svg%3E" />
 
   <script type="application/ld+json">
   {
@@ -45,6 +45,25 @@
 
   <style>
     .glass { backdrop-filter: blur(6px); }
+    
+    /* Анимации для lightbox */
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(.92) }
+      60% { opacity: 1; transform: scale(1.03) }
+      100% { opacity: 1; transform: scale(1) }
+    }
+    @keyframes popOut {
+      0% { opacity: 1; transform: scale(1) }
+      100% { opacity: 0; transform: scale(.98) }
+    }
+    .lb-entering{ animation: popIn .45s cubic-bezier(.22,1,.36,1) both; }
+    .lb-exiting { animation: popOut .22s ease both; }
+    
+    /* Дополнительные анимации для отзывов */
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    @keyframes fadeOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.95); } }
+    #reviews-lightbox .lb-entering { animation: fadeIn 0.3s ease-out; }
+    #reviews-lightbox .lb-exiting { animation: fadeOut 0.3s ease-in; }
   </style>
 </head>
 <body class="min-h-screen w-full bg-gradient-to-b from-rose-50 via-white to-rose-50 text-zinc-900">
@@ -102,7 +121,6 @@
     </div>
   </header>
 
- 
   <section class="mx-auto max-w-md px-5">
     <div class="rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 p-1">
       <div class="rounded-[14px] bg-white/90 p-4">
@@ -116,8 +134,7 @@
     </div>
   </section>
 
-  
-       <section class="mx-auto mt-4 w-full max-w-md px-5" aria-label="Быстрое меню">
+  <section class="mx-auto mt-4 w-full max-w-md px-5" aria-label="Быстрое меню">
     <div class="grid grid-cols-1 gap-3">
       <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MTI1MjM1MjQ3MzExMzM0?story_media_id=3229489515641059509&igsh=MWNkbjlucWJ1bWt0aQ==" target="_blank" rel="noreferrer" class="group flex items-center justify-between rounded-2xl border border-zinc-200 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
         <div class="flex items-center gap-3">
@@ -143,7 +160,6 @@
         </div>
         <i data-lucide="arrow-right" class="h-4 w-4 opacity-50 transition group-hover:translate-x-0.5"></i>
       </a>
-
       <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDI1NDgxNzA3NzMyNTg0?story_media_id=3382220960972277225&igsh=aWIzNGhyZ2lucmdi" target="_blank" rel="noreferrer" class="group flex items-center justify-between rounded-2xl border border-zinc-200 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
         <div class="flex items-center gap-3">
           <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-100">
@@ -159,8 +175,6 @@
     </div>
   </section>
 
-
-
   <section class="mx-auto mt-6 max-w-md px-5">
     <h3 class="mb-3 text-lg font-semibold">Услуги и цены</h3>
     <div class="grid gap-3">
@@ -170,7 +184,7 @@
           <p class="mt-0.5 text-xs text-zinc-500">Окрашивание + коррекция • 35 мин</p>
         </div>
         <div class="text-right">
-          <p class="text-[15px] font-semibold">1 800 ₽</p>
+          <p class="text-[15px] font-semibold">1 800 ₽</p>
           <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="mt-1 inline-block text-xs font-semibold text-rose-600 hover:underline">Записаться</a>
         </div>
       </div>
@@ -180,7 +194,7 @@
           <p class="mt-0.5 text-xs text-zinc-500">Долговременная укладка + уход без окрашивания • 45 мин</p>
         </div>
         <div class="text-right">
-          <p class="text-[15px] font-semibold">2 200 ₽</p>
+          <p class="text-[15px] font-semibold">2 200 ₽</p>
           <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="mt-1 inline-block text-xs font-semibold text-rose-600 hover:underline">Записаться</a>
         </div>
       </div>
@@ -190,7 +204,7 @@
           <p class="mt-0.5 text-xs text-zinc-500">Окрашивание + уход • 35 мин</p>
         </div>
         <div class="text-right">
-          <p class="text-[15px] font-semibold">2 700 ₽</p>
+          <p class="text-[15px] font-semibold">2 700 ₽</p>
           <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="mt-1 inline-block text-xs font-semibold text-rose-600 hover:underline">Записаться</a>
         </div>
       </div>
@@ -200,392 +214,113 @@
           <p class="mt-0.5 text-xs text-zinc-500">пинцет/воск • 20 мин</p>
         </div>
         <div class="text-right">
-          <p class="text-[15px] font-semibold">1 500 ₽</p>
+          <p class="text-[15px] font-semibold">1 500 ₽</p>
           <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="mt-1 inline-block text-xs font-semibold text-rose-600 hover:underline">Записаться</a>
         </div>
       </div>
     </div>
   </section>
     
-<section class="mx-auto mt-8 max-w-md px-5" id="faq">
-  <h3 class="mb-3 text-lg font-semibold">Частые вопросы</h3>
-  <div class="space-y-3">
-
-    <details class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <summary class="cursor-pointer text-[15px] font-medium">💎 Сколько держится?</summary>
-      <p class="mt-2 text-sm text-zinc-600">Эффект ламинирования ресниц и бровей сохраняется в среднем <strong>6–8 недель</strong>, в зависимости от ухода, структуры волос и образа жизни.</p>
-    </details>
-
-    <details class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <summary class="cursor-pointer text-[15px] font-medium">⚠️ Противопоказания?</summary>
-      <p class="mt-2 text-sm text-zinc-600">Беременность (1 триместр), аллергия на компоненты, воспалительные процессы глаз и кожи, свежие травмы в зоне бровей/ресниц.</p>
-    </details>
-
-    <details class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <summary class="cursor-pointer text-[15px] font-medium">🕒 Уход первые 24 часа?</summary>
-      <p class="mt-2 text-sm text-zinc-600">Не мочить, не трогать, не наносить макияж. Через сутки можно вести привычный образ жизни.</p>
-    </details>
-
-    <details class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <summary class="cursor-pointer text-[15px] font-medium">🤝 Совместимость с ботоксом или татуажем?</summary>
-      <p class="mt-2 text-sm text-zinc-600">Совместимо! Если ботокс — делать после процедуры. После татуажа бровей — минимум через 4 недели, когда кожа полностью восстановится.</p>
-    </details>
-
-  </div>
-</section>
-
-    <section class="mx-auto mt-6 max-w-md px-5" id="portfolio">
-        <h3 class="mb-3 text-lg font-semibold">Портфолио «до/после»</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="gallery-grid">
-        <button class="group relative" data-index="0" aria-label="Открыть фото 1">
-            <img src="https://i.postimg.cc/QtDtLm6Y/photo-2025-08-09-17-37-33.jpg" alt="Ламинирование ресниц" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
-        </button>
-        <button class="group relative" data-index="1" aria-label="Открыть фото 2">
-            <img src="https://i.postimg.cc/6pDqctCX/photo-2025-08-09-17-25-54-2.jpg" alt="Ламинирование ресниц — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
-        </button>
-        <button class="group relative" data-index="2" aria-label="Открыть фото 3">
-            <img src="https://i.postimg.cc/7Y9QSL85/photo-2024-10-04-14-40-45-1.jpg" alt="Оформление бровей — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
-        </button>
-        <button class="group relative" data-index="3" aria-label="Открыть фото 4">
-            <img src="https://i.postimg.cc/7ZCbSfG9/photo-2025-08-09-22-22-30.jpg" alt="Ламинирование ресниц — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
-        </button>
-        <button class="group relative" data-index="4" aria-label="Открыть фото 5">
-            <img src="https://i.postimg.cc/JhYLxQfB/photo-2024-11-20-17-18-02.jpg" alt="Ламинирование ресниц — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
-            </button>
-        <button class="group relative" data-index="5" aria-label="Открыть фото 6">
-        <img src="https://i.postimg.cc/8kbYmx03/photo-2025-08-09-17-37-12.jpg" alt="Ламинирование ресниц — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
-            </button>
-        </div>
-    </section>
-
-<style>
-  @keyframes popIn {
-    0% { opacity: 0; transform: scale(.92) }
-    60% { opacity: 1; transform: scale(1.03) }
-    100% { opacity: 1; transform: scale(1) }
-  }
-  @keyframes popOut {
-    0% { opacity: 1; transform: scale(1) }
-    100% { opacity: 0; transform: scale(.98) }
-  }
-  .lb-entering{ animation: popIn .45s cubic-bezier(.22,1,.36,1) both; }
-  .lb-exiting { animation: popOut .22s ease both; }
-</style>
-
-<div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/80 p-4">
-  <div class="relative w-full max-w-4xl">
-    <button id="lb-close" class="absolute -top-10 right-0 rounded-full bg-white/15 p-2 text-white hover:bg-white/25" aria-label="Закрыть">
-      <i data-lucide="x" class="h-6 w-6"></i>
-    </button>
-    <button id="lb-prev" class="absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-white/15 p-2 text-white hover:bg-white/25 hidden sm:inline-flex" aria-label="Предыдущее">
-      <i data-lucide="chevron-left" class="h-7 w-7"></i>
-    </button>
-    <button id="lb-next" class="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-white/15 p-2 text-white hover:bg-white/25 hidden sm:inline-flex" aria-label="Следующее">
-      <i data-lucide="chevron-right" class="h-7 w-7"></i>
-    </button>
-    <div id="lb-card" class="overflow-hidden rounded-2xl bg-white shadow-2xl">
-      <div class="bg-black/5 flex items-center justify-center">
-        <img id="lb-image" src="" alt="" class="max-h-[80vh] w-full select-none object-contain" />
-      </div>
-      <div id="lb-caption-container" class="mt-3 rounded-xl bg-white/85 p-4 text-sm leading-relaxed text-zinc-800 shadow-lg backdrop-blur">
-        </div>
+  <section class="mx-auto mt-8 max-w-md px-5" id="faq">
+    <h3 class="mb-3 text-lg font-semibold">Частые вопросы</h3>
+    <div class="space-y-3">
+      <details class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <summary class="cursor-pointer text-[15px] font-medium">💎 Сколько держится?</summary>
+        <p class="mt-2 text-sm text-zinc-600">Эффект ламинирования ресниц и бровей сохраняется в среднем <strong>6–8 недель</strong>, в зависимости от ухода, структуры волос и образа жизни.</p>
+      </details>
+      <details class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <summary class="cursor-pointer text-[15px] font-medium">⚠️ Противопоказания?</summary>
+        <p class="mt-2 text-sm text-zinc-600">Беременность (1 триместр), аллергия на компоненты, воспалительные процессы глаз и кожи, свежие травмы в зоне бровей/ресниц.</p>
+      </details>
+      <details class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <summary class="cursor-pointer text-[15px] font-medium">🕒 Уход первые 24 часа?</summary>
+        <p class="mt-2 text-sm text-zinc-600">Не мочить, не трогать, не наносить макияж. Через сутки можно вести привычный образ жизни.</p>
+      </details>
+      <details class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <summary class="cursor-pointer text-[15px] font-medium">🤝 Совместимость с ботоксом или татуажем?</summary>
+        <p class="mt-2 text-sm text-zinc-600">Совместимо! Если ботокс — делать после процедуры. После татуажа бровей — минимум через 4 недели, когда кожа полностью восстановится.</p>
+      </details>
     </div>
-  </div>
-</div>
+  </section>
 
-<script>
-(() => {
-  const thumbs = Array.from(document.querySelectorAll("#gallery-grid img"));
-  const sources = thumbs.map(el => el.src);
+  <section class="mx-auto mt-6 max-w-md px-5" id="portfolio">
+    <h3 class="mb-3 text-lg font-semibold">Портфолио «до/после»</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="gallery-grid">
+      <button class="group relative" data-index="0" aria-label="Открыть фото 1">
+        <img src="https://i.postimg.cc/QtDtLm6Y/photo-2025-08-09-17-37-33.jpg" alt="Ламинирование ресниц" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
+      </button>
+      <button class="group relative" data-index="1" aria-label="Открыть фото 2">
+        <img src="https://i.postimg.cc/6pDqctCX/photo-2025-08-09-17-25-54-2.jpg" alt="Ламинирование ресниц — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
+      </button>
+      <button class="group relative" data-index="2" aria-label="Открыть фото 3">
+        <img src="https://i.postimg.cc/7Y9QSL85/photo-2024-10-04-14-40-45-1.jpg" alt="Оформление бровей — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
+      </button>
+      <button class="group relative" data-index="3" aria-label="Открыть фото 4">
+        <img src="https://i.postimg.cc/7ZCbSfG9/photo-2025-08-09-22-22-30.jpg" alt="Ламинирование ресниц — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
+      </button>
+      <button class="group relative" data-index="4" aria-label="Открыть фото 5">
+        <img src="https://i.postimg.cc/JhYLxQfB/photo-2024-11-20-17-18-02.jpg" alt="Ламинирование ресниц — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
+      </button>
+      <button class="group relative" data-index="5" aria-label="Открыть фото 6">
+        <img src="https://i.postimg.cc/8kbYmx03/photo-2025-08-09-17-37-12.jpg" alt="Ламинирование ресниц — до/после" class="aspect-[1/1] w-full rounded-2xl object-cover transition group-hover:brightness-95" loading="lazy" />
+      </button>
+    </div>
+  </section>
 
-  const $ = s => document.querySelector(s);
-  const lightbox = $("#lightbox");
-  const card = $("#lb-card");
-  const img = $("#lb-image");
-  const btnClose = $("#lb-close");
-  const btnPrev = $("#lb-prev");
-  const btnNext = $("#lb-next");
-  const lbCaptionContainer = $("#lb-caption-container");
-
-  /* Описания по порядку картинок в #gallery-grid (1→6) */
-  const captions = [
-    {
-      title: "Ламинирование ресниц",
-      before: "Ресницы с лёгким естественным изгибом, средний объём",
-      after:  "Визуально длиннее, выразительный завиток, глубокий чёрный оттенок",
-      extra:  "⏱ 45 минут • ✨ Эффект 6–8 недель"
-    },
-    {
-      title: "Ламинирование ресниц",
-      before: "Светлые, тонкие, растут прямо",
-      after:  "Яркий завиток насыщённого чёрного цвета; взгляд открыт и выразителен, тушь не требуется",
-      extra:  "⏱ 45 минут • ✨ Эффект 6–8 недель"
-    },
-    {
-      title: "Оформление бровей + окрашивание",
-      before: "",
-      after:  "Брови: выполнено окрашивание волосков в светло-коричневый тон, без прокраса кожи и четкой графики + коррекция воском/пинцетом",
-      extra:  "⏱ 35–45 минут • ✨ Оттенок 3–4 недели<br>🪑 Оформление на барном стуле со спинкой; при комбо «ресницы+брови» — лежа на удобной кушетке"
-    },
-    {
-      title: "Ламинирование ресниц",
-      before: "Без завитка, средняя яркость",
-      after:  "Добавили визуальный объём и густоту, создали яркий завиток насыщённого чёрного цвета",
-      extra:  "⏱ 45 минут • ✨ Эффект 6–8 недель"
-    },
-    {
-      title: "Ламинирование ресниц",
-      before: "Светлые, без изгиба",
-      after:  "Выразительный завиток + насыщённый чёрный цвет, аккуратный «раскрытый» взгляд",
-      extra:  "⏱ 45 минут • ✨ Эффект 6–8 недель"
-    },
-    {
-      title: "Ламинирование ресниц",
-      before: "Растут вниз, без выраженного завитка",
-      after:  "Подкрученные и визуально более густые ресницы; глубина цвета за счёт окрашивания",
-      extra:  "⏱ 45 минут • ✨ Эффект 6–8 недель"
-    }
-  ];
-
+  <!-- БЛОК ОТЗЫВОВ С ФОТОГАЛЕРЕЕЙ (новый) -->
   <section class="mx-auto mt-6 max-w-md px-5">
     <h3 class="mb-3 text-lg font-semibold">Отзывы клиентов</h3>
-    <div class="grid gap-3 grid-cols-1" id="gallery-grid">
-        
-        <!-- Фото отзыв 1 -->
-        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(0)">
-            <img src="https://ibb.co/Q7nw7pKv" alt="Отзыв клиента 1" class="w-full h-auto rounded-xl object-cover max-h-64">
-        </div>
-        
-        <!-- Фото отзыв 2 -->
-        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(1)">
-            <img src="https://ibb.co/svXT3bpx" alt="Отзыв клиента 2" class="w-full h-auto rounded-xl object-cover max-h-64">
-        </div>      
-        
-        <!-- Фото отзыв 3 -->
-        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(2)">
-            <img src="https://ibb.co/j9Z0fBJK" alt="Отзыв клиента 3" class="w-full h-auto rounded-xl object-cover max-h-64">
-        </div>
-        
-        <!-- Фото отзыв 4 -->
-        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(3)">
-            <img src="https://ibb.co/HDsgjkpF" alt="Отзыв клиента 4" class="w-full h-auto rounded-xl object-cover max-h-64">
-        </div>
-        
-        <!-- Фото отзыв 5 -->
-        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(4)">
-            <img src="https://ibb.co/7Lwjmv6" alt="Отзыв клиента 5" class="w-full h-auto rounded-xl object-cover max-h-64">
-        </div>
-        
-        <!-- Фото отзыв 6 -->
-        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(5)">
-            <img src="https://ibb.co/27cKQtSf" alt="Отзыв клиента 6" class="w-full h-auto rounded-xl object-cover max-h-64">
-        </div>  
-        
+    <div class="grid gap-3 grid-cols-1" id="reviews-gallery">
+      <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="0">
+        <img src="https://i.ibb.co/Q7nw7pK/review1.jpg" alt="Отзыв клиента 1" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+      </div>
+      <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="1">
+        <img src="https://i.ibb.co/svXT3bp/review2.jpg" alt="Отзыв клиента 2" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+      </div>
+      <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="2">
+        <img src="https://i.ibb.co/j9Z0fBJ/review3.jpg" alt="Отзыв клиента 3" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+      </div>
+      <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="3">
+        <img src="https://i.ibb.co/HDsgjkp/review4.jpg" alt="Отзыв клиента 4" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+      </div>
+      <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="4">
+        <img src="https://i.ibb.co/7Lwjmv6/review5.jpg" alt="Отзыв клиента 5" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+      </div>
+      <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="5">
+        <img src="https://i.ibb.co/27cKQtS/review6.jpg" alt="Отзыв клиента 6" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+      </div>
     </div>
+  </section>
 
-    <!-- Модальное окно (lightbox) -->
-    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-        <div id="lb-card" class="relative max-w-4xl max-h-full bg-white rounded-lg shadow-2xl overflow-hidden">
-            <!-- Кнопка закрытия -->
-            <button id="btnClose" class="absolute top-4 right-4 text-white hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full p-2">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-            
-            <!-- Навигация влево -->
-            <button id="lb-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full p-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            
-            <!-- Навигация вправо -->
-            <button id="lb-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full p-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
-            
-            <!-- Изображение -->
-            <img id="img" src="" alt="Отзыв клиента" class="w-full h-full object-contain cursor-pointer">
-            
-            <!-- Подпись (caption) -->
-            <div id="lb-caption" class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 text-sm">
-                <div id="lbCaptionContainer">Загрузка...</div>
-            </div>
-            
-            <!-- Счетчик -->
-            <div class="absolute bottom-4 left-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-sm">
-                <span id="imageCounter">1 / 6</span>
-            </div>
-        </div>
+  <section class="mx-auto mt-8 max-w-md px-5" id="why-us">
+    <h3 class="mb-3 text-lg font-semibold">О Моем деле 🔥</h3>
+    <div class="grid gap-3">
+      <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <span class="text-rose-500 text-xl">🏆</span>
+        <p class="text-sm"><strong>5 лет делаю красоту</strong> и за это время <strong>1500+ бровей и ресниц</strong> уже живут свою лучшую жизнь.</p>
+      </div>
+      <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <span class="text-rose-500 text-xl">🧪</span>
+        <p class="text-sm">Поддерживаю чистоту на всех этапах. Всё одноразовое, всё стерильно. Я за этим слежу.</p>
+      </div>
+      <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <span class="text-rose-500 text-xl">🎯</span>
+        <p class="text-sm">Форма и цвет — под вас. Не под «моду сезона», а под ваше лицо и настроение.</p>
+      </div>
+      <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <span class="text-rose-500 text-xl">🔒</span>
+        <p class="text-sm">Если вдруг что-то не так — <strong>7 дней на корректировку</strong>. Бесплатно. Без вопросов.</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- CSS для анимаций (добавьте в <head> или стили сайта) -->
-<style>
-    #lb-card.lb-entering { animation: fadeIn 0.3s ease-out; }
-    #lb-card.lb-exiting { animation: fadeOut 0.3s ease-in; }
-    @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-    @keyframes fadeOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.95); } }
-    #lightbox.hidden { display: none; }
-</style>
-
-<script>
-// Полный исправленный JS (замените старый фрагмент)
-let current = 0, startX = 0;
-
-// Массивы данных (источники и подписи "До/После")
-const sources = [
-    'https://ibb.co/Q7nw7pKv',
-    'https://ibb.co/svXT3bpx',
-    'https://ibb.co/j9Z0fBJK',
-    'https://ibb.co/HDsgjkpF',
-    'https://ibb.co/7Lwjmv6',
-    'https://ibb.co/27cKQtSf'
-];
-
-const captions = [
-    { title: "Работа студии", before: "До процедуры", after: "После ламинирования" },
-    { title: "Отзыв Анны", before: "Естественный вид", after: "Идеальный изгиб" },
-    { title: "Результат Марии", before: "", after: "Без туши, вау-эффект" },
-    { title: "Кейс клиента 4", before: "Прямые ресницы", after: "Объем и подъем" },
-    { title: "Трансформация 5", before: "До коррекции", after: "Перфектные брови" },
-    { title: "Финальный результат", before: "", after: "Держится 6 недель" }
-    // Добавляйте новые объекты для каждого фото
-];
-
-const lightbox = document.getElementById('lightbox');
-const lbCard = document.getElementById('lb-card');
-const img = document.getElementById('img');
-const lbCaptionContainer = document.getElementById('lbCaptionContainer');
-const imageCounter = document.getElementById('imageCounter');
-const btnClose = document.getElementById('btnClose');
-const btnPrev = document.getElementById('lb-prev');
-const btnNext = document.getElementById('lb-next');
-
-// Функция показа изображения
-function show(i) {
-    const index = (i % sources.length + sources.length) % sources.length;
-    current = index;
-    img.src = sources[index];
-
-    // Подпись «До/После»
-    const c = captions[index] || {};
-    lbCaptionContainer.innerHTML = `
-        <div class="mb-1 text-[13px] font-semibold text-rose-600">${c.title || "Работа студии"}</div>
-        ${c.before ? `<div class="mb-0.5"><span class="font-semibold text-zinc-700">До:</span> ${c.before}</div>` : ""}
-        <div><span class="font-semibold text-zinc-700">${c.before ? "После" : "Результат"}:</span> ${c.after || "—"}</div>
-        <div class="mt-2 text-xs text-zinc-500">${c.extra || ""}</div>
-    `;
-
-    // Обновление счетчика
-    imageCounter.textContent = `${current + 1} / ${sources.length}`;
-
-    // Перезапуск анимации
-    lbCard.classList.remove("lb-exiting", "lb-entering");
-    void lbCard.offsetWidth;
-    lbCard.classList.add("lb-entering");
-}
-
-// Открытие модального окна
-function openModal(i) {
-    document.documentElement.style.overflow = "hidden";
-    lightbox.classList.remove("hidden");
-    lightbox.classList.add("flex");
-    show(i);
-}
-
-// Закрытие
-function closeModal() {
-    lbCard.classList.remove("lb-entering");
-    lbCard.classList.add("lb-exiting");
-    lbCard.addEventListener("animationend", () => {
-        lightbox.classList.add("hidden");
-        lightbox.classList.remove("flex");
-        lbCard.classList.remove("lb-exiting");
-        document.documentElement.style.overflow = "";
-    }, { once: true });
-}
-
-// Навигация
-function next() { show(current + 1); }
-function prev() { show(current - 1); }
-
-// Открытие по клику на элементы сетки
-document.querySelectorAll("#gallery-grid > div").forEach((btn, i) => {
-    btn.addEventListener("click", () => openModal(i));
-});
-
-// Закрытие по клику в фон
-lightbox.addEventListener("click", (e) => {
-    if (!e.target.closest("#lb-card") && !e.target.closest("#lb-prev") && !e.target.closest("#lb-next")) {
-        closeModal();
-    }
-});
-
-// Кнопки
-btnClose.addEventListener("click", closeModal);
-btnPrev.addEventListener("click", prev);
-btnNext.addEventListener("click", next);
-
-// Клавиатура
-window.addEventListener("keydown", (e) => {
-    if (lightbox.classList.contains("hidden")) return;
-    if (e.key === "Escape") closeModal();
-    if (e.key === "ArrowRight") next();
-    if (e.key === "ArrowLeft") prev();
-});
-
-// Свайпы на мобильных
-img.addEventListener("touchstart", (e) => {
-    startX = e.changedTouches[0].clientX;
-}, { passive: true });
-img.addEventListener("touchend", (e) => {
-    const dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
-}, { passive: true });
-
-// Навигация по клику на картинку
-img.addEventListener("click", (e) => {
-    const r = img.getBoundingClientRect();
-    (e.clientX > r.left + r.width / 2 ? next : prev)();
-});
-</script>
-<section class="mx-auto mt-8 max-w-md px-5" id="why-us">
-  <h3 class="mb-3 text-lg font-semibold">О Моем деле 🔥</h3>
-  <div class="grid gap-3">
-    
-    <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <span class="text-rose-500 text-xl">🏆</span>
-      <p class="text-sm"><strong>5 лет делаю красоту</strong> и за это время <strong>1500+ бровей и ресниц</strong> уже живут свою лучшую жизнь.</p>
-    </div>
-
-    <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <span class="text-rose-500 text-xl">🧪</span>
-      <p class="text-sm">Поддерживаю чистоту на всех этапах. Всё одноразовое, всё стерильно. Я за этим слежу.</p>
-    </div>
-
-    <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <span class="text-rose-500 text-xl">🎯</span>
-      <p class="text-sm">Форма и цвет — под вас. Не под «моду сезона», а под ваше лицо и настроение.</p>
-    </div>
-
-    <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <span class="text-rose-500 text-xl">🔒</span>
-      <p class="text-sm">Если вдруг что-то не так — <strong>7 дней на корректировку</strong>. Бесплатно. Без вопросов.</p>
-    </div>
-
-  </div>
-</section>
-<section class="mx-auto mt-8 max-w-md px-5 text-center bg-rose-50 rounded-2xl p-5">
-  <h3 class="text-lg font-semibold text-rose-700">Попробуй без риска</h3>
-  <p class="mt-1 text-sm text-zinc-700">Бесплатная консультация <strong>10 минут</strong> — подберём форму, цвет и ответим на все вопросы.</p>
-  <a href="https://wa.me/79637329466" class="mt-3 inline-flex items-center gap-2 rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-rose-700">
-    Записаться в WhatsApp
-  </a>
-</section>
+  <section class="mx-auto mt-8 max-w-md px-5 text-center bg-rose-50 rounded-2xl p-5">
+    <h3 class="text-lg font-semibold text-rose-700">Попробуй без риска</h3>
+    <p class="mt-1 text-sm text-zinc-700">Бесплатная консультация <strong>10 минут</strong> — подберём форму, цвет и ответим на все вопросы.</p>
+    <a href="https://wa.me/79637329466" class="mt-3 inline-flex items-center gap-2 rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-rose-700">
+      Записаться в WhatsApp
+    </a>
+  </section>
 
   <section class="mx-auto mt-6 max-w-md px-5">
     <h3 class="mb-3 text-lg font-semibold">Где и когда</h3>
@@ -628,7 +363,278 @@ img.addEventListener("click", (e) => {
     <p class="mt-1">© <span id="year"></span> Катя — Brow & Lash Studio • Политика и обработка персональных данных</p>
   </footer>
 
+  <!-- Lightbox для портфолио (ваш оригинальный) -->
+  <div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/80 p-4">
+    <div class="relative w-full max-w-4xl">
+      <button id="lb-close" class="absolute -top-10 right-0 rounded-full bg-white/15 p-2 text-white hover:bg-white/25" aria-label="Закрыть">
+        <i data-lucide="x" class="h-6 w-6"></i>
+      </button>
+      <button id="lb-prev" class="absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-white/15 p-2 text-white hover:bg-white/25 hidden sm:inline-flex" aria-label="Предыдущее">
+        <i data-lucide="chevron-left" class="h-7 w-7"></i>
+      </button>
+      <button id="lb-next" class="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-white/15 p-2 text-white hover:bg-white/25 hidden sm:inline-flex" aria-label="Следующее">
+        <i data-lucide="chevron-right" class="h-7 w-7"></i>
+      </button>
+      <div id="lb-card" class="overflow-hidden rounded-2xl bg-white shadow-2xl">
+        <div class="bg-black/5 flex items-center justify-center">
+          <img id="lb-image" src="" alt="" class="max-h-[80vh] w-full select-none object-contain" />
+        </div>
+        <div id="lb-caption-container" class="mt-3 rounded-xl bg-white/85 p-4 text-sm leading-relaxed text-zinc-800 shadow-lg backdrop-blur">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox для отзывов (новый) -->
+  <div id="reviews-lightbox" class="fixed inset-0 z-[65] hidden items-center justify-center bg-black/80 p-4">
+    <div class="relative w-full max-w-4xl">
+      <button id="reviews-close" class="absolute -top-10 right-0 rounded-full bg-white/15 p-2 text-white hover:bg-white/25" aria-label="Закрыть отзывы">
+        <i data-lucide="x" class="h-6 w-6"></i>
+      </button>
+      <button id="reviews-prev" class="absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-white/15 p-2 text-white hover:bg-white/25 hidden sm:inline-flex" aria-label="Предыдущий отзыв">
+        <i data-lucide="chevron-left" class="h-7 w-7"></i>
+      </button>
+      <button id="reviews-next" class="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-white/15 p-2 text-white hover:bg-white/25 hidden sm:inline-flex" aria-label="Следующий отзыв">
+        <i data-lucide="chevron-right" class="h-7 w-7"></i>
+      </button>
+      <div id="reviews-card" class="overflow-hidden rounded-2xl bg-white shadow-2xl">
+        <div class="bg-black/5 flex items-center justify-center">
+          <img id="reviews-image" src="" alt="Отзыв клиента" class="max-h-[80vh] w-full select-none object-contain" />
+        </div>
+        <div id="reviews-caption" class="mt-3 rounded-xl bg-white/85 p-4 text-sm leading-relaxed text-zinc-800 shadow-lg backdrop-blur">
+          <div class="mb-1 text-[13px] font-semibold text-rose-600">Отзыв клиента</div>
+          <div class="text-xs text-zinc-500">Результат ламинирования ресниц</div>
+          <div class="mt-2 text-center">
+            <span id="reviews-counter" class="bg-black/10 px-2 py-1 rounded text-xs">1 / 6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // ПОРТФОЛИО LIGHTBOX (ваш оригинальный код)
+    (() => {
+      const thumbs = Array.from(document.querySelectorAll("#gallery-grid img"));
+      const sources = thumbs.map(el => el.src);
+
+      const $ = s => document.querySelector(s);
+      const lightbox = $("#lightbox");
+      const card = $("#lb-card");
+      const img = $("#lb-image");
+      const btnClose = $("#lb-close");
+      const btnPrev = $("#lb-prev");
+      const btnNext = $("#lb-next");
+      const lbCaptionContainer = $("#lb-caption-container");
+
+      const captions = [
+        {
+          title: "Ламинирование ресниц",
+          before: "Ресницы с лёгким естественным изгибом, средний объём",
+          after: "Визуально длиннее, выразительный завиток, глубокий чёрный оттенок",
+          extra: "⏱ 45 минут • ✨ Эффект 6–8 недель"
+        },
+        {
+          title: "Ламинирование ресниц",
+          before: "Светлые, тонкие, растут прямо",
+          after: "Яркий завиток насыщённого чёрного цвета; взгляд открыт и выразителен, тушь не требуется",
+          extra: "⏱ 45 минут • ✨ Эффект 6–8 недель"
+        },
+        {
+          title: "Оформление бровей + окрашивание",
+          before: "",
+          after: "Брови: выполнено окрашивание волосков в светло-коричневый тон, без прокраса кожи и четкой графики + коррекция воском/пинцетом",
+          extra: "⏱ 35–45 минут • ✨ Оттенок 3–4 недели<br>🪑 Оформление на барном стуле со спинкой; при комбо «ресницы+брови» — лежа на удобной кушетке"
+        },
+        {
+          title: "Ламинирование ресниц",
+          before: "Без завитка, средняя яркость",
+          after: "Добавили визуальный объём и густоту, создали яркий завиток насыщённого чёрного цвета",
+          extra: "⏱ 45 минут • ✨ Эффект 6–8 недель"
+        },
+        {
+          title: "Ламинирование ресниц",
+          before: "Светлые, без изгиба",
+          after: "Выразительный завиток + насыщённый чёрный цвет, аккуратный «раскрытый» взгляд",
+          extra: "⏱ 45 минут • ✨ Эффект 6–8 недель"
+        },
+        {
+          title: "Ламинирование ресниц",
+          before: "Растут вниз, без выраженного завитка",
+          after: "Подкрученные и визуально более густые ресницы; глубина цвета за счёт окрашивания",
+          extra: "⏱ 45 минут • ✨ Эффект 6–8 недель"
+        }
+      ];
+
+      let current = 0, startX = 0;
+
+      function show(i) {
+        const index = (i % sources.length + sources.length) % sources.length;
+        current = index;
+        img.src = sources[index];
+
+        const c = captions[index] || {};
+        lbCaptionContainer.innerHTML = `
+          <div class="mb-1 text-[13px] font-semibold text-rose-600">${c.title || "Работа студии"}</div>
+          ${c.before ? `<div class="mb-0.5"><span class="font-semibold text-zinc-700">До:</span> ${c.before}</div>` : ""}
+          <div><span class="font-semibold text-zinc-700">${c.before ? "После" : "Результат"}:</span> ${c.after || "—"}</div>
+          <div class="mt-2 text-xs text-zinc-500">${c.extra || ""}</div>
+        `;
+
+        card.classList.remove("lb-exiting","lb-entering");
+        void card.offsetWidth;
+        card.classList.add("lb-entering");
+      }
+
+      function open(i) {
+        document.documentElement.style.overflow = "hidden";
+        lightbox.classList.remove("hidden");
+        lightbox.classList.add("flex");
+        show(i);
+      }
+
+      function close() {
+        card.classList.remove("lb-entering");
+        card.classList.add("lb-exiting");
+        card.addEventListener("animationend", () => {
+          lightbox.classList.add("hidden");
+          lightbox.classList.remove("flex");
+          card.classList.remove("lb-exiting");
+          document.documentElement.style.overflow = "";
+        }, { once:true });
+      }
+
+      function next() { show(current + 1); }
+      function prev() { show(current - 1); }
+
+      document.querySelectorAll("#gallery-grid button").forEach((btn, i) => {
+        btn.addEventListener("click", () => open(i));
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (!e.target.closest("#lb-card") && !e.target.closest("#lb-prev") && !e.target.closest("#lb-next")) close();
+      });
+
+      btnClose.addEventListener("click", close);
+      btnPrev.addEventListener("click", prev);
+      btnNext.addEventListener("click", next);
+
+      window.addEventListener("keydown", (e) => {
+        if (lightbox.classList.contains("hidden")) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+      });
+
+      img.addEventListener("touchstart", (e) => {
+        startX = e.changedTouches[0].clientX;
+      }, { passive:true });
+      img.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+      }, { passive:true });
+
+      img.addEventListener("click", (e) => {
+        const r = img.getBoundingClientRect();
+        (e.clientX > r.left + r.width/2 ? next : prev)();
+      });
+    })();
+
+    // ОТЗЫВЫ LIGHTBOX (новый код)
+    (() => {
+      const reviewSources = [
+        'https://i.ibb.co/Q7nw7pK/review1.jpg',
+        'https://i.ibb.co/svXT3bp/review2.jpg',
+        'https://i.ibb.co/j9Z0fBJ/review3.jpg',
+        'https://i.ibb.co/HDsgjkp/review4.jpg',
+        'https://i.ibb.co/7Lwjmv6/review5.jpg',
+        'https://i.ibb.co/27cKQtS/review6.jpg'
+      ];
+
+      const reviewsLightbox = document.getElementById('reviews-lightbox');
+      const reviewsCard = document.getElementById('reviews-card');
+      const reviewsImg = document.getElementById('reviews-image');
+      const reviewsClose = document.getElementById('reviews-close');
+      const reviewsPrev = document.getElementById('reviews-prev');
+      const reviewsNext = document.getElementById('reviews-next');
+      const reviewsCounter = document.getElementById('reviews-counter');
+
+      let reviewCurrent = 0;
+
+      function showReview(i) {
+        const index = (i % reviewSources.length + reviewSources.length) % reviewSources.length;
+        reviewCurrent = index;
+        reviewsImg.src = reviewSources[index];
+        reviewsCounter.textContent = `${index + 1} / ${reviewSources.length}`;
+
+        reviewsCard.classList.remove("lb-exiting", "lb-entering");
+        void reviewsCard.offsetWidth;
+        reviewsCard.classList.add("lb-entering");
+      }
+
+      function openReview(i) {
+        document.documentElement.style.overflow = "hidden";
+        reviewsLightbox.classList.remove("hidden");
+        reviewsLightbox.classList.add("flex");
+        showReview(i);
+      }
+
+      function closeReview() {
+        reviewsCard.classList.remove("lb-entering");
+        reviewsCard.classList.add("lb-exiting");
+        reviewsCard.addEventListener("animationend", () => {
+          reviewsLightbox.classList.add("hidden");
+          reviewsLightbox.classList.remove("flex");
+          reviewsCard.classList.remove("lb-exiting");
+          document.documentElement.style.overflow = "";
+        }, { once: true });
+      }
+
+      function nextReview() { showReview(reviewCurrent + 1); }
+      function prevReview() { showReview(reviewCurrent - 1); }
+
+      // Клики на отзывы
+      document.querySelectorAll("#reviews-gallery > div").forEach((div, i) => {
+        div.addEventListener("click", () => openReview(i));
+      });
+
+      // Кнопки
+      reviewsClose.addEventListener("click", closeReview);
+      reviewsPrev.addEventListener("click", prevReview);
+      reviewsNext.addEventListener("click", nextReview);
+
+      // Закрытие по клику на фон
+      reviewsLightbox.addEventListener("click", (e) => {
+        if (!e.target.closest("#reviews-card") && !e.target.closest("#reviews-prev") && !e.target.closest("#reviews-next")) {
+          closeReview();
+        }
+      });
+
+      // Клавиатура (только если открыт lightbox отзывов)
+      window.addEventListener("keydown", (e) => {
+        if (reviewsLightbox.classList.contains("hidden")) return;
+        if (e.key === "Escape") closeReview();
+        if (e.key === "ArrowRight") nextReview();
+        if (e.key === "ArrowLeft") prevReview();
+      });
+
+      // Свайпы на изображении отзывов
+      let reviewStartX = 0;
+      reviewsImg.addEventListener("touchstart", (e) => {
+        reviewStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      reviewsImg.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - reviewStartX;
+        if (Math.abs(dx) > 40) (dx < 0 ? nextReview : prevReview)();
+      }, { passive: true });
+
+      // Клик на изображение для навигации
+      reviewsImg.addEventListener("click", (e) => {
+        const r = reviewsImg.getBoundingClientRect();
+        (e.clientX > r.left + r.width / 2 ? nextReview : prevReview)();
+      });
+    })();
+
     // Инициализация иконок и года
     window.addEventListener('DOMContentLoaded', () => {
       if (window.lucide && lucide.createIcons) {
