@@ -170,7 +170,7 @@
           <p class="mt-0.5 text-xs text-zinc-500">Окрашивание + коррекция • 35 мин</p>
         </div>
         <div class="text-right">
-          <p class="text-[15px] font-semibold">1 700 ₽</p>
+          <p class="text-[15px] font-semibold">1 800 ₽</p>
           <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="mt-1 inline-block text-xs font-semibold text-rose-600 hover:underline">Записаться</a>
         </div>
       </div>
@@ -180,7 +180,7 @@
           <p class="mt-0.5 text-xs text-zinc-500">Долговременная укладка + уход без окрашивания • 45 мин</p>
         </div>
         <div class="text-right">
-          <p class="text-[15px] font-semibold">2 000 ₽</p>
+          <p class="text-[15px] font-semibold">2 200 ₽</p>
           <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="mt-1 inline-block text-xs font-semibold text-rose-600 hover:underline">Записаться</a>
         </div>
       </div>
@@ -190,7 +190,7 @@
           <p class="mt-0.5 text-xs text-zinc-500">Окрашивание + уход • 35 мин</p>
         </div>
         <div class="text-right">
-          <p class="text-[15px] font-semibold">2 500 ₽</p>
+          <p class="text-[15px] font-semibold">2 700 ₽</p>
           <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="mt-1 inline-block text-xs font-semibold text-rose-600 hover:underline">Записаться</a>
         </div>
       </div>
@@ -200,7 +200,7 @@
           <p class="mt-0.5 text-xs text-zinc-500">пинцет/воск • 20 мин</p>
         </div>
         <div class="text-right">
-          <p class="text-[15px] font-semibold">1 300 ₽</p>
+          <p class="text-[15px] font-semibold">1 500 ₽</p>
           <a href="https://wa.me/79637329466" target="_blank" rel="noreferrer" class="mt-1 inline-block text-xs font-semibold text-rose-600 hover:underline">Записаться</a>
         </div>
       </div>
@@ -428,38 +428,128 @@
     (e.clientX > r.left + r.width/2 ? next : prev)();
   });
 })();
-</script>
 <section class="mx-auto mt-6 max-w-md px-5">
     <h3 class="mb-3 text-lg font-semibold">Отзывы клиентов</h3>
-    <div class="grid gap-3">
-      <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-        <div class="mb-1 flex items-center gap-2">
-          <span class="text-sm font-semibold">Анна</span>
-          <div class="flex items-center gap-0.5 text-yellow-400">
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-          </div>
+    <div class="grid gap-3 grid-cols-1">
+        
+        <!-- Фото отзыв 1 -->
+        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(0)">
+            <img src="https://ibb.co/Q7nw7pKv" alt="Отзыв клиента 1" class="w-full h-auto rounded-xl object-cover max-h-64">
         </div>
-        <p class="text-sm text-zinc-700">Форма наконец-то идеальная. Держится больше месяца!</p>
-      </div>
-      <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-        <div class="mb-1 flex items-center gap-2">
-          <span class="text-sm font-semibold">Мария</span>
-          <div class="flex items-center gap-0.5 text-yellow-400">
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-            <i data-lucide="star" class="h-4 w-4 fill-yellow-400"></i>
-          </div>
+        <!-- Фото отзыв 2 -->
+        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(1)">
+            <img src="https://ibb.co/svXT3bpx" alt="Отзыв клиента 2" class="w-full h-auto rounded-xl object-cover max-h-64">
+        </div>      
+        <!-- Фото отзыв 3 -->
+        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(2)">
+            <img src="https://ibb.co/j9Z0fBJK" alt="Отзыв клиента 3" class="w-full h-auto rounded-xl object-cover max-h-64">
         </div>
-        <p class="text-sm text-zinc-700">Ламинирование ресниц — эффект вау без туши. Очень аккуратно.</p>
-      </div>
+        <!-- Фото отзыв 4 -->
+        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(2)">
+            <img src="https://ibb.co/HDsgjkpF" alt="Отзыв клиента 3" class="w-full h-auto rounded-xl object-cover max-h-64">
+        </div>
+        <!-- Фото отзыв 5 -->
+        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(2)">
+            <img src="https://ibb.co/7Lwjmv6" alt="Отзыв клиента 3" class="w-full h-auto rounded-xl object-cover max-h-64">
+        </div>
+        <!-- Фото отзыв 6 -->
+        <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openModal(2)">
+            <img src="https://ibb.co/27cKQtSf" alt="Отзыв клиента 3" class="w-full h-auto rounded-xl object-cover max-h-64">
+        </div>  
     </div>
-  </section>
+
+    <!-- Модальное окно для просмотра -->
+    <div id="reviewModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl max-h-full">
+            <!-- Кнопка закрытия -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 z-10">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <!-- Навигация влево -->
+            <button onclick="prevImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            
+            <!-- Навигация вправо -->
+            <button onclick="nextImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            
+            <!-- Изображение -->
+            <img id="modalImage" src="" alt="Отзыв клиента" class="max-w-full max-h-full object-contain rounded-lg">
+            
+            <!-- Счетчик изображений -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-sm">
+                <span id="imageCounter">1 / 3</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Массив с путями к изображениям отзывов
+    const reviewImages = [
+        'https://ваш-домен.com/reviews/review1.jpg',
+        'https://ваш-домен.com/reviews/review2.jpg',
+        'https://ваш-домен.com/reviews/review3.jpg'
+        // Добавьте больше ссылок по необходимости
+    ];
+    
+    let currentImageIndex = 0;
+    const modal = document.getElementById('reviewModal');
+    const modalImage = document.getElementById('modalImage');
+    const imageCounter = document.getElementById('imageCounter');
+    
+    function openModal(index) {
+        currentImageIndex = index;
+        updateModalImage();
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Предотвращает прокрутку фона
+    }
+    
+    function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Восстанавливает прокрутку
+    }
+    
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % reviewImages.length;
+        updateModalImage();
+    }
+    
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + reviewImages.length) % reviewImages.length;
+        updateModalImage();
+    }
+    
+    function updateModalImage() {
+        modalImage.src = reviewImages[currentImageIndex];
+        imageCounter.textContent = `${currentImageIndex + 1} / ${reviewImages.length}`;
+    }
+    
+    // Закрытие модального окна при клике на фон
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Навигация с помощью клавиатуры
+    document.addEventListener('keydown', function(e) {
+        if (!modal.classList.contains('hidden')) {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        }
+    });
+</script>
 <section class="mx-auto mt-8 max-w-md px-5" id="why-us">
   <h3 class="mb-3 text-lg font-semibold">О Моем деле 🔥</h3>
   <div class="grid gap-3">
