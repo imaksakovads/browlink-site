@@ -272,22 +272,22 @@
     <h3 class="mb-3 text-lg font-semibold">Отзывы клиентов</h3>
     <div class="grid gap-3 grid-cols-1" id="reviews-gallery">
       <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="0">
-        <img src="https://i.ibb.co/Q7nw7pK/review1.jpg" alt="Отзыв клиента 1" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+        <img src="https://i.ibb.co/twcrwQJp/os1.jpg" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
       </div>
       <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="1">
-        <img src="https://i.ibb.co/svXT3bp/review2.jpg" alt="Отзыв клиента 2" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+        <img src="https://i.ibb.co/kgPLc5Vb/os2.jpg" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
       </div>
       <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="2">
-        <img src="https://i.ibb.co/j9Z0fBJ/review3.jpg" alt="Отзыв клиента 3" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+        <img src="https://i.ibb.co/WNp85qV9/os3.jpg" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
       </div>
       <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="3">
-        <img src="https://i.ibb.co/HDsgjkp/review4.jpg" alt="Отзыв клиента 4" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+        <img src="https://i.ibb.co/Z6PT0k1L/os4.jpg"  class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
       </div>
       <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="4">
-        <img src="https://i.ibb.co/7Lwjmv6/review5.jpg" alt="Отзыв клиента 5" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+        <img src="https://i.ibb.co/TdVY3cF/os5.jpg" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
       </div>
       <div class="rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" data-review-index="5">
-        <img src="https://i.ibb.co/27cKQtS/review6.jpg" alt="Отзыв клиента 6" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
+        <img src="https://i.ibb.co/MDPN4Vf3/os6.jpg" class="w-full h-auto rounded-xl object-cover max-h-64" loading="lazy" />
       </div>
     </div>
   </section>
@@ -307,11 +307,6 @@
         <span class="text-rose-500 text-xl">🎯</span>
         <p class="text-sm">Форма и цвет — под вас. Не под «моду сезона», а под ваше лицо и настроение.</p>
       </div>
-      <div class="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-        <span class="text-rose-500 text-xl">🔒</span>
-        <p class="text-sm">Если вдруг что-то не так — <strong>7 дней на корректировку</strong>. Бесплатно. Без вопросов.</p>
-      </div>
-    </div>
   </section>
 
   <section class="mx-auto mt-8 max-w-md px-5 text-center bg-rose-50 rounded-2xl p-5">
@@ -403,7 +398,7 @@
         </div>
         <div id="reviews-caption" class="mt-3 rounded-xl bg-white/85 p-4 text-sm leading-relaxed text-zinc-800 shadow-lg backdrop-blur">
           <div class="mb-1 text-[13px] font-semibold text-rose-600">Отзыв клиента</div>
-          <div class="text-xs text-zinc-500">Результат ламинирования ресниц</div>
+
           <div class="mt-2 text-center">
             <span id="reviews-counter" class="bg-black/10 px-2 py-1 rounded text-xs">1 / 6</span>
           </div>
@@ -543,12 +538,12 @@
     // ОТЗЫВЫ LIGHTBOX (новый код)
     (() => {
       const reviewSources = [
-        'https://i.ibb.co/Q7nw7pK/review1.jpg',
-        'https://i.ibb.co/svXT3bp/review2.jpg',
-        'https://i.ibb.co/j9Z0fBJ/review3.jpg',
-        'https://i.ibb.co/HDsgjkp/review4.jpg',
-        'https://i.ibb.co/7Lwjmv6/review5.jpg',
-        'https://i.ibb.co/27cKQtS/review6.jpg'
+        'https://i.ibb.co/twcrwQJp/os1.jpg',
+        'https://i.ibb.co/kgPLc5Vb/os2.jpg',
+        'https://i.ibb.co/WNp85qV9/os3.jpg',
+        'https://i.ibb.co/Z6PT0k1L/os4.jpg',
+        'https://i.ibb.co/TdVY3cF/os5.jpg',
+        'https://i.ibb.co/MDPN4Vf3/os6.jpg'
       ];
 
       const reviewsLightbox = document.getElementById('reviews-lightbox');
