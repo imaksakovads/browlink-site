@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSTIN KOSMO | Перманентный макияж Москва</title>
     
+    <script type="text/javascript">
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(103653225, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true,
+            ecommerce:"dataLayer"
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/103653225" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,6 +97,16 @@
             pointer-events: auto !important;
         }
     </style>
+
+    <script>
+        // Функция для удобной отправки целей
+        function reachGoal(target) {
+            if (typeof ym !== 'undefined') {
+                ym(103653225, 'reachGoal', target);
+                console.log('Metrika Goal Reached:', target);
+            }
+        }
+    </script>
 </head>
 <body class="antialiased">
 
@@ -107,9 +133,9 @@
             </div>
 
             <div id="header-contacts" class="hidden md:flex items-center gap-6 opacity-0 -translate-y-4 pointer-events-none transition-all duration-500 ease-out">
-                 <a href="https://api.whatsapp.com/send/?phone=79637329466" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">WhatsApp</a>
-                 <a href="https://t.me/ostinkosmo" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">Telegram</a>
-                 <a href="tel:+79637329466" class="text-sm font-mono hover:text-gray-500 transition cursor-hover">+7 963 732 94 66</a>
+                 <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">WhatsApp</a>
+                 <a href="https://t.me/ostinkosmo" onclick="reachGoal('napishite_telegram')" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">Telegram</a>
+                 <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="text-sm font-mono hover:text-gray-500 transition cursor-hover">+7 963 732 94 66</a>
             </div>
         </div>
     </header>
@@ -126,24 +152,22 @@
                 </p>
                 
                 <div id="hero-buttons" class="flex flex-col sm:flex-row gap-4 items-start sm:items-center transition-all duration-500 origin-top">
-                    <a href="https://api.whatsapp.com/send/?phone=79637329466" target="_blank" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
+                    <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" target="_blank" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
                        WhatsApp / Запись
                     </a>
-                    <a href="https://t.me/ostinkosmo" target="_blank" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
+                    <a href="https://t.me/ostinkosmo" onclick="reachGoal('napishite_telegram')" target="_blank" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
                        Telegram
                     </a>
-                    <a href="tel:+79637329466" class="cursor-hover font-mono text-sm text-gray-500 hover:text-black transition ml-0 sm:ml-4 border-b border-transparent hover:border-black pb-1">
+                    <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="cursor-hover font-mono text-sm text-gray-500 hover:text-black transition ml-0 sm:ml-4 border-b border-transparent hover:border-black pb-1">
                         +7 963 732 94 66
                     </a>
                 </div>
             </div>
+            
             <div class="lg:col-span-5 relative h-[50vh] lg:h-[70vh] w-full overflow-hidden border border-gray-200 group cursor-hover">
                 <video autoplay loop muted playsinline class="w-full h-full object-cover hover-bw-effect" poster="https://images.unsplash.com/photo-1609495768565-669527e57c8d?q=80&w=1000&auto=format&fit=crop">
                     <source src="https://github.com/imaksakovads/browlink-site/raw/main/video_2025-10-19_21-46-28.mp4" type="video/mp4">
                 </video>
-                <div class="absolute bottom-0 left-0 bg-white p-4 border-t border-r border-gray-200 z-10">
-                    <span class="font-display text-xl">▼ SCROLL</span>
-                </div>
             </div>
         </div>
     </section>
@@ -231,7 +255,7 @@
                         <p class="font-light text-sm opacity-80 max-w-sm">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
-                        <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                        <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
                     </div>
                 </div>
                 <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
@@ -244,7 +268,7 @@
                         <p class="font-light text-sm opacity-80 max-w-sm">Фиксация формы, питание и восстановление. Брови выглядят ухоженными.</p>
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
-                        <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                        <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
                     </div>
                 </div>
                 <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
@@ -257,7 +281,7 @@
                         <p class="font-light text-sm opacity-80 max-w-sm">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
-                        <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                        <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
                     </div>
                 </div>
                 <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
@@ -270,7 +294,7 @@
                         <p class="font-light text-sm opacity-80 max-w-sm">Поддержание формы между основными процедурами.</p>
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
-                        <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                        <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
                     </div>
                 </div>
             </div>
@@ -285,7 +309,7 @@
                 </div>
                 <div class="mt-8 md:mt-0 text-center md:text-right z-10">
                     <span class="block font-display text-4xl md:text-6xl mb-2">от 8 000₽</span>
-                    <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4">Забронировать место</a>
+                    <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4">Забронировать место</a>
                 </div>
             </div>
         </div>
@@ -379,18 +403,18 @@
         <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-gray-800 pb-20">
             <div>
                 <h2 class="font-display text-5xl md:text-7xl uppercase mb-6 leading-none">Готовы к<br>переменам?</h2>
-                <a href="https://api.whatsapp.com/send/?phone=79637329466" class="cursor-hover inline-block border border-white px-8 py-4 text-xl font-display uppercase hover:bg-white hover:text-black transition">
+                <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="cursor-hover inline-block border border-white px-8 py-4 text-xl font-display uppercase hover:bg-white hover:text-black transition">
                     Записаться в WhatsApp
                 </a>
             </div>
             <div class="flex flex-col justify-end items-start md:items-end">
                 <div class="text-right space-y-2 font-mono text-gray-400">
                     <p>Москва</p>
-                    <p><a href="tel:+79637329466" class="hover:text-white transition cursor-hover">+7 963 732 94 66</a></p>
+                    <p><a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="hover:text-white transition cursor-hover">+7 963 732 94 66</a></p>
                 </div>
                 <div class="flex gap-4 mt-8">
-                    <a href="https://t.me/ostinkosmo" class="cursor-hover text-sm border border-gray-700 px-4 py-2 hover:border-white transition">TELEGRAM</a>
-                    <a href="https://api.whatsapp.com/send/?phone=79637329466" class="cursor-hover text-sm border border-gray-700 px-4 py-2 hover:border-white transition">WHATSAPP</a>
+                    <a href="https://t.me/ostinkosmo" onclick="reachGoal('napishite_telegram')" class="cursor-hover text-sm border border-gray-700 px-4 py-2 hover:border-white transition">TELEGRAM</a>
+                    <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="cursor-hover text-sm border border-gray-700 px-4 py-2 hover:border-white transition">WHATSAPP</a>
                 </div>
             </div>
         </div>
@@ -430,6 +454,9 @@
         function openLightbox(element) {
             const img = element.querySelector('img');
             if (img) {
+                // METRIKA EVENT
+                reachGoal('portfolio_open');
+                
                 lightboxImg.src = img.src;
                 lightbox.classList.remove('hidden');
                 setTimeout(() => {
@@ -480,6 +507,22 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
         });
+        
+        // --- 5. SCROLL TO END METRIKA GOAL ---
+        const footer = document.querySelector('footer');
+        let scrollGoalReached = false;
+        
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !scrollGoalReached) {
+                    reachGoal('scroll_to_end');
+                    scrollGoalReached = true; 
+                }
+            });
+        }, { threshold: 0.1 }); 
+        
+        if (footer) footerObserver.observe(footer);
+        
     </script>
 </body>
 </html>
