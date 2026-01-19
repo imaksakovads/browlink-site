@@ -1,656 +1,543 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103653225', 'ym');
-    ym(103653225, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/103653225" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Катя — Премиум бровист & ламимейкер | Белорусская</title>
-  <meta name="description" content="Искусство совершенных бровей и ресниц. 5+ лет опыта, швейцарские составы, индивидуальный подход. Москва, м. Белорусская." />
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSTIN KOSMO | Перманентный макияж Москва</title>
     
-    .gradient-gold { background: linear-gradient(135deg, #D4AF37 0%, #F4E8C1 50%, #D4AF37 100%); }
-    .text-gold { color: #D4AF37; }
-    .border-gold { border-color: #D4AF37; }
-    .bg-burgundy { background-color: #8B2635; }
-    .text-burgundy { color: #8B2635; }
-    .bg-cream { background-color: #FAF8F3; }
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
     
-    .fade-in { animation: fadeInUp 0.8s ease-out; }
-    
-    .btn-luxury {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .btn-luxury::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(212, 175, 55, 0.3);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-    
-    .btn-luxury:hover::before {
-      width: 300px;
-      height: 300px;
-    }
-    
-    .service-card {
-      transition: all 0.4s ease;
-      border: 1px solid #E8E8E8;
-    }
-    
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(139,38,53,0.15);
-      border-color: #D4AF37;
-    }
-    
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
-    }
-    
-    /* Круглое видео как в Instagram Stories */
-    .story-ring {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 0 auto;
-      padding: 4px;
-      background: linear-gradient(45deg, #D4AF37, #F4E8C1, #D4AF37, #8B2635);
-      background-size: 400% 400%;
-      border-radius: 50%;
-      animation: gradientRotate 3s ease infinite;
-    }
-    
-    @media (min-width: 768px) {
-      .story-ring {
-        width: 200px;
-        height: 200px;
-        padding: 5px;
-      }
-    }
-    
-    @keyframes gradientRotate {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    .story-video-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #000;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    }
-    
-    .story-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .story-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.1) 100%);
-      pointer-events: none;
-    }
-  </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        black: '#0a0a0a',
+                        offwhite: '#f4f4f4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- CORE STYLES --- */
+        body { 
+            background-color: #ffffff; 
+            color: #0a0a0a; 
+            overflow-x: hidden; 
+            cursor: default;
+        }
+        
+        html { scroll-behavior: smooth; }
+
+        /* Noise Texture */
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAA5OTk5OTk5OTk5OTk5OTk5OTk5OTlYwNl2AAAACHRSTlMzAJmZzMxmZswk/CwAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAA6SURBVDjLY2AYxOD/BwIx4P8HAjFg/wcCMWD/BwIx4P8HAjFg/wcCMWD/BwIx4P8HAjFg/wcCMQAAgf4BGT6H3M8AAAAASUVORK5CYII=');
+            opacity: 0.03; pointer-events: none; z-index: 9999;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed; top: 0; left: 0; width: 15px; height: 15px;
+            border: 1px solid #000; border-radius: 50%; pointer-events: none; z-index: 10000;
+            transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s;
+            mix-blend-mode: difference; display: none;
+        }
+        .custom-cursor.hovered { width: 50px; height: 50px; background-color: rgba(255, 255, 255, 0.2); border-color: transparent; }
+        @media (min-width: 1024px) { .custom-cursor { display: block; } }
+
+        /* Effects */
+        .hover-bw-effect { filter: grayscale(0%); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hover-bw-effect:hover { filter: grayscale(100%); }
+        .portfolio-img { transition: transform 0.8s ease; }
+        .portfolio-item:hover .portfolio-img { transform: scale(1.05); }
+        .big-type { line-height: 1.0; letter-spacing: 0.02em; } 
+        
+        /* Reveal Animation Class */
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-text.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Marquee */
+        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
+        .marquee-content { display: flex; animation: scroll 20s linear infinite; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Header Animation */
+        .contacts-visible { opacity: 1 !important; transform: translateY(0) !important; pointer-events: auto !important; }
+
+        /* Mobile Menu */
+        #mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); }
+        #mobile-menu.open { transform: translateX(0); }
+    </style>
 </head>
+<body class="antialiased">
 
-<body class="bg-cream text-zinc-900">
-  
-  <!-- HERO SECTION -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-zinc-100 to-cream"></div>
-    <div class="absolute inset-0 opacity-5" style="background-image: url('https://i.postimg.cc/CRZTq1J2/photo-2024-10-04-14-34-27-1.jpg'); background-size: cover; background-position: center;"></div>
-    
-    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center fade-in">
-      <div class="mb-8">
-        <!-- Круглое видео как Instagram Story -->
-        <div class="story-ring">
-          <div class="story-video-container">
-            <video class="story-video" autoplay muted loop playsinline>
-              <source src="https://github.com/imaksakovads/browlink-site/raw/main/video_2025-10-19_21-46-28.mp4" type="video/mp4">
-              <!-- Замените username на ваш GitHub username -->
-              <img src="https://i.postimg.cc/CRZTq1J2/photo-2024-10-04-14-34-27-1.jpg" alt="Катя - мастер бровист" class="w-full h-full object-cover" />
-            </video>
-            <div class="story-overlay"></div>
-          </div>
-        </div>
-        
-        <div class="mt-6 inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur rounded-full shadow-sm">
-          <i data-lucide="award" class="h-4 w-4 text-gold"></i>
-          <span class="text-sm font-medium tracking-wide">5+ ЛЕТ МАСТЕРСТВА</span>
-        </div>
-      </div>
-      
-      <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-        Искусство<br/>
-        <span class="text-burgundy">совершенных бровей<br/>и ресниц</span>
-      </h1>
-      
-      <div class="divider mx-auto mb-6"></div>
-      
-      <div class="flex items-center justify-center gap-2 text-sm text-zinc-500 mb-10">
-        <i data-lucide="map-pin" class="h-4 w-4 text-burgundy"></i>
-        <span>Москва, м. Белорусская</span>
-      </div>
-      
-      <div class="flex flex-col gap-4 items-center">
-        <a href="#services" class="btn-luxury relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-burgundy text-white rounded-full font-medium tracking-wide shadow-xl hover:shadow-2xl w-full max-w-xs">
-          <span class="relative z-10">Посмотреть услуги</span>
-          <i data-lucide="arrow-down" class="relative z-10 h-4 w-4"></i>
-        </a>
-        <a href="https://wa.me/79637329466" target="_blank" class="btn-luxury relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-burgundy border-2 border-burgundy rounded-full font-medium tracking-wide hover:bg-burgundy hover:text-white w-full max-w-xs">
-          <span class="relative z-10">Консультация</span>
-          <i data-lucide="message-circle" class="relative z-10 h-4 w-4"></i>
-        </a>
-      </div>
-      
-      <div class="mt-12 flex flex-wrap justify-center gap-8 text-sm text-zinc-600">
-        <div class="flex items-center gap-2">
-          <i data-lucide="shield-check" class="h-5 w-5 text-gold"></i>
-          <span>Стерильность</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i data-lucide="sparkles" class="h-5 w-5 text-gold"></i>
-          <span>Премиум материалы</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i data-lucide="star" class="h-5 w-5 text-gold"></i>
-          <span>498 отзывов</span>
-        </div>
-      </div>
+    <div class="noise-overlay"></div>
+    <div class="custom-cursor" id="cursor"></div>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex justify-center items-center opacity-0 transition-opacity duration-500 backdrop-blur-sm cursor-pointer">
+        <button id="lightbox-close" class="absolute top-8 right-8 text-white font-display text-lg tracking-widest hover:text-gray-400 transition z-[110]">CLOSE [X]</button>
+        <img id="lightbox-img" src="" class="max-h-[90vh] max-w-[90vw] object-contain shadow-2xl transform scale-95 transition-transform duration-500">
     </div>
-  </section>
 
-  <!-- PORTFOLIO -->
-  <section class="py-20 px-6 bg-cream" id="portfolio">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <span class="text-sm tracking-[0.3em] text-gold uppercase font-medium">Портфолио</span>
-        <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Работы</h2>
-        <div class="divider mx-auto"></div>
-      </div>
-      
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery-grid">
-        <button class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500" data-index="0">
-          <img src="https://i.postimg.cc/QtDtLm6Y/photo-2025-08-09-17-37-33.jpg" 
-               alt="Ламинирование ресниц" 
-               class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-            <span class="text-white text-xs md:text-sm font-medium">Ламинирование ресниц</span>
-          </div>
-        </button>
-        
-        <button class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500" data-index="1">
-          <img src="https://i.postimg.cc/6pDqctCX/photo-2025-08-09-17-25-54-2.jpg" 
-               alt="Результат ламинирования" 
-               class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-            <span class="text-white text-xs md:text-sm font-medium">До и после</span>
-          </div>
-        </button>
-        
-        <button class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500" data-index="2">
-          <img src="https://i.postimg.cc/7Y9QSL85/photo-2024-10-04-14-40-45-1.jpg" 
-               alt="Оформление бровей" 
-               class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-            <span class="text-white text-xs md:text-sm font-medium">Архитектура бровей</span>
-          </div>
-        </button>
-        
-        <button class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500" data-index="3">
-          <img src="https://i.postimg.cc/7ZCbSfG9/photo-2025-08-09-22-22-30.jpg" 
-               alt="Ламинирование" 
-               class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-            <span class="text-white text-xs md:text-sm font-medium">Выразительный взгляд</span>
-          </div>
-        </button>
-        
-        <button class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500" data-index="4">
-          <img src="https://i.postimg.cc/JhYLxQfB/photo-2024-11-20-17-18-02.jpg" 
-               alt="Результат процедуры" 
-               class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-            <span class="text-white text-xs md:text-sm font-medium">Натуральный изгиб</span>
-          </div>
-        </button>
-        
-        <button class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500" data-index="5">
-          <img src="https://i.postimg.cc/8kbYmx03/photo-2025-08-09-17-37-12.jpg" 
-               alt="Идеальные ресницы" 
-               class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-            <span class="text-white text-xs md:text-sm font-medium">Долговременный эффект</span>
-          </div>
-        </button>
-      </div>
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col justify-center items-center p-6 md:hidden">
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="#portfolio" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">Работы</a>
+            <a href="#services" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">Прайс</a>
+            <a href="#reviews" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">Отзывы</a>
+            <a href="#faq" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">FAQ</a>
+        </nav>
+        <div class="mt-12 flex flex-col gap-4 text-center">
+            <a href="https://api.whatsapp.com/send/?phone=79637329466" class="btn border border-black px-8 py-3 uppercase font-display">WhatsApp Запись</a>
+            <a href="tel:+79637329466" class="font-mono text-gray-500">+7 963 732 94 66</a>
+        </div>
     </div>
-  </section>
 
-  <!-- SERVICES -->
-  <section class="py-20 px-6 bg-white" id="services">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm tracking-[0.3em] text-gold uppercase font-medium">Услуги</span>
-        <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Процедуры</h2>
-        <div class="divider mx-auto"></div>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="service-card bg-white rounded-3xl p-6 md:p-8 shadow-sm">
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
-            <div class="flex-1">
-              <h3 class="text-xl md:text-2xl font-semibold mb-2">Оформление бровей</h3>
-              <p class="text-sm text-zinc-500">Окрашивание + коррекция</p>
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-all duration-300" id="main-header">
+        <div class="max-w-[1600px] mx-auto flex justify-between items-center px-6 py-4 relative">
+            <div class="flex items-center">
+                <a href="#" class="font-display font-bold text-2xl tracking-tighter uppercase cursor-hover mr-12 z-20 relative">Ostin<span class="text-gray-400">Kosmo</span></a>
+                
+                <nav class="hidden md:flex gap-8 z-20 relative">
+                    <a href="#portfolio" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Работы</a>
+                    <a href="#services" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Прайс</a>
+                    <a href="#reviews" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Отзывы</a>
+                    <a href="#contact" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Контакты</a>
+                </nav>
             </div>
-            <div class="text-left sm:text-right">
-              <p class="text-2xl md:text-3xl font-bold text-burgundy">1 800<span class="text-xl">₽</span></p>
-              <p class="text-xs text-zinc-400 mt-1">35 минут</p>
+
+            <div id="header-contacts" class="hidden md:flex items-center gap-6 opacity-0 -translate-y-4 pointer-events-none transition-all duration-500 ease-out">
+                 <a href="https://api.whatsapp.com/send/?phone=79637329466" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">WhatsApp</a>
+                 <a href="tel:+79637329466" class="text-sm font-mono hover:text-gray-500 transition cursor-hover">+7 963 732 94 66</a>
             </div>
-          </div>
-          <p class="text-sm text-zinc-600 leading-relaxed mb-6">
-            Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской, коррекция воском или пинцетом.
-          </p>
-          <a href="https://wa.me/79637329466" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-burgundy hover:gap-3 transition-all">
-            Записаться <i data-lucide="arrow-right" class="h-4 w-4"></i>
-          </a>
+
+            <button class="md:hidden z-[70] flex flex-col gap-1.5 cursor-pointer" onclick="toggleMobileMenu()">
+                <span class="block w-6 h-0.5 bg-black transition-transform" id="burger-1"></span>
+                <span class="block w-6 h-0.5 bg-black transition-transform" id="burger-2"></span>
+            </button>
         </div>
-        
-        <div class="service-card bg-white rounded-3xl p-6 md:p-8 shadow-sm">
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
-            <div class="flex-1">
-              <h3 class="text-xl md:text-2xl font-semibold mb-2">Ламинирование бровей</h3>
-              <p class="text-sm text-zinc-500">Долговременная укладка</p>
+    </header>
+
+    <section class="min-h-screen flex items-start pt-32 lg:pt-40 px-6 max-w-[1600px] mx-auto" id="hero-section">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center pb-12">
+            <div class="lg:col-span-7 flex flex-col justify-center">
+                <p class="reveal-text text-sm font-mono text-gray-500 mb-6 tracking-widest">Основано 2021 // Москва</p>
+                <h1 class="font-display font-bold text-[10vw] lg:text-[5.5rem] uppercase big-type mb-8 text-black leading-none">
+                    <div class="overflow-hidden"><span class="reveal-text block">Искусство</span></div>
+                    <div class="overflow-hidden"><span class="reveal-text block" style="transition-delay: 0.1s">совершенных</span></div>
+                    <div class="overflow-hidden"><span class="reveal-text block" style="transition-delay: 0.2s">бровей и ресниц</span></div>
+                </h1>
+                <p class="reveal-text max-w-lg text-xl text-black font-normal leading-relaxed mb-10" style="transition-delay: 0.3s">
+                    В эпоху фильтров мы выбираем честность. Наша работа выглядит безупречно даже с расстояния 5 сантиметров.
+                </p>
+                
+                <div id="hero-buttons" class="reveal-text flex flex-col sm:flex-row gap-4 items-start sm:items-center transition-all duration-500 origin-top" style="transition-delay: 0.4s">
+                    <a href="https://api.whatsapp.com/send/?phone=79637329466" target="_blank" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
+                       WhatsApp / Запись
+                    </a>
+                    <a href="https://t.me/ostinkosmo" target="_blank" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
+                       Telegram
+                    </a>
+                </div>
             </div>
-            <div class="text-left sm:text-right">
-              <p class="text-2xl md:text-3xl font-bold text-burgundy">2 200<span class="text-xl">₽</span></p>
-              <p class="text-xs text-zinc-400 mt-1">45 минут</p>
+            <div class="lg:col-span-5 relative h-[50vh] lg:h-[70vh] w-full overflow-hidden border border-gray-200 group cursor-hover reveal-text" style="transition-delay: 0.5s">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover hover-bw-effect" poster="https://images.unsplash.com/photo-1609495768565-669527e57c8d?q=80&w=1000&auto=format&fit=crop">
+                    <source src="https://github.com/imaksakovads/browlink-site/raw/main/video_2025-10-19_21-46-28.mp4" type="video/mp4">
+                </video>
+                <div class="absolute bottom-0 left-0 bg-white p-4 border-t border-r border-gray-200 z-10">
+                    <span class="font-display text-xl">▼ SCROLL</span>
+                </div>
             </div>
-          </div>
-          <p class="text-sm text-zinc-600 leading-relaxed mb-6">
-            Фиксация формы, питание и восстановление. Брови выглядят ухоженными без ежедневной укладки.
-          </p>
-          <a href="https://wa.me/79637329466" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-burgundy hover:gap-3 transition-all">
-            Записаться <i data-lucide="arrow-right" class="h-4 w-4"></i>
-          </a>
         </div>
-        
-        <div class="service-card bg-white rounded-3xl p-6 md:p-8 shadow-sm">
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
-            <div class="flex-1">
-              <h3 class="text-xl md:text-2xl font-semibold mb-2">Ламинирование ресниц</h3>
-              <p class="text-sm text-zinc-500">Изгиб + окрашивание</p>
-            </div>
-            <div class="text-left sm:text-right">
-              <p class="text-2xl md:text-3xl font-bold text-burgundy">2 700<span class="text-xl">₽</span></p>
-              <p class="text-xs text-zinc-400 mt-1">35 минут</p>
-            </div>
-          </div>
-          <p class="text-sm text-zinc-600 leading-relaxed mb-6">
-            Выразительный завиток, визуальное удлинение, насыщенный цвет. Эффект 6-8 недель.
-          </p>
-          <a href="https://wa.me/79637329466" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-burgundy hover:gap-3 transition-all">
-            Записаться <i data-lucide="arrow-right" class="h-4 w-4"></i>
-          </a>
+    </section>
+
+    <div class="border-y border-gray-200 py-6 bg-black text-white marquee-container">
+        <div class="marquee-content gap-10 font-display text-2xl uppercase tracking-wider items-center">
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
         </div>
-        
-        <div class="service-card bg-white rounded-3xl p-6 md:p-8 shadow-sm">
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
-            <div class="flex-1">
-              <h3 class="text-xl md:text-2xl font-semibold mb-2">Коррекция бровей</h3>
-              <p class="text-sm text-zinc-500">Пинцет или воск</p>
-            </div>
-            <div class="text-left sm:text-right">
-              <p class="text-2xl md:text-3xl font-bold text-burgundy">1 500<span class="text-xl">₽</span></p>
-              <p class="text-xs text-zinc-400 mt-1">20 минут</p>
-            </div>
-          </div>
-          <p class="text-sm text-zinc-600 leading-relaxed mb-6">
-            Поддержание формы между основными процедурами. Деликатное удаление лишних волосков.
-          </p>
-          <a href="https://wa.me/79637329466" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-burgundy hover:gap-3 transition-all">
-            Записаться <i data-lucide="arrow-right" class="h-4 w-4"></i>
-          </a>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!-- REVIEWS -->
-  <section class="py-20 px-6 bg-cream">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <span class="text-sm tracking-[0.3em] text-gold uppercase font-medium">Отзывы</span>
-        <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Что говорят клиентки</h2>
-        <div class="divider mx-auto"></div>
-      </div>
-      
-      <<div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="reviews-gallery">
-  <div class="bg-white rounded-3xl p-2 shadow-sm hover:shadow-lg transition-all cursor-pointer">
-    <img src="https://i.ibb.co/Qzf2tPQ/1111.jpg" alt="Отзыв клиента" class="w-full h-auto rounded-2xl object-contain max-h-96" />
-  </div>
-  <div class="bg-white rounded-3xl p-2 shadow-sm hover:shadow-lg transition-all cursor-pointer">
-    <img src="https://i.ibb.co/23rDyQHh/11111.jpg" alt="Отзыв клиента" class="w-full h-auto rounded-2xl object-contain max-h-96" />
-  </div>
-  <div class="bg-white rounded-3xl p-2 shadow-sm hover:shadow-lg transition-all cursor-pointer">
-    <img src="https://i.ibb.co/twcrwQJp/os1.jpg" alt="Отзыв клиента" class="w-full h-auto rounded-2xl object-contain max-h-96" />
-  </div>
-  <div class="bg-white rounded-3xl p-2 shadow-sm hover:shadow-lg transition-all cursor-pointer">
-    <img src="https://i.ibb.co/kgPLc5Vb/os2.jpg" alt="Отзыв клиента" class="w-full h-auto rounded-2xl object-contain max-h-96" />
-  </div>
-  <div class="bg-white rounded-3xl p-2 shadow-sm hover:shadow-lg transition-all cursor-pointer">
-    <img src="https://i.ibb.co/Z6PT0k1L/os4.jpg" alt="Отзыв клиента" class="w-full h-auto rounded-2xl object-contain max-h-96" />
-  </div>
-  <div class="bg-white rounded-3xl p-2 shadow-sm hover:shadow-lg transition-all cursor-pointer">
-    <img src="https://i.ibb.co/MDPN4Vf3/os6.jpg" alt="Отзыв клиента" class="w-full h-auto rounded-2xl object-contain max-h-96" />
-  </div>
-</div>
-
-        
-      </div>
-      
-      <div class="text-center mt-10">
-        <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDgxMTI2MDU4MzkyNDE1" target="_blank" class="inline-flex items-center gap-2 text-burgundy hover:text-gold transition-colors font-medium">
-          Все отзывы в Instagram <i data-lucide="external-link" class="h-4 w-4"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-20 px-6 bg-white">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
-        <span class="text-sm tracking-[0.3em] text-gold uppercase font-medium">FAQ</span>
-        <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Частые вопросы</h2>
-        <div class="divider mx-auto"></div>
-      </div>
-      
-      <div class="space-y-4">
-        <details class="group bg-cream rounded-2xl p-6 hover:shadow-md transition-all">
-          <summary class="cursor-pointer text-lg font-semibold flex justify-between items-center">
-            Сколько держится эффект?
-            <i data-lucide="chevron-down" class="h-5 w-5 text-gold group-open:rotate-180 transition-transform"></i>
-          </summary>
-          <p class="mt-4 text-zinc-600 leading-relaxed">Ламинирование ресниц и бровей сохраняется <strong>6-8 недель</strong> в зависимости от ухода и индивидуальных особенностей.</p>
-        </details>
-        
-        <details class="group bg-cream rounded-2xl p-6 hover:shadow-md transition-all">
-          <summary class="cursor-pointer text-lg font-semibold flex justify-between items-center">
-            Есть ли противопоказания?
-            <i data-lucide="chevron-down" class="h-5 w-5 text-gold group-open:rotate-180 transition-transform"></i>
-          </summary>
-          <p class="mt-4 text-zinc-600 leading-relaxed">Первый триместр беременности, аллергия на компоненты, воспалительные процессы в зоне глаз, свежие травмы.</p>
-        </details>
-        
-        <details class="group bg-cream rounded-2xl p-6 hover:shadow-md transition-all">
-          <summary class="cursor-pointer text-lg font-semibold flex justify-between items-center">
-            Как ухаживать первые 24 часа?
-            <i data-lucide="chevron-down" class="h-5 w-5 text-gold group-open:rotate-180 transition-transform"></i>
-          </summary>
-          <p class="mt-4 text-zinc-600 leading-relaxed">Не мочить, не трогать руками, избегать макияжа. Через сутки можно возвращаться к обычному образу жизни.</p>
-        </details>
-        
-        <details class="group bg-cream rounded-2xl p-6 hover:shadow-md transition-all">
-          <summary class="cursor-pointer text-lg font-semibold flex justify-between items-center">
-            Совместимо с ботоксом и татуажем?
-            <i data-lucide="chevron-down" class="h-5 w-5 text-gold group-open:rotate-180 transition-transform"></i>
-          </summary>
-          <p class="mt-4 text-zinc-600 leading-relaxed">Да! После ботокса процедуру можно делать сразу. После татуажа — через 4 недели полного заживления.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="py-20 px-6 bg-burgundy text-white">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Готовы к преображению?</h2>
-      <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Запишитесь на бесплатную 10-минутную консультацию — обсудим форму, цвет и ответим на все вопросы
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-        <a href="https://wa.me/79637329466" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-burgundy rounded-full font-semibold hover:bg-gold hover:text-white transition-all shadow-xl">
-          <i data-lucide="message-circle" class="h-5 w-5"></i>
-          WhatsApp
-        </a>
-        <a href="https://t.me/ostinkosmo" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-burgundy transition-all">
-          <i data-lucide="send" class="h-5 w-5"></i>
-          Telegram
-        </a>
-        <a href="tel:+79637329466" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-burgundy transition-all">
-          <i data-lucide="phone" class="h-5 w-5"></i>
-          Позвонить
-        </a>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-white/20">
-        <div class="text-center md:text-left">
-          <h3 class="text-lg font-semibold mb-3 flex items-center justify-center md:justify-start gap-2">
-            <i data-lucide="map-pin" class="h-5 w-5 text-gold"></i>
-            Адрес
-          </h3>
-          <p class="text-white/80">ул. 1-я Тверская-Ямская, 25 стр. 2</p>
-          <p class="text-white/80">м. Белорусская, Москва</p>
+    <section id="portfolio" class="max-w-[1600px] mx-auto border-x border-gray-200">
+        <div class="p-6 md:p-12 border-b border-gray-200 flex justify-between items-end">
+            <h2 class="reveal-on-scroll font-display text-5xl uppercase leading-none">Избранные<br>Кейсы</h2>
+            <span class="hidden md:block font-mono text-gray-500">ГАЛЕРЕЯ РАБОТ 2025-2026</span>
         </div>
-        
-        <div class="text-center md:text-left">
-          <h3 class="text-lg font-semibold mb-3 flex items-center justify-center md:justify-start gap-2">
-            <i data-lucide="clock" class="h-5 w-5 text-gold"></i>
-            График работы
-          </h3>
-          <p class="text-white/80">Ежедневно 10:00–21:00</p>
-          <p class="text-white/80">По предварительной записи</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+             <div class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://i.postimg.cc/QtDtLm6Y/photo-2025-08-09-17-37-33.jpg" class="portfolio-img w-full h-full object-cover filter grayscale md:grayscale-0">
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Первое ламинирование</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Сразу после</span>
+                    <span class="mt-4 border border-white px-4 py-1 text-xs uppercase">ZOOM +</span>
+                </div>
+            </div>
+            <div class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://i.postimg.cc/6pDqctCX/photo-2025-08-09-17-25-54-2.jpg" class="portfolio-img w-full h-full object-cover filter grayscale md:grayscale-0">
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Обновление</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Постоянный клиент</span>
+                    <span class="mt-4 border border-white px-4 py-1 text-xs uppercase">ZOOM +</span>
+                </div>
+            </div>
+            <div class="portfolio-item group relative aspect-square border-b border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://i.postimg.cc/7Y9QSL85/photo-2024-10-04-14-40-45-1.jpg" class="portfolio-img w-full h-full object-cover filter grayscale md:grayscale-0">
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Архитектура бровей</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Форма и цвет</span>
+                    <span class="mt-4 border border-white px-4 py-1 text-xs uppercase">ZOOM +</span>
+                </div>
+            </div>
+            <div class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://i.postimg.cc/7ZCbSfG9/photo-2025-08-09-22-22-30.jpg" class="portfolio-img w-full h-full object-cover filter grayscale md:grayscale-0">
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Выразительный взгляд</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Ламинирование</span>
+                    <span class="mt-4 border border-white px-4 py-1 text-xs uppercase">ZOOM +</span>
+                </div>
+            </div>
+            <div class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://i.postimg.cc/JhYLxQfB/photo-2024-11-20-17-18-02.jpg" class="portfolio-img w-full h-full object-cover filter grayscale md:grayscale-0">
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Натуральный изгиб</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Эстетика</span>
+                    <span class="mt-4 border border-white px-4 py-1 text-xs uppercase">ZOOM +</span>
+                </div>
+            </div>
+            <div class="portfolio-item group relative aspect-square border-b border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://i.postimg.cc/8kbYmx03/photo-2025-08-09-17-37-12.jpg" class="portfolio-img w-full h-full object-cover filter grayscale md:grayscale-0">
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Долговременный эффект</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Результат</span>
+                    <span class="mt-4 border border-white px-4 py-1 text-xs uppercase">ZOOM +</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="py-8 px-6 bg-zinc-900 text-zinc-400 text-center text-sm">
-    <p class="mb-2">*Социальная сеть, деятельность которой может быть ограничена на территории РФ.</p>
-    <p>© <span id="year"></span> Катя — Brow & Lash Studio • Москва</p>
-  </footer>
+    <section id="services" class="py-24 px-6 bg-offwhite">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="reveal-on-scroll font-display text-6xl uppercase">Меню</h2>
+                <span class="font-mono text-gray-500 mt-4 md:mt-0">ПРАЙС-ЛИСТ 2026</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-1 bg-gray-200 border border-gray-200 mb-1">
+                <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-display text-2xl md:text-3xl uppercase">Оформление бровей</h3>
+                            <div class="text-right"><span class="block font-display text-2xl md:text-3xl">1 800₽</span><span class="text-xs font-mono opacity-60">35 минут</span></div>
+                        </div>
+                        <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Окрашивание + коррекция</p>
+                        <p class="font-light text-sm opacity-80 max-w-sm">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
+                        <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                    </div>
+                </div>
+                <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-display text-2xl md:text-3xl uppercase">Ламинирование бровей</h3>
+                            <div class="text-right"><span class="block font-display text-2xl md:text-3xl">2 200₽</span><span class="text-xs font-mono opacity-60">45 минут</span></div>
+                        </div>
+                        <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Долговременная укладка</p>
+                        <p class="font-light text-sm opacity-80 max-w-sm">Фиксация формы, питание и восстановление. Брови выглядят ухоженными.</p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
+                        <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                    </div>
+                </div>
+                <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-display text-2xl md:text-3xl uppercase">Ламинирование ресниц</h3>
+                            <div class="text-right"><span class="block font-display text-2xl md:text-3xl">2 700₽</span><span class="text-xs font-mono opacity-60">35 минут</span></div>
+                        </div>
+                        <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Изгиб + окрашивание</p>
+                        <p class="font-light text-sm opacity-80 max-w-sm">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
+                        <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                    </div>
+                </div>
+                <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-display text-2xl md:text-3xl uppercase">Коррекция бровей</h3>
+                            <div class="text-right"><span class="block font-display text-2xl md:text-3xl">1 500₽</span><span class="text-xs font-mono opacity-60">20 минут</span></div>
+                        </div>
+                        <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Пинцет или воск</p>
+                        <p class="font-light text-sm opacity-80 max-w-sm">Поддержание формы между основными процедурами.</p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
+                        <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Lightbox для портфолио -->
-  <div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/90 p-4">
-    <div class="relative w-full max-w-4xl">
-      <button id="lb-close" class="absolute -top-12 right-0 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition" aria-label="Закрыть">
-        <i data-lucide="x" class="h-6 w-6"></i>
-      </button>
-      <button id="lb-prev" class="absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition hidden sm:inline-flex" aria-label="Предыдущее">
-        <i data-lucide="chevron-left" class="h-7 w-7"></i>
-      </button>
-      <button id="lb-next" class="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition hidden sm:inline-flex" aria-label="Следующее">
-        <i data-lucide="chevron-right" class="h-7 w-7"></i>
-      </button>
-      <div id="lb-card" class="overflow-hidden rounded-3xl bg-white shadow-2xl">
-        <div class="bg-black/5 flex items-center justify-center">
-          <img id="lb-image" src="" alt="" class="max-h-[80vh] w-full select-none object-contain" />
+            <div class="bg-black text-white p-8 md:p-12 border border-gray-200 flex flex-col md:flex-row justify-between items-center md:items-start relative overflow-hidden group cursor-hover">
+                <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition duration-700"></div>
+                <div class="max-w-xl z-10">
+                    <span class="inline-block border border-white px-3 py-1 text-xs font-mono uppercase tracking-widest mb-6">Education 2026</span>
+                    <h3 class="font-display text-3xl md:text-5xl uppercase mb-4 leading-tight">Обучение<br>Ламинированию</h3>
+                    <p class="font-light text-gray-300 text-sm md:text-base leading-relaxed mb-6">Индивидуальный курс по ламинированию ресниц или бровей. Постановка руки, разбор составов, отработка на моделях.</p>
+                    <div class="flex items-center gap-4 text-sm font-mono text-gray-400"><span>// ЯНВАРЬ</span><span>// ПРЕДЗАПИСЬ</span></div>
+                </div>
+                <div class="mt-8 md:mt-0 text-center md:text-right z-10">
+                    <span class="block font-display text-4xl md:text-6xl mb-2">от 10 000₽</span>
+                    <a href="https://api.whatsapp.com/send/?phone=79637329466" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4">Забронировать место</a>
+                </div>
+            </div>
         </div>
-        <div id="lb-caption" class="p-6 bg-cream">
-          <p class="text-sm text-zinc-600"></p>
+    </section>
+
+    <section id="reviews" class="py-24 px-6 max-w-[1600px] mx-auto border-x border-gray-200">
+        <div class="p-6 md:p-12 border-b border-gray-200 flex justify-between items-end">
+            <h2 class="reveal-on-scroll font-display text-5xl uppercase leading-none">Отзывы<br>Клиентов</h2>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Lightbox для отзывов -->
-  <div id="reviews-lightbox" class="fixed inset-0 z-[65] hidden items-center justify-center bg-black/90 p-4">
-    <div class="relative w-full max-w-4xl">
-      <button id="reviews-close" class="absolute -top-12 right-0 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition" aria-label="Закрыть">
-        <i data-lucide="x" class="h-6 w-6"></i>
-      </button>
-      <button id="reviews-prev" class="absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition hidden sm:inline-flex" aria-label="Предыдущий">
-        <i data-lucide="chevron-left" class="h-7 w-7"></i>
-      </button>
-      <button id="reviews-next" class="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition hidden sm:inline-flex" aria-label="Следующий">
-        <i data-lucide="chevron-right" class="h-7 w-7"></i>
-      </button>
-      <div id="reviews-card" class="overflow-hidden rounded-3xl bg-white shadow-2xl">
-        <div class="bg-black/5 flex items-center justify-center">
-          <img id="reviews-image" src="" alt="" class="max-h-[80vh] w-full select-none object-contain" />
+        <div class="grid grid-cols-1 md:grid-cols-3 border-t border-gray-200">
+            <div class="p-10 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col justify-between h-full bg-white cursor-hover">
+                <div class="mb-6 text-2xl text-black">★★★★★</div>
+                <p class="font-light text-lg mb-8 leading-relaxed">"Все супер. Ресницы не путаются, красиво лежат, получила множество комплиментов. Спасибо за твою работу ❤️"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">A</div>
+                    <div><span class="block font-display uppercase text-sm">Клиент</span><span class="text-xs text-gray-500 font-mono">WHATSAPP</span></div>
+                </div>
+            </div>
+            <div class="p-10 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col justify-between h-full bg-white cursor-hover">
+                <div class="mb-6 text-2xl text-black">★★★★★</div>
+                <p class="font-light text-lg mb-8 leading-relaxed">"Была у мастера на оформлении бровей и осталась в восторге! Получила именно тот естественный эффект, который хотела. Всё прошло очень комфортно... Однозначно приду ещё! Спасибо 🙏"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">E</div>
+                    <div><span class="block font-display uppercase text-sm">Евгения</span><span class="text-xs text-gray-500 font-mono">INSTAGRAM</span></div>
+                </div>
+            </div>
+            <div class="p-10 flex flex-col justify-between h-full bg-white cursor-hover">
+                <div class="mb-6 text-2xl text-black">★★★★★</div>
+                <p class="font-light text-lg mb-8 leading-relaxed">"Я в восторге, Катя! Ресницы нравятся... Подкручены, более яркие, глаза будто больше стали) Спасибо тебе большое... было супер комфортно на процедуре 🥺🫶"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">K</div>
+                    <div><span class="block font-display uppercase text-sm">Карина</span><span class="text-xs text-gray-500 font-mono">WHATSAPP</span></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <script>
-    // Portfolio Lightbox
-    (() => {
-      const thumbs = Array.from(document.querySelectorAll("#gallery-grid img"));
-      const sources = thumbs.map(el => el.src);
-      const lightbox = document.getElementById("lightbox");
-      const img = document.getElementById("lb-image");
-      const btnClose = document.getElementById("lb-close");
-      const btnPrev = document.getElementById("lb-prev");
-      const btnNext = document.getElementById("lb-next");
-      
-      let current = 0;
-      
-      function show(i) {
-        current = (i % sources.length + sources.length) % sources.length;
-        img.src = sources[current];
-      }
-      
-      function open(i) {
-        document.documentElement.style.overflow = "hidden";
-        lightbox.classList.remove("hidden");
-        lightbox.classList.add("flex");
-        show(i);
-      }
-      
-      function close() {
-        lightbox.classList.add("hidden");
-        lightbox.classList.remove("flex");
-        document.documentElement.style.overflow = "";
-      }
-      
-      document.querySelectorAll("#gallery-grid button").forEach((btn, i) => {
-        btn.addEventListener("click", () => open(i));
-      });
-      
-      btnClose.addEventListener("click", close);
-      btnPrev.addEventListener("click", () => show(current - 1));
-      btnNext.addEventListener("click", () => show(current + 1));
-      
-      lightbox.addEventListener("click", (e) => {
-        if (!e.target.closest("#lb-card") && !e.target.closest("button")) close();
-      });
-      
-      window.addEventListener("keydown", (e) => {
-        if (lightbox.classList.contains("hidden")) return;
-        if (e.key === "Escape") close();
-        if (e.key === "ArrowRight") show(current + 1);
-        if (e.key === "ArrowLeft") show(current - 1);
-      });
-    })();
+    <section id="faq" class="py-24 px-6 bg-offwhite">
+        <div class="max-w-[1000px] mx-auto">
+            <h2 class="reveal-on-scroll font-display text-5xl uppercase mb-16 text-center">Частые Вопросы</h2>
+            <div class="border-t border-black">
+                <div class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="py-6 flex justify-between items-center cursor-hover">
+                        <h3 class="font-display text-xl uppercase">Сколько держится результат?</h3>
+                        <span class="faq-icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="pb-6 font-light text-gray-600 leading-relaxed">
+                            Ламинирование ресниц и бровей сохраняет эффект от 1.5 до 2.5 месяцев, в зависимости от скорости обновления ваших натуральных волосков. Мы используем премиальные составы, которые продлевают стойкость завитка и цвета.
+                        </p>
+                    </div>
+                </div>
+                 <div class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="py-6 flex justify-between items-center cursor-hover">
+                        <h3 class="font-display text-xl uppercase">Как подготовиться к процедуре?</h3>
+                        <span class="faq-icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="pb-6 font-light text-gray-600 leading-relaxed">
+                            Особой подготовки не требуется. Рекомендуется приходить на процедуру без макияжа глаз и бровей. Если вы носите контактные линзы, их нужно будет снять перед процедурой ламинирования ресниц.
+                        </p>
+                    </div>
+                </div>
+                 <div class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="py-6 flex justify-between items-center cursor-hover">
+                        <h3 class="font-display text-xl uppercase">Можно ли красить ресницы тушью после ламинирования?</h3>
+                        <span class="faq-icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="pb-6 font-light text-gray-600 leading-relaxed">
+                            Да, конечно! Первые 24 часа после процедуры нельзя мочить ресницы, а после этого вы можете пользоваться тушью, умываться и вести привычный образ жизни. Ламинирование создает идеальную базу для макияжа.
+                        </p>
+                    </div>
+                </div>
+                 <div class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="py-6 flex justify-between items-center cursor-hover">
+                        <h3 class="font-display text-xl uppercase">Это безопасно для своих ресниц и бровей?</h3>
+                        <span class="faq-icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="pb-6 font-light text-gray-600 leading-relaxed">
+                            Абсолютно. Мы работаем на сертифицированных материалах, которые не только создают визуальный эффект, но и ухаживают за волосками, наполняя их кератином и витаминами. Процедура не портит свои ресницы при правильном выполнении.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Reviews Lightbox
-    (() => {
-      const reviewSources = [
-        'https://i.ibb.co/twcrwQJp/os1.jpg',
-        'https://i.ibb.co/kgPLc5Vb/os2.jpg',
-        'https://i.ibb.co/Z6PT0k1L/os4.jpg',
-        'https://i.ibb.co/MDPN4Vf3/os6.jpg'
-      ];
-      
-      const lightbox = document.getElementById("reviews-lightbox");
-      const img = document.getElementById("reviews-image");
-      const btnClose = document.getElementById("reviews-close");
-      const btnPrev = document.getElementById("reviews-prev");
-      const btnNext = document.getElementById("reviews-next");
-      
-      let current = 0;
-      
-      function show(i) {
-        current = (i % reviewSources.length + reviewSources.length) % reviewSources.length;
-        img.src = reviewSources[current];
-      }
-      
-      function open(i) {
-        document.documentElement.style.overflow = "hidden";
-        lightbox.classList.remove("hidden");
-        lightbox.classList.add("flex");
-        show(i);
-      }
-      
-      function close() {
-        lightbox.classList.add("hidden");
-        lightbox.classList.remove("flex");
-        document.documentElement.style.overflow = "";
-      }
-      
-      document.querySelectorAll("#reviews-gallery > div").forEach((div, i) => {
-        div.addEventListener("click", () => open(i));
-      });
-      
-      btnClose.addEventListener("click", close);
-      btnPrev.addEventListener("click", () => show(current - 1));
-      btnNext.addEventListener("click", () => show(current + 1));
-      
-      lightbox.addEventListener("click", (e) => {
-        if (!e.target.closest("#reviews-card") && !e.target.closest("button")) close();
-      });
-      
-      window.addEventListener("keydown", (e) => {
-        if (lightbox.classList.contains("hidden")) return;
-        if (e.key === "Escape") close();
-        if (e.key === "ArrowRight") show(current + 1);
-        if (e.key === "ArrowLeft") show(current - 1);
-      });
-    })();
+    <footer id="contact" class="bg-black text-white pt-20 pb-10 px-6">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-gray-800 pb-20">
+            <div>
+                <h2 class="font-display text-5xl md:text-7xl uppercase mb-6 leading-none">Готовы к<br>переменам?</h2>
+                <a href="https://api.whatsapp.com/send/?phone=79637329466" class="cursor-hover inline-block border border-white px-8 py-4 text-xl font-display uppercase hover:bg-white hover:text-black transition">
+                    Записаться в WhatsApp
+                </a>
+            </div>
+            <div class="flex flex-col justify-end items-start md:items-end">
+                <div class="text-right space-y-2 font-mono text-gray-400">
+                    <p>Москва</p>
+                    <p><a href="tel:+79637329466" class="hover:text-white transition cursor-hover">+7 963 732 94 66</a></p>
+                </div>
+                <div class="flex gap-4 mt-8">
+                    <a href="https://t.me/ostinkosmo" class="cursor-hover text-sm border border-gray-700 px-4 py-2 hover:border-white transition">TELEGRAM</a>
+                    <a href="https://api.whatsapp.com/send/?phone=79637329466" class="cursor-hover text-sm border border-gray-700 px-4 py-2 hover:border-white transition">WHATSAPP</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1600px] mx-auto mt-10 flex justify-between text-xs font-mono text-gray-600 uppercase">
+            <span>© 2026 OSTIN KOSMO</span>
+        </div>
+    </footer>
 
-    // Initialize
-    window.addEventListener('DOMContentLoaded', () => {
-      if (window.lucide && lucide.createIcons) {
-        lucide.createIcons();
-      }
-      document.getElementById('year').textContent = new Date().getFullYear();
-    });
-  </script>
+    <script>
+        // Init GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Text Reveal Animation
+        const revealElements = document.querySelectorAll(".reveal-text");
+        revealElements.forEach(element => {
+            setTimeout(() => {
+                element.classList.add("active");
+            }, 100);
+        });
+
+        // 2. Scroll Trigger for other elements
+        gsap.utils.toArray('.reveal-on-scroll').forEach(element => {
+            gsap.fromTo(element, 
+                { y: 50, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 1, ease: "power3.out",
+                    scrollTrigger: { trigger: element, start: "top 80%" }
+                }
+            );
+        });
+
+        // 3. Header Contacts Animation
+        const headerContacts = document.getElementById('header-contacts');
+        const heroButtons = document.getElementById('hero-buttons');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    headerContacts.classList.add('contacts-visible');
+                } else {
+                    headerContacts.classList.remove('contacts-visible');
+                }
+            });
+        }, { threshold: 0, rootMargin: "-20px 0px 0px 0px" });
+
+        if (heroButtons) observer.observe(heroButtons);
+
+        // 4. Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const burger1 = document.getElementById('burger-1');
+        const burger2 = document.getElementById('burger-2');
+        let isMenuOpen = false;
+
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('open');
+                burger1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                burger2.style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                mobileMenu.classList.remove('open');
+                burger1.style.transform = 'none';
+                burger2.style.transform = 'none';
+            }
+        }
+
+        // 5. Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('lightbox-close');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.remove('hidden');
+                setTimeout(() => {
+                    lightbox.classList.remove('opacity-0');
+                    lightboxImg.classList.remove('scale-95');
+                    lightboxImg.classList.add('scale-100');
+                }, 10);
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
+            }, 500);
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        // 6. FAQ
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-icon').textContent = '+';
+            });
+            if (!isActive) {
+                element.classList.add('active');
+                element.querySelector('.faq-icon').textContent = '−';
+            }
+        }
+
+        // 7. Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const hoverElements = document.querySelectorAll('.cursor-hover, a, button, .portfolio-item, .faq-item, .group');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+    </script>
 </body>
 </html>
