@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSTIN KOSMO | Москва</title>
+    <title>OSTIN KOSMO | Перманентный макияж Москва</title>
     
     <script type="text/javascript">
        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -26,6 +26,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -78,28 +81,39 @@
         .portfolio-img { transition: transform 0.8s ease; }
         .portfolio-item:hover .portfolio-img { transform: scale(1.05); }
         .big-type { line-height: 1.0; letter-spacing: 0.02em; } 
+        
+        /* Reveal Animation Class */
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-text.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
         /* Marquee */
         .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
         .marquee-content { display: flex; animation: scroll 20s linear infinite; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
+        /* Header Animation */
+        .contacts-visible { opacity: 1 !important; transform: translateY(0) !important; pointer-events: auto !important; }
+
+        /* Mobile Menu */
+        #mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); }
+        #mobile-menu.open { transform: translateX(0); }
+
         /* FAQ Accordion Transitions */
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
         .faq-item.active .faq-answer { max-height: 300px; transition: max-height 0.5s ease-in-out; }
         .faq-icon { transition: transform 0.3s; }
         .faq-item.active .faq-icon { transform: rotate(45deg); }
-        
-        /* HEADER ANIMATION CLASS */
-        .contacts-visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-            pointer-events: auto !important;
-        }
     </style>
 
     <script>
-        // Функция для удобной отправки целей
         function reachGoal(target) {
             if (typeof ym !== 'undefined') {
                 ym(103653225, 'reachGoal', target);
@@ -118,6 +132,19 @@
         <img id="lightbox-img" src="" class="max-h-[90vh] max-w-[90vw] object-contain shadow-2xl transform scale-95 transition-transform duration-500">
     </div>
 
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col justify-center items-center p-6 md:hidden">
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="#portfolio" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">Работы</a>
+            <a href="#services" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">Прайс</a>
+            <a href="#reviews" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">Отзывы</a>
+            <a href="#faq" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">FAQ</a>
+        </nav>
+        <div class="mt-12 flex flex-col gap-4 text-center">
+            <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="btn border border-black px-8 py-3 uppercase font-display">WhatsApp Запись</a>
+            <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="font-mono text-gray-500">+7 963 732 94 66</a>
+        </div>
+    </div>
+
     <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-all duration-300" id="main-header">
         <div class="max-w-[1600px] mx-auto flex justify-between items-center px-6 py-4 relative">
             <div class="flex items-center">
@@ -127,46 +154,48 @@
                     <a href="#portfolio" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Работы</a>
                     <a href="#services" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Прайс</a>
                     <a href="#reviews" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Отзывы</a>
-                    <a href="#faq" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">FAQ</a>
                     <a href="#contact" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Контакты</a>
                 </nav>
             </div>
 
             <div id="header-contacts" class="hidden md:flex items-center gap-6 opacity-0 -translate-y-4 pointer-events-none transition-all duration-500 ease-out">
                  <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">WhatsApp</a>
-                 <a href="https://t.me/ostinkosmo" onclick="reachGoal('napishite_telegram')" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">Telegram</a>
                  <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="text-sm font-mono hover:text-gray-500 transition cursor-hover">+7 963 732 94 66</a>
             </div>
+
+            <button class="md:hidden z-[70] flex flex-col gap-1.5 cursor-pointer" onclick="toggleMobileMenu()">
+                <span class="block w-6 h-0.5 bg-black transition-transform" id="burger-1"></span>
+                <span class="block w-6 h-0.5 bg-black transition-transform" id="burger-2"></span>
+            </button>
         </div>
     </header>
 
     <section class="min-h-screen flex items-start pt-32 lg:pt-40 px-6 max-w-[1600px] mx-auto" id="hero-section">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center pb-12">
             <div class="lg:col-span-7 flex flex-col justify-center">
-                <p class="text-sm font-mono text-gray-500 mb-6 tracking-widest">Основано 2021 // Москва</p>
-                <h1 class="font-display font-bold text-[10vw] lg:text-[5.5rem] uppercase big-type mb-8 text-black">
-                    Искусство <br>совершенных <br>бровей и ресниц
+                <p class="reveal-text text-sm font-mono text-gray-500 mb-6 tracking-widest">Основано 2021 // Москва</p>
+                <h1 class="font-display font-bold text-[10vw] lg:text-[5.5rem] uppercase big-type mb-8 text-black leading-none">
+                    <div class="overflow-hidden"><span class="reveal-text block">Искусство</span></div>
+                    <div class="overflow-hidden"><span class="reveal-text block" style="transition-delay: 0.1s">совершенных</span></div>
+                    <div class="overflow-hidden"><span class="reveal-text block" style="transition-delay: 0.2s">бровей и ресниц</span></div>
                 </h1>
-                <p class="max-w-lg text-xl text-black font-normal leading-relaxed mb-10">
+                <p class="reveal-text max-w-lg text-xl text-black font-normal leading-relaxed mb-10" style="transition-delay: 0.3s">
                     В эпоху фильтров мы выбираем честность. Наша работа выглядит безупречно даже с расстояния 5 сантиметров.
                 </p>
                 
-                <div id="hero-buttons" class="flex flex-col sm:flex-row gap-4 items-start sm:items-center transition-all duration-500 origin-top">
+                <div id="hero-buttons" class="reveal-text flex flex-col sm:flex-row gap-4 items-start sm:items-center transition-all duration-500 origin-top" style="transition-delay: 0.4s">
                     <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" target="_blank" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
                        WhatsApp / Запись
                     </a>
                     <a href="https://t.me/ostinkosmo" onclick="reachGoal('napishite_telegram')" target="_blank" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
                        Telegram
                     </a>
-                    <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="cursor-hover font-mono text-sm text-gray-500 hover:text-black transition ml-0 sm:ml-4 border-b border-transparent hover:border-black pb-1">
-                        +7 963 732 94 66
-                    </a>
                 </div>
             </div>
             
-            <div class="lg:col-span-5 relative h-[50vh] lg:h-[70vh] w-full overflow-hidden border border-gray-200 group cursor-hover">
+            <div class="lg:col-span-5 relative h-[50vh] lg:h-[70vh] w-full overflow-hidden border border-gray-200 group cursor-hover reveal-text" style="transition-delay: 0.5s">
                 <video autoplay loop muted playsinline class="w-full h-full object-cover hover-bw-effect" poster="https://images.unsplash.com/photo-1609495768565-669527e57c8d?q=80&w=1000&auto=format&fit=crop">
-                    <source src="https://github.com/imaksakovads/browlink-site/raw/main/video_2025-10-19_21-46-28.mp4" type="video/mp4">
+                    <source src="video_2025-10-19_21-46-28.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -174,19 +203,19 @@
 
     <div class="border-y border-gray-200 py-6 bg-black text-white marquee-container">
         <div class="marquee-content gap-10 font-display text-2xl uppercase tracking-wider items-center">
-            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
-            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
-            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • МАКРОДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • МАКРОДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • МАКРОДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
         </div>
     </div>
 
     <section id="portfolio" class="max-w-[1600px] mx-auto border-x border-gray-200">
         <div class="p-6 md:p-12 border-b border-gray-200 flex justify-between items-end">
-            <h2 class="font-display text-5xl uppercase leading-none">Избранные<br>Кейсы</h2>
+            <h2 class="reveal-on-scroll font-display text-5xl uppercase leading-none">Избранные<br>Кейсы</h2>
             <span class="hidden md:block font-mono text-gray-500">ГАЛЕРЕЯ РАБОТ 2025-2026</span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+             <div class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
                 <img src="https://i.postimg.cc/QtDtLm6Y/photo-2025-08-09-17-37-33.jpg" class="portfolio-img w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
                     <span class="font-display text-2xl uppercase mb-2">Первое ламинирование</span>
@@ -240,7 +269,7 @@
     <section id="services" class="py-24 px-6 bg-offwhite">
         <div class="max-w-[1600px] mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <h2 class="font-display text-6xl uppercase">Меню</h2>
+                <h2 class="reveal-on-scroll font-display text-6xl uppercase">Меню</h2>
                 <span class="font-mono text-gray-500 mt-4 md:mt-0">ПРАЙС-ЛИСТ 2026</span>
             </div>
             
@@ -308,7 +337,7 @@
                     <div class="flex items-center gap-4 text-sm font-mono text-gray-400"><span>// ЯНВАРЬ</span><span>// ПРЕДЗАПИСЬ</span></div>
                 </div>
                 <div class="mt-8 md:mt-0 text-center md:text-right z-10">
-                    <span class="block font-display text-4xl md:text-6xl mb-2">от 10 000₽</span>
+                    <span class="block font-display text-4xl md:text-6xl mb-2">от 8 000₽</span>
                     <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4">Забронировать место</a>
                 </div>
             </div>
@@ -317,7 +346,7 @@
 
     <section id="reviews" class="py-24 px-6 max-w-[1600px] mx-auto border-x border-gray-200">
         <div class="p-6 md:p-12 border-b border-gray-200 flex justify-between items-end">
-            <h2 class="font-display text-5xl uppercase leading-none">Отзывы<br>Клиентов</h2>
+            <h2 class="reveal-on-scroll font-display text-5xl uppercase leading-none">Отзывы<br>Клиентов</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 border-t border-gray-200">
             <div class="p-10 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col justify-between h-full bg-white cursor-hover">
@@ -511,18 +540,52 @@
         // --- 5. SCROLL TO END METRIKA GOAL ---
         const footer = document.querySelector('footer');
         let scrollGoalReached = false;
-        
         const footerObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !scrollGoalReached) {
                     reachGoal('scroll_to_end');
-                    scrollGoalReached = true; 
+                    scrollGoalReached = true;
                 }
             });
-        }, { threshold: 0.1 }); 
-        
+        }, { threshold: 0.1 });
         if (footer) footerObserver.observe(footer);
         
+        // --- 6. GSAP ANIMATIONS ---
+        gsap.registerPlugin(ScrollTrigger);
+        
+        const revealElements = document.querySelectorAll(".reveal-text");
+        revealElements.forEach(element => {
+            setTimeout(() => { element.classList.add("active"); }, 100);
+        });
+
+        gsap.utils.toArray('.reveal-on-scroll').forEach(element => {
+            gsap.fromTo(element, 
+                { y: 50, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 1, ease: "power3.out",
+                    scrollTrigger: { trigger: element, start: "top 80%" }
+                }
+            );
+        });
+
+        // --- 7. MOBILE MENU TOGGLE ---
+        const mobileMenu = document.getElementById('mobile-menu');
+        const burger1 = document.getElementById('burger-1');
+        const burger2 = document.getElementById('burger-2');
+        let isMenuOpen = false;
+
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('open');
+                burger1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                burger2.style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                mobileMenu.classList.remove('open');
+                burger1.style.transform = 'none';
+                burger2.style.transform = 'none';
+            }
+        }
     </script>
 </body>
 </html>
