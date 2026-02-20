@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -58,14 +57,12 @@
         
         html { scroll-behavior: smooth; }
 
-        /* Noise Texture */
         .noise-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAA5OTk5OTk5OTk5OTk5OTk5OTk5OTlYwNl2AAAACHRSTlMzAJmZzMxmZswk/CwAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAA6SURBVDjLY2AYxOD/BwIx4P8HAjFg/wcCMWD/BwIx4P8HAjFg/wcCMWD/BwIx4P8HAjFg/wcCMQAAgf4BGT6H3M8AAAAASUVORK5CYII=');
             opacity: 0.03; pointer-events: none; z-index: 9999;
         }
 
-        /* --- CUSTOM CURSOR --- */
         .custom-cursor {
             position: fixed; top: 0; left: 0; width: 15px; height: 15px;
             border: 1px solid #000; border-radius: 50%; pointer-events: none; z-index: 10000;
@@ -75,14 +72,12 @@
         .custom-cursor.hovered { width: 50px; height: 50px; background-color: rgba(255, 255, 255, 0.2); border-color: transparent; }
         @media (min-width: 1024px) { .custom-cursor { display: block; } }
 
-        /* Effects */
         .hover-bw-effect { filter: grayscale(0%); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .hover-bw-effect:hover { filter: grayscale(100%); }
         .portfolio-img { transition: transform 0.8s ease; }
         .portfolio-item:hover .portfolio-img { transform: scale(1.05); }
         .big-type { line-height: 1.0; letter-spacing: 0.02em; } 
         
-        /* Reveal Animation Class */
         .reveal-text {
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
             transform: translateY(30px);
@@ -94,23 +89,23 @@
             opacity: 1;
         }
 
-        /* Marquee */
         .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
         .marquee-content { display: flex; animation: scroll 20s linear infinite; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* Header Animation */
         .contacts-visible { opacity: 1 !important; transform: translateY(0) !important; pointer-events: auto !important; }
 
-        /* Mobile Menu */
         #mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); }
         #mobile-menu.open { transform: translateX(0); }
 
-        /* FAQ Accordion Transitions */
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
         .faq-item.active .faq-answer { max-height: 300px; transition: max-height 0.5s ease-in-out; }
         .faq-icon { transition: transform 0.3s; }
         .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        /* Map Style */
+        .map-container { filter: grayscale(1) invert(0.9) contrast(1.2); transition: filter 0.5s; border-top: 1px solid #e5e7eb; }
+        .map-container:hover { filter: grayscale(0.2) invert(0) contrast(1); }
     </style>
 
     <script>
@@ -140,7 +135,7 @@
             <a href="#faq" class="font-display text-3xl uppercase" onclick="toggleMobileMenu()">FAQ</a>
         </nav>
         <div class="mt-12 flex flex-col gap-4 text-center">
-            <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="btn border border-black px-8 py-3 uppercase font-display">WhatsApp Запись</a>
+            <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="btn border border-black px-8 py-3 uppercase font-display">Telegram Запись</a>
             <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="font-mono text-gray-500">+7 963 732 94 66</a>
         </div>
     </div>
@@ -159,7 +154,7 @@
             </div>
 
             <div id="header-contacts" class="hidden md:flex items-center gap-6 opacity-0 -translate-y-4 pointer-events-none transition-all duration-500 ease-out">
-                 <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">WhatsApp</a>
+                 <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" class="text-sm font-display uppercase tracking-widest hover:text-gray-500 transition cursor-hover border-b border-black">Telegram</a>
                  <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="text-sm font-mono hover:text-gray-500 transition cursor-hover">+7 963 732 94 66</a>
             </div>
 
@@ -184,11 +179,11 @@
                 </p>
                 
                 <div id="hero-buttons" class="reveal-text flex flex-col sm:flex-row gap-4 items-start sm:items-center transition-all duration-500 origin-top" style="transition-delay: 0.4s">
-                    <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" target="_blank" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
-                       WhatsApp / Запись
+                    <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
+                       Telegram / Запись
                     </a>
                     <a href="https://t.me/ostinkosmo" onclick="reachGoal('napishite_telegram')" target="_blank" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
-                       Telegram
+                       Канал
                     </a>
                 </div>
             </div>
@@ -274,57 +269,71 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-1 bg-gray-200 border border-gray-200 mb-1">
-                <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover block">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="font-display text-2xl md:text-3xl uppercase">Оформление бровей</h3>
                             <div class="text-right"><span class="block font-display text-2xl md:text-3xl whitespace-nowrap">1 800₽</span><span class="text-xs font-mono opacity-60">35 минут</span></div>
                         </div>
                         <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Окрашивание + коррекция</p>
-                        <p class="font-light text-sm opacity-80 max-w-sm">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
+                        <p class="font-light text-sm opacity-80 max-w-sm text-black group-hover:text-white">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
-                        <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                        <span class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Записаться →</span>
                     </div>
-                </div>
-                <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
+                </a>
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover block">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="font-display text-2xl md:text-3xl uppercase">Ламинирование бровей</h3>
                             <div class="text-right"><span class="block font-display text-2xl md:text-3xl whitespace-nowrap">2 200₽</span><span class="text-xs font-mono opacity-60">45 минут</span></div>
                         </div>
                         <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Долговременная укладка</p>
-                        <p class="font-light text-sm opacity-80 max-w-sm">Фиксация формы, питание и восстановление. Брови выглядят ухоженными.</p>
+                        <p class="font-light text-sm opacity-80 max-w-sm text-black group-hover:text-white">Фиксация формы, питание и восстановление. Брови выглядят ухоженными.</p>
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
-                        <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                        <span class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Записаться →</span>
                     </div>
-                </div>
-                <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
+                </a>
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover block">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="font-display text-2xl md:text-3xl uppercase">Ламинирование ресниц</h3>
                             <div class="text-right"><span class="block font-display text-2xl md:text-3xl whitespace-nowrap">2 700₽</span><span class="text-xs font-mono opacity-60">35 минут</span></div>
                         </div>
                         <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Изгиб + окрашивание</p>
-                        <p class="font-light text-sm opacity-80 max-w-sm">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
+                        <p class="font-light text-sm opacity-80 max-w-sm text-black group-hover:text-white">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
-                        <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                        <span class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Записаться →</span>
                     </div>
-                </div>
-                <div class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover">
+                </a>
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative cursor-hover block">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="font-display text-2xl md:text-3xl uppercase">Коррекция бровей</h3>
                             <div class="text-right"><span class="block font-display text-2xl md:text-3xl whitespace-nowrap">1 500₽</span><span class="text-xs font-mono opacity-60">20 минут</span></div>
                         </div>
                         <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Пинцет или воск</p>
-                        <p class="font-light text-sm opacity-80 max-w-sm">Поддержание формы между основными процедурами.</p>
+                        <p class="font-light text-sm opacity-80 max-w-sm text-black group-hover:text-white">Поддержание формы между основными процедурами.</p>
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800">
-                        <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-flex items-center uppercase font-display tracking-widest text-sm hover:translate-x-2 transition-transform">Записаться →</a>
+                        <span class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Записаться →</span>
                     </div>
+                </a>
+            </div>
+
+            <div class="bg-white text-black p-8 md:p-12 border border-gray-200 flex flex-col md:flex-row justify-between items-center md:items-start relative overflow-hidden group cursor-hover mb-1 mt-1">
+                <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-5 transition duration-700"></div>
+                <div class="max-w-xl z-10">
+                    <span class="inline-block border border-black px-3 py-1 text-xs font-mono uppercase tracking-widest mb-6">Subscription 2026</span>
+                    <h3 class="font-display text-3xl md:text-5xl uppercase mb-4 leading-tight">Годовой<br>Бьюти Клуб</h3>
+                    <p class="font-light text-gray-700 text-sm md:text-base leading-relaxed mb-4">6 процедур ламинирования ресниц с окрашиванием и уходовым комплексом + окрашивание бровей с коррекцией.</p>
+                    <p class="font-mono text-[10px] text-gray-400 uppercase leading-tight italic max-w-xs">(количество посещений рассчитано на год с рекомендуемым интервалом между процедурами)</p>
+                </div>
+                <div class="mt-8 md:mt-0 text-center md:text-right z-10">
+                    <span class="block font-display text-4xl md:text-6xl mb-2 whitespace-nowrap">13 500₽</span>
+                    <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="inline-block bg-black text-white px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-800 transition mt-4">Вступить в клуб</a>
                 </div>
             </div>
 
@@ -338,7 +347,7 @@
                 </div>
                 <div class="mt-8 md:mt-0 text-center md:text-right z-10">
                     <span class="block font-display text-4xl md:text-6xl mb-2 whitespace-nowrap">от 10 000₽</span>
-                    <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4">Забронировать место</a>
+                    <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4">Забронировать место</a>
                 </div>
             </div>
         </div>
@@ -404,17 +413,6 @@
                 </div>
                 <div class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
                     <div class="py-6 flex justify-between items-center cursor-hover">
-                        <h3 class="font-display text-xl uppercase">Можно ли красить ресницы тушью после ламинирования?</h3>
-                        <span class="faq-icon text-2xl">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="pb-6 font-light text-gray-600 leading-relaxed">
-                            Да, конечно! Первые 24 часа после процедуры нельзя мочить ресницы, а после этого вы можете пользоваться тушью, умываться и вести привычный образ жизни. Ламинирование создает идеальную базу для макияжа.
-                        </p>
-                    </div>
-                </div>
-                <div class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-xl uppercase">Это безопасно для своих ресниц и бровей?</h3>
                         <span class="faq-icon text-2xl">+</span>
                     </div>
@@ -428,22 +426,28 @@
         </div>
     </section>
 
+    <section class="w-full">
+        <div class="map-container h-[500px] w-full grayscale contrast-125">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e8d195727e025f19003889600a12e2e779a9578276f7b9f36e4b868e83344d&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
+        </div>
+    </section>
+
     <footer id="contact" class="bg-black text-white pt-20 pb-10 px-6">
         <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-gray-800 pb-20">
             <div>
                 <h2 class="font-display text-5xl md:text-7xl uppercase mb-6 leading-none">Готовы к<br>переменам?</h2>
-                <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="cursor-hover inline-block border border-white px-8 py-4 text-xl font-display uppercase hover:bg-white hover:text-black transition">
-                    Записаться в WhatsApp
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="cursor-hover inline-block border border-white px-8 py-4 text-xl font-display uppercase hover:bg-white hover:text-black transition">
+                    записаться в TELEGRAM
                 </a>
             </div>
             <div class="flex flex-col justify-end items-start md:items-end">
-                <div class="text-right space-y-2 font-mono text-gray-400">
-                    <p>Москва</p>
-                    <p><a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="hover:text-white transition cursor-hover">+7 963 732 94 66</a></p>
-                </div>
-                <div class="flex gap-4 mt-8">
-                    <a href="https://t.me/ostinkosmo" onclick="reachGoal('napishite_telegram')" class="cursor-hover text-sm border border-gray-700 px-4 py-2 hover:border-white transition">TELEGRAM</a>
-                    <a href="https://api.whatsapp.com/send/?phone=79637329466" onclick="reachGoal('zakaz_whatsapp')" class="cursor-hover text-sm border border-gray-700 px-4 py-2 hover:border-white transition">WHATSAPP</a>
+                <div class="text-right space-y-4">
+                    <p class="font-display text-3xl uppercase tracking-wider">Москва</p>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-mono text-sm text-gray-500 uppercase tracking-tighter">Тверская-Ямская улица, 25 ст2</p>
+                        <a href="https://yandex.ru/maps/-/CCU6uXh8wC" target="_blank" class="text-[10px] font-mono text-gray-400 border-b border-gray-700 w-fit ml-auto hover:text-white transition">ОТКРЫТЬ В НАВИГАТОРЕ ↗</a>
+                    </div>
+                    <p><a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="font-display text-3xl hover:text-gray-400 transition cursor-hover">+7 963 732 94 66</a></p>
                 </div>
             </div>
         </div>
@@ -454,7 +458,6 @@
     </footer>
 
     <script>
-        // --- 1. SMART SCROLL OBSERVER ---
         const headerContacts = document.getElementById('header-contacts');
         const heroButtons = document.getElementById('hero-buttons');
 
@@ -466,16 +469,10 @@
                     headerContacts.classList.remove('contacts-visible');
                 }
             });
-        }, {
-            threshold: 0, 
-            rootMargin: "-20px 0px 0px 0px"
-        });
+        }, { threshold: 0, rootMargin: "-20px 0px 0px 0px" });
 
-        if (heroButtons) {
-            observer.observe(heroButtons);
-        }
+        if (heroButtons) observer.observe(heroButtons);
 
-        // --- 2. LIGHTBOX LOGIC ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const closeBtn = document.getElementById('lightbox-close');
@@ -483,9 +480,7 @@
         function openLightbox(element) {
             const img = element.querySelector('img');
             if (img) {
-                // METRIKA EVENT
                 reachGoal('portfolio_open');
-                
                 lightboxImg.src = img.src;
                 lightbox.classList.remove('hidden');
                 setTimeout(() => {
@@ -510,7 +505,6 @@
         lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
         document.addEventListener('keydown', (e) => { if (e.key === "Escape") closeLightbox(); });
 
-        // --- 3. FAQ ACCORDION LOGIC ---
         function toggleFaq(element) {
             const isActive = element.classList.contains('active');
             document.querySelectorAll('.faq-item').forEach(item => {
@@ -523,7 +517,6 @@
             }
         }
 
-        // --- 4. CUSTOM CURSOR LOGIC ---
         const cursor = document.getElementById('cursor');
         const hoverElements = document.querySelectorAll('.cursor-hover, a, button, .portfolio-item, .faq-item, .group');
 
@@ -537,7 +530,6 @@
             el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
         });
         
-        // --- 5. SCROLL TO END METRIKA GOAL ---
         const footer = document.querySelector('footer');
         let scrollGoalReached = false;
         const footerObserver = new IntersectionObserver((entries) => {
@@ -550,7 +542,6 @@
         }, { threshold: 0.1 });
         if (footer) footerObserver.observe(footer);
         
-        // --- 6. GSAP ANIMATIONS ---
         gsap.registerPlugin(ScrollTrigger);
         
         const revealElements = document.querySelectorAll(".reveal-text");
@@ -568,7 +559,6 @@
             );
         });
 
-        // --- 7. MOBILE MENU TOGGLE ---
         const mobileMenu = document.getElementById('mobile-menu');
         const burger1 = document.getElementById('burger-1');
         const burger2 = document.getElementById('burger-2');
