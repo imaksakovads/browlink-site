@@ -979,6 +979,22 @@ renderStep();
       ];
       const currentMonthIndex = new Date().getMonth(); 
       document.getElementById('dynamic-month').textContent = months[currentMonthIndex];
+        // Плавный скролл по якорям без поломки GSAP
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
     </script>
+
 </body>
 </html>
