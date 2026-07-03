@@ -586,6 +586,20 @@
         @media (max-width: 900px) {
             .burger { display: block; }
         }
+            /* --- Нумерованный список протокола --- */
+        .protocol-list { counter-reset: protocol; }
+        .protocol-item { display: flex; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; color: var(--text-main); line-height: 1.5; }
+        .protocol-item:last-child { border-bottom: none; }
+        .protocol-num { font-family: var(--font-title); font-size: 14px; font-weight: 500; color: var(--text-muted); flex-shrink: 0; min-width: 28px; }
+
+        /* --- Сравнительная таблица --- */
+        .compare-table { border-top: 1px solid var(--border-color); }
+        .compare-row { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-color); align-items: flex-start; }
+        .compare-param { font-family: var(--font-title); font-size: 14px; font-weight: 500; text-transform: uppercase; color: var(--text-muted); }
+        .compare-before { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .compare-after { font-size: 13px; color: var(--text-main); line-height: 1.5; }
+        .compare-after::before { content: "✓ "; font-weight: 600; }
+        @media (max-width:600px) { .compare-row { grid-template-columns: 1fr; gap: 4px; } .compare-param { font-size: 12px; } }
     </style>
 </head>
 <body>
@@ -631,11 +645,12 @@
             <div class="hero-info">
                 <h2>Пинцет или воск — поддержание формы за 20 минут</h2>
                 <div class="service-tags">Пинцет/Воск + Поддержание формы</div>
-                <p class="hero-desc">Удаление отросших волосков вокруг контура. Быстрая поддерживающая процедура для тех, у кого уже выстроена архитектура бровей. Комфортный формат для регулярного ухода.</p>
+                <p class="hero-desc">Быстрая коррекция бровей в Москве стоит 1500 рублей и занимает ровно 20 минут. Мастер берет низкотемпературный полимерный воск или пинцет и удаляет отросший пушок строго за пределами контура. Базовая архитектура при этом не затрагивается. Это не создание формы с нуля, а генеральная уборка уже готового каркаса.</p>
+                <p class="hero-desc" style="margin-top:15px;">Многие клиенты путают полноценное оформление с промежуточной поддержкой. Разница колоссальная. Представьте себе процесс. Вы забегаете в салон в обеденный перерыв. В кабинете пахнет тальком и лосьонами. Мастер наносит на кожу прохладную белую brow-пасту, чтобы физически оградить основную форму от случайного захвата. Никакой боли, никакого покраснения, просто быстрый ритуал чистоты контура. Минута — и вы уже смотрите в зеркало на свежий, отдохнувший взгляд.</p>
                 
                 <!-- Блок изображения для Image SEO -->
                 <div class="hero-image-wrapper">
-                    <img src="/images/korrekciya-brovey-do-posle.webp" alt="Коррекция бровей — поддержание формы пинцетом" class="seo-image" width="650" height="365" loading="lazy">
+                    <img src="https://github.com/user-attachments/assets/f82e6fab-e2f8-4e73-9d67-4e3d0ee3ec5f" alt="Коррекция бровей — поддержание формы пинцетом" class="seo-image" width="1024" height="559" loading="lazy">
                 </div>
 
                 <button class="btn-action">Записаться <span>→</span></button>
@@ -646,55 +661,60 @@
             </div>
         </section>
 
-        <!-- Сетка 2 колонки -->
-        <div class="grid-2">
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Что делаем</h2>
-        <ul class="fact-list">
-          <li><strong>Удаляем только лишнее</strong> — волоски за пределами контура, не трогая основную архитектуру.</li>
-          <li><strong>Пинцет или воск</strong> — выбирайте комфортный для вас метод удаления.</li>
-          <li><strong>Тонирование корней</strong> — опционально подкрашиваем отросшие корни, если брови были окрашены ранее.</li>
-        </ul>
-      </div>
-      <a href="#book" class="btn-action">Выбрать мастера <span>→</span></a>
-    </div>
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Почему у нас</h2>
-        <ul class="fact-list">
-          <li><strong>Быстро</strong> — всего 20 минут, удобно в обеденный перерыв.</li>
-          <li><strong>Безопасно</strong> — никаких ожогов, полимерный воск низких температур.</li>
-          <li><strong>Комфортно</strong> — покраснение проходит за 15–30 минут, можно сразу идти по делам.</li>
-        </ul>
-      </div>
-      <a href="/services/aftercare-brows/" class="btn-action">Памятка по уходу <span>→</span></a>
-    </div>
-  </div>
+        <!-- Технический протокол процедуры -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:20px;">Технический протокол процедуры</h2>
+            <div class="protocol-list">
+                <div class="protocol-item"><span class="protocol-num">01</span>Снимаем остатки макияжа и поверхностный себум мягким очищающим средством</div>
+                <div class="protocol-item"><span class="protocol-num">02</span>Наносим защитную пасту по границам существующей архитектуры</div>
+                <div class="protocol-item"><span class="protocol-num">03</span>Разогреваем синтетический воск до рабочей тягучей консистенции</div>
+                <div class="protocol-item"><span class="protocol-num">04</span>Делаем аппликации на зону над бровью, под хвостиком и в межбровье</div>
+                <div class="protocol-item"><span class="protocol-num">05</span>Удаляем пушковый волос резким движением параллельно коже</div>
+                <div class="protocol-item"><span class="protocol-num">06</span>Дорабатываем единичные жесткие пеньки пинцетом для абсолютной чистоты</div>
+                <div class="protocol-item"><span class="protocol-num">07</span>Закрываем процедуру нанесением успокаивающего лосьона</div>
+            </div>
+        </section>
+
+        <!-- Инструменты мастера: Воск против Пинцета -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:20px;">Инструменты мастера: Воск против Пинцета</h2>
+            <div class="tools-table">
+                <div class="tools-row">
+                    <div class="tools-row-name">Полимерный воск</div>
+                    <div class="tools-row-work">Захватывает массив пушкового волоса за один раз. Не сцепляется с эпидермисом</div>
+                    <div class="tools-row-feel">Ощущение мягкого тепла. Легкая гиперемия спадает за 15-30 мин</div>
+                </div>
+                <div class="tools-row">
+                    <div class="tools-row-name">Пинцет</div>
+                    <div class="tools-row-work">Ювелирная работа с единичными толстыми волосками у самой границы контура</div>
+                    <div class="tools-row-feel">Точечное покалывание. Риск обломать волос</div>
+                </div>
+            </div>
+        </section>
 
         <!-- Этапы процедуры -->
         <section class="steps-card">
-      <h2 class="card-title">Как проходит процедура</h2>
+      <h2 class="card-title">Технический протокол процедуры</h2>
       <div class="steps-grid">
         <div class="step-item">
       <div class="step-num">01 / ЭТАП</div>
       <div class="step-title">Очищение</div>
-      <div class="step-desc">Легкое очищение зоны бровей от макияжа и себума.</div>
+      <div class="step-desc">Снимаем остатки макияжа и поверхностный себум мягким очищающим средством</div>
     </div>
                 <div class="step-item">
       <div class="step-num">02 / ЭТАП</div>
-      <div class="step-title">Разметка</div>
-      <div class="step-desc">Уточнение границ формы brow-пастой с учетом естественного роста волосков.</div>
+      <div class="step-title">Нанесение защитной пасты</div>
+      <div class="step-desc">Наносим brow-пасту по границам существующей архитектуры, чтобы исключить случайный захват</div>
     </div>
                 <div class="step-item">
       <div class="step-num">03 / ЭТАП</div>
-      <div class="step-title">Удаление</div>
-      <div class="step-desc">Деликатное удаление отросших волосков воском или пинцетом за пределами контура.</div>
+      <div class="step-title">Разогрев воска</div>
+      <div class="step-desc">Разогреваем синтетический воск до рабочей тягучей консистенции</div>
     </div>
                 <div class="step-item">
       <div class="step-num">04 / ЭТАП</div>
-      <div class="step-title">Уход</div>
-      <div class="step-desc">Нанесение успокаивающего лосьона для снятия покраснения и увлажнения кожи.</div>
+      <div class="step-title">Аппликации</div>
+      <div class="step-desc">Делаем аппликации на зону над бровью, под хвостиком и в межбровье</div>
     </div>
       </div>
     </section>
@@ -705,14 +725,26 @@
       <div class="faq-list">
         <div class="faq-item">
       <details>
-        <summary>Как часто нужно делать коррекцию?</summary>
-        <div class="faq-answer">Оптимально раз в 2–3 недели в зависимости от скорости роста волосков. Некоторые клиентки приходят раз в месяц — мастер подберет индивидуальный график.</div>
+        <summary>Как часто нужно приходить на такую коррекцию?</summary>
+        <div class="faq-answer">Оптимально раз в 2–3 недели в зависимости от скорости роста волосков. Некоторые клиентки приходят раз в месяц — мастер подберёт индивидуальный график.</div>
       </details>
     </div>
                 <div class="faq-item">
       <details>
-        <summary>Можно ли прийти на коррекцию без формы?</summary>
-        <div class="faq-answer">Нет, коррекция поддерживает уже готовую архитектуру. Если форма полностью утеряна или вы хотите изменить ее — записывайтесь на полноценное оформление бровей от 1 800₽ с построением формы.</div>
+        <summary>Можно ли прийти на эту процедуру, если брови давно не оформляли?</summary>
+        <div class="faq-answer">Нет, коррекция поддерживает уже готовую архитектуру. Если форма полностью утеряна или вы хотите изменить её — записывайтесь на полноценное оформление бровей от 1 800₽ с построением формы.</div>
+      </details>
+    </div>
+                <div class="faq-item">
+      <details>
+        <summary>Входит ли сюда окрашивание?</summary>
+        <div class="faq-answer">Классическая коррекция — это только удаление лишних волосков. Окрашивание в неё не входит. Мы можем опционально тонировать отросшие корни тем же пигментом, который использовали при оформлении, но в базовую стоимость это не включено.</div>
+      </details>
+    </div>
+                <div class="faq-item">
+      <details>
+        <summary>Почему кожа все равно краснеет, если воск не травмирует ее?</summary>
+        <div class="faq-answer">Покраснение — это не ожог, а реакция капилляров на рывок. Даже самый щадящий воск выдёргивает волос с корнем, и микро-капилляры расширяются. Это абсолютно нормально и проходит за 15–30 минут. Успокаивающий лосьон ускоряет процесс.</div>
       </details>
     </div>
       </div>

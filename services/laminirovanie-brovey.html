@@ -586,6 +586,20 @@
         @media (max-width: 900px) {
             .burger { display: block; }
         }
+            /* --- Сравнительная таблица --- */
+        .compare-table { border-top: 1px solid var(--border-color); }
+        .compare-row { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-color); align-items: flex-start; }
+        .compare-param { font-family: var(--font-title); font-size: 14px; font-weight: 500; text-transform: uppercase; color: var(--text-muted); }
+        .compare-before { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .compare-after { font-size: 13px; color: var(--text-main); line-height: 1.5; }
+        .compare-after::before { content: "✓ "; font-weight: 600; }
+        @media (max-width:600px) { .compare-row { grid-template-columns: 1fr; gap: 4px; } .compare-param { font-size: 12px; } }
+
+        /* --- Нумерованный список протокола --- */
+        .protocol-list { counter-reset: protocol; }
+        .protocol-item { display: flex; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; color: var(--text-main); line-height: 1.5; }
+        .protocol-item:last-child { border-bottom: none; }
+        .protocol-num { font-family: var(--font-title); font-size: 14px; font-weight: 500; color: var(--text-muted); flex-shrink: 0; min-width: 28px; }
     </style>
 </head>
 <body>
@@ -631,11 +645,12 @@
             <div class="hero-info">
                 <h2>Трендовый объем, коррекция и ботокс-уход за 45 минут</h2>
                 <div class="service-tags">Укрепление + Объем + Коррекция + Кератиновый ботокс</div>
-                <p class="hero-desc">Укрощение жестких и асимметричных бровей. Волоски становятся мягкими, укладка сухой щеточкой без геля. Включает коррекцию формы + окрашивание + ботокс-уход в одной процедуре.</p>
+                <p class="hero-desc">Ламинирование бровей с базовой коррекцией и коллагеновым уходом стоит 2200 рублей и занимает ровно 45 минут. За один визит вы получаете полное изменение текстуры волоса. Процедура делает жесткие волоски пластичными на 6 недель, визуально расширяет бровь в 1,5 раза и позволяет обходиться без фиксирующих гелей.</p>
+                <p class="hero-desc" style="margin-top:15px;">Ко мне часто садятся в кресло девушки с густыми, растущими вниз бровями. Они годами пытаются приклеить их ко лбу бетонными гелями. Гель высыхает, стягивает кожу белой пленкой, а через пару часов волоски все равно отстреливают обратно. Проблема в том, что косметика работает только на поверхности. Чтобы усмирить упрямый вихор, нужно лезть в химию волоса. Мы не просто причесываем брови. Мы временно разрушаем и собираем заново их внутренний каркас.</p>
                 
                 <!-- Блок изображения для Image SEO -->
                 <div class="hero-image-wrapper">
-                    <img src="/images/laminirovanie-brovey-do-posle.webp" alt="Ламинирование бровей до и после — объемная форма и послушные волоски" class="seo-image" width="650" height="365" loading="lazy">
+                    <img src="https://github.com/user-attachments/assets/0de0f77b-700d-41c3-9251-e9a6a0fe9d74" alt="Ламинирование бровей до и после — объемная форма и послушные волоски" class="seo-image" width="1024" height="559" loading="lazy">
                 </div>
 
                 <button class="btn-action">Записаться <span>→</span></button>
@@ -646,55 +661,92 @@
             </div>
         </section>
 
-        <!-- Сетка 2 колонки -->
-        <div class="grid-2">
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Эффект и объем</h2>
-        <ul class="fact-list">
-          <li><strong>Укрощение вихров</strong> — непослушные и кудрявые волоски становятся гладкими и послушными.</li>
-          <li><strong>Визуальное расширение</strong> — за счет зачеса бровь выглядит шире в 1,5 раза, взгляд открывается.</li>
-          <li><strong>Укладка без геля</strong> — после ламинирования достаточно сухой щеточки, форма держится сама.</li>
-        </ul>
-      </div>
-      <a href="#book" class="btn-action">Выбрать мастера <span>→</span></a>
-    </div>
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Безопасность и уход</h2>
-        <ul class="fact-list">
-          <li><strong>Щадящие лосьоны</strong> — составы не сжигают волос, деликатно размягчают для укладки.</li>
-          <li><strong>Всё включено</strong> — в стоимость входит коррекция + тонирование, ничего дополнительно оплачивать не нужно.</li>
-          <li><strong>Ботокс-фиксация</strong> — сыворотка запечатывает чешуйки коллагеном, продлевая эффект до 6 недель.</li>
-        </ul>
-      </div>
-      <a href="/services/aftercare-brows/" class="btn-action">Памятка по уходу <span>→</span></a>
-    </div>
-  </div>
+        <!-- Анатомия процедуры: что происходит с волосом -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:20px;">Анатомия процедуры: что происходит с волосом</h2>
+            <div class="process-chain">
+                <div class="chain-step">
+                    <div class="chain-num">01</div>
+                    <div class="chain-title">Очищение и барьер</div>
+                    <div class="chain-desc">Энзимный пилинг убирает себум и открывает чешуйки кутикулы. На кожу вокруг наносится защитный крем.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">02</div>
+                    <div class="chain-title">Размягчение (Лосьон №1)</div>
+                    <div class="chain-desc">Щелочной состав раскрывает кутикулу. Появляется характерный запах серы — это разрываются дисульфидные мостики.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">03</div>
+                    <div class="chain-title">Выкладка формы</div>
+                    <div class="chain-desc">Пластичный волос укладывается щеточкой строго по заданному вектору. Мастер формирует новую архитектуру.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">04</div>
+                    <div class="chain-title">Фиксация (Лосьон №2)</div>
+                    <div class="chain-desc">Кислотный нейтрализатор останавливает реакцию. Связи восстанавливаются в новом положении. Форма закреплена.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">05</div>
+                    <div class="chain-title">Запечатывание сывороткой</div>
+                    <div class="chain-desc">Коллагеновый состав закрывает чешуйки, восстанавливает липидный слой и придает естественный блеск.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Жизнь после ламинирования: сравнение -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:20px;">Жизнь после ламинирования</h2>
+            <div class="compare-table">
+                <div class="compare-row">
+                    <div class="compare-param">Направление роста</div>
+                    <div class="compare-before">Вниз или в хаотичном порядке (вихор)</div>
+                    <div class="compare-after">Строго по заданному вектору</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-param">Утренняя укладка</div>
+                    <div class="compare-before">Требует мыла или геля сильной фиксации</div>
+                    <div class="compare-after">Достаточно взмаха сухой силиконовой щеточкой</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-param">Визуальный объем</div>
+                    <div class="compare-before">Кажется узкой из-за наслоения волосков</div>
+                    <div class="compare-after">Выглядит шире в 1,5 раза за счет выкладки</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-param">Тактильные ощущения</div>
+                    <div class="compare-before">Колючая, жесткая структура</div>
+                    <div class="compare-after">Мягкая и гладкая текстура</div>
+                </div>
+            </div>
+        </section>
 
         <!-- Этапы процедуры -->
         <section class="steps-card">
-      <h2 class="card-title">Как проходит процедура</h2>
+      <h2 class="card-title">Анатомия процедуры: что происходит с волосом</h2>
       <div class="steps-grid">
         <div class="step-item">
       <div class="step-num">01 / ЭТАП</div>
-      <div class="step-title">Очищение</div>
-      <div class="step-desc">Мягкое снятие макияжа, пилинг и нанесение защитного крема на кожу вокруг бровей.</div>
+      <div class="step-title">Очищение и барьер</div>
+      <div class="step-desc">Энзимный пилинг убирает себум и открывает чешуйки кутикулы. На кожу вокруг наносится защитный крем.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">02 / ЭТАП</div>
-      <div class="step-title">Лосьон №1</div>
-      <div class="step-desc">Размягчение волосков для придания эластичности перед формированием новой архитектуры.</div>
+      <div class="step-title">Размягчение (Лосьон №1)</div>
+      <div class="step-desc">Щелочной состав раскрывает кутикулу. Появляется характерный запах серы — это разрываются дисульфидные мостики.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">03 / ЭТАП</div>
-      <div class="step-title">Выкладка + лосьон №2</div>
-      <div class="step-desc">Фиксация волосков в заданном направлении и закрепление формы фиксирующим составом.</div>
+      <div class="step-title">Выкладка формы</div>
+      <div class="step-desc">Пластичный волос укладывается щеточкой строго по заданному вектору. Мастер формирует новую архитектуру.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">04 / ЭТАП</div>
-      <div class="step-title">Окрашивание + сыворотка</div>
-      <div class="step-desc">Тонирование в натуральный оттенок и нанесение ботокс-сыворотки для питания и блеска.</div>
+      <div class="step-title">Фиксация (Лосьон №2)</div>
+      <div class="step-desc">Кислотный нейтрализатор останавливает реакцию. Связи восстанавливаются в новом положении. Форма закреплена.</div>
     </div>
       </div>
     </section>
@@ -705,14 +757,26 @@
       <div class="faq-list">
         <div class="faq-item">
       <details>
-        <summary>Не будут ли брови выглядеть прилизаными?</summary>
-        <div class="faq-answer">Только в первые 24 часа. После первого умывания волоски становятся пушистыми, объемными и укладываются, как вы привыкли — просто сухой щеточкой. Эффект «мокрых» бровей остается для тех, кто хочет укладку гелем.</div>
+        <summary>Не будут ли брови выглядеть прилизанными?</summary>
+        <div class="faq-answer">Только в первые 24 часа после процедуры. После первого умывания волоски становятся пушистыми, объемными и укладываются, как вы привыкли — просто сухой щеточкой. Эффект «мокрых» бровей остаётся для тех, кто любит укладку гелем.</div>
       </details>
     </div>
                 <div class="faq-item">
       <details>
-        <summary>Как часто можно делать ламинирование?</summary>
+        <summary>Как часто можно повторять процедуру?</summary>
         <div class="faq-answer">Оптимальный интервал — раз в 1,5–2 месяца по мере отрастания волосков. Чаще делать не рекомендуется, чтобы не пересушить волос. Повторная процедура на свежий результат не имеет смысла — лосьонам нечего размягчать.</div>
+      </details>
+    </div>
+                <div class="faq-item">
+      <details>
+        <summary>Нужно ли доплачивать за окрашивание или коррекцию?</summary>
+        <div class="faq-answer">Нет, фиксированная стоимость 2 200₽ уже включает коррекцию формы (воск/пинцет), окрашивание в натуральный оттенок и ботокс-сыворотку. Никаких дополнительных оплат по ходу процедуры.</div>
+      </details>
+    </div>
+                <div class="faq-item">
+      <details>
+        <summary>Требуется ли специальный уход дома?</summary>
+        <div class="faq-answer">Ничего сложного. Первые 24 часа не мочить. В дальнейшем — достаточно наносить аргановое масло или масло усьмы пару раз в неделю, чтобы поддерживать эластичность. Без масла тоже будет хорошо, но волос быстрее начнет терять влагу.</div>
       </details>
     </div>
       </div>

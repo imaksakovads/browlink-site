@@ -500,6 +500,93 @@
         .tools-row-feel { font-size:13px; color:var(--text-main); line-height:1.5; }
         @media (max-width:600px) { .tools-row { grid-template-columns:1fr; gap:4px; } }
 
+        /* --- Цепочка процесса (Химия процесса) --- */
+        .process-chain {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            flex-wrap: nowrap;
+        }
+        .chain-step {
+            flex: 1;
+            background: var(--bg-page);
+            padding: 20px;
+            border-radius: 4px;
+            min-width: 0;
+        }
+        .chain-num {
+            font-family: var(--font-title);
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .chain-title {
+            font-family: var(--font-title);
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .chain-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .chain-arrow {
+            font-size: 24px;
+            color: var(--text-muted);
+            padding-top: 24px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 600px) {
+            .process-chain { flex-direction: column; gap: 8px; }
+            .chain-arrow { transform: rotate(90deg); padding-top: 0; align-self: center; }
+        }
+
+        /* --- Строка цен (Стоимость услуг) --- */
+        .price-row {
+            border-top: 1px solid var(--border-color);
+            padding: 18px 0;
+        }
+        .price-row:last-child {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .price-row-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .price-row-main {
+            flex: 1;
+            min-width: 0;
+        }
+        .price-row-name {
+            font-family: var(--font-title);
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .price-row-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: block;
+        }
+        .price-row-value {
+            font-family: var(--font-title);
+            font-size: 22px;
+            font-weight: 500;
+            white-space: nowrap;
+            color: var(--text-main);
+        }
+        @media (max-width: 600px) {
+            .price-row-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .price-row-value { font-size: 18px; }
+        }
+
         /* --- Блок безопасности и доверия Е-Е-A-T --- */
         .trust-card {
             background-color: var(--bg-card);
@@ -645,11 +732,12 @@
             <div class="hero-info">
                 <h2>Комплексная укладка за 35 минут</h2>
                 <div class="service-tags">Изгиб + Окрашивание + Уход</div>
-                <p class="hero-desc">Выразительный завиток, визуальное удлинение и насыщенный цвет без наращивания и тяжести. Процедура формирует идеальную архитектуру взгляда, придавая натуральным ресницам плотность и красивый изгиб, который сохраняется до 6 недель даже после умывания, сна лицом в подушку и посещения бассейна.</p>
+                <p class="hero-desc">Ламинирование ресниц — это быстрая 35-минутная процедура, которая создает естественный прикорневой завиток, насыщает волоски безаммиачным пигментом и уплотняет их структуру на 20–30% за счет коллагена и сывороточного комплекса. Результат заменяет тушь и держится до 6 недель, позволяя спать лицом в подушку и ходить в бассейн.</p>
+                <p class="hero-desc" style="margin-top:15px;">В московских студиях за этой услугой часто скрывается стандартный химический состав, пережигающий тонкие волоски. Мы в OSTIN KOSMO полностью пересобрали эту услугу. Давайте разберем, как работает правильная биозавивка и почему за нее не жалко отдать 2 700 рублей.</p>
                 
                 <!-- Блок изображения для Image SEO -->
                 <div class="hero-image-wrapper">
-                    <img src="/images/laminirovanie-resnic-do-posle.webp" alt="Ламинирование ресниц до и после — результат укладки, окрашивания и ботокс-ухода" class="seo-image" width="650" height="365" loading="lazy">
+                    <img src="https://github.com/user-attachments/assets/315d3a42-3672-475f-a28b-1e925947572a" alt="Ламинирование ресниц до и после — результат укладки, окрашивания и ботокс-ухода" class="seo-image" width="1024" height="765" loading="lazy">
                 </div>
 
                 <button class="btn-action">Записаться <span>→</span></button>
@@ -660,87 +748,131 @@
             </div>
         </section>
 
-        <!-- Сетка 2 колонки -->
-        <div class="grid-2">
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Эстетика и результат</h2>
-        <ul class="fact-list">
-          <li><strong>Процедура ламинирования</strong> формирует плавный прикорневой завиток, зрительно раскрывая взгляд.</li>
-          <li><strong>Стойкий гипоаллергенный краситель</strong> наполняет волоски пигментом, создавая эффект накрашенных ресниц.</li>
-          <li><strong>Деликатный состав</strong> фиксирует форму на 4–6 недель без повреждения естественной структуры.</li>
-          <li><strong>Отсутствие наращивания</strong> исключает риск выпадения родных волосков под тяжестью искусственных.</li>
-        </ul>
-      </div>
-      <a href="#book" class="btn-action">Выбрать мастера <span>→</span></a>
-    </div>
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Уход и восстановление</h2>
-        <ul class="fact-list">
-          <li><strong>Сывороточный ботокс-комплекс</strong> глубоко питает истощенные ресницы и уплотняет их тело на 20–30%.</li>
-          <li><strong>Натуральное аргановое масло</strong> запечатывает кутикулу, защищая от пересушивания и ультрафиолета.</li>
-          <li><strong>Жидкий шелк и коллаген</strong> возвращают волоскам естественный глянец, эластичность и мягкость.</li>
-          <li><strong>Правило первых 24 часов</strong> гарантирует идеальное закрепление завитка после визита в салон.</li>
-        </ul>
-      </div>
-      <a href="/services/aftercare-brows/" class="btn-action">Памятка по уходу <span>→</span></a>
-    </div>
-  </div>
+        <!-- Химия процесса — цепочка этапов -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:10px;">Химия процесса</h2>
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:30px;">Вся процедура — это не просто нанесение масел, а строго выверенная цепочка химических реакций. Мы работаем с чешуйками кутикулы и кортексом. Весь сеанс разделен на четыре четких этапа, каждый из которых запускает следующий:</p>
+            <div class="process-chain">
+                <div class="chain-step">
+                    <div class="chain-num">01</div>
+                    <div class="chain-title">Очищение и форма</div>
+                    <div class="chain-desc">Энзимный пилинг раскрывает чешуйки, убирает себум. Силиконовый валик задает анатомический изгиб.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">02</div>
+                    <div class="chain-title">Разрыв связей (Изгиб)</div>
+                    <div class="chain-desc">Лосьон №1 на основе тиогликолята разрывает дисульфидные мостики. Волос становится эластичным.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">03</div>
+                    <div class="chain-title">Пигмент</div>
+                    <div class="chain-desc">Безаммиачный краситель на низком оксиде проникает в открытую кутикулу. Насыщение от корня до кончика.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">04</div>
+                    <div class="chain-title">Запечатывание кутикулы</div>
+                    <div class="chain-desc">Кератиновый нейтрализатор + аргановое масло закрывают чешуйки. Фиксация формы до 6 недель.</div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Этапы процедуры -->
+        <!-- Стоимость услуг — таблица цен -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:20px;">Стоимость услуг в нашей студии</h2>
+            <div class="price-row">
+                <div class="price-row-inner">
+                    <div class="price-row-main">
+                        <span class="price-row-name">Комплексная укладка ресниц</span>
+                        <span class="price-row-desc">Изгиб + Окрашивание стойким пигментом + Сывороточный уход</span>
+                    </div>
+                    <div class="price-row-value">2 700₽ / 35 мин</div>
+                </div>
+            </div>
+            <div class="price-row">
+                <div class="price-row-inner">
+                    <div class="price-row-main">
+                        <span class="price-row-name">Архитектура и моделирование бровей</span>
+                        <span class="price-row-desc">Создание эскиза + Коррекция формы (воск/пинцет)</span>
+                    </div>
+                    <div class="price-row-value">от 945₽ / 30 мин</div>
+                </div>
+            </div>
+            <div class="price-row">
+                <div class="price-row-inner">
+                    <div class="price-row-main">
+                        <span class="price-row-name">Ламинирование бровей</span>
+                        <span class="price-row-desc">Долговременная укладка жестких волосков</span>
+                    </div>
+                    <div class="price-row-value">от 1 995₽ / 40 мин</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Этапы процедуры (Химия процесса: подробно) -->
         <section class="steps-card">
       <h2 class="card-title">Как проходит процедура</h2>
       <div class="steps-grid">
         <div class="step-item">
       <div class="step-num">01 / ЭТАП</div>
-      <div class="step-title">Подготовка и форма</div>
-      <div class="step-desc">Мягкое очищение волосков и подбор силиконового валика под анатомию вашего века и длину ресниц.</div>
+      <div class="step-title">Подготовка и анатомический подбор валика</div>
+      <div class="step-desc">Мастер подбирает диаметр силиконового валика строго под длину ваших ресниц и анатомию века. Слишком большой валик даст неестественный изгиб, маленький — не создаст выразительного завитка.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">02 / ЭТАП</div>
-      <div class="step-title">Создание изгиба</div>
-      <div class="step-desc">Нанесение щадящего лосьона для деликатного придания формы и фиксации безупречного завитка.</div>
+      <div class="step-title">Изменение структуры и создание изгиба</div>
+      <div class="step-desc">Лосьон с тиогликолятом деликатно раскрывает кутикулу и разрывает дисульфидные связи. Этап занимает строго отведенное время — если его превысить, можно пересушить волос.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">03 / ЭТАП</div>
-      <div class="step-title">Насыщение цветом</div>
-      <div class="step-desc">Бережное окрашивание ресниц от самых корней до кончиков стойким безаммиачным пигментом.</div>
+      <div class="step-title">Глубокое внедрение безаммиачного пигмента</div>
+      <div class="step-desc">Пока кутикула остаётся открытой, мы вводим пигмент на низком проценте оксида. Краситель проникает в кортекс и наполняет волос цветом от корня до кончика без перекрытия.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">04 / ЭТАП</div>
-      <div class="step-title">Питание и защита</div>
-      <div class="step-desc">Нанесение масляного состава с жидким шелком для укрепления, увлажнения и защиты волосков.</div>
+      <div class="step-title">Полимеризация и закрытие кутикулы</div>
+      <div class="step-desc">Кератиновый нейтрализатор останавливает химическую реакцию, восстанавливает связи в новом положении. Аргановое масло запечатывает кутикулу, фиксируя изгиб на 4-6 недель.</div>
     </div>
       </div>
     </section>
 
-        <!-- Блок FAQ (Аккордеон) -->
-        <section class="faq-card">
+        <!-- Памятка по уходу -->
+        <section class="trust-card" style="margin-bottom:30px;">
+            <h3>Памятка по уходу после ламинирования ресниц</h3>
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+                <strong>1. Не мочите глаза водой</strong> в течение первых 24 часов — это время необходимо для полной полимеризации кератинового состава.<br><br>
+                <strong>2. Откажитесь от посещения бани, сауны и солярия</strong> в первый день после процедуры — высокая температура и пар могут нарушить фиксацию изгиба.<br><br>
+                <strong>3. Не используйте тушь и жирные средства для демакияжа</strong> в первую неделю — масла растворяют липидный слой, запечатывающий кутикулу.<br><br>
+                <strong>4. Аккуратно расчесывайте ресницы щеточкой</strong> каждое утро для поддержания направления роста и равномерного изгиба.
+            </p>
+        </section>
+
       <h2 class="card-title">Часто задаваемые вопросы</h2>
       <div class="faq-list">
         <div class="faq-item">
       <details>
-        <summary>Сколько держится эффект от ламинирования ресниц?</summary>
-        <div class="faq-answer">Эффект выразительного завитка и насыщенного цвета сохраняется <strong>от 4 до 6 недель</strong>. Срок носки напрямую зависит от индивидуальной скорости естественного обновления ваших волосков (фаз анагена и катагена), а также от строгого соблюдения «правила первых 24 часов» после сеанса.</div>
+        <summary>Безопасна ли процедура ламинирования для аллергиков?</summary>
+        <div class="faq-answer">Да, мы используем исключительно гипоаллергенные красители и составы на водной основе. Силиконовый валик исключает контакт химии с кожей века. При склонности к аллергии мастер проводит предварительный патч-тест за 24 часа.</div>
       </details>
     </div>
                 <div class="faq-item">
       <details>
-        <summary>В чем главное отличие ламинирования от наращивания?</summary>
-        <div class="faq-answer">В отличие от наращивания, при ламинировании не используются искусственные волоски и клей. Процедура проводится <strong>исключительно на ваших натуральных ресницах</strong>: мы задаем им правильный анатомический изгиб, наполняем пигментом и питаем сывороткой с ботоксом. Это полностью исключает утяжеление, дискомфорт для глаз и риск выпадения родных ресниц.</div>
+        <summary>Что будет с ресницами через полтора месяца после процедуры?</summary>
+        <div class="faq-answer">Эффект сходит постепенно, без «пеньков» и заломов. Ресница живёт в среднем 30–60 дней, поэтому через 6 недель вы просто возвращаетесь к своим натуральным волоскам — без резкой границы и потери объёма.</div>
       </details>
     </div>
                 <div class="faq-item">
       <details>
-        <summary>Портятся ли ресницы при регулярном выполнении процедуры?</summary>
-        <div class="faq-answer">Нет, современная технология деликатной укладки полностью безопасна. Составы, применяемые в студии OSTINKOSMO, обогащены <strong>аргановым маслом, жидким шелком и коллагеном</strong>. Обязательный этап ботокс-ухода глубоко питает и уплотняет структуру каждого волоска на 20–30%, защищая ресницы от пересушивания и воздействия ультрафиолета.</div>
+        <summary>Можно ли делать ламинирование, если ресницы совсем короткие?</summary>
+        <div class="faq-answer">Да, для коротких ресниц мы используем силиконовый валик размера S. Результат будет отличаться от длинных ресниц, но визуальный эффект раскрытого взгляда и насыщенного цвета вы получите в любом случае.</div>
       </details>
     </div>
                 <div class="faq-item">
       <details>
-        <summary>Можно ли красить ресницы тушью, умываться и ходить в бассейн?</summary>
-        <div class="faq-answer">Да, никаких ограничений по привычному образу жизни нет! Спустя 24 часа после визита в салон (когда связи внутри волоска полностью зафиксируются) вы можете свободно <strong>красить ресницы тушью, пользоваться средствами для демакияжа, спать лицом в подушку, умываться водой, посещать бассейн, сауну и солярий</strong>. Созданный мастером изгиб останется безупречным.</div>
+        <summary>Как часто можно повторять процедуру без вреда?</summary>
+        <div class="faq-answer">Оптимальный интервал — 1,5–2 месяца. Если делать ламинирование чаще, можно пересушить волос. Накопительный эффект работает: при регулярном уходе ресницы становятся плотнее и дольше держат изгиб.</div>
       </details>
     </div>
       </div>

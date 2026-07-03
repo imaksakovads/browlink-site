@@ -586,6 +586,20 @@
         @media (max-width: 900px) {
             .burger { display: block; }
         }
+            /* --- Нумерованный список протокола --- */
+        .protocol-list { counter-reset: protocol; }
+        .protocol-item { display: flex; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; color: var(--text-main); line-height: 1.5; }
+        .protocol-item:last-child { border-bottom: none; }
+        .protocol-num { font-family: var(--font-title); font-size: 14px; font-weight: 500; color: var(--text-muted); flex-shrink: 0; min-width: 28px; }
+
+        /* --- Сравнительная таблица --- */
+        .compare-table { border-top: 1px solid var(--border-color); }
+        .compare-row { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-color); align-items: flex-start; }
+        .compare-param { font-family: var(--font-title); font-size: 14px; font-weight: 500; text-transform: uppercase; color: var(--text-muted); }
+        .compare-before { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .compare-after { font-size: 13px; color: var(--text-main); line-height: 1.5; }
+        .compare-after::before { content: "✓ "; font-weight: 600; }
+        @media (max-width:600px) { .compare-row { grid-template-columns: 1fr; gap: 4px; } .compare-param { font-size: 12px; } }
     </style>
 </head>
 <body>
@@ -631,11 +645,12 @@
             <div class="hero-info">
                 <h2>Трендовый объем, коррекция и окрашивание за 60 минут</h2>
                 <div class="service-tags">Ламинирование + Коррекция + Окрашивание</div>
-                <p class="hero-desc">Ламинирование + коррекция + окрашивание за один визит. Идеальный выбор для занятых: получаете полный уход и экономите 200₽ по сравнению с покупкой услуг по отдельности.</p>
+                <p class="hero-desc">Комплексное оформление с ламинированием в Москве обойдется в 3500 рублей и займет ровно час вашего времени. За 60 минут мы полностью меняем текстуру непослушных волосков, выстраиваем чистую форму полимерным воском и тонируем брови безаммиачным красителем. Эффект мягкой салонной укладки держится до 6 недель.</p>
+                <p class="hero-desc" style="margin-top:15px;">Давайте говорить прямо. Клиенты часто воспринимают ламинирование как простую косметическую укладку. Как технолог я постоянно объясняю: это серьезный химический процесс. Мы берем жесткий, растущий вниз волос и принудительно меняем его природную структуру. Разрываем дисульфидные мостики внутри кортекса, укладываем в новое положение и фиксируем нейтрализатором. Если вы носите очки — никаких проблем, через 24 часа можно надевать.</p>
                 
                 <!-- Блок изображения для Image SEO -->
                 <div class="hero-image-wrapper">
-                    <img src="/images/laminirovanie-korrekciya-brovey-do-posle.webp" alt="Ламинирование и коррекция бровей до и после — комплексный результат" class="seo-image" width="650" height="365" loading="lazy">
+                    <img src="https://github.com/user-attachments/assets/91bc0bd2-24fa-441e-badf-5c2b33effc5b" alt="Ламинирование и коррекция бровей до и после — комплексный результат" class="seo-image" width="1024" height="559" loading="lazy">
                 </div>
 
                 <button class="btn-action">Записаться <span>→</span></button>
@@ -646,55 +661,63 @@
             </div>
         </section>
 
-        <!-- Сетка 2 колонки -->
-        <div class="grid-2">
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Что входит</h2>
-        <ul class="fact-list">
-          <li><strong>3-в-1 за 60 минут</strong> — ламинирование, коррекция формы и окрашивание одним визитом.</li>
-          <li><strong>Послушные волоски</strong> — эффект укладки без геля до 6 недель, утром просто щеточка.</li>
-          <li><strong>Экономия</strong> — комплекс стоит 3 500₽ вместо 3 700₽ при заказе процедур отдельно.</li>
-        </ul>
-      </div>
-      <a href="#book" class="btn-action">Выбрать мастера <span>→</span></a>
-    </div>
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Преимущества</h2>
-        <ul class="fact-list">
-          <li><strong>Щадящие составы</strong> — лосьоны без аммиака и агрессивных компонентов.</li>
-          <li><strong>Индивидуальный подход</strong> — подбор формы и оттенка под особенности вашего лица.</li>
-          <li><strong>Ботокс-сыворотка</strong> — питательный уход в подарок в каждом комплексе.</li>
-        </ul>
-      </div>
-      <a href="/services/aftercare-brows/" class="btn-action">Памятка по уходу <span>→</span></a>
-    </div>
-  </div>
+        <!-- Химия процесса -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:20px;">Химия процесса</h2>
+            <div class="tools-table">
+                <div class="tools-row">
+                    <div class="tools-row-name">Лосьон №1 (Размягчение)</div>
+                    <div class="tools-row-work">Приоткрывает кутикулу и разрывает дисульфидные связи. Волос становится пластичным</div>
+                    <div class="tools-row-feel">Легкий серный запах. Состав не печет кожу</div>
+                </div>
+                <div class="tools-row">
+                    <div class="tools-row-name">Лосьон №2 (Фиксация)</div>
+                    <div class="tools-row-work">Останавливает химическую реакцию, восстанавливает связи в новом направлении</div>
+                    <div class="tools-row-feel">Прохладная гелевая текстура</div>
+                </div>
+                <div class="tools-row">
+                    <div class="tools-row-name">Ботокс-сыворотка (Уход)</div>
+                    <div class="tools-row-work">Заполняет пустоты кератином и липидами, закрывает чешуйки</div>
+                    <div class="tools-row-feel">Приятный аромат, снятие стянутости</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Пошаговый протокол: 5 стадий -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:20px;">Пошаговый протокол: 5 стадий за один час</h2>
+            <div class="protocol-list">
+                <div class="protocol-item"><span class="protocol-num">01</span>Очищение + барьерный крем</div>
+                <div class="protocol-item"><span class="protocol-num">02</span>Разметка brow-пастой + удаление пушка воском + доработка пинцетом</div>
+                <div class="protocol-item"><span class="protocol-num">03</span>Нанесение лосьона №1 и №2 (время выдержки индивидуально)</div>
+                <div class="protocol-item"><span class="protocol-num">04</span>Тонирование мягким красителем на низком проценте оксида</div>
+                <div class="protocol-item"><span class="protocol-num">05</span>Запечатывание ботокс-сывороткой</div>
+            </div>
+        </section>
 
         <!-- Этапы процедуры -->
         <section class="steps-card">
-      <h2 class="card-title">Как проходит процедура</h2>
+      <h2 class="card-title">Пошаговый протокол: 5 стадий за один час</h2>
       <div class="steps-grid">
         <div class="step-item">
       <div class="step-num">01 / ЭТАП</div>
-      <div class="step-title">Очищение</div>
-      <div class="step-desc">Снятие макияжа, пилинг и нанесение защитного крема.</div>
+      <div class="step-title">Очищение + барьерный крем</div>
+      <div class="step-desc">Снимаем макияж, делаем энзимный пилинг для раскрытия чешуек волоса и наносим защитный крем на кожу вокруг бровей.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">02 / ЭТАП</div>
       <div class="step-title">Разметка + коррекция</div>
-      <div class="step-desc">Построение формы brow-пастой и удаление лишних волосков воском/пинцетом.</div>
+      <div class="step-desc">Строим каркас brow-пастой, удаляем пушок воском, дорабатываем единичные волоски пинцетом.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">03 / ЭТАП</div>
-      <div class="step-title">Ламинирование</div>
-      <div class="step-desc">Нанесение лосьона №1 для размягчения и лосьона №2 для фиксации формы.</div>
+      <div class="step-title">Лосьон №1 + №2</div>
+      <div class="step-desc">Наносим размягчающий состав для разрыва дисульфидных связей, выкладываем волоски, фиксируем нейтрализатором. Время выдержки — индивидуально.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">04 / ЭТАП</div>
-      <div class="step-title">Окрашивание + фиксация</div>
-      <div class="step-desc">Тонирование краской/хной, нанесение фиксирующего геля и ботокс-сыворотки.</div>
+      <div class="step-title">Тонирование + запечатывание</div>
+      <div class="step-desc">Наносим мягкий краситель на низком проценте оксида, затем запечатываем ботокс-сывороткой с кератином и коллагеном.</div>
     </div>
       </div>
     </section>
@@ -705,14 +728,20 @@
       <div class="faq-list">
         <div class="faq-item">
       <details>
-        <summary>Что входит в комбо, чего нет в отдельном ламинировании?</summary>
-        <div class="faq-answer">В комбо включена коррекция формы (воск/пинцет) и окрашивание. Отдельное ламинирование бровей (2 200₽) не включает коррекцию — её нужно оплачивать дополнительно. Комплекс дает полный результат за один визит и экономит 200₽.</div>
+        <summary>Правда ли, что после процедуры брови будут стоять торчком?</summary>
+        <div class="faq-answer">Это самый популярный миф. В первые 24 часа после процедуры волоски действительно кажутся плотно уложенными, но после первого умывания форма становится естественной. Вы просто проводите сухой щеточкой — и бровь выглядит объёмной, ухоженной, но не прилизанной.</div>
       </details>
     </div>
                 <div class="faq-item">
       <details>
-        <summary>Сколько держится результат комплекса?</summary>
-        <div class="faq-answer">Ламинирование сохраняется до 6 недель, окрашивание — 3–4 недели в зависимости от скорости обновления кожи (на волосках дольше). Рекомендуем повторять комплекс раз в 1,5–2 месяца.</div>
+        <summary>Зачем мне ботокс, если я пришла за формой?</summary>
+        <div class="faq-answer">Химические лосьоны приоткрывают кутикулу волоса и вытягивают влагу. Ботокс-сыворотка восполняет потерю — заполняет пустоты кератином и липидами. Без неё волосы могут стать сухими и ломкими. Это не рекламная «фишка», а обязательный этап восстановления.</div>
+      </details>
+    </div>
+                <div class="faq-item">
+      <details>
+        <summary>Сколько продержится отпечаток краски на коже?</summary>
+        <div class="faq-answer">Краска на коже держится 3–5 дней при ежедневном умывании. На волосках пигмент сохраняется до полутора месяцев. Если цвет на коже мешает, можно аккуратнее умывать зону бровей с мягким пенкой — отпечаток сойдёт быстрее.</div>
       </details>
     </div>
       </div>

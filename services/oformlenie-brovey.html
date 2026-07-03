@@ -586,6 +586,20 @@
         @media (max-width: 900px) {
             .burger { display: block; }
         }
+            /* --- Нумерованный список протокола --- */
+        .protocol-list { counter-reset: protocol; }
+        .protocol-item { display: flex; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; color: var(--text-main); line-height: 1.5; }
+        .protocol-item:last-child { border-bottom: none; }
+        .protocol-num { font-family: var(--font-title); font-size: 14px; font-weight: 500; color: var(--text-muted); flex-shrink: 0; min-width: 28px; }
+
+        /* --- Сравнительная таблица --- */
+        .compare-table { border-top: 1px solid var(--border-color); }
+        .compare-row { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-color); align-items: flex-start; }
+        .compare-param { font-family: var(--font-title); font-size: 14px; font-weight: 500; text-transform: uppercase; color: var(--text-muted); }
+        .compare-before { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .compare-after { font-size: 13px; color: var(--text-main); line-height: 1.5; }
+        .compare-after::before { content: "✓ "; font-weight: 600; }
+        @media (max-width:600px) { .compare-row { grid-template-columns: 1fr; gap: 4px; } .compare-param { font-size: 12px; } }
     </style>
 </head>
 <body>
@@ -631,11 +645,12 @@
             <div class="hero-info">
                 <h2>Индивидуальный подбор формы и оттенка за 35 минут</h2>
                 <div class="service-tags">Brow-паста + Воск/Пинцет + Краска/Хна + Колористика</div>
-                <p class="hero-desc">Создание гармоничной формы с учетом пропорций лица. Синтетический воск, пинцет, окрашивание в естественные оттенки. Визуальная коррекция асимметрии и индивидуальный подбор цвета под ваш цветотип.</p>
+                <p class="hero-desc">Профессиональное оформление бровей занимает ровно 35 минут и обойдется в 1800 рублей. За это время мастер не просто наносит краску, а проводит полный цикл: от себо-пилинга фолликулов до разметки brow-пастой, депиляции низкотемпературным полимерным воском и смешивания индивидуального оттенка под ваш цветотип.</p>
+                <p class="hero-desc" style="margin-top:15px;">Давай разберем изнанку процесса без прикрас. Как практикующий бровист могу сказать прямо. Идеальный результат не получается случайным мазком кисти из одного тюбика. Это чистая геометрия и химия. Если нанести краситель на неподготовленную кожу, он смоется пятнами через пару дней. Если перегреть воск, клиент уйдет с ожогом. Поэтому мы работаем по строгому протоколу.</p>
                 
                 <!-- Блок изображения для Image SEO -->
                 <div class="hero-image-wrapper">
-                    <img src="/images/oformlenie-brovey-do-posle.webp" alt="Оформление бровей до и после — коррекция формы воском и естественное окрашивание" class="seo-image" width="650" height="365" loading="lazy">
+                    <img src="https://github.com/user-attachments/assets/5841e948-e141-4bb2-b9f8-af499387237c" alt="Оформление бровей до и после — коррекция формы воском и естественное окрашивание" class="seo-image" width="1024" height="572" loading="lazy">
                 </div>
 
                 <button class="btn-action">Записаться <span>→</span></button>
@@ -646,55 +661,86 @@
             </div>
         </section>
 
-        <!-- Сетка 2 колонки -->
-        <div class="grid-2">
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Эстетика и форма</h2>
-        <ul class="fact-list">
-          <li><strong>Brow Mapping</strong> — построение идеальной формы по ключевым точкам с учетом овала лица.</li>
-          <li><strong>Микс оттенков</strong> — смешиваем до 3 цветов под ваш цветотип для максимально естественного результата.</li>
-          <li><strong>Маскировка асимметрии</strong> — цветом и формой корректируем природную несимметричность бровей.</li>
-        </ul>
-      </div>
-      <a href="#book" class="btn-action">Выбрать мастера <span>→</span></a>
-    </div>
-    <div class="content-card">
-      <div>
-        <h2 class="card-title">Техника и комфорт</h2>
-        <ul class="fact-list">
-          <li><strong>Полимерный воск</strong> низких температур — работает только на волосах, не травмирует кожу.</li>
-          <li><strong>Поштучная доработка</strong> — финальная коррекция пинцетом для чистоты контура.</li>
-          <li><strong>Уход после</strong> — скраб и успокаивающее масло, покраснение проходит за 15–30 минут.</li>
-        </ul>
-      </div>
-      <a href="/services/aftercare-brows/" class="btn-action">Памятка по уходу <span>→</span></a>
-    </div>
-  </div>
+        <!-- Анатомия процедуры: 4 этапа -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:10px;">Анатомия процедуры: 4 этапа за 35 минут</h2>
+            <div class="process-chain">
+                <div class="chain-step">
+                    <div class="chain-num">01</div>
+                    <div class="chain-title">Очищение и раскрытие фолликулов</div>
+                    <div class="chain-desc">Обычного демакияжа мицеллярной водой недостаточно. Мы используем мягкий себо-пилинг. Он убирает ороговевшие клетки и приоткрывает фолликулы, чтобы краситель лёг ровно и держался дольше.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">02</div>
+                    <div class="chain-title">Разметка (Brow Mapping)</div>
+                    <div class="chain-desc">Берем белую brow-пасту и строим каркас. Никаких шаблонов. Опорные точки выстраиваются строго по костной структуре и пропорциям лица.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">03</div>
+                    <div class="chain-title">Восковая коррекция и чистка</div>
+                    <div class="chain-desc">Я работаю только синтетическим полимерным воском. Он плавится при низкой температуре, не обжигает кожу и прилипает исключительно к волосу, игнорируя эпидермис.</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-step">
+                    <div class="chain-num">04</div>
+                    <div class="chain-title">Колористика и фиксация</div>
+                    <div class="chain-desc">Мастер всегда работает как химик. Чтобы попасть в ваш цветотип, смешивается до трех разных оттенков. Фиксация гелем задает направление роста.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Инструменты и материалы -->
+        <section class="content-card" style="padding:50px;margin-bottom:30px;">
+            <h2 class="card-title" style="margin-bottom:20px;">Инструменты и материалы</h2>
+            <div class="tools-table">
+                <div class="tools-row">
+                    <div class="tools-row-name">Полимерный воск</div>
+                    <div class="tools-row-work">Захватывает волос у корня, игнорируя кожу. Плавится при низких температурах</div>
+                    <div class="tools-row-feel">Легкий, быстрый рывок. Без жжения и травм</div>
+                </div>
+                <div class="tools-row">
+                    <div class="tools-row-name">Пинцет</div>
+                    <div class="tools-row-work">Точечная доработка единичных волосков</div>
+                    <div class="tools-row-feel">Терпимое покалывание</div>
+                </div>
+                <div class="tools-row">
+                    <div class="tools-row-name">Brow-паста</div>
+                    <div class="tools-row-work">Защищает кожу вокруг брови, держит эскиз</div>
+                    <div class="tools-row-feel">Прохладная плотная текстура</div>
+                </div>
+                <div class="tools-row">
+                    <div class="tools-row-name">Масло после ухода</div>
+                    <div class="tools-row-work">Закрывает поры, скраб и успокаивающее</div>
+                    <div class="tools-row-feel">Снимает стянутость. Краснота уходит за 15-30 мин</div>
+                </div>
+            </div>
+        </section>
 
         <!-- Этапы процедуры -->
         <section class="steps-card">
-      <h2 class="card-title">Как проходит процедура</h2>
+      <h2 class="card-title">Анатомия процедуры: 4 этапа за 35 минут</h2>
       <div class="steps-grid">
         <div class="step-item">
       <div class="step-num">01 / ЭТАП</div>
-      <div class="step-title">Очищение</div>
-      <div class="step-desc">Деликатное удаление макияжа и себо-пилинг для раскрытия фолликулов.</div>
+      <div class="step-title">Очищение и раскрытие фолликулов</div>
+      <div class="step-desc">Обычного демакияжа мицеллярной водой недостаточно. Мы используем мягкий себо-пилинг. Он убирает ороговевшие клетки и приоткрывает фолликулы.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">02 / ЭТАП</div>
-      <div class="step-title">Разметка</div>
-      <div class="step-desc">Построение архитектуры brow-пастой по индивидуальным пропорциям лица.</div>
+      <div class="step-title">Разметка (Brow Mapping)</div>
+      <div class="step-desc">Берем белую brow-пасту и строим каркас. Никаких шаблонов. Опорные точки выстраиваются строго по костной структуре и пропорциям лица.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">03 / ЭТАП</div>
-      <div class="step-title">Коррекция</div>
-      <div class="step-desc">Удаление лишних волосков синтетическим воском и поштучная доработка пинцетом.</div>
+      <div class="step-title">Восковая коррекция и чистка</div>
+      <div class="step-desc">Я работаю только синтетическим полимерным воском. Он плавится при низкой температуре, не обжигает кожу и прилипает исключительно к волосу.</div>
     </div>
                 <div class="step-item">
       <div class="step-num">04 / ЭТАП</div>
-      <div class="step-title">Окрашивание</div>
-      <div class="step-desc">Нанесение краски/хны, фиксация гелем для естественного направления роста.</div>
+      <div class="step-title">Колористика и фиксация</div>
+      <div class="step-desc">Мастер смешивает до трех оттенков для попадания в цветотип. Фиксация гелем задает направление роста. Результат держится до 6 недель.</div>
     </div>
       </div>
     </section>
@@ -705,14 +751,26 @@
       <div class="faq-list">
         <div class="faq-item">
       <details>
-        <summary>Что лучше — краска или хна?</summary>
-        <div class="faq-answer">Краска дает мягкий естественный оттенок и держится до 2 недель на волосках. Хна оставляет более графичный след на коже до 14 дней, что удобно, если вы не носите макияж. Мастер подберет вариант под ваш образ.</div>
+        <summary>Что лучше выбрать — краску или хну?</summary>
+        <div class="faq-answer">Краска даёт мягкий естественный оттенок и держится до 2 недель на волосках. Хна оставляет более графичный след на коже до 14 дней, что удобно, если вы не носите макияж. Мастер подберёт вариант под ваш образ.</div>
       </details>
     </div>
                 <div class="faq-item">
       <details>
-        <summary>Больно ли делать коррекцию воском?</summary>
+        <summary>Делать коррекцию воском больно?</summary>
         <div class="faq-answer">Синтетический полимерный воск низких температур прилипает только к волосам, не к коже. Дискомфорт минимален, покраснение проходит за 15–30 минут. Мы используем успокаивающее масло после процедуры.</div>
+      </details>
+    </div>
+                <div class="faq-item">
+      <details>
+        <summary>Сильно ли покраснеет кожа и когда это пройдет?</summary>
+        <div class="faq-answer">Покраснение — это естественная реакция капилляров на механическое удаление волосков. Синтетический воск не травмирует кожу, поэтому румянец минимален. Мы наносим успокаивающее масло, и краснота спадает за 15–30 минут после процедуры.</div>
+      </details>
+    </div>
+                <div class="faq-item">
+      <details>
+        <summary>Сможете исправить, если одна бровь заметно выше другой?</summary>
+        <div class="faq-answer">Да, brow mapping — это как раз про геометрию. Пастой мы размечаем контрольные точки и поднимаем/опускаем дугу, визуально выравнивая асимметрию. Если перепад сильный — предупреждаем, но сделать плавно корректируем точно.</div>
       </details>
     </div>
       </div>
