@@ -601,10 +601,30 @@
         .compare-after::before { content: "✓ "; font-weight: 600; }
         @media (max-width:600px) { .compare-row { grid-template-columns: 1fr; gap: 4px; } .compare-param { font-size: 12px; } }
     </style>
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="FEhSRekyAfrG5g5cBUOL8hz7CCbBM2_KmqJ_MmXC0oE" />
+
+    <!-- Yandex Metrika -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(103653225, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true,
+            ecommerce:"dataLayer"
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/103653225" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
 </head>
 <body>
 
-    <!-- Шапка сайта -->
     <header class="header">
         <div class="container header-inner">
             <a href="/" class="logo">OSTIN<span>KOSMO</span></a>
@@ -614,18 +634,28 @@
                 <span class="burger-line"></span>
             </button>
             <nav class="nav">
-                <a href="/reviews/">Отзывы</a>
+                <a href="/#portfolio">Работы</a>
+                <a href="/#services">Прайс</a>
+                <a href="/#reviews">Отзывы</a>
+                <a href="/blog/">Блог</a>
+                <a href="/#contact">Контакты</a>
             </nav>
             <div class="header-right">
-                <a href="https://t.me/KateOstin666" class="telegram-link" target="_blank" rel="nofollow">Telegram</a>
-                <a href="tel:+79637329466" class="phone">+7 963 732 94 66</a>
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="telegram-link" target="_blank" rel="nofollow">Telegram</a>
+                <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="phone">+7 963 732 94 66</a>
             </div>
         </div>
     </header>
 
     <!-- Мобильное меню (выезжающий fullscreen) -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/reviews/">Отзывы</a>
+        <a href="/#portfolio">Работы</a>
+        <a href="/#services">Прайс</a>
+        <a href="/#reviews">Отзывы</a>
+        <a href="/blog/">Блог</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#contact">Контакты</a>
+        <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="mobile-tg" target="_blank" rel="nofollow">Telegram Запись</a>
     </div>
 
     <main class="container">
@@ -653,7 +683,7 @@
                     <img src="https://github.com/user-attachments/assets/f82e6fab-e2f8-4e73-9d67-4e3d0ee3ec5f" alt="Коррекция бровей — поддержание формы пинцетом" class="seo-image" width="1024" height="559" loading="lazy">
                 </div>
 
-                <button class="btn-action">Записаться <span>→</span></button>
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="btn-action" style="text-decoration:none;" target="_blank" rel="nofollow">Записаться <span>→</span></a>
             </div>
             <div class="hero-price-box">
                 <div class="price">1 500₽</div>
@@ -772,9 +802,28 @@
     </footer>
 
     <script>
+        function reachGoal(target) {
+            if (typeof ym !== 'undefined') {
+                ym(103653225, 'reachGoal', target);
+            }
+        }
+
         document.getElementById('burgerBtn').addEventListener('click', function() {
             this.classList.toggle('active');
             document.getElementById('mobileMenu').classList.toggle('active');
+        });
+
+        // Плавный скролл к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
     </script>
 
