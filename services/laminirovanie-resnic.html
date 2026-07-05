@@ -762,7 +762,7 @@
         <a href="/#faq">FAQ</a>
         <a href="/#contact">Контакты</a>
         <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="mobile-tg" target="_blank" rel="nofollow">Telegram Запись</a>
-        <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" style="font-family:'Inter',sans-serif; font-size:13px; color:#999; text-decoration:none; transition:color 0.2s; padding:8px 0; display:block; text-align:center; text-transform:uppercase; letter-spacing:1px;">ВКонтакте Запись</a>
+        <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" style="font-family:var(--font-title); font-size:20px; text-transform:uppercase; letter-spacing:1px; color:var(--text-main); padding:12px 0; display:block; text-align:center; text-decoration:none; transition:opacity 0.2s;">ВКонтакте / Запись</a>
     </div>
 
     <main class="container">
@@ -944,10 +944,19 @@
 
     <!-- Подвал сайта -->
     <footer class="footer">
-        <div class="container footer-inner">
-            <div class="copyright">© 2026 OSTINKOSMO. Студия эстетики и моделирования.</div>
-            <div class="footer-links">
-                <a href="/privacy/">Политика конфиденциальности</a>
+        <div class="container">
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px; margin-bottom:30px;">
+        <!-- Кнопки записи -->
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:30px;">
+            <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-title); font-size:13px; text-transform:uppercase; letter-spacing:1.5px; font-weight:500; cursor:pointer; border:2px solid var(--text-main); background:var(--text-main); color:#fff; padding:12px 24px; text-decoration:none; transition:opacity 0.2s;">Telegram / Запись</a>
+            <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-title); font-size:13px; text-transform:uppercase; letter-spacing:1.5px; font-weight:500; cursor:pointer; border:2px solid var(--text-main); background:#fff; color:var(--text-main); padding:12px 24px; text-decoration:none; transition:opacity 0.2s;">ВКонтакте / Запись</a>
+        </div>
+
+            <div class="footer-inner" style="flex:1; min-width:200px;">
+                <div class="copyright">© 2026 OSTINKOSMO. Студия эстетики и моделирования.</div>
+                <div class="footer-links" style="margin-top:10px;">
+                    <a href="/privacy/">Политика конфиденциальности</a>
+                </div>
             </div>
         </div>
     </footer>
