@@ -278,8 +278,11 @@
     <!-- Success overlay -->
     <div class="success-overlay" id="success-overlay">
         <div class="font-display text-5xl md:text-7xl uppercase text-black mb-6 leading-tight text-center px-4">Заявка отправлена!</div>
-        <p class="font-mono text-sm text-gray-500 uppercase tracking-widest text-center px-4 max-w-md">Мы свяжемся с вами в ближайшее время.</p>
-        <button onclick="closeSuccess()" class="mt-10 inline-block border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition cursor-pointer">На главную</button>
+        <p class="success-subtitle font-mono text-sm text-gray-500 uppercase tracking-widest text-center px-4 max-w-md">Мы свяжемся с вами в ближайшее время.</p>
+        <div class="mt-8 flex flex-col gap-4 items-center">
+            <a class="success-link inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300" href="https://t.me/ostinkosmo" target="_blank" rel="nofollow">Перейти в Telegram</a>
+            <button onclick="closeSuccess()" class="inline-block border border-black px-8 py-3 font-display uppercase tracking-widest text-xs hover:bg-black hover:text-white transition cursor-pointer">На главную</button>
+        </div>
     </div>
 
     <!-- Header -->
@@ -322,10 +325,13 @@
                     3 простых шага. Выберите услугу, удобное время и мессенджер — <br>остальное мы берём на себя.
                 </p>
                 <div class="reveal-text flex flex-col sm:flex-row gap-4 items-start sm:items-center" style="transition-delay: 0.3s">
-                    <button onclick="openModal()" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
-                        Записаться
+                    <button onclick="openModal('telegram')" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
+                        Telegram / Запись
                     </button>
-                    <a href="#prices" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
+                    <button onclick="openModal('vk')" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
+                        ВКонтакте / Запись
+                    </button>
+                    <a href="#prices" class="cursor-hover inline-block border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
                         Прайс-лист
                     </a>
                 </div>
@@ -369,7 +375,7 @@
                     </a>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800 flex items-center justify-between">
                         <a href="/services/oformlenie-brovey.html" class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Подробнее →</a>
-                        <button onclick="openModal('brows')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">Записаться</button>
+                        <button onclick="openModal('telegram', 'brows')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">Записаться</button>
                     </div>
                 </article>
                 <article class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative">
@@ -385,7 +391,7 @@
                     </a>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800 flex items-center justify-between">
                         <a href="/services/laminirovanie-brovey.html" class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Подробнее →</a>
-                        <button onclick="openModal('brows')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">Записаться</button>
+                        <button onclick="openModal('telegram', 'brows')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">Записаться</button>
                     </div>
                 </article>
                 <article class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative">
@@ -401,7 +407,7 @@
                     </a>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800 flex items-center justify-between">
                         <a href="/services/laminirovanie-resnic.html" class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Подробнее →</a>
-                        <button onclick="openModal('lashes')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">Записаться</button>
+                        <button onclick="openModal('telegram', 'lashes')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">Записаться</button>
                     </div>
                 </article>
                 <article class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative">
@@ -417,7 +423,7 @@
                     </a>
                     <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800 flex items-center justify-between">
                         <a href="/services/korrekciya-brovey.html" class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Подробнее →</a>
-                        <button onclick="openModal('brows')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">Записаться</button>
+                        <button onclick="openModal('telegram', 'brows')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">Записаться</button>
                     </div>
                 </article>
             </div>
@@ -467,12 +473,12 @@
             </div>
 
             <div class="flex flex-wrap gap-6">
-                <button onclick="openModal()" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
-                    Записаться
+                <button onclick="openModal('telegram')" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
+                    Telegram / Запись
                 </button>
-                <a href="https://t.me/KateOstin666" target="_blank" onclick="reachGoal('napishite_telegram')" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
-                    Telegram
-                </a>
+                <button onclick="openModal('vk')" class="cursor-hover inline-block bg-white text-black border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition duration-300">
+                    ВКонтакте / Запись
+                </button>
             </div>
         </div>
     </section>
@@ -484,9 +490,14 @@
         <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-gray-800 pb-20">
             <div>
                 <h2 class="font-display text-5xl md:text-7xl uppercase mb-6 leading-none">Готовы к<br>переменам?</h2>
-                <button onclick="openModal()" class="cursor-hover inline-block border border-white px-8 py-4 text-xl font-display uppercase hover:bg-white hover:text-black transition">
-                    записаться в TELEGRAM
-                </button>
+                <div class="flex flex-col gap-4">
+                    <button onclick="openModal('telegram')" class="cursor-hover inline-block border border-white px-8 py-4 font-display uppercase hover:bg-white hover:text-black transition">
+                        Telegram / Запись
+                    </button>
+                    <button onclick="openModal('vk')" class="cursor-hover inline-block border border-white px-8 py-4 font-display uppercase hover:bg-white hover:text-black transition">
+                        ВКонтакте / Запись
+                    </button>
+                </div>
             </div>
             <div class="flex flex-col justify-end items-start md:items-end">
                 <div class="text-right space-y-4">
@@ -579,24 +590,8 @@
                 <span class="callback-link" onclick="showCallbackForm()">Нет нужного времени? Перезвоните мне</span>
             </div>
 
-            <!-- Step 3: Messenger (two separate booking buttons) -->
-            <div class="modal-step step-fade" id="step-3">
-                <span class="back-link" onclick="goToStep(2)">← Назад</span>
-                <h3 class="font-display text-2xl uppercase mb-2 mt-2">Подтверждение записи</h3>
-                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-1">Шаг 3 из 3</p>
-                <p class="font-mono text-[11px] text-gray-400 mb-6" id="step-3-summary"></p>
-
-                <button onclick="goToMessenger('telegram')" class="msgr-btn mb-3" id="msgr-telegram" style="background:#0a0a0a;color:#fff;border-color:#0a0a0a;">
-                    <span class="font-display text-lg">Запись через Telegram</span>
-                    <span class="block font-mono text-xs font-normal mt-1" style="color:rgba(255,255,255,0.6)">Быстрый ответ от мастера</span>
-                </button>
-                <button onclick="goToMessenger('vk')" class="msgr-btn" id="msgr-vk" style="border-color:#0a0a0a;">
-                    <span class="font-display text-lg">Запись через ВКонтакте</span>
-                    <span class="block font-mono text-xs text-gray-400 font-normal mt-1">Личные сообщения @katespanjen</span>
-                </button>
-
-                <span class="callback-link" onclick="showCallbackForm()">Перезвоните мне</span>
-            </div>
+            <!-- Step 3 is no longer needed — channel is set by the initial button click -->
+            <!-- Contact form handles instead, see below -->
 
             <!-- Contact form (nearest slot / callback / calendar) -->
             <div class="contact-form-step step-fade" id="contact-form-step">
@@ -629,11 +624,11 @@
         }
 
         // ── Modal State ──
-        let modalState = { step: 1, service: '', date: '', mode: '', callbackInitiator: '' };
+        let modalState = { step: 1, service: '', date: '', mode: '', channel: '' };
         const SERVICE_NAMES = { lashes: 'Ламинирование ресниц', brows: 'Брови', complex: 'Комплекс' };
 
-        function openModal(presetService) {
-            modalState = { step: 1, service: presetService || '', date: '', mode: '', callbackInitiator: '' };
+        function openModal(channel, presetService) {
+            modalState = { step: 1, service: presetService || '', date: '', mode: '', channel: channel || 'telegram' };
             document.getElementById('booking-modal').classList.add('open');
             document.body.style.overflow = 'hidden';
             document.getElementById('contact-form-status').style.display = 'none';
@@ -759,10 +754,7 @@
             const d = String(calSelected.getDate()).padStart(2, '0');
             modalState.date = y + '-' + m + '-' + d;
             modalState.mode = 'calendar';
-            const svcName = SERVICE_NAMES[modalState.service] || '';
-            const dateStr = d + '.' + m + '.' + y;
-            document.getElementById('step-3-summary').textContent = svcName + ', ' + dateStr;
-            goToStep(3);
+            showContactForm('calendar');
         }
 
         // ── Contact Form (shared for "nearest", "calendar" and "callback") ──
@@ -772,7 +764,9 @@
             document.getElementById('contact-form-step').classList.add('active');
             // Set context hint
             const svcName = SERVICE_NAMES[modalState.service] || '—';
-            document.getElementById('contact-form-service-hint').textContent = 'Услуга: ' + svcName;
+            const channelNames = { telegram: 'Telegram', vk: 'ВКонтакте' };
+            const chName = channelNames[modalState.channel] || 'Telegram';
+            document.getElementById('contact-form-service-hint').textContent = 'Услуга: ' + svcName + ' • ' + chName;
 
             // Different titles based on mode
             const title = document.getElementById('contact-form-title');
@@ -845,11 +839,15 @@
             btn.textContent = 'Отправляем...';
 
             const svcName = SERVICE_NAMES[modalState.service] || '—';
+            const channel = modalState.channel || 'telegram';
+            const channelNames = { telegram: 'Telegram', vk: 'ВКонтакте' };
+            const dateStr = modalState.date ? ' на ' + modalState.date : '';
 
             // Send detailed message to master
             const tgMessage = (
-                '⚡ <b>Срочный подбор окошка!</b>\n' +
-                '👤 Клиент выбрал: ' + svcName + '\n' +
+                '⚡ <b>Новая заявка с сайта!</b>\n' +
+                '📱 Канал: ' + (channelNames[channel] || channel) + '\n' +
+                '👤 Услуга: ' + svcName + dateStr + '\n' +
                 '📞 Телефон: <b>' + fullPhone + '</b>\n' +
                 '⏱ Ответить нужно максимально быстро, пока клиент "горячий".'
             );
@@ -868,24 +866,30 @@
                 if (data.ok) {
                     reachGoal('booking_nearest_' + modalState.service);
 
-                    status.textContent = '✅ Заявка отправлена! Мастер подберёт время и свяжется с вами.';
+                    status.textContent = '✅ Заявка отправлена!';
                     status.style.color = '#22c55e';
                     status.style.display = 'block';
                     btn.textContent = 'Отправлено';
 
-                    if (modalState.mode === 'calendar') {
-                        // After contact collected for calendar flow → go to messenger selection
-                        setTimeout(() => {
-                            closeContactForm();
-                            goToStep(3);
-                        }, 1000);
-                    } else {
-                        // Nearest/callback → close and show success
-                        setTimeout(() => {
-                            closeModal();
-                            document.getElementById('success-overlay').classList.add('open');
-                        }, 1500);
-                    }
+                    // Close modal and show success + redirect
+                    setTimeout(() => {
+                        closeModal();
+                        // Show success overlay
+                        const overlay = document.getElementById('success-overlay');
+                        overlay.classList.add('open');
+                        // Update overlay text
+                        const channel = modalState.channel || 'telegram';
+                        const groupLinks = {
+                            telegram: 't.me/ostinkosmo',
+                            vk: 'vk.com/katespanjen'
+                        };
+                        overlay.querySelector('.success-subtitle').textContent =
+                            'Мы свяжемся с вами. А пока — присоединяйтесь к нашему сообществу:';
+                        overlay.querySelector('.success-link').href =
+                            channel === 'telegram' ? 'https://t.me/ostinkosmo' : 'https://vk.com/katespanjen';
+                        overlay.querySelector('.success-link').textContent =
+                            channel === 'telegram' ? 'Перейти в Telegram' : 'Перейти в ВКонтакте';
+                    }, 1000);
                 } else {
                     status.textContent = '❌ Ошибка. Попробуйте позже или напишите в Telegram.';
                     status.style.color = '#ef4444';
