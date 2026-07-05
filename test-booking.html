@@ -234,13 +234,12 @@
 
     /* ── Callback link (visible on all steps) ── */
     .callback-link {
-        display: block; text-align: center; margin-top: 20px; padding-top: 16px;
-        border-top: 1px solid #f0f0f0;
-        font-size: 13px; color: #9ca3af; cursor: pointer;
-        font-family: 'Manrope', sans-serif; text-decoration: underline;
-        text-underline-offset: 3px; transition: color 0.2s;
+        display: block; text-align: center; margin-top: 24px; padding: 12px 16px;
+        border: 1px solid #d1d5db;
+        font-size: 14px; color: #4b5563; cursor: pointer;
+        font-family: 'Manrope', sans-serif; transition: all 0.2s;
     }
-    .callback-link:hover { color: #0a0a0a; }
+    .callback-link:hover { border-color: #0a0a0a; color: #0a0a0a; background: #fafafa; }
 
     /* ── Studio gallery ── */
     .studio-img { transition: transform 0.8s ease; }
@@ -599,11 +598,11 @@
                 <span class="callback-link" onclick="showCallbackForm()">Нет нужного времени? Перезвоните мне</span>
             </div>
 
-            <!-- Contact form (nearest slot / callback) — overlays inside modal -->
+            <!-- Contact form (nearest slot / callback / calendar) -->
             <div class="contact-form-step step-fade" id="contact-form-step">
                 <span class="back-link" onclick="closeContactForm()">← Назад к выбору</span>
-                <h3 class="font-display text-2xl uppercase mb-2 mt-2">Куда отправить свободные окошки?</h3>
-                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-1">Мастер пришлет ближайшие варианты в течение 10 минут</p>
+                <h3 class="font-display text-2xl uppercase mb-2 mt-2" id="contact-form-title">Куда отправить свободные окошки?</h3>
+                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-1" id="contact-form-subtitle">Мастер пришлет ближайшие варианты в течение 10 минут</p>
                 <p class="font-mono text-[11px] text-gray-400 mb-6 italic" id="contact-form-service-hint">Услуга: —</p>
 
                 <div class="mb-6">
@@ -759,10 +758,11 @@
             const m = String(calSelected.getMonth() + 1).padStart(2, '0');
             const d = String(calSelected.getDate()).padStart(2, '0');
             modalState.date = y + '-' + m + '-' + d;
-            goToStep(3);
+            modalState.mode = 'calendar';
+            showContactForm('calendar');
         }
 
-        // ── Contact Form (shared for "nearest slot" and "callback") ──
+        // ── Contact Form (shared for "nearest", "calendar" and "callback") ──
         function showContactForm(mode) {
             modalState.mode = mode || 'nearest';
             document.querySelectorAll('.modal-step').forEach(el => el.classList.remove('active'));
@@ -770,11 +770,26 @@
             // Set context hint
             const svcName = SERVICE_NAMES[modalState.service] || '—';
             document.getElementById('contact-form-service-hint').textContent = 'Услуга: ' + svcName;
+
+            // Different titles based on mode
+            const title = document.getElementById('contact-form-title');
+            const subtitle = document.getElementById('contact-form-subtitle');
+            const btn = document.getElementById('contact-form-submit');
+            if (mode === 'calendar') {
+                title.textContent = 'Куда отправить подтверждение?';
+                subtitle.textContent = 'Отправим выбранную дату в мессенджер';
+                btn.textContent = 'Жду подтверждение';
+            } else {
+                title.textContent = 'Куда отправить свободные окошки?';
+                subtitle.textContent = 'Мастер пришлет ближайшие варианты в течение 10 минут';
+                btn.textContent = 'Жду варианты';
+            }
             // Reset
             document.getElementById('contact-form-phone').value = '';
             document.getElementById('contact-form-status').style.display = 'none';
             document.getElementById('contact-form-submit').disabled = false;
-            document.getElementById('contact-form-submit').textContent = 'Жду варианты';
+            // Restore correct button text after reset override above
+            btn.textContent = mode === 'calendar' ? 'Жду подтверждение' : 'Жду варианты';
             // Focus phone
             setTimeout(() => document.getElementById('contact-form-phone').focus(), 300);
         }
@@ -851,11 +866,19 @@
                     status.style.display = 'block';
                     btn.textContent = 'Отправлено';
 
-                    // Close modal after delay and show success
-                    setTimeout(() => {
-                        closeModal();
-                        document.getElementById('success-overlay').classList.add('open');
-                    }, 1500);
+                    if (modalState.mode === 'calendar') {
+                        // After contact collected for calendar flow → go to messenger selection
+                        setTimeout(() => {
+                            closeContactForm();
+                            goToStep(3);
+                        }, 1000);
+                    } else {
+                        // Nearest/callback → close and show success
+                        setTimeout(() => {
+                            closeModal();
+                            document.getElementById('success-overlay').classList.add('open');
+                        }, 1500);
+                    }
                 } else {
                     status.textContent = '❌ Ошибка. Попробуйте позже или напишите в Telegram.';
                     status.style.color = '#ef4444';
