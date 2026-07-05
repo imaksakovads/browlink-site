@@ -56,6 +56,16 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.ostinkosmo.online/blog/laminirovanie-brovey-komu-deystvitelno-nuzhno.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ostinkosmo.online/blog/plyusy-laminirovaniya-resnits-estestvennyy-izgib.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.ostinkosmo.online/reviews/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
