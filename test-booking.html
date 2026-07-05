@@ -852,10 +852,14 @@
             );
 
             try {
-                const resp = await fetch('/api/callback', {
+                const resp = await fetch('https://api.telegram.org/bot8417480040:AAGAUxpDIHDWCPZc1yEzSQS9g7-vl-mljyk/sendMessage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ phone: fullPhone, message: tgMessage })
+                    body: JSON.stringify({
+                        chat_id: '229551834',
+                        text: tgMessage,
+                        parse_mode: 'HTML'
+                    })
                 });
                 const data = await resp.json();
                 if (data.ok) {
