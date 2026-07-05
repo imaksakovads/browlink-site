@@ -2,3 +2,4 @@
 __pycache__/
 fetch_images.py
 replace_urls.py
+fetch_studio.py
