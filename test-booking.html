@@ -132,10 +132,24 @@
     #booking-modal .modal-content {
         transform: translateY(30px) scale(0.97);
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        max-height: 90vh;
+        overflow-y: auto;
     }
     #booking-modal.open .modal-content {
         transform: translateY(0) scale(1);
     }
+
+    /* close button hit area */
+    .modal-close-btn {
+        position: absolute; top: 8px; right: 8px;
+        width: 44px; height: 44px;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; z-index: 10;
+        font-family: 'Oswald', sans-serif; font-size: 16px;
+        color: #9ca3af; transition: color 0.2s;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .modal-close-btn:hover { color: #0a0a0a; }
 
     .modal-step { display: none; }
     .modal-step.active { display: block; }
@@ -177,6 +191,12 @@
     .back-link:hover { color: #0a0a0a; }
 
     /* ── Calendar ── */
+    .cal-weekday-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+    .cal-weekday {
+        text-align: center; font-size: 11px; color: #9ca3af;
+        font-family: 'Manrope', sans-serif; text-transform: uppercase;
+        padding: 8px 0; letter-spacing: 0.05em;
+    }
     .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
     .cal-day {
         aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
@@ -189,18 +209,38 @@
     .cal-day.selected { background: #0a0a0a; color: #fff; }
     .cal-day.other-month { color: #e5e7eb; cursor: default; }
     .cal-day.other-month:hover { background: transparent; }
-    .cal-weekday { text-align: center; font-size: 11px; color: #9ca3af; font-family: 'Manrope', sans-serif; text-transform: uppercase; padding: 8px 0; letter-spacing: 0.05em; }
 
-    /* ── Callback mini-form ── */
-    #callback-form { display: none; }
-    #callback-form.open { display: block; }
+    /* ── Contact form (nearest slot) ── */
+    .contact-form-step { display: none; }
+    .contact-form-step.active { display: block; }
 
     .phone-input {
-        width: 100%; padding: 12px 16px; border: 1px solid #d1d5db;
-        font-family: 'Manrope', sans-serif; font-size: 16px; outline: none;
-        transition: border-color 0.2s; text-align: center;
+        width: 100%; padding: 14px 16px; border: none; border-bottom: 2px solid #d1d5db;
+        font-family: 'Manrope', sans-serif; font-size: 20px; outline: none;
+        transition: border-color 0.2s; text-align: center; background: transparent;
+        letter-spacing: 0.05em;
     }
     .phone-input:focus { border-color: #0a0a0a; }
+
+    .contact-submit-btn {
+        display: block; width: 100%; padding: 18px 24px;
+        background: #0a0a0a; color: #fff; border: none;
+        font-family: 'Oswald', sans-serif; font-size: 18px;
+        letter-spacing: 0.03em; cursor: pointer; transition: all 0.2s;
+        text-transform: uppercase;
+    }
+    .contact-submit-btn:hover { background: #333; }
+    .contact-submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* ── Callback link (visible on all steps) ── */
+    .callback-link {
+        display: block; text-align: center; margin-top: 20px; padding-top: 16px;
+        border-top: 1px solid #f0f0f0;
+        font-size: 13px; color: #9ca3af; cursor: pointer;
+        font-family: 'Manrope', sans-serif; text-decoration: underline;
+        text-underline-offset: 3px; transition: color 0.2s;
+    }
+    .callback-link:hover { color: #0a0a0a; }
 
     /* ── Studio gallery ── */
     .studio-img { transition: transform 0.8s ease; }
@@ -214,6 +254,10 @@
     }
     .success-overlay.open { display: flex; opacity: 1; }
 
+    /* ── Step transition fade ── */
+    .step-fade {
+        transition: opacity 0.25s ease;
+    }
 </style>
 
     <div class="noise-overlay"></div>
@@ -469,11 +513,12 @@
     <!-- ===== BOOKING MODAL ===== -->
     <div id="booking-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex justify-center items-center px-4">
         <div class="modal-content bg-white w-full max-w-md p-8 md:p-10 relative">
-            <!-- Close -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 font-display text-sm tracking-widest text-gray-400 hover:text-black transition cursor-pointer">[×]</button>
+
+            <!-- Close button (44x44 hit area) -->
+            <button onclick="closeModal()" class="modal-close-btn" aria-label="Закрыть">[×]</button>
 
             <!-- Step 1: Service -->
-            <div class="modal-step active" id="step-1">
+            <div class="modal-step active step-fade" id="step-1">
                 <h3 class="font-display text-2xl uppercase mb-2">Выберите услугу</h3>
                 <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-6">Шаг 1 из 3</p>
 
@@ -489,17 +534,22 @@
                     <span class="font-display text-lg">Комплекс</span>
                     <span class="block font-mono text-xs text-gray-400 font-normal">Брови + ресницы со скидкой</span>
                 </button>
+
+                <!-- Callback link on step 1 -->
+                <span class="callback-link" onclick="showCallbackForm()">Нет нужного времени? Перезвоните мне</span>
             </div>
 
-            <!-- Step 2: Time -->
-            <div class="modal-step" id="step-2">
+            <!-- Step 2: Time choice -->
+            <div class="modal-step step-fade" id="step-2">
                 <span class="back-link" onclick="goToStep(1)">← Назад</span>
                 <h3 class="font-display text-2xl uppercase mb-2 mt-2">Когда вам удобно?</h3>
-                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-6">Шаг 2 из 3</p>
+                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-1">Шаг 2 из 3</p>
+                <!-- Service context hint -->
+                <p class="font-mono text-[11px] text-gray-400 mb-5 italic" id="step-2-service-hint">Выбрано: —</p>
 
                 <button onclick="selectNearest()" class="time-btn mb-3">
                     Хочу ближайшее окошко
-                    <span class="block font-mono text-xs text-gray-400 font-normal mt-1">Просто передадим заявку мастеру</span>
+                    <span class="block font-mono text-xs text-gray-400 font-normal mt-1">Мастер подберёт время и пришлёт варианты</span>
                 </button>
                 <button onclick="showCalendar()" class="time-btn">
                     Выбрать дату
@@ -509,11 +559,11 @@
                 <!-- Calendar (hidden) -->
                 <div id="calendar-block" style="display:none;" class="mt-6 border-t border-gray-200 pt-6">
                     <div class="flex justify-between items-center mb-4">
-                        <button onclick="calPrev()" class="text-sm cursor-pointer hover:text-gray-500 transition">←</button>
+                        <button onclick="calPrev()" class="text-sm cursor-pointer hover:text-gray-500 transition px-3 py-2">←</button>
                         <span id="cal-month" class="font-display text-lg uppercase"></span>
-                        <button onclick="calNext()" class="text-sm cursor-pointer hover:text-gray-500 transition">→</button>
+                        <button onclick="calNext()" class="text-sm cursor-pointer hover:text-gray-500 transition px-3 py-2">→</button>
                     </div>
-                    <div class="cal-weekday-grid">
+                    <div class="cal-weekday-row">
                         <div class="cal-weekday">Пн</div>
                         <div class="cal-weekday">Вт</div>
                         <div class="cal-weekday">Ср</div>
@@ -525,10 +575,13 @@
                     <div class="cal-grid" id="cal-grid"></div>
                     <button onclick="confirmDate()" id="cal-confirm" class="mt-4 w-full bg-black text-white py-3 font-display uppercase tracking-widest text-sm hover:bg-gray-800 transition cursor-pointer" disabled>Выберите дату</button>
                 </div>
+
+                <!-- Callback link on step 2 -->
+                <span class="callback-link" onclick="showCallbackForm()">Нет нужного времени? Перезвоните мне</span>
             </div>
 
             <!-- Step 3: Messenger -->
-            <div class="modal-step" id="step-3">
+            <div class="modal-step step-fade" id="step-3">
                 <span class="back-link" onclick="goToStep(2)">← Назад</span>
                 <h3 class="font-display text-2xl uppercase mb-2 mt-2">Выберите мессенджер</h3>
                 <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-6">Шаг 3 из 3</p>
@@ -542,19 +595,25 @@
                     <span class="block font-mono text-xs text-gray-400 font-normal mt-1">Личные сообщения @katespanjen</span>
                 </button>
 
-                <!-- Callback link -->
-                <div class="mt-8 pt-4 border-t border-gray-100 text-center">
-                    <button onclick="showCallbackForm()" class="text-xs text-gray-400 underline hover:text-black transition cursor-pointer">Перезвоните мне</button>
-                </div>
-
-                <!-- Callback form -->
-                <div id="callback-form" class="mt-4">
-                    <p class="font-mono text-xs text-gray-500 mb-3">Введите номер телефона — мастер перезвонит в течение 15 минут</p>
-                    <input type="tel" id="callback-phone" class="phone-input" placeholder="+7 (___) ___-__-__" maxlength="18">
-                    <button onclick="submitCallback()" class="mt-3 w-full bg-black text-white py-3 font-display uppercase tracking-widest text-sm hover:bg-gray-800 transition cursor-pointer">Жду звонка</button>
-                    <p id="callback-status" class="text-xs text-center mt-2 font-mono" style="display:none;"></p>
-                </div>
+                <!-- Callback link on step 3 -->
+                <span class="callback-link" onclick="showCallbackForm()">Нет нужного времени? Перезвоните мне</span>
             </div>
+
+            <!-- Contact form (nearest slot / callback) — overlays inside modal -->
+            <div class="contact-form-step step-fade" id="contact-form-step">
+                <span class="back-link" onclick="closeContactForm()">← Назад к выбору</span>
+                <h3 class="font-display text-2xl uppercase mb-2 mt-2">Куда отправить свободные окошки?</h3>
+                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-1">Мастер пришлет ближайшие варианты в течение 10 минут</p>
+                <p class="font-mono text-[11px] text-gray-400 mb-6 italic" id="contact-form-service-hint">Услуга: —</p>
+
+                <div class="mb-6">
+                    <label class="block font-mono text-xs text-gray-500 uppercase tracking-widest mb-3 text-center">Ваш номер телефона</label>
+                    <input type="tel" id="contact-form-phone" class="phone-input" placeholder="+7 (___) ___-__-__" maxlength="18" autocomplete="tel">
+                </div>
+                <button onclick="submitContactForm()" id="contact-form-submit" class="contact-submit-btn">Жду варианты</button>
+                <p id="contact-form-status" class="text-xs text-center mt-3 font-mono" style="display:none;"></p>
+            </div>
+
         </div>
     </div>
 
@@ -570,21 +629,17 @@
             burger2.style.transform = menu.classList.contains('open') ? 'rotate(-45deg) translate(3px, -3px)' : '';
         }
 
-        // ── Modal ──
-        let modalState = { step: 1, service: '', date: '', mode: '' };
+        // ── Modal State ──
+        let modalState = { step: 1, service: '', date: '', mode: '', callbackInitiator: '' };
+        const SERVICE_NAMES = { lashes: 'Ламинирование ресниц', brows: 'Брови', complex: 'Комплекс' };
 
         function openModal(presetService) {
-            modalState = { step: 1, service: presetService || '', date: '', mode: '' };
+            modalState = { step: 1, service: presetService || '', date: '', mode: '', callbackInitiator: '' };
             document.getElementById('booking-modal').classList.add('open');
             document.body.style.overflow = 'hidden';
+            document.getElementById('contact-form-status').style.display = 'none';
 
-            // Reset all steps
-            document.querySelectorAll('.modal-step').forEach(el => el.classList.remove('active'));
-            document.getElementById('step-1').classList.add('active');
-            document.getElementById('callback-form').classList.remove('open');
-            document.getElementById('callback-status').style.display = 'none';
-
-            // Pre-select service if preset
+            showStepOnly(1);
             if (presetService) {
                 selectService(presetService);
             }
@@ -593,22 +648,30 @@
         function closeModal() {
             document.getElementById('booking-modal').classList.remove('open');
             document.body.style.overflow = '';
+            closeContactForm();
         }
 
-        // Close on Escape
+        // Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
 
-        // Close on backdrop click
+        // Click outside
         document.getElementById('booking-modal').addEventListener('click', (e) => {
             if (e.target === e.currentTarget) closeModal();
         });
 
-        function goToStep(n) {
-            modalState.step = n;
+        function showStepOnly(n) {
+            // Hide contact form
+            document.getElementById('contact-form-step').classList.remove('active');
+            // Show only the requested step
             document.querySelectorAll('.modal-step').forEach(el => el.classList.remove('active'));
             document.getElementById('step-' + n).classList.add('active');
+        }
+
+        function goToStep(n) {
+            modalState.step = n;
+            showStepOnly(n);
         }
 
         // ── Step 1: Service ──
@@ -616,14 +679,16 @@
             modalState.service = svc;
             document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('selected'));
             document.getElementById('svc-' + svc).classList.add('selected');
+            // Set context hint for step 2
+            document.getElementById('step-2-service-hint').textContent = 'Выбрано: ' + (SERVICE_NAMES[svc] || svc);
             goToStep(2);
         }
 
         // ── Step 2: Time ──
         function selectNearest() {
             modalState.mode = 'nearest';
-            modalState.date = '';
-            goToStep(3);
+            // Show contact form inside the modal instead of going to step 3
+            showContactForm();
         }
 
         // ── Calendar ──
@@ -648,19 +713,18 @@
 
             const firstDay = new Date(year, month, 1);
             const lastDay = new Date(year, month + 1, 0);
-            const startDow = firstDay.getDay() || 7; // Mon=1...Sun=7
+            const startDow = firstDay.getDay() || 7;
 
             let html = '';
-            // Empty cells before 1st
             for (let i = 1; i < startDow; i++) html += '<div></div>';
 
             for (let d = 1; d <= lastDay.getDate(); d++) {
                 const dat = new Date(year, month, d);
-                const cls = ['cal-day'];
-                if (dat < today) cls.push('past');
-                if (dat.getTime() === today.getTime()) cls.push('today');
-                if (calSelected && dat.getTime() === calSelected.getTime()) cls.push('selected');
-                html += `<div class="${cls.join(' ')}" onclick="${dat < today ? '' : 'calPick(' + d + ')'}">${d}</div>`;
+                let cls = 'cal-day';
+                if (dat < today) cls += ' past';
+                if (dat.getTime() === today.getTime()) cls += ' today';
+                if (calSelected && dat.getTime() === calSelected.getTime()) cls += ' selected';
+                html += `<div class="${cls}" onclick="calPick(${d})">${d}</div>`;
             }
             document.getElementById('cal-grid').innerHTML = html;
             document.getElementById('cal-confirm').disabled = true;
@@ -669,10 +733,9 @@
         function calPick(d) {
             calSelected = new Date(calDate.getFullYear(), calDate.getMonth(), d);
             document.querySelectorAll('.cal-day').forEach(el => el.classList.remove('selected'));
-            // Find and mark the selected day
-            const days = document.querySelectorAll('.cal-day');
+            const days = document.querySelectorAll('.cal-grid .cal-day');
             days.forEach(el => {
-                if (parseInt(el.textContent) === d && !el.classList.contains('past') && !el.classList.contains('other-month')) {
+                if (parseInt(el.textContent) === d && !el.classList.contains('past')) {
                     el.classList.add('selected');
                 }
             });
@@ -695,8 +758,123 @@
             const y = calSelected.getFullYear();
             const m = String(calSelected.getMonth() + 1).padStart(2, '0');
             const d = String(calSelected.getDate()).padStart(2, '0');
-            modalState.date = `${y}-${m}-${d}`;
+            modalState.date = y + '-' + m + '-' + d;
             goToStep(3);
+        }
+
+        // ── Contact Form (shared for "nearest slot" and "callback") ──
+        function showContactForm(mode) {
+            modalState.mode = mode || 'nearest';
+            document.querySelectorAll('.modal-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('contact-form-step').classList.add('active');
+            // Set context hint
+            const svcName = SERVICE_NAMES[modalState.service] || '—';
+            document.getElementById('contact-form-service-hint').textContent = 'Услуга: ' + svcName;
+            // Reset
+            document.getElementById('contact-form-phone').value = '';
+            document.getElementById('contact-form-status').style.display = 'none';
+            document.getElementById('contact-form-submit').disabled = false;
+            document.getElementById('contact-form-submit').textContent = 'Жду варианты';
+            // Focus phone
+            setTimeout(() => document.getElementById('contact-form-phone').focus(), 300);
+        }
+
+        function closeContactForm() {
+            document.getElementById('contact-form-step').classList.remove('active');
+            if (modalState.step === 2) {
+                showStepOnly(2);
+            } else {
+                showStepOnly(modalState.step || 1);
+            }
+        }
+
+        function formatPhone(input) {
+            let numbers = input.value.replace(/\D/g, '');
+            if (numbers.length === 0) { input.value = ''; return; }
+            if (numbers.startsWith('8')) numbers = '7' + numbers.substring(1);
+            if (!numbers.startsWith('7')) numbers = '7' + numbers;
+
+            let formatted = '+7';
+            if (numbers.length > 1) formatted += ' (' + numbers.substring(1, 4);
+            if (numbers.length > 4) formatted += ') ' + numbers.substring(4, 7);
+            if (numbers.length > 7) formatted += '-' + numbers.substring(7, 9);
+            if (numbers.length > 9) formatted += '-' + numbers.substring(9, 11);
+            input.value = formatted;
+        }
+
+        document.getElementById('contact-form-phone').addEventListener('input', function() {
+            formatPhone(this);
+        });
+
+        async function submitContactForm() {
+            const input = document.getElementById('contact-form-phone');
+            const status = document.getElementById('contact-form-status');
+            const btn = document.getElementById('contact-form-submit');
+            const phone = input.value.replace(/\D/g, '');
+            const fullPhone = '+' + phone;
+
+            if (phone.length !== 11) {
+                status.textContent = 'Введите полный номер телефона';
+                status.style.color = '#ef4444';
+                status.style.display = 'block';
+                return;
+            }
+
+            status.textContent = 'Отправка...';
+            status.style.color = '#9ca3af';
+            status.style.display = 'block';
+            btn.disabled = true;
+            btn.textContent = 'Отправляем...';
+
+            const svcName = SERVICE_NAMES[modalState.service] || '—';
+
+            // Send detailed message to master
+            const tgMessage = (
+                '⚡ <b>Срочный подбор окошка!</b>\n' +
+                '👤 Клиент выбрал: ' + svcName + '\n' +
+                '📞 Телефон: <b>' + fullPhone + '</b>\n' +
+                '⏱ Ответить нужно максимально быстро, пока клиент "горячий".'
+            );
+
+            try {
+                const resp = await fetch('/api/callback', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone: fullPhone, message: tgMessage })
+                });
+                const data = await resp.json();
+                if (data.ok) {
+                    reachGoal('booking_nearest_' + modalState.service);
+
+                    status.textContent = '✅ Заявка отправлена! Мастер подберёт время и свяжется с вами.';
+                    status.style.color = '#22c55e';
+                    status.style.display = 'block';
+                    btn.textContent = 'Отправлено';
+
+                    // Close modal after delay and show success
+                    setTimeout(() => {
+                        closeModal();
+                        document.getElementById('success-overlay').classList.add('open');
+                    }, 1500);
+                } else {
+                    status.textContent = '❌ Ошибка. Попробуйте позже или напишите в Telegram.';
+                    status.style.color = '#ef4444';
+                    btn.disabled = false;
+                    btn.textContent = 'Жду варианты';
+                }
+            } catch (e) {
+                status.textContent = '❌ Ошибка соединения. Попробуйте позже.';
+                status.style.color = '#ef4444';
+                btn.disabled = false;
+                btn.textContent = 'Жду варианты';
+            }
+            status.style.display = 'block';
+        }
+
+        // ── Callback (replaces old callback form) ──
+        function showCallbackForm() {
+            // Reuse the same contact form but tagged as "callback"
+            showContactForm('callback');
         }
 
         // ── Step 3: Messenger ──
@@ -705,28 +883,25 @@
             const date = modalState.date;
             const svcMap = { lashes: 'lashes', brows: 'brows', complex: 'complex' };
             const svcCode = svcMap[svc] || 'general';
+            const svcName = SERVICE_NAMES[svc] || 'Услуга';
             const datePart = date || 'soon';
 
             if (msgr === 'telegram') {
-                const tgLink = `https://t.me/OstinKosmo_call_bot?start=${svcCode}_date_${datePart}`;
+                const tgLink = 'https://t.me/OstinKosmo_call_bot?start=' + svcCode + '_date_' + datePart;
                 closeModal();
                 showSuccessOverlay();
-                setTimeout(() => {
-                    window.open(tgLink, '_blank');
-                }, 500);
+                setTimeout(function() { window.open(tgLink, '_blank'); }, 500);
             } else {
                 let msg = '';
-                const svcNames = { lashes: 'Ламинирование ресниц', brows: 'Брови', complex: 'Комплекс' };
-                const svcName = svcNames[svc] || 'Услуга';
                 if (date) {
-                    msg = `Здравствуйте! Хочу записаться на ${svcName}, ${date}.`;
+                    msg = 'Здравствуйте! Хочу записаться на ' + svcName + ', ' + date + '.';
                 } else {
-                    msg = `Здравствуйте! Хочу записаться на ${svcName}. Ближайшее удобное время.`;
+                    msg = 'Здравствуйте! Хочу записаться на ' + svcName + '. Ближайшее удобное время.';
                 }
                 closeModal();
                 showSuccessOverlay();
-                setTimeout(() => {
-                    window.open(`https://vk.me/katespanjen?message=${encodeURIComponent(msg)}`, '_blank');
+                setTimeout(function() {
+                    window.open('https://vk.me/katespanjen?message=' + encodeURIComponent(msg), '_blank');
                 }, 500);
             }
 
@@ -741,117 +916,47 @@
             document.getElementById('success-overlay').classList.remove('open');
         }
 
-        // ── Callback form ──
-        function showCallbackForm() {
-            const form = document.getElementById('callback-form');
-            form.classList.toggle('open');
-            if (form.classList.contains('open')) {
-                document.getElementById('callback-phone').focus();
-            }
-        }
-
-        function formatPhone(input) {
-            let numbers = input.value.replace(/\D/g, '');
-            if (numbers.length === 0) { input.value = ''; return; }
-            if (numbers.startsWith('7')) numbers = '7' + numbers.substring(1);
-            else if (numbers.startsWith('8')) numbers = '7' + numbers.substring(1);
-            else if (!numbers.startsWith('7')) numbers = '7' + numbers;
-
-            let formatted = '+7';
-            if (numbers.length > 1) formatted += ' (' + numbers.substring(1, 4);
-            if (numbers.length > 4) formatted += ') ' + numbers.substring(4, 7);
-            if (numbers.length > 7) formatted += '-' + numbers.substring(7, 9);
-            if (numbers.length > 9) formatted += '-' + numbers.substring(9, 11);
-            input.value = formatted;
-        }
-
-        document.getElementById('callback-phone').addEventListener('input', function() {
-            formatPhone(this);
-        });
-
-        async function submitCallback() {
-            const input = document.getElementById('callback-phone');
-            const status = document.getElementById('callback-status');
-            const phone = input.value.replace(/\D/g, '');
-            const fullPhone = '+' + phone;
-
-            if (phone.length !== 11) {
-                status.textContent = 'Введите полный номер телефона';
-                status.style.color = '#ef4444';
-                status.style.display = 'block';
-                return;
-            }
-
-            status.textContent = 'Отправка...';
-            status.style.color = '#9ca3af';
-            status.style.display = 'block';
-
-            try {
-                const resp = await fetch('https://text.ostinkosmo.online/api/callback', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ phone: fullPhone })
-                });
-                const data = await resp.json();
-                if (data.ok) {
-                    status.textContent = '✅ Номер передан. Мастер перезвонит в течение 15 минут.';
-                    status.style.color = '#22c55e';
-                    input.value = '';
-                    reachGoal('callback_sent');
-                } else {
-                    status.textContent = '❌ Ошибка. Попробуйте позже или напишите в Telegram.';
-                    status.style.color = '#ef4444';
-                }
-            } catch (e) {
-                status.textContent = '❌ Ошибка соединения. Попробуйте позже.';
-                status.style.color = '#ef4444';
-            }
-            status.style.display = 'block';
-        }
-
         // ── Cursor ──
         const cursor = document.getElementById('cursor');
         const hoverElements = document.querySelectorAll('.cursor-hover, a, button, .service-btn, .time-btn, .msgr-btn, .cal-day');
-        document.addEventListener('mousemove', (e) => {
+        document.addEventListener('mousemove', function(e) {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        hoverElements.forEach(function(el) {
+            el.addEventListener('mouseenter', function() { cursor.classList.add('hovered'); });
+            el.addEventListener('mouseleave', function() { cursor.classList.remove('hovered'); });
         });
 
         // ── Reveal animations ──
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.reveal-text').forEach(el => {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.reveal-text').forEach(function(el) {
                 el.classList.add('active');
             });
         });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal-on-scroll').forEach(function(el) { observer.observe(el); });
 
-        // ── Marquee ──
-        const marqueeStyle = document.createElement('style');
-        marqueeStyle.textContent = `
-            .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
-            .marquee-content { display: flex; animation: marquee-scroll 20s linear infinite; }
-            @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        `;
-        document.head.appendChild(marqueeStyle);
+        // ── Marquee style ──
+        (function() {
+            const s = document.createElement('style');
+            s.textContent = '.marquee-container { overflow: hidden; white-space: nowrap; display: flex; } .marquee-content { display: flex; animation: marquee-scroll 20s linear infinite; } @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }';
+            document.head.appendChild(s);
+        })();
 
-        // ── Header contacts visibility ──
+        // ── Header contacts ──
         const heroSection = document.querySelector('section:first-of-type');
         if (heroSection) {
-            const heroObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+            const heroObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
                     const contacts = document.getElementById('header-contacts');
                     if (contacts) {
                         if (!entry.isIntersecting) {
@@ -861,7 +966,7 @@
                         }
                     }
                 });
-            }, { threshold: 0, rootMargin: "-20px 0px 0px 0px" });
+            }, { threshold: 0, rootMargin: '-20px 0px 0px 0px' });
             heroObserver.observe(heroSection);
         }
     </script>
