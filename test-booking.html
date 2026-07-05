@@ -579,23 +579,23 @@
                 <span class="callback-link" onclick="showCallbackForm()">Нет нужного времени? Перезвоните мне</span>
             </div>
 
-            <!-- Step 3: Messenger -->
+            <!-- Step 3: Messenger (two separate booking buttons) -->
             <div class="modal-step step-fade" id="step-3">
                 <span class="back-link" onclick="goToStep(2)">← Назад</span>
-                <h3 class="font-display text-2xl uppercase mb-2 mt-2">Выберите мессенджер</h3>
-                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-6">Шаг 3 из 3</p>
+                <h3 class="font-display text-2xl uppercase mb-2 mt-2">Подтверждение записи</h3>
+                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-1">Шаг 3 из 3</p>
+                <p class="font-mono text-[11px] text-gray-400 mb-6" id="step-3-summary"></p>
 
-                <button onclick="goToMessenger('telegram')" class="msgr-btn mb-2" id="msgr-telegram">
-                    Telegram
-                    <span class="block font-mono text-xs text-gray-400 font-normal mt-1">Быстрый ответ от мастера</span>
+                <button onclick="goToMessenger('telegram')" class="msgr-btn mb-3" id="msgr-telegram" style="background:#0a0a0a;color:#fff;border-color:#0a0a0a;">
+                    <span class="font-display text-lg">Запись через Telegram</span>
+                    <span class="block font-mono text-xs font-normal mt-1" style="color:rgba(255,255,255,0.6)">Быстрый ответ от мастера</span>
                 </button>
-                <button onclick="goToMessenger('vk')" class="msgr-btn" id="msgr-vk">
-                    ВКонтакте
+                <button onclick="goToMessenger('vk')" class="msgr-btn" id="msgr-vk" style="border-color:#0a0a0a;">
+                    <span class="font-display text-lg">Запись через ВКонтакте</span>
                     <span class="block font-mono text-xs text-gray-400 font-normal mt-1">Личные сообщения @katespanjen</span>
                 </button>
 
-                <!-- Callback link on step 3 -->
-                <span class="callback-link" onclick="showCallbackForm()">Нет нужного времени? Перезвоните мне</span>
+                <span class="callback-link" onclick="showCallbackForm()">Перезвоните мне</span>
             </div>
 
             <!-- Contact form (nearest slot / callback / calendar) -->
@@ -759,7 +759,10 @@
             const d = String(calSelected.getDate()).padStart(2, '0');
             modalState.date = y + '-' + m + '-' + d;
             modalState.mode = 'calendar';
-            showContactForm('calendar');
+            const svcName = SERVICE_NAMES[modalState.service] || '';
+            const dateStr = d + '.' + m + '.' + y;
+            document.getElementById('step-3-summary').textContent = svcName + ', ' + dateStr;
+            goToStep(3);
         }
 
         // ── Contact Form (shared for "nearest", "calendar" and "callback") ──
