@@ -96,4 +96,10 @@
     <changefreq>yearly</changefreq>
       <lastmod>2026-07-06</lastmod>
   </url>
+  <url>
+    <loc>https://www.ostinkosmo.online/404.html</loc>
+    <priority>0.1</priority>
+    <changefreq>yearly</changefreq>
+      <lastmod>2026-07-06</lastmod>
+  </url>
 </urlset>
