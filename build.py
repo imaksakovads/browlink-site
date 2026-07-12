@@ -47,7 +47,7 @@ CONTENT_DIR = ROOT / "content"
 TEMPLATES_DIR = ROOT / "templates"
 OUTPUT_DIR = ROOT / "output"
 
-SITE_URL = "https://ostinkosmo.online"
+SITE_URL = "https://ostinkosmo.ru"
 BLOG_URL = f"{SITE_URL}/blog"
 SITE_NAME = "OSTIN KOSMO"
 
