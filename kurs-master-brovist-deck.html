@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Курс «Мастер-бровист» · Финальная программа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      oklch(96.5% 0 0);
+      --surface: oklch(100% 0 0);
+      --fg:      oklch(12% 0 0);
+      --muted:   oklch(48% 0 0);
+      --border:  oklch(90% 0 0);
+      --accent:  oklch(42% 0 0);
+      --accent-soft: color-mix(in oklch, var(--accent) 10%, transparent);
+      --font-display: 'Oswald', 'Arial Narrow', system-ui, sans-serif;
+      --font-body:    'Manrope', system-ui, sans-serif;
+      --font-mono:    ui-monospace, 'SF Mono', Menlo, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--bg); }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 19px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+    body::-webkit-scrollbar { display: none; }
+    p { text-wrap: pretty; margin: 0; }
+    h1, h2, h3 { text-wrap: balance; margin: 0; }
+
+    .slide {
+      flex: 0 0 100vw;
+      width: 100vw;
+      height: 100vh;
+      scroll-snap-align: start;
+      padding: clamp(36px, 5.5vw, 72px) clamp(40px, 6.5vw, 88px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide.light { background: var(--bg); color: var(--fg); }
+    .slide.dark  { background: color-mix(in oklch, var(--fg) 90%, white); color: var(--bg); }
+    .slide.hero  { padding-block: clamp(48px, 7vw, 96px); }
+    .slide.center { align-items: center; text-align: center; justify-content: center; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .slide.dark .eyebrow { color: rgba(244,244,244,0.5); }
+
+    .h-hero {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6.8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0 0 18px;
+      max-width: 16ch;
+    }
+    .h-xl {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.2vw, 48px);
+      line-height: 1.06;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0 0 14px;
+      max-width: 24ch;
+    }
+    .h-md {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.6vw, 32px);
+      line-height: 1.12;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin: 0 0 12px;
+    }
+    .lead {
+      font-size: clamp(18px, 1.35vw, 22px);
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 54ch;
+      font-weight: 400;
+    }
+    .slide.dark .lead { color: rgba(244,244,244,0.7); }
+
+    .goal {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-left: 2px solid var(--fg);
+      background: var(--surface);
+      max-width: 62ch;
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .slide.dark .goal {
+      background: color-mix(in oklch, var(--fg) 88%, white);
+      border-left-color: var(--bg);
+      color: rgba(244,244,244,0.72);
+    }
+    .goal b { color: var(--fg); font-weight: 600; }
+    .slide.dark .goal b { color: var(--bg); }
+
+    /* TOC */
+    .toc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+      margin-top: 24px;
+      max-width: 960px;
+      width: 100%;
+    }
+    .toc-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 12px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+      text-align: left;
+    }
+    .toc-item .n {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .toc-item .t {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 1.3vw, 20px);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    /* Cards / grids */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 36px; margin-top: 22px; width: 100%; max-width: 1100px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; width: 100%; max-width: 1100px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; width: 100%; max-width: 1100px; }
+    .grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 16px; margin-top: 20px; width: 100%; max-width: 1100px; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      min-height: 100%;
+    }
+    .slide.dark .card {
+      background: color-mix(in oklch, var(--fg) 94%, white);
+      border-color: rgba(244,244,244,0.12);
+    }
+    .card .n {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .card h3 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .card p, .card li {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .slide.dark .card p, .slide.dark .card li { color: rgba(244,244,244,0.68); }
+    .card ul { margin: 0; padding-left: 1.1em; }
+    .card li { margin: 4px 0; }
+
+    .pt-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .pt { border-top: 2px solid var(--fg); padding-top: 12px; }
+    .slide.dark .pt { border-top-color: var(--bg); }
+    .pt h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .pt p { font-size: 16px; color: var(--muted); line-height: 1.45; }
+    .slide.dark .pt p { color: rgba(244,244,244,0.68); }
+
+    /* Table */
+    .table-wrap {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 1100px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .slide.dark .table-wrap { border-color: rgba(244,244,244,0.14); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .slide.dark th, .slide.dark td { border-bottom-color: rgba(244,244,244,0.12); }
+    th {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      background: var(--surface);
+    }
+    .slide.dark th { background: color-mix(in oklch, var(--fg) 92%, white); color: rgba(244,244,244,0.55); }
+    td:first-child {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    td.num {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    tr:last-child td { border-bottom: 0; }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px 20px;
+      margin-top: 22px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .step {
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+    .slide.dark .step { border-top-color: rgba(244,244,244,0.16); }
+    .step .nb {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .step h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-weight: 500;
+      margin: 6px 0 6px;
+      line-height: 1.15;
+    }
+    .step p { font-size: 15px; color: var(--muted); line-height: 1.4; }
+    .slide.dark .step p { color: rgba(244,244,244,0.68); }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 8px;
+    }
+    .shot {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .slide.dark .shot { border-color: rgba(244,244,244,0.14); }
+
+    .list-clean {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      max-width: 52ch;
+    }
+    .list-clean li {
+      font-size: 17px;
+      color: var(--muted);
+      padding: 9px 0;
+      border-top: 1px solid var(--border);
+      line-height: 1.4;
+    }
+    .slide.dark .list-clean li {
+      border-top-color: rgba(244,244,244,0.12);
+      color: rgba(244,244,244,0.72);
+    }
+    .list-clean strong { color: var(--fg); font-weight: 600; }
+    .slide.dark .list-clean strong { color: var(--bg); }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 22px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .price-card {
+      background: var(--surface);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+    }
+    .price-card.featured {
+      background: var(--fg);
+      color: var(--bg);
+    }
+    .price-card .tag {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .price-card.featured .tag { color: rgba(244,244,244,0.5); }
+    .price-card h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .price-card .hours {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .price-card.featured .hours { color: rgba(244,244,244,0.55); }
+    .price-card p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.45;
+      flex: 1;
+    }
+    .price-card.featured p { color: rgba(244,244,244,0.72); }
+    .price-card .result {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--fg);
+      font-weight: 500;
+    }
+    .price-card.featured .result {
+      border-top-color: rgba(244,244,244,0.16);
+      color: var(--bg);
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0;
+      margin-top: 18px;
+      max-width: 720px;
+      width: 100%;
+      border: 1px solid var(--border);
+    }
+    .score-grid div {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 16px;
+    }
+    .score-grid div:nth-child(odd) { border-right: 1px solid var(--border); }
+    .score-grid .pts {
+      font-family: var(--font-mono);
+      text-align: right;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .score-grid .pass {
+      grid-column: 1 / -1;
+      border-bottom: 0;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: var(--surface);
+      color: var(--fg);
+    }
+    .slide.dark .score-grid .pass {
+      background: color-mix(in oklch, var(--fg) 94%, white);
+      color: var(--bg);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      justify-content: center;
+    }
+    .cta {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 15px 26px;
+      border: 1px solid currentColor;
+      color: inherit;
+    }
+    .cta.fill {
+      background: var(--bg);
+      color: var(--fg);
+      border-color: var(--bg);
+    }
+
+    .notes {
+      display: none;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: var(--fg);
+      color: var(--bg);
+      padding: 12px 28px 16px;
+      font-size: 15px;
+      line-height: 1.45;
+      z-index: 20;
+      border-top: 1px solid rgba(244,244,244,0.12);
+      max-height: 20vh;
+      overflow: auto;
+    }
+    body.show-notes .notes { display: block; }
+    .notes strong {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .deck-counter {
+      position: fixed;
+      bottom: 20px; right: 28px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--fg);
+      background: var(--surface);
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      letter-spacing: 0.04em;
+      z-index: 10;
+    }
+    .deck-hint {
+      position: fixed;
+      bottom: 20px; left: 28px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      z-index: 10;
+    }
+    .deck-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--fg);
+      width: 0;
+      z-index: 10;
+      transition: width 0.18s ease;
+    }
+    body.show-notes .deck-counter,
+    body.show-notes .deck-hint { bottom: calc(20vh + 10px); }
+
+    .slide-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      width: 100%;
+      max-width: 1100px;
+      margin-bottom: 4px;
+    }
+    .slide-head .meta-right {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Brand chips */
+    .brand-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; width: 100%; max-width: 1100px; }
+    .brand-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      font-size: 15px;
+      line-height: 1.3;
+    }
+    .slide.dark .brand-chip {
+      background: color-mix(in oklch, var(--fg) 94%, white);
+      border-color: rgba(244,244,244,0.12);
+    }
+    .brand-chip .name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .brand-chip .cat {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .slide.dark .brand-chip .cat { color: rgba(244,244,244,0.55); }
+
+    /* Checklist grid */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .check-grid .group { border-top: 2px solid var(--fg); padding-top: 10px; }
+    .slide.dark .check-grid .group { border-top-color: var(--bg); }
+    .check-grid .group h3 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .check-grid .group ul { margin: 0; padding-left: 1.2em; }
+    .check-grid .group a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed var(--muted);
+      transition: border-color 0.15s;
+    }
+    .check-grid .group a:hover {
+      border-bottom-color: var(--fg);
+    }
+    .check-grid .group li {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.35;
+      margin: 3px 0;
+    }
+    .slide.dark .check-grid .group a:hover { border-bottom-color: var(--bg); }
+    .slide.dark .check-grid .group li { color: rgba(244,244,244,0.65); }
+
+    @media (max-width: 960px) {
+      .toc, .grid-2, .grid-3, .grid-4, .grid-6, .pt-grid, .pipeline, .price-grid, .split, .brand-grid, .check-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4, .pipeline, .brand-grid { grid-template-columns: 1fr 1fr; }
+      .pt-grid { grid-template-columns: 1fr 1fr; }
+      .check-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Структура: Cover → TOC → Блок 0…10 → Бренды → Приложение → CTA
+    17 слайдов, горизонтальный scroll-snap
+  -->
+
+  <section class="slide hero light center" data-screen-label="01 Cover" data-notes="Титульный слайд. Курс «Мастер-бровист» — 14 модулей, от введения в профессию до осветления и аттестации. Полная программа на основе практического опыта.">
+    <div class="eyebrow">Методическое руководство · 2025–2026</div>
+    <h1 class="h-hero">Курс «Мастер-бровист»</h1>
+    <p class="lead">Полная программа: 14 модулей. От рынка и анатомии до аттестации, брендов красителей, PRO-категорий и чек-листа закупок (31 позиция).</p>
+  </section>
+
+  <section class="slide light" data-screen-label="02 Содержание" data-notes="Оглавление курса — 14 модулей + приложение. Порядок соответствует методической структуре: от базы профессии через ядро техник к бизнесу и аттестации.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Содержание</p>
+        <h2 class="h-xl">Структура курса</h2>
+      </div>
+      <span class="meta-right">14 разделов</span>
+    </div>
+    <div class="toc">
+      <div class="toc-item"><span class="n">00</span><span class="t">Введение в профессию</span></div>
+      <div class="toc-item"><span class="n">01</span><span class="t">Анатомия, физиология кожи и волос. Основы колористики</span></div>
+      <div class="toc-item"><span class="n">02</span><span class="t">Санитария, дезинфекция и организация рабочего места</span></div>
+      <div class="toc-item"><span class="n">03</span><span class="t">Построение формы и окрашивание бровей</span></div>
+      <div class="toc-item"><span class="n">—</span><span class="t">Бренды красителей: обзор и сравнение</span></div>
+      <div class="toc-item"><span class="n">04</span><span class="t">Коррекция и долговременная укладка бровей</span></div>
+      <div class="toc-item"><span class="n">05</span><span class="t">Уходовые процедуры для бровей</span></div>
+      <div class="toc-item"><span class="n">06</span><span class="t">Бизнес, продвижение и маркетинг</span></div>
+      <div class="toc-item"><span class="n">07</span><span class="t">Система практических отработок</span></div>
+      <div class="toc-item"><span class="n">08</span><span class="t">Финальная аттестация</span></div>
+      <div class="toc-item"><span class="n">09</span><span class="t">Особые категории клиентов</span></div>
+      <div class="toc-item"><span class="n">10</span><span class="t">Осветление бровей</span></div>
+      <div class="toc-item"><span class="n">+</span><span class="t">Приложение. Чек-лист покупок начинающего бровиста</span></div>
+    </div>
+  </section>
+
+  <section class="slide dark" data-screen-label="03 Блок 0" data-notes="Блок 0 — Введение в профессию. Карьерная карта: новичок (800–1 200 ₽ средний чек, 20–40 тыс/мес) → практикующий (1 200–2 000 ₽, 50–80 тыс) → топ-мастер (2 000–3 500 ₽, 90–130 тыс+) → преподаватель (150 тыс+). Каналы поиска клиентов: hh.ru, Avito, соцсети, окружение, кросс-промо.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 0</p>
+        <h2 class="h-md">Введение в профессию</h2>
+      </div>
+      <span class="meta-right">Рынок · Карьера · Первые клиенты</span>
+    </div>
+    <p class="goal"><b>Цель:</b> студент понимает структуру рынка, видит карьерную траекторию, знает реалистичные цифры дохода и владеет инструментами поиска первых клиентов.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Уровень</th>
+            <th>Опыт</th>
+            <th>Услуги</th>
+            <th>Средний чек</th>
+            <th>Месячный доход</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Новичок</td>
+            <td class="num">0–3 мес.</td>
+            <td>Оформление (окрашивание + коррекция)</td>
+            <td class="num">800–1 200 ₽</td>
+            <td class="num">20 000–40 000 ₽</td>
+          </tr>
+          <tr>
+            <td>Практикующий</td>
+            <td class="num">3–12 мес.</td>
+            <td>Оформление, ламинирование, уход</td>
+            <td class="num">1 200–2 000 ₽</td>
+            <td class="num">50 000–80 000 ₽</td>
+          </tr>
+          <tr>
+            <td>Топ-мастер</td>
+            <td class="num">1–3 года</td>
+            <td>Полный спектр, мужские / подростковые, осветление</td>
+            <td class="num">2 000–3 500 ₽</td>
+            <td class="num">90 000–130 000+ ₽</td>
+          </tr>
+          <tr>
+            <td>Преподаватель</td>
+            <td class="num">3+ лет</td>
+            <td>Обучение, наставничество, курсы</td>
+            <td class="num">3 500–15 000 ₽</td>
+            <td class="num">150 000+ ₽</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="slide light" data-screen-label="04 Форматы" data-notes="Три формата обучения. Интенсив (2–3 дня, базовая теория + 2 модели) — протокол окрашивания и коррекции. Стандарт (1–2 нед, полная теория + 4–6 моделей, 6-этапная система отработок) — уверенный выход к клиентам. PRO (1–3 мес, всё из Стандарта + бизнес, особые категории, осветление, аттестация с портфолио) — готовность к преподаванию.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 0 · Форматы обучения</p>
+        <h2 class="h-md">Три формата — одно ядро</h2>
+      </div>
+      <span class="meta-right">Интенсив · Стандарт · PRO</span>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <p class="tag">Интенсив</p>
+        <h3>2–3 дня</h3>
+        <p class="hours">Базовая теория + 2 модели</p>
+        <p>Базовая теория и отработка на 2 моделях.</p>
+        <div class="result">Результат: протокол окрашивания и коррекции</div>
+      </div>
+      <div class="price-card featured">
+        <p class="tag">Стандарт</p>
+        <h3>1–2 недели</h3>
+        <p class="hours">Полная теория + 4–6 моделей</p>
+        <p>Полная теория и 6-этапная система отработок на 4–6 моделях.</p>
+        <div class="result">Результат: уверенный выход к самостоятельным клиентам</div>
+      </div>
+      <div class="price-card">
+        <p class="tag">Расширенный PRO</p>
+        <h3>1–3 месяца</h3>
+        <p class="hours">Стандарт + бизнес + PRO</p>
+        <p>Всё из Стандарта + бизнес, особые категории, осветление, аттестация с портфолио.</p>
+        <div class="result">Результат: кабинет и готовность к преподаванию</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide light" data-screen-label="05 Блок 1" data-notes="Блок 1 — Анатомия и колористика. Кожа: эпидермис, дерма, гиподерма; себум — ключ к стойкости окрашивания. Волос: кутикула, кортекс, медулла; фазы анаген (активный рост, 85% волос), катаген (переход, 2–3 нед), телоген (покой, выпадение). Колористика: круг Иттена, цветотипы (тёплый/холодный/нейтральный), УГТ 1–10, оксиды 1.8% и 3%, PPD в красителях, нейтрализация красного — зелёным, жёлтого — фиолетовым.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 1</p>
+        <h2 class="h-md">Анатомия, физиология кожи и волос. Основы колористики</h2>
+      </div>
+    </div>
+    <p class="goal"><b>Цель:</b> безошибочно определять тип кожи, подбирать подготовку, понимать фазы роста и базу колористики под цветотип.</p>
+    <div class="grid-3">
+      <div class="card">
+        <p class="n">1.1</p>
+        <h3>Типы кожи</h3>
+        <p>Жирная / сухая / нормальная. Себум — ключ к стойкости. Обезжиривание, увлажнение, тоник.</p>
+      </div>
+      <div class="card">
+        <p class="n">1.2–1.3</p>
+        <h3>Волос и фазы</h3>
+        <p>Кутикула · кортекс · медулла. Анаген / катаген / телоген — почему часть волосков выпадает через 1–2 недели.</p>
+      </div>
+      <div class="card">
+        <p class="n">1.4</p>
+        <h3>Колористика</h3>
+        <p>Цветотипы, круг Иттена, нейтрализация, УГТ 1–10, PPD и оксиды 1.8–3%.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide dark" data-screen-label="06 Блок 2" data-notes="Блок 2 — Санитария. СанПиН 2.1.3678-20 (введён с 01.03.2025). Три этапа обработки: дезинфекция (Оптимакс Проф / Аламинол, полное погружение, ~15 мин), ПСО — предстерилизационная очистка щёткой (без неё стерилизация неэффективна), стерилизация — крафт-пакет + сухожар 180°C / 60 мин или автоклав 134°C / 5 мин. Аллергопроба за 24–48 ч на сгибе локтя или за ухом. Противопоказания к ламинированию: ретиноиды, свежий пилинг, повреждённая кожа, беременность (осторожно).">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 2</p>
+        <h2 class="h-md">Санитария, дезинфекция и организация рабочего места</h2>
+      </div>
+      <span class="meta-right">СанПиН 2.1.3678-20</span>
+    </div>
+    <p class="goal"><b>Цель:</b> рабочее место по СанПиН, полный цикл обработки инструментов, протокол аллергопроб.</p>
+    <div class="pipeline">
+      <div class="step"><span class="nb">01</span><h3>Дезинфекция</h3><p>Раствор (Оптимакс / Аламинол и др.), инструмент полностью погружён, ~15 мин</p></div>
+      <div class="step"><span class="nb">02</span><h3>ПСО</h3><p>Предстерилизационная очистка щёткой — без ПСО стерилизация неэффективна</p></div>
+      <div class="step"><span class="nb">03</span><h3>Стерилизация</h3><p>Крафт-пакет + сухожар 180°C / 60 мин или автоклав 134°C / 5 мин</p></div>
+      <div class="step"><span class="nb">04</span><h3>Аллергопроба</h3><p>За 24–48 ч на сгибе локтя / за ухом; аптечка и протокол первой помощи</p></div>
+      <div class="step"><span class="nb">05</span><h3>Кабинет</h3><p>Дез до/после клиента, одноразовые расходники, вскрытие пакета при клиенте</p></div>
+      <div class="step"><span class="nb">06</span><h3>СИЗ</h3><h3 style="display:none"></h3><p>Перчатки не обязательны по СанПиН на неповреждённой коже — но желательны для защиты рук и сервиса</p></div>
+    </div>
+  </section>
+
+  <section class="slide light" data-screen-label="07 Блок 3" data-notes="Блок 3 — Построение формы и окрашивание. Три опорные точки: начало (от крыла носа вертикально вверх), апекс (через центр зрачка), хвост (через внешний уголок глаза). Инструменты разметки: броу-паста, нить (тридинг-разметка), линейка, штангенциркуль. Форма под тип лица: овал — любая, круг — с изломом (вытянуть), квадрат — дугообразная (смягчить углы), треугольник — восходящая (уравновесить). Окрашивание: пропорции краска:оксид, выдержка 5–15 мин, градиент (омбре) — плавный переход от светлого начала к тёмному хвосту. Хна/биотатуаж: заваривание, послойная техника, графичный результат.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 3</p>
+        <h2 class="h-md">Построение формы и окрашивание бровей</h2>
+      </div>
+    </div>
+    <p class="goal"><b>Цель:</b> геометрически корректная разметка под любой тип лица и предсказуемое окрашивание.</p>
+    <div class="split">
+      <div>
+        <div class="grid-3" style="margin-top:0">
+          <div class="card"><p class="n">Точка 1</p><h3>Начало</h3><p>От крыла носа вертикально вверх</p></div>
+          <div class="card"><p class="n">Точка 2</p><h3>Апекс</h3><p>Через центр зрачка</p></div>
+          <div class="card"><p class="n">Точка 3</p><h3>Хвост</h3><p>Через внешний уголок глаза</p></div>
+        </div>
+        <ul class="list-clean">
+          <li><strong>Разметка:</strong> броу-паста, нить, линейка / штангенциркуль</li>
+          <li><strong>Форма под лицо:</strong> овал, круг, квадрат, прямоугольник, треугольник</li>
+          <li><strong>Окрашивание:</strong> краска + оксид 1.8–3%, выдержка 5–15 мин, градиент, хна / биотатуаж</li>
+        </ul>
+      </div>
+      <img class="shot" src="assets/arch-brow.webp" alt="Архитектура и окрашивание бровей" />
+    </div>
+  </section>
+
+  <section class="slide dark" data-screen-label="08 Бренды" data-notes="Обзор брендов красителей — слайд для быстрой ориентации студента. Loca, Estel, SHIK — бюджетный старт (Россия). Bronsun, Levissime, Elan, Ekko, Brow Xenna — премиум-сегмент (Россия). Thuya (Испания), Binacil (Германия), RefectoCil (Австрия) — европейские бренды. Ламинирование: Inlei, Freiaviver (Россия), Levissime, Bronsun. Осветление: RefectoCil, Bronsun, Levissime. Хна: Brow Xenna, SHIK. Санитария: Оптимакс Проф, Аламинол, Чистодез, Эстилодез, Трилокс.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Бренды</p>
+        <h2 class="h-md">Обзор брендов красителей и составов</h2>
+      </div>
+      <span class="meta-right">14 брендов</span>
+    </div>
+    <p class="goal"><b>Цель:</b> ориентироваться в брендах красителей, хны, ламинирования и осветления — от бюджетного старта до премиум-линеек.</p>
+    <div class="brand-grid">
+      <div class="brand-chip"><div class="name">Loca</div><div class="cat">Краска · Россия · Бюджет</div></div>
+      <div class="brand-chip"><div class="name">Estel Enigma</div><div class="cat">Краска · Россия · База</div></div>
+      <div class="brand-chip"><div class="name">Estel Browie</div><div class="cat">Прямой пигмент · Россия</div></div>
+      <div class="brand-chip"><div class="name">SHIK</div><div class="cat">Краска/хна · Россия · Бюджет</div></div>
+      <div class="brand-chip"><div class="name">Bronsun</div><div class="cat">Краска/лами/осветление · Россия</div></div>
+      <div class="brand-chip"><div class="name">Levissime</div><div class="cat">Краска/лами/осветление · Россия</div></div>
+      <div class="brand-chip"><div class="name">Elan</div><div class="cat">Краска · Россия · Премиум</div></div>
+      <div class="brand-chip"><div class="name">Ekko</div><div class="cat">Краска · Россия · Премиум</div></div>
+      <div class="brand-chip"><div class="name">Brow Xenna</div><div class="cat">Краска/хна/SPA · Россия</div></div>
+      <div class="brand-chip"><div class="name">Thuya</div><div class="cat">Краска · Испания · Премиум</div></div>
+      <div class="brand-chip"><div class="name">Binacil</div><div class="cat">Краска · Германия</div></div>
+      <div class="brand-chip"><div class="name">RefectoCil</div><div class="cat">Краска/осветление · Австрия</div></div>
+      <div class="brand-chip"><div class="name">Inlei</div><div class="cat">Ламинирование · Россия</div></div>
+      <div class="brand-chip"><div class="name">Freiaviver</div><div class="cat">Ламинирование · Россия</div></div>
+    </div>
+    <div class="grid-3" style="margin-top:14px">
+      <div class="card">
+        <p class="n">Растворители / оксиды</p>
+        <h3>Дополнительно</h3>
+        <p>Loca Remuver, Estel Remuver, оксиды 1.8% и 3% для разных типов кожи и желаемого результата.</p>
+      </div>
+      <div class="card">
+        <p class="n">Хна / биотатуаж</p>
+        <h3>Натуральная линейка</h3>
+        <p>Brow Xenna, SHIK, Thuya — заваривание, послойная техника, графичный результат.</p>
+      </div>
+      <div class="card">
+        <p class="n">Санитария</p>
+        <h3>Дезсредства</h3>
+        <p>Оптимакс Проф, Аламинол, Чистодез, Эстилодез, Трилокс — дезинфекция инструментов и кистей.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide dark" data-screen-label="09 Блок 4" data-notes="Блок 4 — Коррекция и ламинирование. Коррекция: пинцет (захват по росту, минимизация боли), воск плёночный (38–42°C) и тёплый (55–60°C), тридинг — нить хлопок 100%, техника «петли» или «восьмёрки» для пушка. Ламинирование: Состав №1 — тиогликолят аммония (размягчение дисульфидных связей), Состав №2 — фиксация направления (кератиновое наполнение), Состав №3 — питание и закрытие чешуек. Тайминг 3–12 мин в зависимости от толщины волоса. Противопоказания: ретиноиды, свежий пилинг, повреждённая кожа, беременность (осторожно).">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 4</p>
+        <h2 class="h-md">Коррекция и долговременная укладка бровей</h2>
+      </div>
+    </div>
+    <p class="goal"><b>Цель:</b> коррекция воском и пинцетом без повреждения кожи, тридинг, безопасная долговременная укладка.</p>
+    <div class="grid-2">
+      <div class="card">
+        <p class="n">Коррекция</p>
+        <h3>Воск · Пинцет · Нить</h3>
+        <ul>
+          <li>Плёночный 38–42°C · тёплый 55–60°C</li>
+          <li>Нанесение по росту, снятие против</li>
+          <li>Противопоказания: ретиноиды, свежий пилинг, повреждённая кожа</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="n">Укладка</p>
+        <h3>Три состава</h3>
+        <ul>
+          <li>№1 — размягчение (тиогликолят)</li>
+          <li>№2 — фиксация направления</li>
+          <li>№3 — питание и закрытие чешуек</li>
+          <li>Тайминг 3–12 мин по толщине волоса</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide light" data-screen-label="10 Блок 5" data-notes="Блок 5 — Уходовые процедуры. Ламинирование vs ботокс: ламинирование меняет направление волоса (тиогликолят, агрессивное), ботокс восстанавливает (кератин, коллаген, гиалуроновая кислота, масла — низкая агрессивность). BROWXENNA SPA — зелёная маска, ~90% растительных компонентов, можно как 3-й состав. LENA LEVI 7в1 — сыворотка-уход, объём, замена 3-го состава. Низкомолекулярный кератин в кортексе — наполнение структуры волоса. Комбинирование: окрашивание + ботокс (повышение среднего чека), ламинирование + SPA-финиш.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 5</p>
+        <h2 class="h-md">Уходовые процедуры для бровей</h2>
+      </div>
+    </div>
+    <p class="goal"><b>Цель:</b> подбирать уход, комбинировать с окрашиванием и ламинированием, повышать средний чек.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Параметр</th><th>Ламинирование</th><th>Ботокс</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Цель</td><td>Направление и фиксация формы</td><td>Восстановление и питание</td></tr>
+          <tr><td>Химия</td><td>Тиогликолят (связи)</td><td>Кератин, коллаген, ГК, масла</td></tr>
+          <tr><td>Эффект</td><td>Послушные, уложенные</td><td>Блеск, плотность, наполнение</td></tr>
+          <tr><td>Агрессивность</td><td>Высокая</td><td>Низкая</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid-3" style="margin-top:16px">
+      <div class="card"><p class="n">SPA</p><h3>BROWXENNA SPA</h3><p>Зелёная маска, ~90% растительных компонентов</p></div>
+      <div class="card"><p class="n">Сыворотка</p><h3>LENA LEVI 7в1</h3><p>Уход, объём, можно вместо 3-го состава</p></div>
+      <div class="card"><p class="n">Кератин</p><h3>Наполнение</h3><p>Низкомолекулярный кератин в кортексе</p></div>
+    </div>
+  </section>
+
+  <section class="slide dark" data-screen-label="11 Блок 6" data-notes="Блок 6 — Бизнес и продвижение. CRM YCLIENTS: клиентская база, онлайн-запись, SMS/Telegram-напоминания (снижение no-show на 30–40%). Контент 75/25: 75% экспертный и вовлекающий, 25% продающий. SMMplanner — автопостинг. Каналы: Avito, hh.ru, соцсети (VK, Telegram, Instagram), кросс-промо, партизанский маркетинг. Юридическое оформление: самозанятость (НПД, 4–6%) или ИП (УСН 6%). Легальные схемы сертификатов: под лицензией школы-партнёра (Skillspace) или собственная образовательная лицензия.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 6</p>
+        <h2 class="h-md">Бизнес, продвижение и маркетинг</h2>
+      </div>
+    </div>
+    <p class="goal"><b>Цель:</b> искать клиентов системно, оформлять профиль, понимать контент и легализацию.</p>
+    <div class="pt-grid">
+      <div class="pt"><h3>Каналы</h3><p>Окружение, Avito, hh.ru, соцсети, кросс-промо, блогеры</p></div>
+      <div class="pt"><h3>Контент 75/25</h3><p>75% экспертный и вовлекающий · 25% продающий</p></div>
+      <div class="pt"><h3>CRM</h3><p>Онлайн-запись, база, SMS / Telegram-напоминания</p></div>
+      <div class="pt"><h3>Легализация</h3><p>Самозанятость / ИП, схемы обучения и сертификатов</p></div>
+    </div>
+  </section>
+
+  <section class="slide light" data-screen-label="12 Блок 7" data-notes="Блок 7 — 5-этапная система практических отработок. Этап 1: Бумага и фейс-чарты (10+ заданий, отрисовка симметрии, схемы построения, имитация волосков карандашом и лайнером, 4–6 ч). Этап 2: Демонстрация педагога на 1–2 моделях (очищение → финальная фиксация, разбор ошибок, 2–3 ч). Этап 3: Практика с сопровождением (1–2 модели, преподаватель контролирует выдержку составов, корректирует руку). Этап 4: Самостоятельные модели под фотоконтроль (2–4 модели, макро «до/после» на разбор преподавателю). Этап 5: Экзаменационная модель (полный цикл от консультации до продажи домашнего ухода без подсказок).">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 7</p>
+        <h2 class="h-md">Система практических отработок</h2>
+      </div>
+      <span class="meta-right">5 этапов</span>
+    </div>
+    <p class="goal"><b>Цель:</b> полный цикл от бумаги до самостоятельной модели без страха ошибки.</p>
+    <div class="pipeline">
+      <div class="step"><span class="nb">01</span><h3>Бумага</h3><p>10+ фейс-чартов, симметрия, золотое сечение · 4–6 ч</p></div>
+      <div class="step"><span class="nb">02</span><h3>Демо</h3><p>Показ педагога на 1–2 моделях · 2–3 ч</p></div>
+      <div class="step"><span class="nb">03</span><h3>С куратором</h3><p>1–2 модели, рука преподавателя рядом</p></div>
+      <div class="step"><span class="nb">04</span><h3>Фотоконтроль</h3><p>2–4 модели, макро «до/после» на разбор</p></div>
+      <div class="step"><span class="nb">05</span><h3>Экзамен</h3><p>Полный цикл от консультации до ухода</p></div>
+    </div>
+  </section>
+
+  <section class="slide dark" data-screen-label="13 Блок 8" data-notes="Блок 8 — Финальная аттестация. Проходной балл 80/100. Чек-лист из 7 критериев: симметрия (до 1.5 мм, 20 баллов), чистота коррекции (20), попадание в цвет (15), отсутствие ожогов/перетемнения (15), укладка/прочёс (10), коммуникация (10), санитария и организация (10). Защита портфолио: 5 кейсов «до/после» при правильном бьюти-освещении, разбор решений по форме, цвету и технике. Экзамен проводится на модели под контролем преподавателя — полный цикл от консультации до продажи домашнего ухода.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 8</p>
+        <h2 class="h-md">Финальная аттестация</h2>
+      </div>
+      <span class="meta-right">Проходной балл 80 / 100</span>
+    </div>
+    <p class="goal"><b>Цель:</b> подтвердить квалификацию на модели и защитить портфолио из 5 кейсов.</p>
+    <div class="grid-2">
+      <div>
+        <p class="eyebrow" style="margin-bottom:8px">Чек-лист оценки</p>
+        <div class="score-grid">
+          <div>Симметрия (до 1,5 мм)</div><div class="pts">20</div>
+          <div>Чистота коррекции</div><div class="pts">20</div>
+          <div>Попадание в цвет</div><div class="pts">15</div>
+          <div>Без ожогов / перетемнения</div><div class="pts">15</div>
+          <div>Укладка / прочёс</div><div class="pts">10</div>
+          <div>Коммуникация</div><div class="pts">10</div>
+          <div>Санитария и организация</div><div class="pts">10</div>
+          <div class="pass">Проходной балл · 80 из 100</div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="n">8.2</p>
+        <h3>Защита портфолио</h3>
+        <ul>
+          <li>5 кейсов «до / после»</li>
+          <li>Макро с правильным бьюти-светом</li>
+          <li>Разбор решений: форма, цвет, техника</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide light" data-screen-label="14 Блок 9" data-notes="Блок 9 — Особые категории клиентов. Мужчины: прямая форма без графики и излома, маскировка седины (краска на тон светлее натуральной), сохранение естественного вида. Подростки: только пинцет (без воска!), гипоаллергенная краска, минимальная выдержка, ламинирование с 16 лет + письменное согласие родителей. Камуфлирование шрамов: штриховая техника Estel Browie, хна для покрытия рубцовой ткани. Перекрытие старого татуажа/микроблейдинга: нейтрализация по кругу Иттена (синий → оранжевый, красный → зелёный), гибридные красители для плотного покрытия, реалистичные ожидания клиента.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 9</p>
+        <h2 class="h-md">Особые категории клиентов</h2>
+      </div>
+      <span class="meta-right">Мужчины · Подростки · Камуфляж</span>
+    </div>
+    <p class="goal"><b>Цель:</b> адаптировать технику под мужские, подростковые брови и сложные случаи (шрамы, старый татуаж).</p>
+    <div class="grid-3">
+      <div class="card">
+        <p class="n">9.1</p>
+        <h3>Мужская коррекция</h3>
+        <ul>
+          <li>Прямая форма, без графики и излома</li>
+          <li>Естественность — приоритет</li>
+          <li>Маскировка седины — на тон светлее</li>
+          <li>Удаление только явно выбивающихся волос</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="n">9.2</p>
+        <h3>Подростковые брови</h3>
+        <ul>
+          <li>Только пинцет — без воска и тридинга</li>
+          <li>Гипоаллергенная краска (биндированная)</li>
+          <li>Минимальная выдержка составов</li>
+          <li>Ламинирование — с 16 лет + согласие родителей</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="n">9.3</p>
+        <h3>Камуфляж и перекрытие</h3>
+        <ul>
+          <li>Шрамы: штрихи Estel Browie, хна для покрытия</li>
+          <li>Татуаж: нейтрализация по кругу Иттена</li>
+          <li>Синий → оранжевый, красный → зелёный</li>
+          <li>Гибридные красители для плотности</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide dark" data-screen-label="15 Блок 10" data-notes="Блок 10 — Осветление бровей. Показания: натуральные тёмные брови у блондинок, окрашенные волосы (холодный блонд), запрос на мягкий русый тон. Бренды паст: RefectoCil, Bronsun, Levissime. Протокол: очищение → обезжиривание → паста + оксид (3–7 мин, контроль каждые 2 мин) → смывание → нейтрализация желтизны (фиолетовый/пепельный оттеночный гель) → восстанавливающий уход. Противопоказания: окрашивание хной (нужно ждать 2 недели), свежее ламинирование (менее 2 недель), беременность, повреждённая кожа.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Блок 10</p>
+        <h2 class="h-md">Осветление бровей</h2>
+      </div>
+      <span class="meta-right">RefectoCil · Bronsun · Levissime</span>
+    </div>
+    <p class="goal"><b>Цель:</b> мягкое осветление на 1–2 тона с нейтрализацией желтизны и обязательным восстановлением.</p>
+    <div class="grid-2">
+      <div class="card">
+        <p class="n">10.1</p>
+        <h3>Протокол осветления</h3>
+        <ul>
+          <li>Очищение и обезжиривание бровей</li>
+          <li>Паста + оксид (без аммиака)</li>
+          <li>Выдержка 3–7 мин, контроль каждые 2 мин</li>
+          <li>Смывание тёплой водой</li>
+          <li>Нейтрализация желтизны — оттеночный гель</li>
+          <li>Восстанавливающий уход (кератин/масла)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="n">10.2</p>
+        <h3>Противопоказания и риски</h3>
+        <ul>
+          <li>Окрашивание хной — ждать 2 недели</li>
+          <li>Ламинирование менее 2 недель назад</li>
+          <li>Беременность — ограниченно, с осторожностью</li>
+          <li>Повреждённая или раздражённая кожа</li>
+          <li>Нейтрализация желтизны — фиолетовый/пепел</li>
+          <li>Переосветление — необратимо, лучше меньше</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide light" data-screen-label="16 Приложение" data-notes="Приложение — полный чек-лист покупок начинающего бровиста (31 позиция). Инструменты: пинцет скошенный 2–3 шт, щёточки одноразовые, кисть скошенная + прямая, шпатели деревянные, нить для тридинга (хлопок 100%), манекен-голова. Санитария: Оптимакс Проф/Аламинол, ванночка, крафт-пакеты, антисептик, салфетки для кистей. Расходники: пенка, тоник, пантенол, паста для разметки, микробраши, ватные палочки/диски, подставка, коврик. Воск: плёночный/тёплый + воскоплав. Красители: Loca (коричневый + чёрный), Estel Enigma (коричневый + светло-коричневый), Estel Browie, ремувер, растворитель, ёмкость. Ламинирование: составы 1+2 Inlei/Freiaviver, маска, плёнка, сыворотка LENA LEVI/BROWXENNA. Осветление: паста RefectoCil/Bronsun/Levissime, оттеночный гель.">
+    <div class="slide-head">
+      <div>
+        <p class="eyebrow">Приложение</p>
+        <h2 class="h-md">Чек-лист покупок начинающего бровиста</h2>
+      </div>
+      <span class="meta-right">34 позиции</span>
+    </div>
+    <div class="check-grid">
+      <div class="group">
+        <h3>Инструменты (7)</h3>
+        <ul>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=пинцет+для+бровей+скошенный" target="_blank" rel="noopener">Пинцет скошенный, 2–3 шт.</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=щёточки+для+бровей+одноразовые" target="_blank" rel="noopener">Щёточки одноразовые</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=кисть+скошенная+для+бровей" target="_blank" rel="noopener">Кисть скошенная для краски</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=кисть+прямая+для+бровей+разметка" target="_blank" rel="noopener">Кисть прямая для разметки</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=шпатели+деревянные+для+воска" target="_blank" rel="noopener">Шпатели деревянные для воска</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=нить+для+тридинга+хлопок" target="_blank" rel="noopener">Нить для тридинга, хлопок 100%</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=манекен+голова+для+бровиста" target="_blank" rel="noopener">Манекен-голова</a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Санитария (5)</h3>
+        <ul>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=оптимакс+проф+дезсредство" target="_blank" rel="noopener">Дезсредство: Оптимакс / Аламинол</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ванночка+для+дезинфекции+инструментов" target="_blank" rel="noopener">Ванночка для дезинфекции</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=крафт+пакеты+для+стерилизации" target="_blank" rel="noopener">Крафтовые пакеты</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=антисептик+для+рук+кожный" target="_blank" rel="noopener">Антисептик для рук</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=салфетки+для+кистей+безворсовые" target="_blank" rel="noopener">Салфетки для кистей</a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Расходники (10)</h3>
+        <ul>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=пенка+для+очищения+бровей" target="_blank" rel="noopener">Пенка для очищения</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=тоник+для+жирной+кожи+брови" target="_blank" rel="noopener">Тоник для жирной кожи</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=пантенол+пенка+крем" target="_blank" rel="noopener">Пантенол (пенка/крем)</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=паста+для+разметки+бровей+белая" target="_blank" rel="noopener">Паста для разметки (белая)</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=микробраши+одноразовые+для+бровей" target="_blank" rel="noopener">Микробраши одноразовые</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=микробраши+деревянные+для+бровей" target="_blank" rel="noopener">Микробраши деревянные</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ватные+палочки+косметические" target="_blank" rel="noopener">Ватные палочки</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ватные+диски+косметические" target="_blank" rel="noopener">Ватные диски</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=подставка+для+ватных+дисков+организатор" target="_blank" rel="noopener">Подставка под диски и палочки</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=коврик+силиконовый+для+бровиста" target="_blank" rel="noopener">Коврик силиконовый (опционально)</a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Воск (2)</h3>
+        <ul>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=воск+для+бровей+плёночный" target="_blank" rel="noopener">Воск плёночный / тёплый</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=воскоплав+мини+для+бровей" target="_blank" rel="noopener">Воскоплав мини с терморегулятором</a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Красители (6)</h3>
+        <ul>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=краска+для+бровей+loca" target="_blank" rel="noopener">Краска Loca: коричневый + чёрный</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=краска+для+бровей+estel+enigma" target="_blank" rel="noopener">Estel Enigma: коричневый + св.-коричневый</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=estel+browie+пигмент+прямой" target="_blank" rel="noopener">Прямой пигмент Estel Browie</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ремувер+для+бровей+estel" target="_blank" rel="noopener">Ремувер Estel</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=растворитель+для+краски+loca" target="_blank" rel="noopener">Растворитель для краски Loca</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ёмкость+для+смешивания+краски+брови" target="_blank" rel="noopener">Ёмкость для смешивания</a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Лами / Уход / Осветление (4)</h3>
+        <ul>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=состав+для+ламинирования+бровей+inlei" target="_blank" rel="noopener">Составы для ламинирования Inlei/Freiaviver</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=уходовая+маска+для+бровей+после+ламинирования" target="_blank" rel="noopener">Уходовая маска (3-й состав)</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=сыворотка+для+бровей+lena+levi" target="_blank" rel="noopener">Сыворотка LENA LEVI 7в1 / BROWXENNA</a></li>
+          <li><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=осветляющая+паста+для+бровей+refectocil" target="_blank" rel="noopener">Осветляющая паста RefectoCil/Bronsun/Levissime</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide hero light center" data-screen-label="17 Закрытие" data-notes="Финальный слайд. Курс из 14 модулей, 17 слайдов презентации — полная структура: от введения и анатомии через техническое ядро (окрашивание, коррекция, ламинирование, уход) к бизнесу, практике, аттестации и PRO-категориям. Приложение — 31 позиция чек-листа покупок со ссылками на Wildberries.">
+    <div class="eyebrow">Готово к работе</div>
+    <h2 class="h-hero">От чек-листа — к первой модели</h2>
+    <p class="lead">14 модулей, 6 этапов практики, 14 брендов красителей, 31 позиция в чек-листе закупок. Структура финального курса без изменений.</p>
+    <div class="cta-row">
+      <a class="cta fill" href="#0" onclick="return false;">← / → листайте блоки</a>
+      <span class="cta" style="cursor:default">N — заметки спикера</span>
+    </div>
+  </section>
+
+  <div class="notes" id="speaker-notes" aria-live="polite">
+    <strong>Заметки спикера</strong>
+    <span id="notes-body">—</span>
+  </div>
+
+  <div class="deck-progress" id="deck-progress" aria-hidden></div>
+  <div class="deck-counter" id="deck-counter">1 / 17</div>
+  <div class="deck-hint">← / → · N — заметки</div>
+
+  <script>
+    (function () {
+      var slides   = document.querySelectorAll('.slide');
+      var counter  = document.getElementById('deck-counter');
+      var progress = document.getElementById('deck-progress');
+      var notesEl  = document.getElementById('notes-body');
+      var KEY      = 'od-deck-pos-master-brovist-v3';
+      var active   = 0;
+
+      function scrollContainers() {
+        return [document.scrollingElement, document.documentElement, document.body]
+          .filter(Boolean)
+          .filter(function (el, idx, arr) { return arr.indexOf(el) === idx; });
+      }
+      function overflowX(el) {
+        if (!el) return 0;
+        return Math.max(0, (el.scrollWidth || 0) - (el.clientWidth || 0));
+      }
+      function scrollLeftOf(el) {
+        if (!el) return 0;
+        try { return Number(el.scrollLeft) || 0; } catch (_) { return 0; }
+      }
+      function activeScrollLeft() {
+        var candidates = scrollContainers();
+        var best = 0;
+        for (var i = 0; i < candidates.length; i++) {
+          var left = scrollLeftOf(candidates[i]);
+          if (Math.abs(left) > Math.abs(best)) best = left;
+        }
+        return best;
+      }
+      function scrollToLeft(left, behavior) {
+        var candidates = scrollContainers();
+        for (var i = 0; i < candidates.length; i++) {
+          try { candidates[i].scrollLeft = left; } catch (_) {}
+          try { candidates[i].scrollTo({ left: left, behavior: behavior || 'smooth' }); } catch (_) {}
+        }
+      }
+      function updateNotes(i) {
+        if (!notesEl) return;
+        var n = slides[i] && slides[i].getAttribute('data-notes');
+        notesEl.textContent = n || '—';
+      }
+      function setActive(i) {
+        active = i;
+        if (counter)  counter.textContent  = (i + 1) + ' / ' + slides.length;
+        if (progress) progress.style.width = (((i + 1) / slides.length) * 100) + '%';
+        updateNotes(i);
+        try { localStorage.setItem(KEY, String(i)); } catch (_) {}
+      }
+      function go(i) {
+        var next = Math.max(0, Math.min(slides.length - 1, i));
+        setActive(next);
+        scrollToLeft(next * window.innerWidth, 'smooth');
+      }
+      function syncFromScroll() {
+        var i = Math.round(activeScrollLeft() / window.innerWidth);
+        if (i !== active && i >= 0 && i < slides.length) setActive(i);
+      }
+      function onKey(e) {
+        if (e.defaultPrevented) return;
+        var t = e.target;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+        if (e.key === 'n' || e.key === 'N' || e.key === 'т' || e.key === 'Т') {
+          e.preventDefault();
+          document.body.classList.toggle('show-notes');
+          return;
+        }
+        if      (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(active + 1); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(active - 1); }
+        else if (e.key === 'Home') { e.preventDefault(); go(0); }
+        else if (e.key === 'End')  { e.preventDefault(); go(slides.length - 1); }
+      }
+
+      window.addEventListener('keydown', onKey, true);
+      document.addEventListener('keydown', onKey, true);
+      document.addEventListener('scroll', syncFromScroll, { passive: true, capture: true });
+      window.addEventListener('scroll', syncFromScroll, { passive: true });
+
+      document.body.setAttribute('tabindex', '-1');
+      document.body.style.outline = 'none';
+      function focusDeck() { try { window.focus(); document.body.focus({ preventScroll: true }); } catch (_) {} }
+      document.addEventListener('mousedown', focusDeck);
+      window.addEventListener('load', focusDeck);
+      focusDeck();
+
+      try {
+        var saved = parseInt(localStorage.getItem(KEY) || '0', 10);
+        if (!isNaN(saved) && saved >= 0 && saved < slides.length) {
+          setActive(saved);
+          scrollToLeft(saved * window.innerWidth, 'instant');
+        } else {
+          setActive(0);
+        }
+      } catch (_) { setActive(0); }
+    })();
+  </script>
+</body>
+</html>
