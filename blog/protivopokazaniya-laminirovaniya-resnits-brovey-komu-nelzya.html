@@ -536,5 +536,67 @@
         }
     }
 </style>
+
+<!-- GEO Tracking — engagement signals for AI search engines -->
+<script>
+(function() {
+	var ymId = 103653225;
+	function geoGoal(name) {
+		if (typeof ym !== 'undefined') ym(ymId, 'reachGoal', name);
+		if (typeof gtag !== 'undefined') gtag('event', name);
+	}
+
+	var fired = {};
+
+	// 1. Scroll depth (25/50/75/100%)
+	var scrollTimer;
+	window.addEventListener('scroll', function() {
+		clearTimeout(scrollTimer);
+		scrollTimer = setTimeout(function() {
+			var pct = Math.round(
+				(window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100
+			);
+			[25, 50, 75, 100].forEach(function(t) {
+				var k = 'scroll_' + t;
+				if (pct >= t && !fired[k]) { fired[k] = true; geoGoal(k); }
+			});
+		}, 300);
+	}, {passive: true});
+
+	// 2. Read time (>2 min cumulative visible)
+	var rtFired = false, rtAcc = 0, rtInt;
+	function rtStart() {
+		rtInt = setInterval(function() {
+			rtAcc++;
+			if (rtAcc >= 120 && !rtFired) { rtFired = true; clearInterval(rtInt); geoGoal('read_time_gt_2min'); }
+		}, 1000);
+	}
+	function rtStop() { clearInterval(rtInt); }
+	rtStart();
+	document.addEventListener('visibilitychange', function() {
+		document.hidden ? rtStop() : rtStart();
+	});
+
+	// 3. Service link clicks
+	document.addEventListener('click', function(e) {
+		var a = e.target.closest('a');
+		if (!a) return;
+		var h = a.getAttribute('href') || '';
+		if (h.includes('#services') || h.includes('/uslugi') || h.includes('/price')) {
+			geoGoal('click_service_link');
+		}
+	});
+
+	// 4. CTA Telegram in article
+	document.addEventListener('click', function(e) {
+		var a = e.target.closest('a');
+		if (!a) return;
+		var h = a.getAttribute('href') || '';
+		if (h.includes('t.me/') && a.closest('.bg-black')) {
+			geoGoal('cta_telegram_article');
+		}
+	});
+})();
+</script>
 </body>
 </html>
