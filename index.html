@@ -516,8 +516,8 @@
             <span class="hidden md:block font-mono text-gray-500">ГАЛЕРЕЯ РАБОТ 2025-2026</span>
         </div>
 
-        <!-- Mobile: swipe carousel with peek -->
-        <div class="carousel-peek p-4">
+        <!-- Mobile: swipe carousel -->
+        <div class="carousel-peek p-4 mobile-only">
             <div class="carousel-peek-item">
                 <figure class="portfolio-item group relative aspect-square border border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
                     <img src="/images/review-default.webp" class="portfolio-img w-full h-full object-cover" alt="Результат ламинирования ресниц в студии Ostin Kosmo" loading="lazy">
@@ -573,8 +573,8 @@
                 </figure>
             </div>
         </div>
-        <div class="carousel-hint"><span class="carousel-hint-dot active"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span></div>
-        <div class="text-center text-[10px] font-mono text-gray-400 pb-4">← Свайпайте вправо, чтобы увидеть больше →</div>
+        <div class="carousel-hint mobile-only"><span class="carousel-hint-dot active"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span></div>
+        <div class="text-center text-[10px] font-mono text-gray-400 pb-4 mobile-only">← Свайпайте вправо, чтобы увидеть больше →</div>
 
         <!-- Desktop: grid (hidden on mobile via desktop-only) -->
         <div class="desktop-only grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -630,7 +630,7 @@
         </div>
 
         <!-- Mobile: carousel -->
-        <div class="carousel-peek">
+        <div class="carousel-peek mobile-only">
             <div class="carousel-peek-item">
                 <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
                     <div class="mb-4 text-xl text-black">★★★★★</div>
@@ -672,7 +672,7 @@
                 </article>
             </div>
         </div>
-        <div class="carousel-hint"><span class="carousel-hint-dot active"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span></div>
+        <div class="carousel-hint mobile-only"><span class="carousel-hint-dot active"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span></div>
         <div class="text-center mt-6">
             <a href="/reviews/" class="inline-block border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition">
                 Все отзывы → Яндекс и клиенты
