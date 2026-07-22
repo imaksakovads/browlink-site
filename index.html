@@ -496,6 +496,10 @@
                         <p class="font-mono text-sm text-gray-500">Тверская-Ямская улица, 25 ст2</p>
                         <a href="https://yandex.ru/maps/-/CCU6uXh8wC" target="_blank" rel="noopener noreferrer nofollow" class="text-[10px] font-mono text-gray-400 border-b border-gray-300 w-fit hover:text-black transition">ОТКРЫТЬ В НАВИГАТОРЕ ↗</a>
                         <a href="tel:+79637329466" class="font-display text-2xl hover:text-gray-500 transition mt-2">+7 963 732 94 66</a>
+                        <a href="/belorusskaya/" class="group inline-flex items-center gap-2 mt-6 px-6 py-3 border border-black hover:bg-black hover:text-white transition duration-300">
+                            <span class="font-display text-sm uppercase tracking-widest">Подробный маршрут и все услуги на странице метро Белорусская</span>
+                            <span class="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </a>
                     </div>
                 </div>
                 <div>
@@ -944,6 +948,7 @@
                 body: JSON.stringify({ chat_id: '-5284221305', text: tgMessage, parse_mode: 'HTML' })
             });
             const data = await resp.json();
+            console.log('[Telegram callback] response:', JSON.stringify(data));
             if (data.ok) {
                 reachGoal('booking_done_' + modalState.channel);
                 status.textContent = '✅ Заявка отправлена!'; status.style.color = '#22c55e'; status.style.display = 'block'; btn.textContent = 'Отправлено';
@@ -961,6 +966,7 @@
                 btn.disabled = false; btn.textContent = 'Жду варианты';
             }
         } catch(e) {
+            console.error('[Telegram callback] network error:', e);
             status.textContent = '❌ Ошибка соединения.'; status.style.color = '#ef4444';
             btn.disabled = false; btn.textContent = 'Жду варианты';
         }
@@ -1084,7 +1090,7 @@
         if (!name || !contact) { alert('Заполните поля.'); return; }
         let msg = '<b>⚡ Новый лид из квиза</b>\n\n<b>Имя:</b> ' + name + '\n<b>Контакт:</b> ' + contact + '\n\n';
         quizData.forEach((s, i) => { msg += '<i>' + (i+1) + '. ' + s.question + '</i>\n— ' + (answers[i] || 'Нет ответа') + '\n\n'; });
-        fetch('https://api.telegram.org/bot' + QUIZ_CONFIG.botToken + '/sendMessage', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ chat_id:QUIZ_CONFIG.chatId, text:msg, parse_mode:'HTML' }) }).catch(()=>{});
+        fetch('https://api.telegram.org/bot' + QUIZ_CONFIG.botToken + '/sendMessage', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ chat_id:QUIZ_CONFIG.chatId, text:msg, parse_mode:'HTML' }) }).then(r => r.json()).then(d => console.log('[Telegram quiz] response:', JSON.stringify(d))).catch(e => console.error('[Telegram quiz] error:', e));
         document.getElementById('quiz-steps').innerHTML = '<div style="text-align:center;padding:20px 0;"><div class="question-title">Благодарим вас, ' + name + '.</div><p style="color:#666;font-size:14px;">Разбор будет отправлен в течение нескольких минут.</p></div>';
     }
     renderStep();
