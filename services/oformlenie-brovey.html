@@ -7,11 +7,9 @@
     <title>Оформление бровей на Белорусской, Москва — коррекция формы, воск и окрашивание | OSTINKOSMO</title>
     <meta name="description" content="Рядом с м. Белорусская и Маяковская. Профессиональное оформление бровей в студии OSTINKOSMO. Построение формы по точкам, деликатная коррекция воском/пинцетом, стойкое окрашивание. Цена 1 800 ₽.">
     
-    <!-- Каноническая ссылка (Защита от дублей при UTM-метках) -->
     <link rel="canonical" href="https://www.ostinkosmo.ru/services/oformlenie-brovey.html" />
     <link rel="alternate" hreflang="ru" href="https://www.ostinkosmo.ru/services/oformlenie-brovey.html">
 
-    <!-- OpenGraph микроразметка (Для красивых превью в Telegram, WhatsApp и соцсетях) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Оформление бровей на Белорусской, Москва — коррекция формы, воск и окрашивание | OSTINKOSMO" />
     <meta property="og:description" content="Построение формы по точкам, деликатная коррекция воском/пинцетом, стойкое окрашивание. Безопасные составы и гарантия результата." />
@@ -19,12 +17,10 @@
     <meta property="og:image" content="https://www.ostinkosmo.ru/images/oformlenie-brovey-og.webp" />
     <meta property="og:site_name" content="OSTINKOSMO" />
     
-    <!-- Подключение шрифтов (Inter для читаемости, Oswald для акцентных заголовков) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Единый JSON-LD граф -->
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -143,625 +139,248 @@
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-title: 'Oswald', sans-serif;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: var(--bg-page);
             color: var(--text-main);
             font-family: var(--font-main);
-            font-size: 15px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* --- Шапка сайта (Header) --- */
-        .header {
-            background-color: var(--bg-page);
-            padding: 25px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-title);
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .logo span {
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        .nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav a {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            transition: opacity 0.2s;
-        }
-        .nav a:hover {
-            opacity: 0.6;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .telegram-link {
-            text-transform: uppercase;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
-        /* --- Хлебные крошки --- */
-        .breadcrumbs {
-            padding: 30px 0 10px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-        }
-        .breadcrumbs a:hover {
-            text-decoration: underline;
-        }
-
-        /* --- Заголовок страницы (H1 без дублирования с H2) --- */
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin: 30px 0 40px;
-        }
-
-        .page-title {
-            font-family: var(--font-title);
-            font-size: 50px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.1;
-            max-width: 850px;
-        }
-
-        .page-subtitle {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
-
-        /* --- Главный Hero-блок --- */
-        .hero-card {
-            background-color: var(--bg-card);
-            padding: 50px;
-            margin-bottom: 30px;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .hero-info h2 {
-            font-family: var(--font-title);
-            font-size: 32px;
-            font-weight: 500;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .service-tags {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
-
-        .hero-desc {
             font-size: 16px;
-            color: var(--text-main);
-            max-width: 650px;
-            margin-bottom: 30px;
-        }
-
-        /* Оптимизированный визуальный блок для Image SEO */
-        .hero-image-wrapper {
-            margin-bottom: 35px;
-            max-width: 650px;
-        }
-        .seo-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 2px;
-            background-color: #FAFAFA;
-            border: 1px solid var(--border-color);
-        }
-
-        .hero-price-box {
-            text-align: right;
-            min-width: 150px;
-        }
-
-        .price {
-            font-family: var(--font-title);
-            font-size: 42px;
-            font-weight: 500;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .duration {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .btn-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-title);
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-            cursor: pointer;
-            border: none;
-            background: none;
-            color: var(--text-main);
-            padding-top: 25px;
-            border-top: 1px solid var(--border-color);
-            width: 100%;
-            transition: opacity 0.2s;
-        }
-        .btn-action:hover {
-            opacity: 0.6;
-        }
-        .btn-action span {
-            font-size: 18px;
-            transition: transform 0.2s;
-        }
-        .btn-action:hover span {
-            transform: translateX(5px);
-        }
-
-        /* --- Сетка блоков (Силос / Результаты) --- */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .content-card {
-            background-color: var(--bg-card);
-            padding: 40px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-title {
-            font-family: var(--font-title);
-            font-size: 24px;
-            font-weight: 500;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .fact-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .fact-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 15px;
-            font-size: 14px;
-            color: #444;
-        }
-        .fact-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--text-main);
-            font-weight: bold;
-        }
-        .fact-list strong {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        /* --- Этапы процедуры --- */
-        .steps-card {
-            background-color: var(--bg-card);
-            padding: 50px;
-            margin-bottom: 30px;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .step-item {
-            border-top: 1px solid var(--text-main);
-            padding-top: 20px;
-        }
-
-        .step-num {
-            font-family: var(--font-title);
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 10px;
-            color: var(--text-muted);
-        }
-
-        .step-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 15px;
-        }
-
-        .step-desc {
-            font-size: 13px;
-            color: var(--text-muted);
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 80px;
         }
+        a { color: inherit; text-decoration: none; }
 
-        /* --- Блок FAQ (Аккордеон) --- */
-        .faq-card {
-            background-color: var(--bg-card);
-            padding: 50px;
-            margin-bottom: 30px;
-        }
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
-        .faq-list {
-            margin-top: 30px;
-            border-top: 1px solid var(--border-color);
-        }
+        /* --- Header --- */
+        .header { background-color: var(--bg-page); padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-title); font-size: 22px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+        .logo span { color: var(--text-light); font-weight: 400; }
+        .nav { display: flex; gap: 30px; }
+        .nav a { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: opacity 0.2s; }
+        .nav a:hover { opacity: 0.6; }
+        .header-right { display: flex; align-items: center; gap: 25px; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; }
 
-        .faq-item {
-            border-bottom: 1px solid var(--border-color);
-        }
+        /* --- Breadcrumbs --- */
+        .breadcrumbs { padding: 20px 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        .breadcrumbs a:hover { text-decoration: underline; }
 
-        .faq-item summary {
-            padding: 24px 0;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-main);
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: color 0.2s ease;
-            user-select: none;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-item summary:hover {
-            color: var(--text-muted);
-        }
-
-        .faq-item summary::after {
-            content: "+";
+        /* --- Screen 1: H1 + Chips + CTA --- */
+        .hero-mobile { padding: 16px 0 24px; }
+        .hero-title {
             font-family: var(--font-title);
-            font-size: 24px;
-            font-weight: 400;
-            color: var(--text-muted);
-            transition: transform 0.2s ease, color 0.2s ease;
-            margin-left: 20px;
-        }
-
-        .faq-item details[open] summary::after {
-            content: "−";
-            color: var(--text-main);
-        }
-
-        .faq-answer {
-            padding-bottom: 25px;
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 850px;
-        }
-
-        /* --- Химия процесса (визуальная цепочка этапов) --- */
-        .step-intro-card { background:var(--bg-card); padding:50px; margin-bottom:30px; }
-        .process-chain { display:flex; align-items:center; gap:0; padding:30px 20px; background:#FAFAFA; border:1px solid var(--border-color); }
-        .chain-step-card { text-align:center; flex:1; min-width:0; }
-        .chain-num { font-family:var(--font-title); font-size:26px; font-weight:500; color:var(--text-main); line-height:1; margin-bottom:6px; }
-        .chain-label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.8px; line-height:1.3; }
-        .chain-connector { width:24px; height:2px; background:var(--border-color); flex-shrink:0; }
-        @media (max-width:600px) { .process-chain { flex-direction:column; gap:12px; padding:24px 16px; } .chain-connector { width:2px; height:16px; } }
-
-        /* --- Таблица цен --- */
-        .price-card { background:var(--bg-card); padding:50px; margin-bottom:30px; }
-        .price-table { border-top:1px solid var(--border-color); }
-        .price-row { display:flex; justify-content:space-between; align-items:center; padding:22px 0; border-bottom:1px solid var(--border-color); }
-        .price-row:last-child { border-bottom:none; }
-        .price-row-info strong { display:block; font-size:15px; margin-bottom:3px; }
-        .price-row-desc { font-size:12px; color:var(--text-muted); display:block; line-height:1.4; }
-        .price-row-val { font-family:var(--font-title); font-size:20px; font-weight:500; white-space:nowrap; margin-left:24px; flex-shrink:0; }
-        @media (max-width:600px) { .price-row { flex-direction:column; align-items:flex-start; gap:6px; } .price-row-val { margin-left:0; } }
-
-        /* --- Таблица инструментов и материалов --- */
-        .tools-table { border-top:1px solid var(--border-color); }
-        .tools-row { display:grid; grid-template-columns:170px 1fr 1fr; gap:20px; padding:18px 0; border-bottom:1px solid var(--border-color); align-items:center; }
-        .tools-row:last-child { border-bottom:none; }
-        .tools-row-name { font-weight:600; font-size:14px; }
-        .tools-row-desc { font-size:13px; color:var(--text-muted); line-height:1.5; }
-        .tools-row-feel { font-size:13px; color:var(--text-main); line-height:1.5; }
-        @media (max-width:600px) { .tools-row { grid-template-columns:1fr; gap:4px; } }
-
-        /* --- Блок безопасности и доверия Е-Е-A-T --- */
-        .trust-card {
-            background-color: var(--bg-card);
-            padding: 40px 50px;
-            border-left: 3px solid var(--text-main);
-            margin-bottom: 60px;
-        }
-        
-        .trust-card h3 {
-            font-family: var(--font-title);
-            font-size: 20px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .trust-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            max-width: 800px;
-        }
-
-        /* --- Подвал сайта (Footer) --- */
-        .footer {
-            background-color: var(--bg-page);
-            padding: 40px 0 60px;
-            border-top: 1px solid var(--border-color);
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .footer-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 24px;
-        }
-
-        .footer-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .footer-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-family: var(--font-title);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+            font-size: 26px;
             font-weight: 500;
-            cursor: pointer;
-            border: 2px solid var(--text-main);
-            padding: 12px 24px;
-            text-decoration: none;
-            transition: opacity 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            line-height: 1.15;
+            margin-bottom: 16px;
         }
-
-        .footer-btn-primary {
-            background: var(--text-main);
-            color: #fff;
+        .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .chip {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: var(--text-main); color: #fff;
+            font-family: var(--font-title); font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+            padding: 8px 16px; line-height: 1; border-radius: 0;
         }
+        .chip-alt { background: transparent; color: var(--text-main); border: 1.5px solid var(--text-main); }
+        .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+        .cta-btn {
+            flex: 1; min-width: 140px; min-height: 48px;
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            font-family: var(--font-title); font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 500;
+            cursor: pointer; padding: 14px 20px; text-decoration: none; transition: opacity 0.2s;
+        }
+        .cta-primary { background: var(--text-main); color: #fff; border: 2px solid var(--text-main); }
+        .cta-secondary { background: #fff; color: var(--text-main); border: 2px solid var(--text-main); }
+        .cta-btn:hover { opacity: 0.85; }
 
+        /* --- Screen 2: Intro + Accordion --- */
+        .section-card { background: var(--bg-card); padding: 28px 24px; margin-bottom: 20px; }
+        .section-title {
+            font-family: var(--font-title); font-size: 22px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 16px; line-height: 1.2;
+        }
+        .body-text { font-size: 16px; line-height: 1.55; color: var(--text-main); margin-bottom: 16px; }
+        .body-text:last-child { margin-bottom: 0; }
+
+        /* Custom accordion */
+        .acc-item { border-top: 1px solid var(--border-color); }
+        .acc-item:last-child { border-bottom: 1px solid var(--border-color); }
+        .acc-trigger {
+            display: flex; justify-content: space-between; align-items: center; width: 100%;
+            padding: 18px 0; min-height: 48px;
+            font-size: 15px; font-weight: 600; cursor: pointer; user-select: none;
+            background: none; border: none; text-align: left; color: var(--text-main);
+            font-family: var(--font-main);
+        }
+        .acc-trigger::after {
+            content: "+"; font-family: var(--font-title); font-size: 22px;
+            font-weight: 400; color: var(--text-muted); transition: transform 0.25s; margin-left: 16px; flex-shrink: 0;
+        }
+        .acc-item.open .acc-trigger::after { content: "−"; color: var(--text-main); }
+        .acc-body {
+            max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+        }
+        .acc-body-inner { padding-bottom: 20px; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* --- Screen 3: Photo + Carousel --- */
+        .hero-image-wrapper { margin-bottom: 20px; }
+        .seo-image { width: 100%; height: auto; display: block; border-radius: 2px; background: #FAFAFA; border: 1px solid var(--border-color); }
+
+        .carousel-wrap { position: relative; margin-bottom: 20px; }
+        .carousel-track {
+            display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; scroll-behavior: smooth;
+        }
+        .carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-slide {
+            flex: 0 0 82%; scroll-snap-align: start; padding: 0 4px;
+        }
+        .carousel-slide:first-child { padding-left: 0; }
+        .carousel-slide:last-child { padding-right: 0; }
+        .carousel-card {
+            background: #FAFAFA; border: 1px solid var(--border-color); padding: 20px; min-height: 130px;
+        }
+        .carousel-num { font-family: var(--font-title); font-size: 22px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+        .carousel-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+        .carousel-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+        .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+        .carousel-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: var(--border-color);
+            border: none; cursor: pointer; padding: 0; transition: background 0.2s;
+        }
+        .carousel-dot.active { background: var(--text-main); }
+
+        /* --- Screen 4: Tabs (4 tools) --- */
+        .tab-bar { display: flex; border-bottom: 2px solid var(--border-color); margin-bottom: 20px; gap: 0; overflow-x: auto; }
+        .tab-bar::-webkit-scrollbar { display: none; }
+        .tab-btn {
+            flex: 0 0 auto; min-height: 48px; padding: 14px 12px; cursor: pointer; background: none; border: none;
+            font-family: var(--font-title); font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px;
+            color: var(--text-muted); transition: color 0.2s, border-color 0.2s; white-space: nowrap;
+            border-bottom: 2px solid transparent; margin-bottom: -2px;
+        }
+        .tab-btn.active { color: var(--text-main); border-bottom-color: var(--text-main); }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+        .tab-pane p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+        .tab-pane p:last-child { margin-bottom: 0; }
+
+        /* --- Trust card --- */
+        .trust-card {
+            background: var(--bg-card); padding: 28px 24px; margin-bottom: 20px;
+            border-left: 3px solid var(--text-main);
+        }
+        .trust-card h3 { font-family: var(--font-title); font-size: 18px; text-transform: uppercase; margin-bottom: 10px; }
+        .trust-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* --- Sticky CTA Bottom Bar --- */
+        .sticky-cta {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+            background: #fff; border-top: 1px solid var(--border-color);
+            padding: 10px 20px; display: flex; align-items: center; gap: 12px;
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+        }
+        .sticky-price { flex-shrink: 0; text-align: center; }
+        .sticky-price .val { font-family: var(--font-title); font-size: 22px; font-weight: 500; line-height: 1; }
+        .sticky-price .label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .sticky-btn {
+            flex: 1; min-height: 48px;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--text-main); color: #fff;
+            font-family: var(--font-title); font-size: 14px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 500;
+            cursor: pointer; text-decoration: none; transition: opacity 0.2s; gap: 6px;
+        }
+        .sticky-btn:hover { opacity: 0.85; }
+
+        /* --- Footer --- */
+        .footer { background-color: var(--bg-page); padding: 40px 0 60px; border-top: 1px solid var(--border-color); font-size: 13px; color: var(--text-muted); }
+        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 24px; }
+        .footer-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+        .footer-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-title); font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; cursor: pointer; border: 2px solid var(--text-main); padding: 12px 24px; text-decoration: none; transition: opacity 0.2s; }
+        .footer-btn-primary { background: var(--text-main); color: #fff; }
         .footer-btn-primary:hover { opacity: 0.85; }
-
-        .footer-btn-outline {
-            background: #fff;
-            color: var(--text-main);
-        }
-
+        .footer-btn-outline { background: #fff; color: var(--text-main); }
         .footer-btn-outline:hover { opacity: 0.85; }
-
-        .footer-info {
-            text-align: right;
-        }
-
+        .footer-info { text-align: right; }
         .footer-info .copyright { font-size: 13px; color: var(--text-muted); }
-
-        .footer-info .footer-address {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 8px;
-        }
-
-        .footer-info .footer-address a {
-            color: var(--text-muted);
-            text-decoration: underline;
-        }
-
+        .footer-info .footer-address { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+        .footer-info .footer-address a { color: var(--text-muted); text-decoration: underline; }
         .footer-info .footer-links { margin-top: 10px; }
-
-        .footer-info .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
+        .footer-info .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
         .footer-info .footer-links a:hover { color: var(--text-main); }
 
-        /* --- Адаптивность для мобильных экранов --- */
-        @media (max-width: 900px) {
-            .container { padding: 0 20px; }
-            .nav { display: none; }
-            .page-header { flex-direction: column; gap: 10px; }
-            .page-title { font-size: 36px; }
-            .hero-card, .grid-2 { grid-template-columns: 1fr; gap: 20px; padding: 30px; }
-            .hero-price-box { text-align: left; margin-bottom: 20px; }
-            .steps-grid { grid-template-columns: 1fr 1fr; }
-            .faq-card { padding: 30px; }
-            .faq-item summary { font-size: 15px; padding: 20px 0; }
-        }
-        @media (max-width: 600px) {
-            .footer-grid {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 20px;
-            }
-            .footer-info { text-align: center; }
-            .footer-buttons {
-                justify-content: center;
-                width: 100%;
-            }
-            .footer-btn {
-                flex: 1 1 auto;
-                min-width: 140px;
-                font-size: 12px;
-                padding: 12px 16px;
-            }
-            .steps-grid { grid-template-columns: 1fr; }
-            .header-inner { flex-direction: column; gap: 15px; }
-            .page-subtitle { white-space: normal; }
-        }
-
-        /* --- Бургер-меню --- */
-        .burger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1100;
-        }
-        .burger-line {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text-main);
-            margin: 5px 0;
-            transition: transform 0.3s, opacity 0.3s;
-        }
+        /* --- Burger --- */
+        .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1100; }
+        .burger-line { display: block; width: 24px; height: 2px; background: var(--text-main); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
         .burger.active .burger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .burger.active .burger-line:nth-child(2) { opacity: 0; }
         .burger.active .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: var(--bg-page);
-            z-index: 1050;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-        }
+        .mobile-menu { display: none; position: fixed; inset: 0; background: var(--bg-page); z-index: 1050; flex-direction: column; justify-content: center; align-items: center; gap: 30px; }
         .mobile-menu.active { display: flex; }
-        .mobile-menu a {
-            font-family: var(--font-title);
-            font-size: 28px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            transition: opacity 0.2s;
-        }
+        .mobile-menu a { font-family: var(--font-title); font-size: 28px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: opacity 0.2s; }
         .mobile-menu a:hover { opacity: 0.6; }
 
+        /* --- Desktop overrides (900px+) --- */
+        @media (min-width: 901px) {
+            .container { padding: 0 40px; }
+            .header { padding: 25px 0; }
+            .logo { font-size: 24px; }
+            .breadcrumbs { padding: 30px 0 10px; font-size: 12px; }
+            .hero-title { font-size: 50px; letter-spacing: 0.5px; margin-bottom: 24px; }
+            .chip { font-size: 14px; padding: 10px 20px; }
+            .cta-row { gap: 14px; }
+            .cta-btn { min-width: auto; padding: 16px 32px; font-size: 15px; }
+            .section-card { padding: 40px 50px; margin-bottom: 30px; }
+            .section-title { font-size: 24px; }
+            .carousel-slide { flex: 0 0 23%; }
+            .carousel-card { min-height: 180px; padding: 24px; }
+            .trust-card { padding: 40px 50px; margin-bottom: 60px; }
+            .trust-card h3 { font-size: 20px; }
+            .sticky-cta { display: none !important; }
+            body { padding-bottom: 0; }
+            .burger { display: none !important; }
+            .nav { display: flex !important; }
+            .mobile-menu { display: none !important; }
+            .acc-trigger { font-size: 16px; padding: 24px 0; }
+            .tab-bar { overflow-x: visible; }
+            .tab-btn { flex: 1; padding: 16px 20px; font-size: 14px; white-space: normal; }
+            .footer { padding: 40px 0 60px; }
+        }
         @media (max-width: 900px) {
+            .nav { display: none; }
+            .header-right { display: none; }
             .burger { display: block; }
         }
-            /* --- Нумерованный список протокола --- */
-        .protocol-list { counter-reset: protocol; }
-        .protocol-item { display: flex; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; color: var(--text-main); line-height: 1.5; }
-        .protocol-item:last-child { border-bottom: none; }
-        .protocol-num { font-family: var(--font-title); font-size: 14px; font-weight: 500; color: var(--text-muted); flex-shrink: 0; min-width: 28px; }
-
-        /* --- Сравнительная таблица --- */
-        .compare-table { border-top: 1px solid var(--border-color); }
-        .compare-row { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-color); align-items: flex-start; }
-        .compare-param { font-family: var(--font-title); font-size: 14px; font-weight: 500; text-transform: uppercase; color: var(--text-muted); }
-        .compare-before { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-        .compare-after { font-size: 13px; color: var(--text-main); line-height: 1.5; }
-        .compare-after::before { content: "✓ "; font-weight: 600; }
-        @media (max-width:600px) { .compare-row { grid-template-columns: 1fr; gap: 4px; } .compare-param { font-size: 12px; } }
+        @media (max-width: 600px) {
+            .footer-grid { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+            .footer-info { text-align: center; }
+            .footer-buttons { justify-content: center; width: 100%; }
+            .footer-btn { flex: 1 1 auto; min-width: 140px; font-size: 12px; padding: 12px 16px; }
+        }
     </style>
-    <!-- Google Search Console -->
+
     <meta name="google-site-verification" content="FEhSRekyAfrG5g5cBUOL8hz7CCbBM2_KmqJ_MmXC0oE" />
 
-    <!-- Yandex Metrika -->
-    <script type="text/javascript" >
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();
+    <script type="text/javascript">
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();
        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-       ym(103653225, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true,
-            ecommerce:"dataLayer"
-       });
+       ym(103653225, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, ecommerce:"dataLayer" });
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/103653225" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FGFJTW83E"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -769,7 +388,6 @@
       gtag('js', new Date());
       gtag('config', 'G-6FGFJTW83E');
     </script>
-
 </head>
 <body>
 
@@ -792,13 +410,12 @@
                 <div class="sidebar-links" style="display:flex; flex-direction:column; gap:8px;">
                     <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="telegram-link" target="_blank" rel="nofollow">Telegram</a>
                     <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" class="telegram-link">ВКонтакте</a>
-                    <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="phone" style="margin-top:4px;">+7 963 732 94 66</a>
+                    <a href="tel:+796****9466" onclick="reachGoal('zvonok_tel')" class="phone" style="margin-top:4px;">+7 963 732 94 66</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Мобильное меню (выезжающий fullscreen) -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="/#portfolio">Работы</a>
         <a href="/#services">Прайс</a>
@@ -811,139 +428,136 @@
     </div>
 
     <main class="container">
-        <!-- Навигация (Хлебные крошки с семантической разметкой) -->
+
+        <!-- === SCREEN 1: ABOVE THE FOLD === -->
         <nav aria-label="Хлебные крошки" class="breadcrumbs">
             <a href="/">Главная</a> / <span>Оформление бровей</span>
         </nav>
 
-        <!-- Главный заголовок (H1 оптимизирован, без дублей) -->
-        <div class="page-header">
-            <h1 class="page-title">Оформление бровей в Москве, м. Белорусская: идеальная форма, воск и окрашивание</h1>
-            <div class="page-subtitle">Прайс–лист 2026</div>
+        <div class="hero-mobile">
+            <h1 class="hero-title">Оформление бровей в Москве, м. Белорусская: идеальная форма, воск и окрашивание</h1>
+
+            <div class="chip-row">
+                <span class="chip">1 800 ₽</span>
+                <span class="chip">35 минут</span>
+                <span class="chip chip-alt">5 мин от метро</span>
+            </div>
+
+            <div class="cta-row">
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" class="cta-btn cta-primary">Telegram / Запись</a>
+                <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" class="cta-btn cta-secondary">ВКонтакте / Запись</a>
+            </div>
         </div>
 
-        <!-- Hero-карточка услуги -->
-        <section class="hero-card">
-            <div class="hero-info">
-                <h2>Как мастер подбирает форму и оттенок под ваше лицо?</h2>
-                <div class="service-tags">Brow-паста + Воск/Пинцет + Краска/Хна + Колористика</div>
-                <p class="hero-desc">Профессиональное оформление бровей занимает ровно 35 минут и обойдется в 1800 рублей. За это время мастер не просто наносит краску, а проводит полный цикл: от себо-пилинга фолликулов до разметки brow-пастой, депиляции низкотемпературным полимерным воском и смешивания индивидуального оттенка под ваш цветотип. Студия находится в 5 минутах от метро Белорусская (выход №4) и Маяковская — в пешей доступности для жителей Тверского района и ЦАО.</p>
-                <p class="hero-desc" style="margin-top:15px;"><strong>Brow mapping (карта лица)</strong> — разметка формы бровей под пропорции лица. <strong>Воск и пинцет</strong> — две техники удаления волосков: воск захватывает группу волос за раз, пинцет убирает единичные. <strong>Зона роста</strong> — граница, за которую мастер не выходит при коррекции. <strong>Хна и краска</strong> — составы для окрашивания бровей, подбираются под цветотип клиента.</p>
-                        <p class="hero-desc" style="margin-top:15px;">База, которую важно понимать до записи: brow mapping — это не рисование, а построение формы по костным ориентирам лица, что делает результат геометрически точным. Воск подходит для быстрой коррекции плотных волосков, пинцет — для филигранной доработки границ. Зона роста определяет естественность линии — мастер сохраняет пушковые волоски для мягкости. Хна даёт графичный след на коже, краска — естественное тонирование волосков, что подтверждено многолетней практикой бьюти-индустрии.</p>
-                
-                <!-- Блок изображения для Image SEO -->
-                <div class="hero-image-wrapper">
-                    <img src="/images/gh-screenshot-3.webp" alt="Оформление бровей до и после — коррекция формы воском и естественное окрашивание" class="seo-image" width="1024" height="572" loading="eager" fetchpriority="high">
-                </div>
+        <!-- === SCREEN 2: INTRO + ACCORDION === -->
+        <div class="section-card">
+            <p class="body-text">Профессиональное оформление бровей занимает ровно 35 минут и обойдется в 1800 рублей. За это время мастер не просто наносит краску, а проводит полный цикл: от себо-пилинга фолликулов до разметки brow-пастой, депиляции низкотемпературным полимерным воском и смешивания индивидуального оттенка под ваш цветотип. Студия находится в 5 минутах от метро Белорусская (выход №4) и Маяковская — в пешей доступности для жителей Тверского района и ЦАО.</p>
 
-                                <div style="display:flex; gap:12px; flex-wrap:wrap; padding-top:25px; border-top:1px solid var(--border-color); width:100%;">
-                    <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-title); font-size:15px; text-transform:uppercase; letter-spacing:1.5px; font-weight:500; cursor:pointer; border:2px solid var(--text-main); background:var(--text-main); color:#fff; padding:14px 28px; text-decoration:none; transition:opacity 0.2s;">Telegram / Запись</a>
-                    <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-title); font-size:15px; text-transform:uppercase; letter-spacing:1.5px; font-weight:500; cursor:pointer; border:2px solid var(--text-main); background:#fff; color:var(--text-main); padding:14px 28px; text-decoration:none; transition:opacity 0.2s;">ВКонтакте / Запись</a>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">Что означают термины brow mapping, воск и зона роста?</button>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+<strong>Brow mapping (карта лица)</strong> — разметка формы бровей под пропорции лица. <strong>Воск и пинцет</strong> — две техники удаления волосков: воск захватывает группу волос за раз, пинцет убирает единичные. <strong>Зона роста</strong> — граница, за которую мастер не выходит при коррекции. <strong>Хна и краска</strong> — составы для окрашивания бровей, подбираются под цветотип клиента.<br><br>
+База, которую важно понимать до записи: brow mapping — это не рисование, а построение формы по костным ориентирам лица, что делает результат геометрически точным. Воск подходит для быстрой коррекции плотных волосков, пинцет — для филигранной доработки границ. Зона роста определяет естественность линии — мастер сохраняет пушковые волоски для мягкости. Хна даёт графичный след на коже, краска — естественное тонирование волосков, что подтверждено многолетней практикой бьюти-индустрии.
+                    </div>
                 </div>
             </div>
-            <div class="hero-price-box">
-                <div class="price">1 800₽</div>
-                <div class="duration">35 минут</div>
+        </div>
+
+        <!-- === SCREEN 3: PHOTO + CAROUSEL === -->
+        <div class="hero-image-wrapper">
+            <img src="/images/gh-screenshot-3.webp" alt="Оформление бровей до и после — коррекция формы воском и естественное окрашивание" class="seo-image" width="1024" height="572" loading="eager" fetchpriority="high">
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Как мастер оформляет брови за 35 минут?</h2>
+            <div class="carousel-wrap">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide"><div class="carousel-card"><div class="carousel-num">01</div><div class="carousel-title">Очищение и раскрытие фолликулов</div><div class="carousel-desc">Обычного демакияжа мицеллярной водой недостаточно. Мы используем мягкий себо-пилинг. Он убирает ороговевшие клетки и приоткрывает фолликулы.</div></div></div>
+                    <div class="carousel-slide"><div class="carousel-card"><div class="carousel-num">02</div><div class="carousel-title">Разметка (Brow Mapping)</div><div class="carousel-desc">Берем белую brow-пасту и строим каркас. Никаких шаблонов. Опорные точки выстраиваются строго по костной структуре и пропорциям лица.</div></div></div>
+                    <div class="carousel-slide"><div class="carousel-card"><div class="carousel-num">03</div><div class="carousel-title">Восковая коррекция и чистка</div><div class="carousel-desc">Я работаю только синтетическим полимерным воском. Он плавится при низкой температуре, не обжигает кожу и прилипает исключительно к волосу.</div></div></div>
+                    <div class="carousel-slide"><div class="carousel-card"><div class="carousel-num">04</div><div class="carousel-title">Колористика и фиксация</div><div class="carousel-desc">Мастер смешивает до трех оттенков для попадания в цветотип. Фиксация гелем задает направление роста. Результат держится до 6 недель.</div></div></div>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
             </div>
-        </section>
+        </div>
 
-        <!-- Анатомия процедуры: 4 этапа -->
-        <section class="steps-card">
-      <h2 class="card-title">Как мастер оформляет брови за 35 минут?</h2>
-      <div class="steps-grid">
-        <div class="step-item">
-      <div class="step-num">01 / ЭТАП</div>
-      <div class="step-title">Очищение и раскрытие фолликулов</div>
-      <div class="step-desc">Обычного демакияжа мицеллярной водой недостаточно. Мы используем мягкий себо-пилинг. Он убирает ороговевшие клетки и приоткрывает фолликулы.</div>
-    </div>
-                <div class="step-item">
-      <div class="step-num">02 / ЭТАП</div>
-      <div class="step-title">Разметка (Brow Mapping)</div>
-      <div class="step-desc">Берем белую brow-пасту и строим каркас. Никаких шаблонов. Опорные точки выстраиваются строго по костной структуре и пропорциям лица.</div>
-    </div>
-                <div class="step-item">
-      <div class="step-num">03 / ЭТАП</div>
-      <div class="step-title">Восковая коррекция и чистка</div>
-      <div class="step-desc">Я работаю только синтетическим полимерным воском. Он плавится при низкой температуре, не обжигает кожу и прилипает исключительно к волосу.</div>
-    </div>
-                <div class="step-item">
-      <div class="step-num">04 / ЭТАП</div>
-      <div class="step-title">Колористика и фиксация</div>
-      <div class="step-desc">Мастер смешивает до трех оттенков для попадания в цветотип. Фиксация гелем задает направление роста. Результат держится до 6 недель.</div>
-    </div>
-      </div>
-    </section>
-
-        <!-- Инструменты и материалы -->
-        <section class="content-card" style="padding:50px;margin-bottom:30px;">
-            <h2 class="card-title" style="margin-bottom:20px;">Какие инструменты и материалы использует мастер?</h2>
-            <div class="tools-table">
-                <div class="tools-row">
-                    <div class="tools-row-name">Полимерный воск</div>
-                    <div class="tools-row-work">Захватывает волос у корня, игнорируя кожу. Плавится при низких температурах</div>
-                    <div class="tools-row-feel">Легкий, быстрый рывок. Без жжения и травм</div>
-                </div>
-                <div class="tools-row">
-                    <div class="tools-row-name">Пинцет</div>
-                    <div class="tools-row-work">Точечная доработка единичных волосков</div>
-                    <div class="tools-row-feel">Терпимое покалывание</div>
-                </div>
-                <div class="tools-row">
-                    <div class="tools-row-name">Brow-паста</div>
-                    <div class="tools-row-work">Защищает кожу вокруг брови, держит эскиз</div>
-                    <div class="tools-row-feel">Прохладная плотная текстура</div>
-                </div>
-                <div class="tools-row">
-                    <div class="tools-row-name">Масло после ухода</div>
-                    <div class="tools-row-work">Закрывает поры, скраб и успокаивающее</div>
-                    <div class="tools-row-feel">Снимает стянутость. Краснота уходит за 15-30 мин</div>
-                </div>
+        <!-- === SCREEN 4: TABS (TOOLS) === -->
+        <div class="section-card">
+            <h2 class="section-title">Какие инструменты и материалы использует мастер?</h2>
+            <div class="tab-bar" role="tablist">
+                <button class="tab-btn active" onclick="switchTab(this, 'tab-wax')" role="tab">Полимерный воск</button>
+                <button class="tab-btn" onclick="switchTab(this, 'tab-tweezer')" role="tab">Пинцет</button>
+                <button class="tab-btn" onclick="switchTab(this, 'tab-paste')" role="tab">Brow-паста</button>
+                <button class="tab-btn" onclick="switchTab(this, 'tab-oil')" role="tab">Масло после ухода</button>
             </div>
-        </section>
 
-        <!-- Блок FAQ (Аккордеон) -->
-        <section class="faq-card">
-      <h2 class="card-title">Часто задаваемые вопросы об оформлении бровей</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-      <details>
-        <summary>Что лучше выбрать — краску или хну?</summary>
-        <div class="faq-answer">Краска даёт мягкий естественный оттенок и держится до 2 недель на волосках. Хна оставляет более графичный след на коже до 14 дней, что удобно, если вы не носите макияж. Мастер подберёт вариант под ваш образ.</div>
-      </details>
-    </div>
-                <div class="faq-item">
-      <details>
-        <summary>Делать коррекцию воском больно?</summary>
-        <div class="faq-answer">Синтетический полимерный воск низких температур прилипает только к волосам, не к коже. Дискомфорт минимален, покраснение проходит за 15–30 минут. Мы используем успокаивающее масло после процедуры.</div>
-      </details>
-    </div>
-                <div class="faq-item">
-      <details>
-        <summary>Сильно ли покраснеет кожа и когда это пройдет?</summary>
-        <div class="faq-answer">Покраснение — это естественная реакция капилляров на механическое удаление волосков. Синтетический воск не травмирует кожу, поэтому румянец минимален. Мы наносим успокаивающее масло, и краснота спадает за 15–30 минут после процедуры.</div>
-      </details>
-    </div>
-                <div class="faq-item">
-      <details>
-        <summary>Сможете исправить, если одна бровь заметно выше другой?</summary>
-        <div class="faq-answer">Да, brow mapping — это как раз про геометрию. Пастой мы размечаем контрольные точки и поднимаем/опускаем дугу, визуально выравнивая асимметрию. Если перепад сильный — предупреждаем, но сделать плавно корректируем точно.</div>
-      </details>
-    </div>
-      </div>
-    </section>
+            <div class="tab-pane active" id="tab-wax" role="tabpanel">
+                <p>Захватывает волос у корня, игнорируя кожу. Плавится при низких температурах. Легкий, быстрый рывок. Без жжения и травм.</p>
+            </div>
+            <div class="tab-pane" id="tab-tweezer" role="tabpanel">
+                <p>Точечная доработка единичных волосков. Терпимое покалывание.</p>
+            </div>
+            <div class="tab-pane" id="tab-paste" role="tabpanel">
+                <p>Защищает кожу вокруг брови, держит эскиз. Прохладная плотная текстура.</p>
+            </div>
+            <div class="tab-pane" id="tab-oil" role="tabpanel">
+                <p>Закрывает поры, скраб и успокаивающее. Снимает стянутость. Краснота уходит за 15-30 мин.</p>
+            </div>
+        </div>
 
-        <!-- Блок безопасности и доверия E-E-A-T -->
-        <section class="trust-card">
+        <!-- === SCREEN 5: TRUST + FAQ === -->
+        <div class="trust-card">
             <h3>Безопасность и золотой стандарт OSTINKOSMO</h3>
             <p>
                 Мы работаем исключительно на сертифицированных составах премиум-класса с мягким, контролируемым уровнем pH. 
                 Все инструменты проходят строгую многоступенчатую стерилизацию по СанПиН, а расходные материалы используются строго однократно. 
                 При склонности к аллергическим реакциям мастер в обязательном порядке проводит предварительный патч-тест за 24 часа до сеанса.
             </p>
-        </section>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Часто задаваемые вопросы об оформлении бровей</h2>
+            <div class="faq-list">
+                <div class="acc-item">
+                    <button class="acc-trigger" onclick="toggleAcc(this)">Что лучше выбрать — краску или хну?</button>
+                    <div class="acc-body">
+                        <div class="acc-body-inner">Краска даёт мягкий естественный оттенок и держится до 2 недель на волосках. Хна оставляет более графичный след на коже до 14 дней, что удобно, если вы не носите макияж. Мастер подберёт вариант под ваш образ.</div>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <button class="acc-trigger" onclick="toggleAcc(this)">Делать коррекцию воском больно?</button>
+                    <div class="acc-body">
+                        <div class="acc-body-inner">Синтетический полимерный воск низких температур прилипает только к волосам, не к коже. Дискомфорт минимален, покраснение проходит за 15–30 минут. Мы используем успокаивающее масло после процедуры.</div>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <button class="acc-trigger" onclick="toggleAcc(this)">Сильно ли покраснеет кожа и когда это пройдет?</button>
+                    <div class="acc-body">
+                        <div class="acc-body-inner">Покраснение — это естественная реакция капилляров на механическое удаление волосков. Синтетический воск не травмирует кожу, поэтому румянец минимален. Мы наносим успокаивающее масло, и краснота спадает за 15–30 минут после процедуры.</div>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <button class="acc-trigger" onclick="toggleAcc(this)">Сможете исправить, если одна бровь заметно выше другой?</button>
+                    <div class="acc-body">
+                        <div class="acc-body-inner">Да, brow mapping — это как раз про геометрию. Пастой мы размечаем контрольные точки и поднимаем/опускаем дугу, визуально выравнивая асимметрию. Если перепад сильный — предупреждаем, но сделать плавно корректируем точно.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <!-- Подвал сайта -->
+    <!-- === STICKY CTA === -->
+    <div class="sticky-cta" id="stickyCta">
+        <div class="sticky-price">
+            <div class="val">1 800₽</div>
+            <div class="label">35 мин</div>
+        </div>
+        <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" class="sticky-btn">Записаться</a>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-buttons">
@@ -962,26 +576,75 @@
 
     <script>
         function reachGoal(target) {
-            if (typeof ym !== 'undefined') {
-                ym(103653225, 'reachGoal', target);
-            }
+            if (typeof ym !== 'undefined') ym(103653225, 'reachGoal', target);
+            if (typeof gtag !== 'undefined') gtag('event', target);
         }
 
+        // Burger menu
         document.getElementById('burgerBtn').addEventListener('click', function() {
             this.classList.toggle('active');
             document.getElementById('mobileMenu').classList.toggle('active');
         });
 
-        // Плавный скролл к якорям
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Accordion toggle
+        function toggleAcc(btn) {
+            var item = btn.closest('.acc-item');
+            var body = item.querySelector('.acc-body');
+            var isOpen = item.classList.contains('open');
+            if (isOpen) {
+                item.classList.remove('open');
+                body.style.maxHeight = '0';
+            } else {
+                item.classList.add('open');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            }
+        }
+
+        // Tabs
+        function switchTab(btn, paneId) {
+            var bar = btn.closest('.tab-bar');
+            bar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            var card = btn.closest('.section-card');
+            card.querySelectorAll('.tab-pane').forEach(function(p) { p.classList.remove('active'); });
+            document.getElementById(paneId).classList.add('active');
+        }
+
+        // Carousel dots
+        (function initDots() {
+            var track = document.getElementById('carouselTrack');
+            if (!track) return;
+            var dotsEl = document.getElementById('carouselDots');
+            var slides = track.querySelectorAll('.carousel-slide');
+            slides.forEach(function(_, i) {
+                var dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Шаг ' + (i + 1));
+                dot.addEventListener('click', function() {
+                    slides[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+                });
+                dotsEl.appendChild(dot);
+            });
+            // Update dots on scroll
+            track.addEventListener('scroll', function() {
+                var scrollLeft = track.scrollLeft;
+                var slideWidth = track.scrollWidth / slides.length;
+                var idx = Math.round(scrollLeft / slideWidth);
+                if (idx >= slides.length) idx = slides.length - 1;
+                dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, j) {
+                    d.classList.toggle('active', j === idx);
+                });
+            });
+        })();
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
+                var href = this.getAttribute('href');
                 if (href === '#') return;
                 e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                var target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>

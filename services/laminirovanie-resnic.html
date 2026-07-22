@@ -143,687 +143,238 @@
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-title: 'Oswald', sans-serif;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: var(--bg-page);
             color: var(--text-main);
             font-family: var(--font-main);
-            font-size: 15px;
-            line-height: 1.6;
+            font-size: 16px;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            padding-bottom: 80px; /* sticky CTA */
         }
+        a { color: inherit; text-decoration: none; }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
-        .container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
+        /* --- Header (compact for mobile) --- */
+        .header { background-color: var(--bg-page); padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-title); font-size: 22px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+        .logo span { color: var(--text-light); font-weight: 400; }
+        .nav { display: flex; gap: 30px; }
+        .nav a { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: opacity 0.2s; }
+        .nav a:hover { opacity: 0.6; }
+        .header-right { display: flex; align-items: center; gap: 25px; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; }
 
-        /* --- Шапка сайта (Header) --- */
-        .header {
-            background-color: var(--bg-page);
-            padding: 25px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.04);
-        }
+        /* --- Breadcrumbs --- */
+        .breadcrumbs { padding: 20px 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        .breadcrumbs a:hover { text-decoration: underline; }
 
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
+        /* --- Screen 1: H1 + Chips + CTA --- */
+        .hero-mobile { padding: 16px 0 24px; }
+        .hero-title {
             font-family: var(--font-title);
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .logo span {
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        .nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav a {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            transition: opacity 0.2s;
-        }
-        .nav a:hover {
-            opacity: 0.6;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .telegram-link {
-            text-transform: uppercase;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
-        /* --- Хлебные крошки --- */
-        .breadcrumbs {
-            padding: 30px 0 10px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-        }
-        .breadcrumbs a:hover {
-            text-decoration: underline;
-        }
-
-        /* --- Заголовок страницы (H1 без дублирования с H2) --- */
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin: 30px 0 40px;
-        }
-
-        .page-title {
-            font-family: var(--font-title);
-            font-size: 50px;
+            font-size: 26px;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.1;
-            max-width: 850px;
+            letter-spacing: 0.3px;
+            line-height: 1.15;
+            margin-bottom: 16px;
         }
+        .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .chip {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: var(--text-main); color: #fff;
+            font-family: var(--font-title); font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+            padding: 8px 16px; line-height: 1; border-radius: 0;
+        }
+        .chip-alt { background: transparent; color: var(--text-main); border: 1.5px solid var(--text-main); }
+        .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+        .cta-btn {
+            flex: 1; min-width: 140px; min-height: 48px;
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            font-family: var(--font-title); font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 500;
+            cursor: pointer; padding: 14px 20px; text-decoration: none; transition: opacity 0.2s;
+        }
+        .cta-primary { background: var(--text-main); color: #fff; border: 2px solid var(--text-main); }
+        .cta-secondary { background: #fff; color: var(--text-main); border: 2px solid var(--text-main); }
+        .cta-btn:hover { opacity: 0.85; }
 
-        .page-subtitle {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            white-space: nowrap;
+        /* --- Screen 2: Intro + Accordion --- */
+        .section-card { background: var(--bg-card); padding: 28px 24px; margin-bottom: 20px; }
+        .section-title {
+            font-family: var(--font-title); font-size: 22px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 16px; line-height: 1.2;
         }
+        .body-text { font-size: 16px; line-height: 1.55; color: var(--text-main); margin-bottom: 16px; }
+        .body-text:last-child { margin-bottom: 0; }
 
-        /* --- Главный Hero-блок --- */
-        .hero-card {
-            background-color: var(--bg-card);
-            padding: 50px;
-            margin-bottom: 30px;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 40px;
-            align-items: flex-start;
+        /* Custom accordion */
+        .acc-item { border-top: 1px solid var(--border-color); }
+        .acc-item:last-child { border-bottom: 1px solid var(--border-color); }
+        .acc-trigger {
+            display: flex; justify-content: space-between; align-items: center; width: 100%;
+            padding: 18px 0; min-height: 48px;
+            font-size: 15px; font-weight: 600; cursor: pointer; user-select: none;
+            background: none; border: none; text-align: left; color: var(--text-main);
+            font-family: var(--font-main);
         }
+        .acc-trigger::after {
+            content: "+"; font-family: var(--font-title); font-size: 22px;
+            font-weight: 400; color: var(--text-muted); transition: transform 0.25s; margin-left: 16px; flex-shrink: 0;
+        }
+        .acc-item.open .acc-trigger::after { content: "−"; color: var(--text-main); }
+        .acc-body {
+            max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+        }
+        .acc-body-inner { padding-bottom: 20px; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
-        .hero-info h2 {
-            font-family: var(--font-title);
-            font-size: 32px;
-            font-weight: 500;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
+        /* --- Screen 3: Photo + Carousel --- */
+        .hero-image-wrapper { margin-bottom: 20px; }
+        .seo-image { width: 100%; height: auto; display: block; border-radius: 2px; background: #FAFAFA; border: 1px solid var(--border-color); }
 
-        .service-tags {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
+        .carousel-wrap { position: relative; margin-bottom: 20px; }
+        .carousel-track {
+            display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; scroll-behavior: smooth;
         }
+        .carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-slide {
+            flex: 0 0 82%; scroll-snap-align: start; padding: 0 4px;
+        }
+        .carousel-slide:first-child { padding-left: 0; }
+        .carousel-slide:last-child { padding-right: 0; }
+        .carousel-card {
+            background: #FAFAFA; border: 1px solid var(--border-color); padding: 20px; min-height: 150px;
+        }
+        .carousel-num { font-family: var(--font-title); font-size: 22px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+        .carousel-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+        .carousel-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 
-        .hero-desc {
-            font-size: 16px;
-            color: var(--text-main);
-            max-width: 650px;
-            margin-bottom: 30px;
+        .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+        .carousel-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: var(--border-color);
+            border: none; cursor: pointer; padding: 0; transition: background 0.2s;
         }
+        .carousel-dot.active { background: var(--text-main); }
 
-        /* Оптимизированный визуальный блок для Image SEO */
-        .hero-image-wrapper {
-            margin-bottom: 35px;
-            max-width: 650px;
-        }
-        .seo-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 2px;
-            background-color: #FAFAFA;
-            border: 1px solid var(--border-color);
-        }
+        /* --- Price list --- */
+        .price-row { border-top: 1px solid var(--border-color); padding: 18px 0; }
+        .price-row:last-child { border-bottom: 1px solid var(--border-color); }
+        .price-row-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .price-row-main { flex: 1; min-width: 0; }
+        .price-row-name { font-family: var(--font-title); font-size: 16px; font-weight: 500; display: block; margin-bottom: 3px; line-height: 1.2; }
+        .price-row-desc { font-size: 12px; color: var(--text-muted); display: block; line-height: 1.4; }
+        .price-row-value { font-family: var(--font-title); font-size: 18px; font-weight: 500; white-space: nowrap; color: var(--text-main); flex-shrink: 0; margin-left: 12px; }
 
-        .hero-price-box {
-            text-align: right;
-            min-width: 150px;
-        }
-
-        .price {
-            font-family: var(--font-title);
-            font-size: 42px;
-            font-weight: 500;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .duration {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .btn-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-title);
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-            cursor: pointer;
-            border: none;
-            background: none;
-            color: var(--text-main);
-            padding-top: 25px;
-            border-top: 1px solid var(--border-color);
-            width: 100%;
-            transition: opacity 0.2s;
-        }
-        .btn-action:hover {
-            opacity: 0.6;
-        }
-        .btn-action span {
-            font-size: 18px;
-            transition: transform 0.2s;
-        }
-        .btn-action:hover span {
-            transform: translateX(5px);
-        }
-
-        /* --- Сетка блоков (Силос / Результаты) --- */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .content-card {
-            background-color: var(--bg-card);
-            padding: 40px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-title {
-            font-family: var(--font-title);
-            font-size: 24px;
-            font-weight: 500;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .fact-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .fact-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 15px;
-            font-size: 14px;
-            color: #444;
-        }
-        .fact-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--text-main);
-            font-weight: bold;
-        }
-        .fact-list strong {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        /* --- Этапы процедуры --- */
-        .steps-card {
-            background-color: var(--bg-card);
-            padding: 50px;
-            margin-bottom: 30px;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .step-item {
-            border-top: 1px solid var(--text-main);
-            padding-top: 20px;
-        }
-
-        .step-num {
-            font-family: var(--font-title);
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 10px;
-            color: var(--text-muted);
-        }
-
-        .step-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 15px;
-        }
-
-        .step-desc {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* --- Блок FAQ (Аккордеон) --- */
-        .faq-card {
-            background-color: var(--bg-card);
-            padding: 50px;
-            margin-bottom: 30px;
-        }
-
-        .faq-list {
-            margin-top: 30px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .faq-item summary {
-            padding: 24px 0;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-main);
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: color 0.2s ease;
-            user-select: none;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-item summary:hover {
-            color: var(--text-muted);
-        }
-
-        .faq-item summary::after {
-            content: "+";
-            font-family: var(--font-title);
-            font-size: 24px;
-            font-weight: 400;
-            color: var(--text-muted);
-            transition: transform 0.2s ease, color 0.2s ease;
-            margin-left: 20px;
-        }
-
-        .faq-item details[open] summary::after {
-            content: "−";
-            color: var(--text-main);
-        }
-
-        .faq-answer {
-            padding-bottom: 25px;
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 850px;
-        }
-
-        /* --- Химия процесса (визуальная цепочка этапов) --- */
-        .step-intro-card { background:var(--bg-card); padding:50px; margin-bottom:30px; }
-        .process-chain { display:flex; align-items:center; gap:0; padding:30px 20px; background:#FAFAFA; border:1px solid var(--border-color); }
-        .chain-step-card { text-align:center; flex:1; min-width:0; }
-        .chain-num { font-family:var(--font-title); font-size:26px; font-weight:500; color:var(--text-main); line-height:1; margin-bottom:6px; }
-        .chain-label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.8px; line-height:1.3; }
-        .chain-connector { width:24px; height:2px; background:var(--border-color); flex-shrink:0; }
-        @media (max-width:600px) { .process-chain { flex-direction:column; gap:12px; padding:24px 16px; } .chain-connector { width:2px; height:16px; } }
-
-        /* --- Таблица цен --- */
-        .price-card { background:var(--bg-card); padding:50px; margin-bottom:30px; }
-        .price-table { border-top:1px solid var(--border-color); }
-        .price-row { display:flex; justify-content:space-between; align-items:center; padding:22px 0; border-bottom:1px solid var(--border-color); }
-        .price-row:last-child { border-bottom:none; }
-        .price-row-info strong { display:block; font-size:15px; margin-bottom:3px; }
-        .price-row-desc { font-size:12px; color:var(--text-muted); display:block; line-height:1.4; }
-        .price-row-val { font-family:var(--font-title); font-size:20px; font-weight:500; white-space:nowrap; margin-left:24px; flex-shrink:0; }
-        @media (max-width:600px) { .price-row { flex-direction:column; align-items:flex-start; gap:6px; } .price-row-val { margin-left:0; } }
-
-        /* --- Таблица инструментов и материалов --- */
-        .tools-table { border-top:1px solid var(--border-color); }
-        .tools-row { display:grid; grid-template-columns:170px 1fr 1fr; gap:20px; padding:18px 0; border-bottom:1px solid var(--border-color); align-items:center; }
-        .tools-row:last-child { border-bottom:none; }
-        .tools-row-name { font-weight:600; font-size:14px; }
-        .tools-row-desc { font-size:13px; color:var(--text-muted); line-height:1.5; }
-        .tools-row-feel { font-size:13px; color:var(--text-main); line-height:1.5; }
-        @media (max-width:600px) { .tools-row { grid-template-columns:1fr; gap:4px; } }
-
-        /* --- Цепочка процесса (Химия процесса) --- */
-        .process-chain {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            flex-wrap: nowrap;
-        }
-        .chain-step {
-            flex: 1;
-            background: var(--bg-page);
-            padding: 20px;
-            border-radius: 4px;
-            min-width: 0;
-        }
-        .chain-num {
-            font-family: var(--font-title);
-            font-size: 28px;
-            font-weight: 500;
-            color: var(--text-muted);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-        .chain-title {
-            font-family: var(--font-title);
-            font-size: 15px;
-            font-weight: 500;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-        .chain-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-        .chain-arrow {
-            font-size: 24px;
-            color: var(--text-muted);
-            padding-top: 24px;
-            flex-shrink: 0;
-        }
-        @media (max-width: 600px) {
-            .process-chain { flex-direction: column; gap: 8px; }
-            .chain-arrow { transform: rotate(90deg); padding-top: 0; align-self: center; }
-        }
-
-        /* --- Строка цен (Стоимость услуг) --- */
-        .price-row {
-            border-top: 1px solid var(--border-color);
-            padding: 18px 0;
-        }
-        .price-row:last-child {
-            border-bottom: 1px solid var(--border-color);
-        }
-        .price-row-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-        .price-row-main {
-            flex: 1;
-            min-width: 0;
-        }
-        .price-row-name {
-            font-family: var(--font-title);
-            font-size: 18px;
-            font-weight: 500;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .price-row-desc {
-            font-size: 13px;
-            color: var(--text-muted);
-            display: block;
-        }
-        .price-row-value {
-            font-family: var(--font-title);
-            font-size: 22px;
-            font-weight: 500;
-            white-space: nowrap;
-            color: var(--text-main);
-        }
-        @media (max-width: 600px) {
-            .price-row-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
-            .price-row-value { font-size: 18px; }
-        }
-
-        /* --- Блок безопасности и доверия Е-Е-A-T --- */
+        /* --- Trust card --- */
         .trust-card {
-            background-color: var(--bg-card);
-            padding: 40px 50px;
+            background: var(--bg-card); padding: 28px 24px; margin-bottom: 20px;
             border-left: 3px solid var(--text-main);
-            margin-bottom: 60px;
         }
-        
-        .trust-card h3 {
-            font-family: var(--font-title);
-            font-size: 20px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
+        .trust-card h3 { font-family: var(--font-title); font-size: 18px; text-transform: uppercase; margin-bottom: 10px; }
+        .trust-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
-        .trust-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            max-width: 800px;
-        }
+        /* --- FAQ accordion styles (reuse acc-item/acc-trigger/acc-body above) --- */
+        .faq-list { margin-top: 0; }
 
-        /* --- Подвал сайта (Footer) --- */
-        .footer {
-            background-color: var(--bg-page);
-            padding: 40px 0 60px;
-            border-top: 1px solid var(--border-color);
-            font-size: 13px;
-            color: var(--text-muted);
+        /* --- Sticky CTA Bottom Bar --- */
+        .sticky-cta {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+            background: #fff; border-top: 1px solid var(--border-color);
+            padding: 10px 20px; display: flex; align-items: center; gap: 12px;
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
         }
-
-        .footer-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 24px;
+        .sticky-price { flex-shrink: 0; text-align: center; }
+        .sticky-price .val { font-family: var(--font-title); font-size: 22px; font-weight: 500; line-height: 1; }
+        .sticky-price .label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .sticky-btn {
+            flex: 1; min-height: 48px;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--text-main); color: #fff;
+            font-family: var(--font-title); font-size: 14px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 500;
+            cursor: pointer; text-decoration: none; transition: opacity 0.2s; gap: 6px;
         }
+        .sticky-btn:hover { opacity: 0.85; }
 
-        .footer-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .footer-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-family: var(--font-title);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-            cursor: pointer;
-            border: 2px solid var(--text-main);
-            padding: 12px 24px;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .footer-btn-primary {
-            background: var(--text-main);
-            color: #fff;
-        }
-
+        /* --- Footer --- */
+        .footer { background-color: var(--bg-page); padding: 40px 0 60px; border-top: 1px solid var(--border-color); font-size: 13px; color: var(--text-muted); }
+        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 24px; }
+        .footer-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+        .footer-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-title); font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; cursor: pointer; border: 2px solid var(--text-main); padding: 12px 24px; text-decoration: none; transition: opacity 0.2s; }
+        .footer-btn-primary { background: var(--text-main); color: #fff; }
         .footer-btn-primary:hover { opacity: 0.85; }
-
-        .footer-btn-outline {
-            background: #fff;
-            color: var(--text-main);
-        }
-
+        .footer-btn-outline { background: #fff; color: var(--text-main); }
         .footer-btn-outline:hover { opacity: 0.85; }
-
-        .footer-info {
-            text-align: right;
-        }
-
+        .footer-info { text-align: right; }
         .footer-info .copyright { font-size: 13px; color: var(--text-muted); }
-
-        .footer-info .footer-address {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 8px;
-        }
-
-        .footer-info .footer-address a {
-            color: var(--text-muted);
-            text-decoration: underline;
-        }
-
+        .footer-info .footer-address { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+        .footer-info .footer-address a { color: var(--text-muted); text-decoration: underline; }
         .footer-info .footer-links { margin-top: 10px; }
-
-        .footer-info .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
+        .footer-info .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
         .footer-info .footer-links a:hover { color: var(--text-main); }
 
-        /* --- Адаптивность для мобильных экранов --- */
-        @media (max-width: 900px) {
-            .container { padding: 0 20px; }
-            .nav { display: none; }
-            .page-header { flex-direction: column; gap: 10px; }
-            .page-title { font-size: 36px; }
-            .hero-card, .grid-2 { grid-template-columns: 1fr; gap: 20px; padding: 30px; }
-            .hero-price-box { text-align: left; margin-bottom: 20px; }
-            .steps-grid { grid-template-columns: 1fr 1fr; }
-            .faq-card { padding: 30px; }
-            .faq-item summary { font-size: 15px; padding: 20px 0; }
-        }
-        @media (max-width: 600px) {
-            .footer-grid {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 20px;
-            }
-            .footer-info { text-align: center; }
-            .footer-buttons {
-                justify-content: center;
-                width: 100%;
-            }
-            .footer-btn {
-                flex: 1 1 auto;
-                min-width: 140px;
-                font-size: 12px;
-                padding: 12px 16px;
-            }
-            .steps-grid { grid-template-columns: 1fr; }
-            .header-inner { flex-direction: column; gap: 15px; }
-            .page-subtitle { white-space: normal; }
-        }
-
-        /* --- Бургер-меню --- */
-        .burger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1100;
-        }
-        .burger-line {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text-main);
-            margin: 5px 0;
-            transition: transform 0.3s, opacity 0.3s;
-        }
+        /* --- Burger --- */
+        .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1100; }
+        .burger-line { display: block; width: 24px; height: 2px; background: var(--text-main); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
         .burger.active .burger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .burger.active .burger-line:nth-child(2) { opacity: 0; }
         .burger.active .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: var(--bg-page);
-            z-index: 1050;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-        }
+        .mobile-menu { display: none; position: fixed; inset: 0; background: var(--bg-page); z-index: 1050; flex-direction: column; justify-content: center; align-items: center; gap: 30px; }
         .mobile-menu.active { display: flex; }
-        .mobile-menu a {
-            font-family: var(--font-title);
-            font-size: 28px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            transition: opacity 0.2s;
-        }
+        .mobile-menu a { font-family: var(--font-title); font-size: 28px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: opacity 0.2s; }
         .mobile-menu a:hover { opacity: 0.6; }
 
+        /* --- Desktop overrides (901px+) --- */
+        @media (min-width: 901px) {
+            .container { padding: 0 40px; }
+            .header { padding: 25px 0; }
+            .logo { font-size: 24px; }
+            .breadcrumbs { padding: 30px 0 10px; font-size: 12px; }
+            .hero-title { font-size: 50px; letter-spacing: 0.5px; margin-bottom: 24px; }
+            .chip { font-size: 14px; padding: 10px 20px; }
+            .cta-row { gap: 14px; }
+            .cta-btn { min-width: auto; padding: 16px 32px; font-size: 15px; }
+            .section-card { padding: 40px 50px; margin-bottom: 30px; }
+            .section-title { font-size: 24px; }
+            .carousel-slide { flex: 0 0 23%; }
+            .carousel-card { min-height: 180px; padding: 24px; }
+            .price-row-name { font-size: 18px; }
+            .price-row-value { font-size: 22px; }
+            .trust-card { padding: 40px 50px; margin-bottom: 60px; }
+            .trust-card h3 { font-size: 20px; }
+            .sticky-cta { display: none !important; }
+            body { padding-bottom: 0; }
+            .burger { display: none !important; }
+            .nav { display: flex !important; }
+            .mobile-menu { display: none !important; }
+            .acc-trigger { font-size: 16px; padding: 24px 0; }
+            .footer { padding: 40px 0 60px; }
+        }
         @media (max-width: 900px) {
+            .nav { display: none; }
+            .header-right { display: none; }
             .burger { display: block; }
         }
+        @media (max-width: 600px) {
+            .footer-grid { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+            .footer-info { text-align: center; }
+            .footer-buttons { justify-content: center; width: 100%; }
+            .footer-btn { flex: 1 1 auto; min-width: 140px; font-size: 12px; padding: 12px 16px; }
+        }
     </style>
+
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="FEhSRekyAfrG5g5cBUOL8hz7CCbBM2_KmqJ_MmXC0oE" />
 
     <!-- Yandex Metrika -->
-    <script type="text/javascript" >
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();
+    <script type="text/javascript">
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();
        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-       ym(103653225, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true,
-            ecommerce:"dataLayer"
-       });
+       ym(103653225, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, ecommerce:"dataLayer" });
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/103653225" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
@@ -842,7 +393,6 @@
       gtag('js', new Date());
       gtag('config', 'G-6FGFJTW83E');
     </script>
-
 </head>
 <body>
 
@@ -865,7 +415,7 @@
                 <div class="sidebar-links" style="display:flex; flex-direction:column; gap:8px;">
                     <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" class="telegram-link" target="_blank" rel="nofollow">Telegram</a>
                     <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" class="telegram-link">ВКонтакте</a>
-                    <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')" class="phone" style="margin-top:4px;">+7 963 732 94 66</a>
+                    <a href="tel:+796****9466" onclick="reachGoal('zvonok_tel')" class="phone" style="margin-top:4px;">+7 963 732 94 66</a>
                 </div>
             </div>
         </div>
@@ -884,75 +434,65 @@
     </div>
 
     <main class="container">
-        <!-- Навигация (Хлебные крошки с семантической разметкой) -->
+
+        <!-- === SCREEN 1: ABOVE THE FOLD === -->
         <nav aria-label="Хлебные крошки" class="breadcrumbs">
             <a href="/">Главная</a> / <span>Ламинирование ресниц</span>
         </nav>
 
-        <!-- Главный заголовок (H1 оптимизирован, без дублей) -->
-        <div class="page-header">
-            <h1 class="page-title">Ламинирование ресниц в Москве, м. Белорусская: изгиб, окрашивание и ботокс</h1>
-            <div class="page-subtitle">Прайс–лист 2026</div>
+        <div class="hero-mobile">
+            <h1 class="hero-title">Ламинирование ресниц в Москве, м. Белорусская: изгиб, окрашивание и ботокс</h1>
+
+            <div class="chip-row">
+                <span class="chip">2 700₽</span>
+                <span class="chip">35 минут</span>
+                <span class="chip chip-alt">5 мин от метро</span>
+            </div>
+
+            <div class="cta-row">
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" class="cta-btn cta-primary">Telegram / Запись</a>
+                <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" class="cta-btn cta-secondary">ВКонтакте / Запись</a>
+            </div>
         </div>
 
-        <!-- Hero-карточка услуги -->
-        <section class="hero-card">
-            <div class="hero-info">
-                <h2>Как ламинирование ресниц меняет взгляд за 35 минут?</h2>
-                <div class="service-tags">Изгиб + Окрашивание + Уход</div>
-                <p class="hero-desc">Ламинирование ресниц — это быстрая 35-минутная процедура, которая создает естественный прикорневой завиток, насыщает волоски безаммиачным пигментом и уплотняет их структуру на 20–30% за счет коллагена и сывороточного комплекса. Результат заменяет тушь и держится до 6 недель, позволяя спать лицом в подушку и ходить в бассейн. Студия находится в 5 минутах от метро Белорусская (выход №4) и Маяковская — в пешей доступности для жителей Тверского района и ЦАО.</p>
-                <p class="hero-desc" style="margin-top:15px;">Валик (силиконовый) — мягкая основа, которая подбирается под длину и толщину ресницы. Чем больше диаметр валика, тем натуральнее изгиб: маленький дает кукольный завиток, большой — естественную подкрутку. Кератиновый состав — протеиновый комплекс, который заполняет пустоты в волосяном стержне и уплотняет каждую ресницу на 20-30%. Патчи под глаза — гидрогелевые накладки, которые защищают кожу во время процедуры и одновременно увлажняют ее. Тушь после ламинирования не нужна — ресницы уже выглядят как прокрашенные, но через 2-3 дня можно использовать водную тушь без масел.</p>
-                
-                <!-- Блок изображения для Image SEO -->
-                <div class="hero-image-wrapper">
-                    <img src="/images/gh-screenshot-2.webp" alt="Ламинирование ресниц до и после — результат укладки, окрашивания и ботокс-ухода" class="seo-image" width="1024" height="765" loading="eager" fetchpriority="high">
-                </div>
+        <!-- === SCREEN 2: INTRO + ACCORDION === -->
+        <div class="section-card">
+            <p class="body-text">Ламинирование ресниц — это быстрая 35-минутная процедура, которая создает естественный прикорневой завиток, насыщает волоски безаммиачным пигментом и уплотняет их структуру на 20–30% за счет коллагена и сывороточного комплекса. Результат заменяет тушь и держится до 6 недель, позволяя спать лицом в подушку и ходить в бассейн. Студия находится в 5 минутах от метро Белорусская (выход №4) и Маяковская — в пешей доступности для жителей Тверского района и ЦАО.</p>
 
-                                <div style="display:flex; gap:12px; flex-wrap:wrap; padding-top:25px; border-top:1px solid var(--border-color); width:100%;">
-                    <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-title); font-size:15px; text-transform:uppercase; letter-spacing:1.5px; font-weight:500; cursor:pointer; border:2px solid var(--text-main); background:var(--text-main); color:#fff; padding:14px 28px; text-decoration:none; transition:opacity 0.2s;">Telegram / Запись</a>
-                    <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-title); font-size:15px; text-transform:uppercase; letter-spacing:1.5px; font-weight:500; cursor:pointer; border:2px solid var(--text-main); background:#fff; color:var(--text-main); padding:14px 28px; text-decoration:none; transition:opacity 0.2s;">ВКонтакте / Запись</a>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">Какие материалы и составы используем?</button>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <strong>Валик (силиконовый)</strong> — мягкая основа, которая подбирается под длину и толщину ресницы. Чем больше диаметр валика, тем натуральнее изгиб: маленький дает кукольный завиток, большой — естественную подкрутку.<br><br>
+                        <strong>Кератиновый состав</strong> — протеиновый комплекс, который заполняет пустоты в волосяном стержне и уплотняет каждую ресницу на 20–30%.<br><br>
+                        <strong>Патчи под глаза</strong> — гидрогелевые накладки, которые защищают кожу во время процедуры и одновременно увлажняют ее.<br><br>
+                        <strong>Тушь после ламинирования</strong> не нужна — ресницы уже выглядят как прокрашенные, но через 2–3 дня можно использовать водную тушь без масел.
+                    </div>
                 </div>
             </div>
-            <div class="hero-price-box">
-                <div class="price">2 700₽</div>
-                <div class="duration">35 минут</div>
-            </div>
-        </section>
+        </div>
 
-        <!-- Химия процесса — цепочка этапов -->
-        <section class="content-card" style="padding:50px;margin-bottom:30px;">
-            <h2 class="card-title" style="margin-bottom:10px;">Как химия меняет структуру ресниц на каждом этапе?</h2>
-            <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:30px;">Вся процедура — это не просто нанесение масел, а строго выверенная цепочка химических реакций. Мы работаем с чешуйками кутикулы и кортексом. Весь сеанс разделен на четыре четких этапа, каждый из которых запускает следующий:</p>
-            <div class="process-chain">
-                <div class="chain-step">
-                    <div class="chain-num">01</div>
-                    <div class="chain-title">Очищение и форма</div>
-                    <div class="chain-desc">Энзимный пилинг раскрывает чешуйки, убирает себум. Силиконовый валик задает анатомический изгиб.</div>
-                </div>
-                <div class="chain-arrow">→</div>
-                <div class="chain-step">
-                    <div class="chain-num">02</div>
-                    <div class="chain-title">Разрыв связей (Изгиб)</div>
-                    <div class="chain-desc">Лосьон №1 на основе тиогликолята разрывает дисульфидные мостики. Волос становится эластичным.</div>
-                </div>
-                <div class="chain-arrow">→</div>
-                <div class="chain-step">
-                    <div class="chain-num">03</div>
-                    <div class="chain-title">Пигмент</div>
-                    <div class="chain-desc">Безаммиачный краситель на низком оксиде проникает в открытую кутикулу. Насыщение от корня до кончика.</div>
-                </div>
-                <div class="chain-arrow">→</div>
-                <div class="chain-step">
-                    <div class="chain-num">04</div>
-                    <div class="chain-title">Запечатывание кутикулы</div>
-                    <div class="chain-desc">Кератиновый нейтрализатор + аргановое масло закрывают чешуйки. Фиксация формы до 6 недель.</div>
-                </div>
-            </div>
-        </section>
+        <!-- === SCREEN 3: PHOTO + CAROUSEL === -->
+        <div class="hero-image-wrapper">
+            <img src="/images/gh-screenshot-2.webp" alt="Ламинирование ресниц до и после — результат укладки, окрашивания и ботокс-ухода" class="seo-image" width="1024" height="765" loading="eager" fetchpriority="high">
+        </div>
 
-        <!-- Стоимость услуг — таблица цен -->
-        <section class="content-card" style="padding:50px;margin-bottom:30px;">
-            <h2 class="card-title" style="margin-bottom:20px;">Стоимость услуг в нашей студии</h2>
+        <div class="section-card">
+            <h2 class="section-title">Как проходит процедура ламинирования ресниц?</h2>
+            <div class="carousel-wrap">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide"><div class="carousel-card"><div class="carousel-num">01</div><div class="carousel-title">Подготовка и анатомический подбор валика</div><div class="carousel-desc">Мастер подбирает диаметр силиконового валика строго под длину ваших ресниц и анатомию века. Слишком большой валик даст неестественный изгиб, маленький — не создаст выразительного завитка.</div></div></div>
+                    <div class="carousel-slide"><div class="carousel-card"><div class="carousel-num">02</div><div class="carousel-title">Изменение структуры и создание изгиба</div><div class="carousel-desc">Лосьон с тиогликолятом деликатно раскрывает кутикулу и разрывает дисульфидные связи. Этап занимает строго отведенное время — если его превысить, можно пересушить волос.</div></div></div>
+                    <div class="carousel-slide"><div class="carousel-card"><div class="carousel-num">03</div><div class="carousel-title">Окрашивание и пигмент</div><div class="carousel-desc">Безаммиачный краситель на низком оксиде проникает в открытую кутикулу, заполняя каждую ресницу от корня до кончика.</div></div></div>
+                    <div class="carousel-slide"><div class="carousel-card"><div class="carousel-num">04</div><div class="carousel-title">Ботокс-уход и нейтрализация</div><div class="carousel-desc">Кератиновый нейтрализатор запечатывает чешуйки кутикулы. Сыворотка с аргановым маслом питает и придает блеск. Изгиб зафиксирован.</div></div></div>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+
+        <!-- === SCREEN 4: PRICE LIST === -->
+        <div class="section-card">
+            <h2 class="section-title">Стоимость услуг в нашей студии</h2>
             <div class="price-row">
                 <div class="price-row-inner">
                     <div class="price-row-main">
@@ -980,88 +520,61 @@
                     <div class="price-row-value">от 1 995₽ / 40 мин</div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Этапы процедуры (Химия процесса: подробно) -->
-        <section class="steps-card">
-      <h2 class="card-title">Как проходит процедура ламинирования ресниц?</h2>
-      <div class="steps-grid">
-        <div class="step-item">
-      <div class="step-num">01 / ЭТАП</div>
-      <div class="step-title">Подготовка и анатомический подбор валика</div>
-      <div class="step-desc">Мастер подбирает диаметр силиконового валика строго под длину ваших ресниц и анатомию века. Слишком большой валик даст неестественный изгиб, маленький — не создаст выразительного завитка.</div>
-    </div>
-                <div class="step-item">
-      <div class="step-num">02 / ЭТАП</div>
-      <div class="step-title">Изменение структуры и создание изгиба</div>
-      <div class="step-desc">Лосьон с тиогликолятом деликатно раскрывает кутикулу и разрывает дисульфидные связи. Этап занимает строго отведенное время — если его превысить, можно пересушить волос.</div>
-    </div>
-                <div class="step-item">
-      <div class="step-num">03 / ЭТАП</div>
-      <div class="step-title">Глубокое внедрение безаммиачного пигмента</div>
-      <div class="step-desc">Пока кутикула остаётся открытой, мы вводим пигмент на низком проценте оксида. Краситель проникает в кортекс и наполняет волос цветом от корня до кончика без перекрытия.</div>
-    </div>
-                <div class="step-item">
-      <div class="step-num">04 / ЭТАП</div>
-      <div class="step-title">Полимеризация и закрытие кутикулы</div>
-      <div class="step-desc">Кератиновый нейтрализатор останавливает химическую реакцию, восстанавливает связи в новом положении. Аргановое масло запечатывает кутикулу, фиксируя изгиб на 4-6 недель.</div>
-    </div>
-      </div>
-    </section>
-
-        <!-- Памятка по уходу -->
-        <section class="trust-card" style="margin-bottom:30px;">
-            <h3>Памятка по уходу после ламинирования ресниц</h3>
-            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
-                <strong>1. Не мочите глаза водой</strong> в течение первых 24 часов — это время необходимо для полной полимеризации кератинового состава.<br><br>
-                <strong>2. Откажитесь от посещения бани, сауны и солярия</strong> в первый день после процедуры — высокая температура и пар могут нарушить фиксацию изгиба.<br><br>
-                <strong>3. Не используйте тушь и жирные средства для демакияжа</strong> в первую неделю — масла растворяют липидный слой, запечатывающий кутикулу.<br><br>
-                <strong>4. Аккуратно расчесывайте ресницы щеточкой</strong> каждое утро для поддержания направления роста и равномерного изгиба.
-            </p>
-        </section>
-
-        <section class="faq-card">
-      <h2 class="card-title">Часто задаваемые вопросы</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-      <details>
-        <summary>Безопасна ли процедура ламинирования для аллергиков?</summary>
-        <div class="faq-answer">Да, мы используем исключительно гипоаллергенные красители и составы на водной основе. Силиконовый валик исключает контакт химии с кожей века. При склонности к аллергии мастер проводит предварительный патч-тест за 24 часа.</div>
-      </details>
-    </div>
-                <div class="faq-item">
-      <details>
-        <summary>Что будет с ресницами через полтора месяца после процедуры?</summary>
-        <div class="faq-answer">Эффект сходит постепенно, без «пеньков» и заломов. Ресница живёт в среднем 30–60 дней, поэтому через 6 недель вы просто возвращаетесь к своим натуральным волоскам — без резкой границы и потери объёма.</div>
-      </details>
-    </div>
-                <div class="faq-item">
-      <details>
-        <summary>Можно ли делать ламинирование, если ресницы совсем короткие?</summary>
-        <div class="faq-answer">Да, для коротких ресниц мы используем силиконовый валик размера S. Результат будет отличаться от длинных ресниц, но визуальный эффект раскрытого взгляда и насыщенного цвета вы получите в любом случае.</div>
-      </details>
-    </div>
-                <div class="faq-item">
-      <details>
-        <summary>Как часто можно повторять процедуру без вреда?</summary>
-        <div class="faq-answer">Оптимальный интервал — 1,5–2 месяца. Если делать ламинирование чаще, можно пересушить волос. Накопительный эффект работает: при регулярном уходе ресницы становятся плотнее и дольше держат изгиб.</div>
-      </details>
-    </div>
-      </div>
-    </section>
-
-        <!-- Блок безопасности и доверия E-E-A-T -->
-        <section class="trust-card">
+        <!-- === SCREEN 5: TRUST === -->
+        <div class="trust-card">
             <h3>Безопасность и золотой стандарт OSTINKOSMO</h3>
             <p>
                 Мы работаем исключительно на сертифицированных составах премиум-класса с мягким, контролируемым уровнем pH. 
                 Все инструменты проходят строгую многоступенчатую стерилизацию по СанПиН, а расходные материалы используются строго однократно. 
                 При склонности к аллергическим реакциям мастер в обязательном порядке проводит предварительный патч-тест за 24 часа до сеанса.
             </p>
-        </section>
+        </div>
+
+        <!-- === SCREEN 6: FAQ === -->
+        <div class="section-card">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="faq-list">
+                <div class="acc-item">
+                    <button class="acc-trigger" onclick="toggleAcc(this)">Сколько держится эффект от ламинирования ресниц?</button>
+                    <div class="acc-body">
+                        <div class="acc-body-inner">Эффект выразительного завитка и насыщенного цвета сохраняется от 4 до 6 недель. Срок носки напрямую зависит от индивидуальной скорости естественного обновления ваших волосков (фаз анагена и катагена), а также от строгого соблюдения «правила первых 24 часов» после сеанса.</div>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <button class="acc-trigger" onclick="toggleAcc(this)">В чем главное отличие ламинирования от наращивания?</button>
+                    <div class="acc-body">
+                        <div class="acc-body-inner">В отличие от наращивания, при ламинировании не используются искусственные волоски и клей. Процедура проводится исключительно на ваших натуральных ресницах: мы задаем им правильный анатомический изгиб, наполняем пигментом и питаем сывороткой с ботоксом. Это полностью исключает утяжеление, дискомфорт для глаз и риск выпадения родных ресниц.</div>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <button class="acc-trigger" onclick="toggleAcc(this)">Портятся ли ресницы при регулярном выполнении процедуры?</button>
+                    <div class="acc-body">
+                        <div class="acc-body-inner">Нет, современная технология деликатной укладки полностью безопасна. Составы, применяемые в студии OSTINKOSMO, обогащены аргановым маслом, жидким шелком и коллагеном. Обязательный этап ботокс-ухода глубоко питает и уплотняет структуру каждого волоска на 20–30%, защищая ресницы от пересушивания и воздействия ультрафиолета.</div>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <button class="acc-trigger" onclick="toggleAcc(this)">Можно ли красить ресницы тушью, умываться и ходить в бассейн?</button>
+                    <div class="acc-body">
+                        <div class="acc-body-inner">Да, никаких ограничений по привычному образу жизни нет! Спустя 24 часа после визита в салон (когда связи внутри волоска полностью зафиксируются) вы можете свободно красить ресницы тушью, пользоваться средствами для демакияжа, спать лицом в подушку, умываться водой, посещать бассейн, сауну и солярий. Созданный мастером изгиб останется безупречным.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <!-- Подвал сайта -->
+    <!-- === STICKY CTA === -->
+    <div class="sticky-cta" id="stickyCta">
+        <div class="sticky-price">
+            <div class="val">2 700₽</div>
+            <div class="label">35 мин</div>
+        </div>
+        <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" class="sticky-btn">Записаться</a>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-buttons">
@@ -1079,6 +592,29 @@
     </footer>
 
     <script>
+        function toggleAcc(btn) {
+            var item = btn.parentElement;
+            var body = item.querySelector('.acc-body');
+            var isOpen = item.classList.contains('open');
+
+            // Close all other items in the same container
+            var siblings = item.parentElement.querySelectorAll('.acc-item');
+            for (var i = 0; i < siblings.length; i++) {
+                if (siblings[i] !== item && siblings[i].classList.contains('open')) {
+                    siblings[i].classList.remove('open');
+                    siblings[i].querySelector('.acc-body').style.maxHeight = '0';
+                }
+            }
+
+            if (isOpen) {
+                item.classList.remove('open');
+                body.style.maxHeight = '0';
+            } else {
+                item.classList.add('open');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            }
+        }
+
         function reachGoal(target) {
             if (typeof ym !== 'undefined') {
                 ym(103653225, 'reachGoal', target);
@@ -1090,7 +626,33 @@
             document.getElementById('mobileMenu').classList.toggle('active');
         });
 
-        // Плавный скролл к якорям
+        // Carousel dots
+        (function() {
+            var track = document.getElementById('carouselTrack');
+            var dotsContainer = document.getElementById('carouselDots');
+            if (!track || !dotsContainer) return;
+            var slides = track.querySelectorAll('.carousel-slide');
+            slides.forEach(function(slide, i) {
+                var dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Шаг ' + (i+1));
+                dot.addEventListener('click', function() {
+                    slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                });
+                dotsContainer.appendChild(dot);
+            });
+            track.addEventListener('scroll', function() {
+                var scrollLeft = track.scrollLeft;
+                var slideWidth = track.querySelector('.carousel-slide').offsetWidth + 8; // gap from padding
+                var activeIndex = Math.round(scrollLeft / slideWidth);
+                var dots = dotsContainer.querySelectorAll('.carousel-dot');
+                dots.forEach(function(d, i) {
+                    d.classList.toggle('active', i === activeIndex);
+                });
+            });
+        })();
+
+        // Smooth scroll to anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
