@@ -87,9 +87,9 @@
         "reviewCount": "6"
       },
       "review": [
+        { "@type": "Review", "author": { "@type": "Person", "name": "Александра Занозина" }, "reviewBody": "Уже полгода посещаю мастера по ламинированию ресниц — это восторг! Идеальный завиток, долго держатся, красиво смотрятся. Очень советую! Местоположение отличное, в центре, удобно добираться.", "datePublished": "2026-07-09", "reviewRating": { "@type": "Rating", "ratingValue": "5" } },
         { "@type": "Review", "author": { "@type": "Person", "name": "Клиент" }, "reviewBody": "Все супер. Ресницы не путаются, красиво лежат, получила множество комплиментов.", "reviewRating": { "@type": "Rating", "ratingValue": "5" } },
-        { "@type": "Review", "author": { "@type": "Person", "name": "Евгения" }, "reviewBody": "Была у мастера на оформлении бровей и осталась в восторге! Получила именно тот естественный эффект, который хотела.", "reviewRating": { "@type": "Rating", "ratingValue": "5" } },
-        { "@type": "Review", "author": { "@type": "Person", "name": "Карина" }, "reviewBody": "Я в восторге, Катя! Ресницы нравятся. Подкручены, более яркие, глаза будто больше стали.", "reviewRating": { "@type": "Rating", "ratingValue": "5" } }
+        { "@type": "Review", "author": { "@type": "Person", "name": "Евгения" }, "reviewBody": "Была у мастера на оформлении бровей и осталась в восторге! Получила именно тот естественный эффект, который хотела.", "reviewRating": { "@type": "Rating", "ratingValue": "5" } }
       ]
     }
     </script>
@@ -134,7 +134,7 @@
 </head>
 <body class="antialiased">
 <style>
-    body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; cursor: default; }
+    body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; }
     .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAA5OTk5OTk5OTk5OTk5OTk5OTk5OTlYwNl2AAAACHRSTlMzAJmZzMxmZswk/CwAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAA6SURBVDjLY2AYxOD/BwIx4P8HAjFg/wcCMWD/BwIx4P8HAjFg/wcCMWD/BwIx4P8HAjFg/wcCMQAAgf4BGT6H3M8AAAAASUVORK5CYII='); opacity: 0.03; pointer-events: none; z-index: 9999; }
     .custom-cursor { position: fixed; top: 0; left: 0; width: 15px; height: 15px; border: 1px solid #000; border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s; mix-blend-mode: difference; display: none; }
     .custom-cursor.hovered { width: 50px; height: 50px; background-color: rgba(255, 255, 255, 0.2); border-color: transparent; }
@@ -159,12 +159,12 @@
     .map-container { filter: grayscale(1) invert(0.9) contrast(1.2); transition: filter 0.5s; border-top: 1px solid #e5e7eb; }
     .map-container:hover { filter: grayscale(0.2) invert(0) contrast(1); }
 
-    /* Modal */
+    /* Modal (same as original) */
     #booking-modal { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     #booking-modal.open { opacity: 1; pointer-events: auto; }
     #booking-modal .modal-content { transform: translateY(30px) scale(0.97); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); max-height: 90vh; overflow-y: auto; }
     #booking-modal.open .modal-content { transform: translateY(0) scale(1); }
-    .modal-close-btn { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; font-family: 'Oswald', sans-serif; font-size: 16px; color: #9ca3af; transition: color 0.2s; -webkit-tap-highlight-color: transparent; }
+    .modal-close-btn { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; font-family: 'Oswald', sans-serif; font-size: 16px; color: #9ca3af; transition: color 0.2s; }
     .modal-close-btn:hover { color: #0a0a0a; }
     .modal-step { display: none; }
     .modal-step.active { display: block; }
@@ -198,59 +198,52 @@
     .success-overlay.open { display: flex; opacity: 1; }
     .step-fade { transition: opacity 0.25s ease; }
 
-    /* Mobile-optimized carousel styles */
-    .carousel-scroll {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-    .carousel-scroll::-webkit-scrollbar { display: none; }
-    .carousel-scroll > * {
-        scroll-snap-align: start;
-        flex-shrink: 0;
-    }
-    .carousel-card {
-        width: calc(100vw - 48px);
-        max-width: 340px;
-    }
-    @media (min-width: 901px) {
-        .carousel-card { width: auto; }
-    }
-    .carousel-peek .carousel-card:not(:first-child) {
-        scroll-snap-align: start;
-    }
+    /* Mobile spacing fix - screen 1 */
+    .hero-subtitle { font-size: 12px; color: #9ca3af; font-family: 'Manrope', sans-serif; margin-bottom: 20px; line-height: 1.4; }
+    .hero-h1 { font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 700; text-transform: uppercase; line-height: 1.15; margin-bottom: 16px; }
+    .hero-intro { font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
 
-    /* Mobile-specific styles */
+    /* Price grid: show all 4 cards natively (no carousel) */
     @media (max-width: 900px) {
-        .mobile-hide { display: none !important; }
-        .desktop-only { display: none !important; }
-        .price-grid-mobile { display: flex; }
-        .price-grid-desktop { display: none; }
-        .hero-h1 { font-size: 26px; }
-        .hero-subtitle { font-size: 12px; color: #6b7280; }
-        .philosophy-text { font-size: 14px; line-height: 1.6; }
-        .sticky-cta-wrapper { display: block; }
+        .price-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .price-card { background: #fff; border: 1px solid #e5e7eb; padding: 20px; display: flex; flex-direction: column; position: relative; }
+        .price-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .price-card-name { font-family: 'Oswald', sans-serif; font-size: 18px; text-transform: uppercase; }
+        .price-card-price { text-align: right; }
+        .price-card-price .val { font-family: 'Oswald', sans-serif; font-size: 20px; }
+        .price-card-price .time { font-size: 11px; color: #9ca3af; font-family: 'Manrope', sans-serif; }
+        .price-card-tag { font-size: 10px; color: #9ca3af; font-family: 'Manrope', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .price-card-desc { font-size: 13px; color: #6b7280; line-height: 1.5; margin-bottom: 14px; }
+        .price-card-actions { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f3f4f6; padding-top: 12px; }
+        .swipe-hint { display: none; } /* hidden since all cards visible */
     }
     @media (min-width: 901px) {
-        .mobile-only { display: none !important; }
-        .desktop-only { display: revert; }
-        .price-grid-mobile { display: none; }
-        .price-grid-desktop { display: grid; }
-        .sticky-cta-wrapper { display: none !important; }
-        .hero-h1-desktop { font-size: 5.5rem; }
-    }
-    @media (min-width: 901px) and (max-width: 1023px) {
-        .desktop-nav { display: none; }
-    }
-    @media (min-width: 1024px) {
-        .desktop-nav { display: flex; }
+        .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e5e7eb; border: 1px solid #e5e7eb; }
+        .price-card { background: #fff; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 300px; transition: all 0.5s; }
+        .price-card:hover { background: #0a0a0a; color: #fff; }
+        .price-card:hover .price-card-desc { color: #fff; opacity: 0.8; }
+        .price-card:hover .price-card-price .time { color: #fff; opacity: 0.6; }
+        .price-card:hover .price-card-actions { border-color: #333; }
     }
 
-    /* Quiz styles preserved exactly */
-    #beauty-quiz-container { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 100%; margin: 40px auto; padding: 10px; box-sizing: border-box; }
-    .quiz-card { background: #ffffff; border: 2px solid #1a1a1a; border-radius: 0px; padding: 30px 24px; box-shadow: 8px 8px 0px #1a1a1a; position: relative; box-sizing: border-box; width: 100%; }
+    /* Cases & Reviews carousel with peek + swipe hint */
+    .carousel-hint { display: flex; justify-content: center; gap: 6px; margin-top: 12px; }
+    .carousel-hint-dot { width: 6px; height: 6px; border-radius: 50%; background: #d1d5db; transition: background 0.2s; }
+    .carousel-hint-dot.active { background: #0a0a0a; }
+    .carousel-peek { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+    .carousel-peek::-webkit-scrollbar { display: none; }
+    .carousel-peek-item { flex: 0 0 85%; scroll-snap-align: start; }
+
+    /* Floating CTA */
+    .float-cta { position: fixed; bottom: 24px; right: 20px; z-index: 90; }
+    .float-cta-btn { display: flex; align-items: center; gap: 8px; background: #0a0a0a; color: #fff; border: none; padding: 14px 24px; font-family: 'Oswald', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: opacity 0.2s; }
+    .float-cta-btn:hover { opacity: 0.85; }
+    .float-cta-btn:active { transform: scale(0.97); }
+    @media (min-width: 901px) { .float-cta { display: none !important; } }
+
+    /* Quiz styling (original) */
+    #beauty-quiz-container { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 100%; margin: 0 auto; padding: 0; box-sizing: border-box; }
+    .quiz-card { background: #ffffff; border: 2px solid #1a1a1a; padding: 24px 20px; box-shadow: 8px 8px 0px #1a1a1a; box-sizing: border-box; width: 100%; }
     .quiz-title-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
     .quiz-header h3 { font-size: 13px; font-weight: 600; color: #1a1a1a; margin: 0; text-transform: uppercase; letter-spacing: 1.5px; }
     #step-counter { font-size: 11px; color: #999999; font-weight: 400; letter-spacing: 0.5px; }
@@ -258,20 +251,32 @@
     #progress { background: #1a1a1a; height: 100%; width: 25%; transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
     .question-title { font-size: 18px; font-weight: 500; line-height: 1.4; margin-bottom: 25px; color: #1a1a1a; letter-spacing: -0.2px; }
     .options-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-    .option-btn { background: #fff; border: 1px solid #e8e8e8; padding: 16px 20px; font-size: 14px; font-weight: 400; cursor: pointer; transition: all 0.2s ease; color: #333333; text-align: left; border-radius: 0px; line-height: 1.4; box-sizing: border-box; }
+    .option-btn { background: #fff; border: 1px solid #e8e8e8; padding: 16px 20px; font-size: 14px; font-weight: 400; cursor: pointer; transition: all 0.2s ease; color: #333333; text-align: left; line-height: 1.4; box-sizing: border-box; min-height: 48px; }
     .option-btn:hover { border-color: #1a1a1a; color: #000000; background: #fafafa; }
     .quiz-navigation button { background: none; border: none; color: #777777; cursor: pointer; font-size: 12px; font-weight: 500; padding: 0; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s ease; }
     .quiz-navigation button:hover { color: #1a1a1a; }
     .form-group { display: flex; flex-direction: column; gap: 14px; }
-    .form-group input { padding: 16px; border: 2px solid #1a1a1a; border-radius: 0px; font-size: 14px; outline: none; color: #1a1a1a; width: 100%; box-sizing: border-box; }
-    .submit-btn { background: #1a1a1a; color: #fff; border: none; padding: 18px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; border-radius: 0px; transition: background 0.2s ease; margin-top: 5px; width: 100%; }
+    .form-group input { padding: 16px; border: 2px solid #1a1a1a; font-size: 14px; outline: none; color: #1a1a1a; width: 100%; box-sizing: border-box; min-height: 48px; }
+    .submit-btn { background: #1a1a1a; color: #fff; border: none; padding: 18px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; margin-top: 5px; width: 100%; min-height: 48px; }
     .submit-btn:hover { background: #333333; }
+    @media (min-width: 550px) { #beauty-quiz-container { max-width: 700px; } .quiz-card { padding: 40px; } .question-title { font-size: 22px; margin-bottom: 35px; } .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; } .options-grid button:last-child:nth-child(odd) { grid-column: span 2; } .form-group { max-width: 450px; margin: 0 auto; } }
     .loader-wrapper { text-align: center; padding: 40px 0; }
     .spinner { width: 28px; height: 28px; border: 2px solid #f3f3f3; border-top: 2px solid #1a1a1a; border-radius: 50%; margin: 0 auto 24px; animation: spin 0.8s linear infinite; }
     .status-text { font-size: 13px; color: #666666; font-weight: 400; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     .fade-in { animation: fadeIn 0.35s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Desktop overrides */
+    @media (min-width: 901px) {
+        .hero-h1 { font-size: 5.5rem; margin-bottom: 32px; }
+        .hero-intro { font-size: 1.25rem; }
+        .mobile-only { display: none !important; }
+        .float-cta { display: none !important; }
+    }
+    @media (max-width: 900px) {
+        .desktop-only { display: none !important; }
+    }
 </style>
 
     <div class="noise-overlay"></div>
@@ -315,7 +320,7 @@
             <div class="flex items-center justify-between w-full">
                 <div class="flex items-center">
                     <a href="/" class="font-display font-bold text-2xl tracking-tighter uppercase cursor-hover mr-12 z-20 relative">Ostin<span class="text-gray-400">Kosmo</span></a>
-                    <nav class="hidden md:flex gap-8 z-20 relative desktop-nav">
+                    <nav class="hidden md:flex gap-8 z-20 relative">
                         <a href="#services" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Прайс</a>
                         <a href="#portfolio" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Работы</a>
                         <a href="#location" class="text-sm uppercase tracking-widest hover:text-gray-500 transition cursor-hover">Контакты</a>
@@ -338,71 +343,388 @@
     <!-- ===== MAIN ===== -->
     <main>
 
-    <!-- ===== SCREEN 1 — Above Fold (Mobile) ===== -->
-    <section id="hero-section" class="min-h-screen flex pt-20 px-6 max-w-[1600px] mx-auto">
-        <div class="w-full pb-12">
-            <!-- Subtitle microcopy (mobile) -->
-            <p class="text-xs font-mono text-gray-500 mb-4 tracking-widest hero-subtitle">Основано 2021 // Москва, м. Белорусская / Маяковская // Ежедневно 10:00–21:00</p>
+    <!-- ===== SCREEN 1: Above Fold ===== -->
+    <section class="min-h-screen flex items-start pt-28 lg:pt-40 px-6 max-w-[1600px] mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center pb-12">
+            <div class="lg:col-span-7 flex flex-col justify-center">
+                <p class="hero-subtitle reveal-text" style="transition-delay: 0.1s">Основано 2021 // Москва, м. Белорусская / Маяковская // Ежедневно 10:00–21:00</p>
+                <h1 class="hero-h1 reveal-text" style="transition-delay: 0.2s">Естественное ламинирование бровей и ресниц в Москве</h1>
+                <p class="hero-intro reveal-text" style="transition-delay: 0.3s">Создаем выразительный взгляд без наращивания и ежедневного макияжа.</p>
 
-            <!-- H1 - mobile optimized -->
-            <h1 class="font-display font-bold hero-h1 text-[26px] lg:text-[5.5rem] uppercase big-type mb-5 text-black leading-tight lg:leading-none">
-                Естественное ламинирование<br class="lg:hidden">
-                <span class="lg:block lg:overflow-hidden"><span class="lg:reveal-text lg:block">бровей и ресниц</span></span>
-                <span class="text-base lg:text-[2.5rem] text-gray-500 mt-1 block lg:mt-2">в Москве</span>
-            </h1>
+                <div class="reveal-text mb-6" style="transition-delay: 0.35s">
+                    <button onclick="togglePhilosophy()" id="phil-btn" class="inline-flex items-center gap-1 text-xs font-mono text-gray-400 hover:text-black transition cursor-pointer bg-transparent border-none">Читать философию студии <span id="phil-arrow">↓</span></button>
+                    <div id="phil-body" style="display:none; margin-top:10px; font-size:14px; color:#6b7280; line-height:1.6;">В эпоху фильтров мы выбираем честность: наша работа выглядит безупречно даже с расстояния 5 см.</div>
+                </div>
 
-            <!-- Intro sentence -->
-            <p class="max-w-lg text-base lg:text-xl text-black font-normal leading-relaxed mb-4">
-                Создаем выразительный взгляд без наращивания и ежедневного макияжа.
-            </p>
+                <div id="hero-buttons" class="reveal-text" style="transition-delay: 0.4s">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="openModal('telegram')" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
+                           Выбрать время / Записаться
+                        </button>
+                        <div class="flex gap-2 items-center sm:pl-2">
+                            <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="noopener noreferrer nofollow" class="w-11 h-11 flex items-center justify-center border border-gray-300 hover:border-black transition text-xs font-display uppercase tracking-widest cursor-hover">TG</a>
+                            <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="noopener noreferrer nofollow" class="w-11 h-11 flex items-center justify-center border border-gray-300 hover:border-black transition text-xs font-display uppercase tracking-widest cursor-hover">VK</a>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Philosophy accordion -->
-            <div class="mb-5 border-b border-gray-200 pb-1">
-                <button onclick="togglePhilosophy()" class="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase tracking-widest hover:text-black transition cursor-pointer w-full text-left py-2" id="phil-btn">
-                    <span>Читать философию студии</span>
-                    <span id="phil-arrow" class="transition-transform duration-300">↓</span>
-                </button>
-                <div id="phil-content" class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
-                    <p class="text-sm font-light text-gray-700 leading-relaxed py-3 philosophy-text">
-                        В эпоху фильтров мы выбираем честность: наша работа выглядит безупречно даже с расстояния 5 см.
-                    </p>
+                <!-- Special offer banner (vk_ads traffic) -->
+                <div id="special-offer" class="hidden mt-6 border border-gray-300 bg-gray-50 p-4">
+                    <div class="flex items-start gap-3">
+                        <span class="text-lg flex-shrink-0 mt-0.5">⚡</span>
+                        <div>
+                            <p class="font-display text-sm uppercase tracking-widest text-gray-500 mb-1">Специальное предложение <span id="offer-month"></span></p>
+                            <p class="text-sm text-black leading-relaxed">Комплекс <strong>«Брови + Ресницы»</strong> = Гель для бровей и&nbsp;скидка&nbsp;10% для новых клиентов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative h-[50vh] lg:aspect-[9/16] w-full overflow-hidden border border-gray-200 group cursor-hover reveal-text" style="transition-delay: 0.5s">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover object-[center_20%] hover-bw-effect" poster="/images/review-default.webp">
+                    <source src="video_2025-10-19_21-46-28.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="border-y border-gray-200 py-6 bg-black text-white marquee-container">
+        <div class="marquee-content gap-10 font-display text-2xl uppercase tracking-wider items-center">
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
+            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
+        </div>
+    </div>
+
+    <!-- ===== SCREEN 3: Price List ===== -->
+    <section id="services" class="py-16 px-6 bg-offwhite">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8">
+                <h2 class="reveal-on-scroll font-display text-4xl md:text-6xl uppercase">Прайс-лист студии</h2>
+                <span class="font-mono text-gray-500 mt-2 md:mt-0 text-xs">ПРАЙС-ЛИСТ 2026</span>
+            </div>
+
+            <div class="price-grid">
+                <!-- 1 -->
+                <div class="price-card">
+                    <a href="/services/oformlenie-brovey.html" class="block flex-1">
+                        <div class="price-card-top">
+                            <h3 class="price-card-name">Оформление бровей</h3>
+                            <div class="price-card-price">
+                                <span class="val">1 800₽</span>
+                                <div class="time">35 минут</div>
+                            </div>
+                        </div>
+                        <div class="price-card-tag">Окрашивание + коррекция</div>
+                        <p class="price-card-desc">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
+                    </a>
+                    <div class="price-card-actions">
+                        <a href="/services/oformlenie-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
+                        <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="price-card">
+                    <a href="/services/laminirovanie-brovey.html" class="block flex-1">
+                        <div class="price-card-top">
+                            <h3 class="price-card-name">Ламинирование бровей</h3>
+                            <div class="price-card-price">
+                                <span class="val">2 200₽</span>
+                                <div class="time">45 минут</div>
+                            </div>
+                        </div>
+                        <div class="price-card-tag">Долговременная укладка</div>
+                        <p class="price-card-desc">Фиксация формы, питание и восстановление. Брови выглядят ухоженными.</p>
+                    </a>
+                    <div class="price-card-actions">
+                        <a href="/services/laminirovanie-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
+                        <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="price-card">
+                    <a href="/services/laminirovanie-resnic.html" class="block flex-1">
+                        <div class="price-card-top">
+                            <h3 class="price-card-name">Ламинирование ресниц</h3>
+                            <div class="price-card-price">
+                                <span class="val">2 700₽</span>
+                                <div class="time">35 минут</div>
+                            </div>
+                        </div>
+                        <div class="price-card-tag">Изгиб + окрашивание</div>
+                        <p class="price-card-desc">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
+                    </a>
+                    <div class="price-card-actions">
+                        <a href="/services/laminirovanie-resnic.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
+                        <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="price-card">
+                    <a href="/services/korrekciya-brovey.html" class="block flex-1">
+                        <div class="price-card-top">
+                            <h3 class="price-card-name">Коррекция бровей</h3>
+                            <div class="price-card-price">
+                                <span class="val">1 500₽</span>
+                                <div class="time">20 минут</div>
+                            </div>
+                        </div>
+                        <div class="price-card-tag">Пинцет или воск</div>
+                        <p class="price-card-desc">Поддержание формы между основными процедурами.</p>
+                    </a>
+                    <div class="price-card-actions">
+                        <a href="/services/korrekciya-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
+                        <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Primary CTA + social icons -->
-            <div class="flex flex-col gap-3 mt-4">
-                <button onclick="openModal('telegram')" class="w-full bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300 cursor-pointer text-center">
-                    Выбрать время / Записаться
-                </button>
-                <div class="flex items-center gap-4 justify-center">
-                    <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="noopener noreferrer nofollow" class="text-xs font-display uppercase tracking-widest hover:text-gray-500 transition border-b border-black">TG</a>
-                    <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="noopener noreferrer nofollow" class="text-xs font-display uppercase tracking-widest hover:text-gray-500 transition border-b border-black">VK</a>
-                </div>
+            <!-- Club + Education -->
+            <div class="mt-4 space-y-3">
+                <article class="bg-white text-black p-6 md:p-12 border border-gray-200 flex flex-col md:flex-row justify-between items-center md:items-start relative overflow-hidden group cursor-hover">
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-5 transition duration-700"></div>
+                    <div class="max-w-xl z-10">
+                        <span class="inline-block border border-black px-3 py-1 text-xs font-mono uppercase tracking-widest mb-4">Subscription 2026</span>
+                        <h3 class="font-display text-2xl md:text-5xl uppercase mb-3 leading-tight">Годовой<br>Бьюти Клуб</h3>
+                        <p class="font-light text-gray-700 text-sm md:text-base leading-relaxed mb-3">6 процедур ламинирования ресниц с окрашиванием и уходовым комплексом + окрашивание бровей с коррекцией.</p>
+                        <p class="font-mono text-[10px] text-gray-400 uppercase leading-tight italic">(количество посещений рассчитано на год с рекомендуемым интервалом)</p>
+                    </div>
+                    <div class="mt-6 md:mt-0 text-center md:text-right z-10">
+                        <span class="block font-display text-3xl md:text-6xl mb-2 whitespace-nowrap">13 500₽</span>
+                        <button onclick="openModal('telegram')" class="inline-block bg-black text-white px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-800 transition mt-4 cursor-pointer">Вступить в клуб</button>
+                    </div>
+                </article>
+                <article class="bg-black text-white p-6 md:p-12 border border-gray-200 flex flex-col md:flex-row justify-between items-center md:items-start relative overflow-hidden group cursor-hover">
+                    <div class="max-w-xl z-10">
+                        <span class="inline-block border border-white px-3 py-1 text-xs font-mono uppercase tracking-widest mb-4">Education 2026</span>
+                        <h3 class="font-display text-2xl md:text-5xl uppercase mb-3 leading-tight">Обучение<br>Ламинированию</h3>
+                        <p class="font-light text-gray-300 text-sm md:text-base leading-relaxed mb-4">Индивидуальный курс по ламинированию ресниц или бровей. Постановка руки, разбор составов, отработка на моделях.</p>
+                        <div class="flex items-center gap-4 text-sm font-mono text-gray-400"><span>// <span id="dynamic-month"></span></span><span>// ПРЕДЗАПИСЬ</span></div>
+                    </div>
+                    <div class="mt-6 md:mt-0 text-center md:text-right z-10">
+                        <span class="block font-display text-3xl md:text-6xl mb-2 whitespace-nowrap">от 10 000₽</span>
+                        <button onclick="openModal('telegram')" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4 cursor-pointer">Забронировать место</button>
+                    </div>
+                </article>
             </div>
+        </div>
+    </section>
 
-            <!-- Special offer banner (visible only for vk_ads traffic) -->
-            <div id="special-offer" class="hidden mt-6 border border-gray-300 bg-gray-50 p-4">
-                <div class="flex items-start gap-3">
-                    <span class="text-lg flex-shrink-0 mt-0.5">⚡</span>
-                    <div>
-                        <p class="font-display text-sm uppercase tracking-widest text-gray-500 mb-1">Специальное предложение <span id="offer-month"></span></p>
-                        <p class="text-sm text-black leading-relaxed">Комплекс <strong>«Брови + Ресницы»</strong> = Гель для бровей и скидка 10% для новых клиентов</p>
+    <!-- ===== SCREEN 4: Results (Cases Carousel) ===== -->
+    <section id="portfolio" class="max-w-[1600px] mx-auto border-x border-gray-200">
+        <div class="p-6 border-b border-gray-200 flex justify-between items-end">
+            <h2 class="reveal-on-scroll font-display text-4xl md:text-5xl uppercase leading-none">Результаты<br>наших клиентов</h2>
+            <span class="hidden md:block font-mono text-gray-500">ГАЛЕРЕЯ РАБОТ 2025-2026</span>
+        </div>
+
+        <!-- Mobile: swipe carousel with peek -->
+        <div class="carousel-peek p-4">
+            <div class="carousel-peek-item">
+                <figure class="portfolio-item group relative aspect-square border border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                    <img src="/images/review-default.webp" class="portfolio-img w-full h-full object-cover" alt="Результат ламинирования ресниц в студии Ostin Kosmo" loading="lazy">
+                    <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center">
+                        <span class="font-display text-xl uppercase mb-2">Первое ламинирование</span>
+                        <span class="font-mono text-xs uppercase tracking-widest">Сразу после</span>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="carousel-peek-item">
+                <figure class="portfolio-item group relative aspect-square border border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                    <img src="/images/review-1.webp" class="portfolio-img w-full h-full object-cover" alt="Обновление ламинирования ресниц" loading="lazy">
+                    <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center">
+                        <span class="font-display text-xl uppercase mb-2">Обновление</span>
+                        <span class="font-mono text-xs uppercase tracking-widest">Постоянный клиент</span>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="carousel-peek-item">
+                <figure class="portfolio-item group relative aspect-square border border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                    <img src="/images/review-2.webp" class="portfolio-img w-full h-full object-cover" alt="Архитектура и коррекция бровей" loading="lazy">
+                    <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center">
+                        <span class="font-display text-xl uppercase mb-2">Архитектура бровей</span>
+                        <span class="font-mono text-xs uppercase tracking-widest">Форма и цвет</span>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="carousel-peek-item">
+                <figure class="portfolio-item group relative aspect-square border border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                    <img src="/images/review-3.webp" class="portfolio-img w-full h-full object-cover" alt="Ламинирование ресниц в Москве" loading="lazy">
+                    <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center">
+                        <span class="font-display text-xl uppercase mb-2">Выразительный взгляд</span>
+                        <span class="font-mono text-xs uppercase tracking-widest">Ламинирование</span>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="carousel-peek-item">
+                <figure class="portfolio-item group relative aspect-square border border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                    <img src="/images/review-5.webp" class="portfolio-img w-full h-full object-cover" alt="Натуральный изгиб после ламинирования ресниц" loading="lazy">
+                    <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center">
+                        <span class="font-display text-xl uppercase mb-2">Натуральный изгиб</span>
+                        <span class="font-mono text-xs uppercase tracking-widest">Эстетика</span>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="carousel-peek-item">
+                <figure class="portfolio-item group relative aspect-square border border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                    <img src="/images/blog-brow-11-1.webp" class="portfolio-img w-full h-full object-cover" alt="Долговременный эффект ламинирования" loading="lazy">
+                    <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center">
+                        <span class="font-display text-xl uppercase mb-2">Долговременный эффект</span>
+                        <span class="font-mono text-xs uppercase tracking-widest">Результат</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="carousel-hint"><span class="carousel-hint-dot active"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span></div>
+        <div class="text-center text-[10px] font-mono text-gray-400 pb-4">← Свайпайте вправо, чтобы увидеть больше →</div>
+
+        <!-- Desktop: grid (hidden on mobile via desktop-only) -->
+        <div class="desktop-only grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="/images/review-default.webp" class="portfolio-img w-full h-full object-cover" alt="Результат ламинирования ресниц в студии Ostin Kosmo" loading="lazy">
+                <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Первое ламинирование</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Сразу после</span>
+                </figcaption>
+            </figure>
+            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="/images/review-1.webp" class="portfolio-img w-full h-full object-cover" alt="Обновление ламинирования ресниц" loading="lazy">
+                <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Обновление</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Постоянный клиент</span>
+                </figcaption>
+            </figure>
+            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="/images/review-2.webp" class="portfolio-img w-full h-full object-cover" alt="Архитектура и коррекция бровей" loading="lazy">
+                <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Архитектура бровей</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Форма и цвет</span>
+                </figcaption>
+            </figure>
+            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="/images/review-3.webp" class="portfolio-img w-full h-full object-cover" alt="Ламинирование ресниц в Москве" loading="lazy">
+                <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Выразительный взгляд</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Ламинирование</span>
+                </figcaption>
+            </figure>
+            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="/images/review-5.webp" class="portfolio-img w-full h-full object-cover" alt="Натуральный изгиб после ламинирования ресниц" loading="lazy">
+                <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Натуральный изгиб</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Эстетика</span>
+                </figcaption>
+            </figure>
+            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                <img src="/images/blog-brow-11-1.webp" class="portfolio-img w-full h-full object-cover" alt="Долговременный эффект ламинирования" loading="lazy">
+                <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
+                    <span class="font-display text-2xl uppercase mb-2">Долговременный эффект</span>
+                    <span class="font-mono text-xs uppercase tracking-widest">Результат</span>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- ===== SCREEN 5: Reviews Carousel ===== -->
+    <section id="reviews" class="py-16 px-6 max-w-[1600px] mx-auto border-x border-gray-200">
+        <div class="flex justify-between items-end mb-6">
+            <h2 class="reveal-on-scroll font-display text-4xl md:text-5xl uppercase leading-none">Отзывы<br>Клиентов</h2>
+        </div>
+
+        <!-- Mobile: carousel -->
+        <div class="carousel-peek">
+            <div class="carousel-peek-item">
+                <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
+                    <div class="mb-4 text-xl text-black">★★★★★</div>
+                    <p class="font-light text-sm md:text-base mb-6 leading-relaxed">"Уже полгода посещаю мастера по ламинированию ресниц — это восторг! Идеальный завиток, долго держатся, красиво смотрятся. Очень советую! Местоположение отличное, в центре, удобно добираться."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-display text-lg">A</div>
+                        <div><span class="block font-display uppercase text-sm">Александра З.</span><span class="text-xs text-gray-500 font-mono">ЯНДЕКС</span></div>
+                    </div>
+                </article>
+            </div>
+            <div class="carousel-peek-item">
+                <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
+                    <div class="mb-4 text-xl text-black">★★★★★</div>
+                    <p class="font-light text-sm md:text-base mb-6 leading-relaxed">"Все супер. Ресницы не путаются, красиво лежат, получила множество комплиментов. Спасибо за твою работу ❤️"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-display text-lg">A</div>
+                        <div><span class="block font-display uppercase text-sm">Клиент</span><span class="text-xs text-gray-500 font-mono">WHATSAPP</span></div>
+                    </div>
+                </article>
+            </div>
+            <div class="carousel-peek-item">
+                <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
+                    <div class="mb-4 text-xl text-black">★★★★★</div>
+                    <p class="font-light text-sm md:text-base mb-6 leading-relaxed">"Была у мастера на оформлении бровей и осталась в восторге! Получила именно тот естественный эффект, который хотела. Всё прошло очень комфортно... Однозначно приду ещё! Спасибо 🙏"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-display text-lg">E</div>
+                        <div><span class="block font-display uppercase text-sm">Евгения</span><span class="text-xs text-gray-500 font-mono">INSTAGRAM</span></div>
+                    </div>
+                </article>
+            </div>
+            <div class="carousel-peek-item">
+                <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
+                    <div class="mb-4 text-xl text-black">★★★★★</div>
+                    <p class="font-light text-sm md:text-base mb-6 leading-relaxed">"Я в восторге, Катя! Ресницы нравятся... Подкручены, более яркие, глаза будто больше стали) Спасибо тебе большое... было супер комфортно на процедуре 🥺🫶"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-display text-lg">K</div>
+                        <div><span class="block font-display uppercase text-sm">Карина</span><span class="text-xs text-gray-500 font-mono">WHATSAPP</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="carousel-hint"><span class="carousel-hint-dot active"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span></div>
+        <div class="text-center mt-6">
+            <a href="/reviews/" class="inline-block border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition">
+                Все отзывы → Яндекс и клиенты
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== Location ===== -->
+    <section id="location" class="py-16 px-6">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8">
+                <h2 class="reveal-on-scroll font-display text-4xl md:text-6xl uppercase">Как добраться</h2>
+                <span class="font-mono text-gray-500 mt-2 md:mt-0">КОНТАКТЫ</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-8">
+                <figure class="studio-item group relative aspect-[4/3] overflow-hidden border border-gray-200">
+                    <img src="/images/studio-1.webp" class="studio-img w-full h-full object-cover" alt="Кабинет OSTIN KOSMO" loading="lazy">
+                </figure>
+                <figure class="studio-item group relative aspect-[4/3] overflow-hidden border border-gray-200">
+                    <img src="/images/studio-2.webp" class="studio-img w-full h-full object-cover" alt="Интерьер студии OSTIN KOSMO" loading="lazy">
+                </figure>
+                <figure class="studio-item group relative aspect-[4/3] overflow-hidden border border-gray-200">
+                    <img src="/images/studio-3.webp" class="studio-img w-full h-full object-cover" alt="Рабочее место мастера" loading="lazy">
+                </figure>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="font-display text-2xl md:text-3xl uppercase mb-4">Локация и комфорт</h3>
+                    <p class="font-light text-gray-700 leading-relaxed mb-4">Москва, <strong>5 минут пешком от м. Белорусская (выход №4)</strong>.</p>
+                    <p class="font-light text-gray-700 leading-relaxed mb-4">Принимаю в закрытом камерном пространстве бизнес-центра класса А. Никаких домашних студий, посторонних людей и сложных пропусков. Только вы, тишина, приятная музыка и чай/кофе на ваш выбор.</p>
+                    <div class="flex flex-col gap-2 mt-6">
+                        <p class="font-mono text-sm text-gray-500">Тверская-Ямская улица, 25 ст2</p>
+                        <a href="https://yandex.ru/maps/-/CCU6uXh8wC" target="_blank" rel="noopener noreferrer nofollow" class="text-[10px] font-mono text-gray-400 border-b border-gray-300 w-fit hover:text-black transition">ОТКРЫТЬ В НАВИГАТОРЕ ↗</a>
+                        <a href="tel:+796****9466" class="font-display text-2xl hover:text-gray-500 transition mt-2">+7 963 732 94 66</a>
+                        <a href="/belorusskaya/" class="group inline-flex items-center gap-2 mt-6 px-6 py-3 border border-black hover:bg-black hover:text-white transition duration-300">
+                            <span class="font-display text-sm uppercase tracking-widest">Подробный маршрут и все услуги на странице метро Белорусская</span>
+                            <span class="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="map-container h-[300px] w-full">
+                        <iframe src="https://yandex.ru/map-widget/v1/?ll=37.585601%2C55.775608&z=17&pt=37.585601%2C55.775608%2Cpm2rdm" width="100%" height="300" frameborder="0" allowfullscreen="true" title="Карта проезда — OSTIN KOSMO"></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SCREEN 2 — Photo + Quiz ===== -->
+    <!-- ===== Quiz (moved before FAQ) ===== -->
     <section class="px-6 max-w-[1600px] mx-auto pb-8">
-        <!-- Hero image / video -->
-        <div class="w-full aspect-[4/3] md:aspect-video lg:aspect-[16/9] overflow-hidden border border-gray-200 group cursor-hover mb-8 reveal-text">
-            <video autoplay loop muted playsinline class="w-full h-full object-cover object-[center_20%] hover-bw-effect" poster="https://images.unsplash.com/photo-1609495768565-669527e57c8d?q=80&w=1000&auto=format&fit=crop">
-                <source src="video_2025-10-19_21-46-28.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <!-- Quiz block - exactly as original -->
         <section id="beauty-quiz-container">
             <div class="quiz-card">
                 <div class="quiz-header">
@@ -420,496 +742,80 @@
         </section>
     </section>
 
-    <!-- Marquee -->
-    <div class="border-y border-gray-200 py-6 bg-black text-white marquee-container">
-        <div class="marquee-content gap-10 font-display text-2xl uppercase tracking-wider items-center">
-            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
-            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
-            <span>ТОЧНОСТЬ • ЕСТЕСТВЕННЫЙ ВИД • РЕЗУЛЬТАТЫ • ДЕТАЛИЗАЦИЯ • БЕЗОПАСНОСТЬ •</span>
-        </div>
-    </div>
-
-    <!-- ===== SCREEN 3 — Price Carousel (Mobile) / Grid (Desktop) ===== -->
-    <section id="services" class="py-16 px-6 bg-offwhite">
-        <div class="max-w-[1600px] mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-8">
-                <h2 class="reveal-on-scroll font-display text-4xl md:text-6xl uppercase">Прайс-лист студии</h2>
-                <span class="font-mono text-gray-500 mt-2 md:mt-0 text-xs">ПРАЙС-ЛИСТ 2026</span>
-            </div>
-
-            <!-- MOBILE: swipeable carousel -->
-            <div class="price-grid-mobile">
-                <div class="carousel-scroll flex gap-4 pb-4">
-                    <!-- Card 1 -->
-                    <div class="carousel-card bg-white p-6 border border-gray-200 flex flex-col justify-between min-h-[260px]">
-                        <div>
-                            <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-display text-xl uppercase">Оформление бровей</h3>
-                                <div class="text-right">
-                                    <span class="block font-display text-xl whitespace-nowrap">1 800₽</span>
-                                    <span class="text-[10px] font-mono text-gray-500">35 мин</span>
-                                </div>
-                            </div>
-                            <p class="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-3">Окрашивание + коррекция</p>
-                            <p class="font-light text-sm text-gray-700">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
-                        </div>
-                        <div class="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between">
-                            <a href="/services/oformlenie-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
-                            <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="carousel-card bg-white p-6 border border-gray-200 flex flex-col justify-between min-h-[260px]">
-                        <div>
-                            <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-display text-xl uppercase">Ламинирование бровей</h3>
-                                <div class="text-right">
-                                    <span class="block font-display text-xl whitespace-nowrap">2 200₽</span>
-                                    <span class="text-[10px] font-mono text-gray-500">45 мин</span>
-                                </div>
-                            </div>
-                            <p class="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-3">Долговременная укладка</p>
-                            <p class="font-light text-sm text-gray-700">Фиксация формы, питание и восстановление. Брови выглядят ухоженными.</p>
-                        </div>
-                        <div class="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between">
-                            <a href="/services/laminirovanie-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
-                            <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="carousel-card bg-white p-6 border border-gray-200 flex flex-col justify-between min-h-[260px]">
-                        <div>
-                            <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-display text-xl uppercase">Ламинирование ресниц</h3>
-                                <div class="text-right">
-                                    <span class="block font-display text-xl whitespace-nowrap">2 700₽</span>
-                                    <span class="text-[10px] font-mono text-gray-500">35 мин</span>
-                                </div>
-                            </div>
-                            <p class="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-3">Изгиб + окрашивание</p>
-                            <p class="font-light text-sm text-gray-700">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
-                        </div>
-                        <div class="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between">
-                            <a href="/services/laminirovanie-resnic.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
-                            <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
-                        </div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="carousel-card bg-white p-6 border border-gray-200 flex flex-col justify-between min-h-[260px]">
-                        <div>
-                            <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-display text-xl uppercase">Коррекция бровей</h3>
-                                <div class="text-right">
-                                    <span class="block font-display text-xl whitespace-nowrap">1 500₽</span>
-                                    <span class="text-[10px] font-mono text-gray-500">20 мин</span>
-                                </div>
-                            </div>
-                            <p class="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-3">Пинцет или воск</p>
-                            <p class="font-light text-sm text-gray-700">Поддержание формы между основными процедурами.</p>
-                        </div>
-                        <div class="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between">
-                            <a href="/services/korrekciya-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
-                            <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DESKTOP: grid layout -->
-            <div class="price-grid-desktop">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-1 bg-gray-200 border border-gray-200 mb-1">
-                    <article class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative">
-                        <a href="/services/oformlenie-brovey.html" class="block flex-1">
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-display text-2xl md:text-3xl uppercase">Оформление бровей</h3>
-                                    <div class="text-right"><span class="block font-display text-2xl md:text-3xl whitespace-nowrap">1 800₽</span><span class="text-xs font-mono opacity-60">35 минут</span></div>
-                                </div>
-                                <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Окрашивание + коррекция</p>
-                                <p class="font-light text-sm opacity-80 max-w-sm text-black group-hover:text-white">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
-                            </div>
-                        </a>
-                        <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800 flex items-center justify-between">
-                            <a href="/services/oformlenie-brovey.html" class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Подробнее →</a>
-                            <button onclick="openModal('telegram')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 cursor-pointer">Хочу ближайшее окошко</button>
-                        </div>
-                    </article>
-                    <article class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative">
-                        <a href="/services/laminirovanie-brovey.html" class="block flex-1">
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-display text-2xl md:text-3xl uppercase">Ламинирование бровей</h3>
-                                    <div class="text-right"><span class="block font-display text-2xl md:text-3xl whitespace-nowrap">2 200₽</span><span class="text-xs font-mono opacity-60">45 минут</span></div>
-                                </div>
-                                <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Долговременная укладка</p>
-                                <p class="font-light text-sm opacity-80 max-w-sm text-black group-hover:text-white">Фиксация формы, питание и восстановление. Брови выглядят ухоженными.</p>
-                            </div>
-                        </a>
-                        <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800 flex items-center justify-between">
-                            <a href="/services/laminirovanie-brovey.html" class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Подробнее →</a>
-                            <button onclick="openModal('telegram')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 cursor-pointer">Хочу ближайшее окошко</button>
-                        </div>
-                    </article>
-                    <article class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative">
-                        <a href="/services/laminirovanie-resnic.html" class="block flex-1">
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-display text-2xl md:text-3xl uppercase">Ламинирование ресниц</h3>
-                                    <div class="text-right"><span class="block font-display text-2xl md:text-3xl whitespace-nowrap">2 700₽</span><span class="text-xs font-mono opacity-60">35 минут</span></div>
-                                </div>
-                                <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Изгиб + окрашивание</p>
-                                <p class="font-light text-sm opacity-80 max-w-sm text-black group-hover:text-white">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
-                            </div>
-                        </a>
-                        <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800 flex items-center justify-between">
-                            <a href="/services/laminirovanie-resnic.html" class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Подробнее →</a>
-                            <button onclick="openModal('telegram')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 cursor-pointer">Хочу ближайшее окошко</button>
-                        </div>
-                    </article>
-                    <article class="group bg-white p-8 hover:bg-black hover:text-white transition duration-500 flex flex-col justify-between min-h-[300px] relative">
-                        <a href="/services/korrekciya-brovey.html" class="block flex-1">
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-display text-2xl md:text-3xl uppercase">Коррекция бровей</h3>
-                                    <div class="text-right"><span class="block font-display text-2xl md:text-3xl whitespace-nowrap">1 500₽</span><span class="text-xs font-mono opacity-60">20 минут</span></div>
-                                </div>
-                                <p class="font-mono text-xs uppercase tracking-widest opacity-70 mb-4">Пинцет или воск</p>
-                                <p class="font-light text-sm opacity-80 max-w-sm text-black group-hover:text-white">Поддержание формы между основными процедурами.</p>
-                            </div>
-                        </a>
-                        <div class="mt-8 pt-4 border-t border-gray-100 group-hover:border-gray-800 flex items-center justify-between">
-                            <a href="/services/korrekciya-brovey.html" class="inline-flex items-center uppercase font-display tracking-widest text-sm group-hover:translate-x-2 transition-transform">Подробнее →</a>
-                            <button onclick="openModal('telegram')" class="inline-flex items-center uppercase font-display tracking-widest text-xs border border-current px-2 py-1 cursor-pointer">Хочу ближайшее окошко</button>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SCREEN 4 — Cases Carousel (Mobile swipe) ===== -->
-    <section id="portfolio" class="max-w-[1600px] mx-auto border-x border-gray-200">
-        <div class="p-6 md:p-12 border-b border-gray-200 flex justify-between items-end">
-            <h2 class="reveal-on-scroll font-display text-4xl md:text-5xl uppercase leading-none">Избранные<br>Кейсы</h2>
-            <span class="hidden md:block font-mono text-gray-500">ГАЛЕРЕЯ РАБОТ 2025-2026</span>
-        </div>
-
-        <!-- Mobile: horizontal swipe carousel -->
-        <div class="mobile-only carousel-scroll flex gap-3 px-6 py-6">
-            <figure class="flex-shrink-0 w-[80vw] max-w-[300px] aspect-square border border-gray-200 overflow-hidden cursor-pointer relative group" onclick="openLightbox(this)">
-                <img src="/images/review-default.webp" class="w-full h-full object-cover" alt="Результат ламинирования ресниц в студии Ostin Kosmo" loading="lazy">
-                <figcaption class="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white">
-                    <span class="font-display text-lg uppercase">Первое ламинирование</span>
-                    <span class="font-mono text-[10px] uppercase tracking-widest">Сразу после</span>
-                </figcaption>
-            </figure>
-            <figure class="flex-shrink-0 w-[80vw] max-w-[300px] aspect-square border border-gray-200 overflow-hidden cursor-pointer relative group" onclick="openLightbox(this)">
-                <img src="/images/review-1.webp" class="w-full h-full object-cover" alt="Обновление ламинирования ресниц" loading="lazy">
-                <figcaption class="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white">
-                    <span class="font-display text-lg uppercase">Обновление</span>
-                    <span class="font-mono text-[10px] uppercase tracking-widest">Постоянный клиент</span>
-                </figcaption>
-            </figure>
-            <figure class="flex-shrink-0 w-[80vw] max-w-[300px] aspect-square border border-gray-200 overflow-hidden cursor-pointer relative group" onclick="openLightbox(this)">
-                <img src="/images/review-2.webp" class="w-full h-full object-cover" alt="Архитектура и коррекция бровей" loading="lazy">
-                <figcaption class="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white">
-                    <span class="font-display text-lg uppercase">Архитектура бровей</span>
-                    <span class="font-mono text-[10px] uppercase tracking-widest">Форма и цвет</span>
-                </figcaption>
-            </figure>
-            <figure class="flex-shrink-0 w-[80vw] max-w-[300px] aspect-square border border-gray-200 overflow-hidden cursor-pointer relative group" onclick="openLightbox(this)">
-                <img src="/images/review-3.webp" class="w-full h-full object-cover" alt="Ламинирование ресниц в Москве" loading="lazy">
-                <figcaption class="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white">
-                    <span class="font-display text-lg uppercase">Выразительный взгляд</span>
-                    <span class="font-mono text-[10px] uppercase tracking-widest">Ламинирование</span>
-                </figcaption>
-            </figure>
-            <figure class="flex-shrink-0 w-[80vw] max-w-[300px] aspect-square border border-gray-200 overflow-hidden cursor-pointer relative group" onclick="openLightbox(this)">
-                <img src="/images/review-5.webp" class="w-full h-full object-cover" alt="Натуральный изгиб после ламинирования ресниц" loading="lazy">
-                <figcaption class="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white">
-                    <span class="font-display text-lg uppercase">Натуральный изгиб</span>
-                    <span class="font-mono text-[10px] uppercase tracking-widest">Эстетика</span>
-                </figcaption>
-            </figure>
-            <figure class="flex-shrink-0 w-[80vw] max-w-[300px] aspect-square border border-gray-200 overflow-hidden cursor-pointer relative group" onclick="openLightbox(this)">
-                <img src="/images/blog-brow-11-1.webp" class="w-full h-full object-cover" alt="Долговременный эффект ламинирования" loading="lazy">
-                <figcaption class="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white">
-                    <span class="font-display text-lg uppercase">Долговременный эффект</span>
-                    <span class="font-mono text-[10px] uppercase tracking-widest">Результат</span>
-                </figcaption>
-            </figure>
-        </div>
-
-        <!-- Desktop: grid layout (same as original) -->
-        <div class="desktop-only grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
-                <img src="/images/review-default.webp" class="portfolio-img w-full h-full object-cover" alt="Результат ламинирования ресниц в студии Ostin Kosmo" loading="lazy">
-                <!--noindex--><figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
-                    <span class="font-display text-2xl uppercase mb-2">Первое ламинирование</span>
-                    <span class="font-mono text-xs uppercase tracking-widest">Сразу после</span>
-                </figcaption><!--/noindex-->
-            </figure>
-            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
-                <img src="/images/review-1.webp" class="portfolio-img w-full h-full object-cover" alt="Обновление ламинирования ресниц" loading="lazy">
-                <!--noindex--><figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
-                    <span class="font-display text-2xl uppercase mb-2">Обновление</span>
-                    <span class="font-mono text-xs uppercase tracking-widest">Постоянный клиент</span>
-                </figcaption><!--/noindex-->
-            </figure>
-            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
-                <img src="/images/review-2.webp" class="portfolio-img w-full h-full object-cover" alt="Архитектура и коррекция бровей" loading="lazy">
-                <!--noindex--><figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
-                    <span class="font-display text-2xl uppercase mb-2">Архитектура бровей</span>
-                    <span class="font-mono text-xs uppercase tracking-widest">Форма и цвет</span>
-                </figcaption><!--/noindex-->
-            </figure>
-            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
-                <img src="/images/review-3.webp" class="portfolio-img w-full h-full object-cover" alt="Ламинирование ресниц в Москве" loading="lazy">
-                <!--noindex--><figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
-                    <span class="font-display text-2xl uppercase mb-2">Выразительный взгляд</span>
-                    <span class="font-mono text-xs uppercase tracking-widest">Ламинирование</span>
-                </figcaption><!--/noindex-->
-            </figure>
-            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 lg:border-r overflow-hidden cursor-pointer" onclick="openLightbox(this)">
-                <img src="/images/review-5.webp" class="portfolio-img w-full h-full object-cover" alt="Натуральный изгиб после ламинирования ресниц" loading="lazy">
-                <!--noindex--><figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
-                    <span class="font-display text-2xl uppercase mb-2">Натуральный изгиб</span>
-                    <span class="font-mono text-xs uppercase tracking-widest">Эстетика</span>
-                </figcaption><!--/noindex-->
-            </figure>
-            <figure class="portfolio-item group relative aspect-square border-b border-gray-200 overflow-hidden cursor-pointer" onclick="openLightbox(this)">
-                <img src="/images/blog-brow-11-1.webp" class="portfolio-img w-full h-full object-cover" alt="Долговременный эффект ламинирования" loading="lazy">
-                <!--noindex--><figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4 text-center cursor-hover">
-                    <span class="font-display text-2xl uppercase mb-2">Долговременный эффект</span>
-                    <span class="font-mono text-xs uppercase tracking-widest">Результат</span>
-                </figcaption><!--/noindex-->
-            </figure>
-        </div>
-    </section>
-
-    <!-- ===== SCREEN 5 — Reviews Carousel (Mobile) ===== -->
-    <section id="reviews" class="py-16 px-6 max-w-[1600px] mx-auto border-x border-gray-200">
-        <div class="p-6 md:p-12 border-b border-gray-200 flex justify-between items-end">
-            <h2 class="reveal-on-scroll font-display text-4xl md:text-5xl uppercase leading-none">Отзывы<br>Клиентов</h2>
-        </div>
-
-        <!-- Mobile: swipe carousel -->
-        <div class="mobile-only carousel-scroll flex gap-4 py-6">
-            <article class="flex-shrink-0 w-[85vw] max-w-[340px] p-8 border border-gray-200 flex flex-col justify-between bg-white cursor-hover">
-                <div class="mb-6 text-2xl text-black">★★★★★</div>
-                <p class="font-light text-base mb-8 leading-relaxed">"Все супер. Ресницы не путаются, красиво лежат, получила множество комплиментов. Спасибо за твою работу ❤️"</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">A</div>
-                    <div><span class="block font-display uppercase text-sm">Клиент</span><span class="text-[10px] text-gray-500 font-mono">WHATSAPP</span></div>
-                </div>
-            </article>
-            <article class="flex-shrink-0 w-[85vw] max-w-[340px] p-8 border border-gray-200 flex flex-col justify-between bg-white cursor-hover">
-                <div class="mb-6 text-2xl text-black">★★★★★</div>
-                <p class="font-light text-base mb-8 leading-relaxed">"Была у мастера на оформлении бровей и осталась в восторге! Получила именно тот естественный эффект, который хотела. Всё прошло очень комфортно... Однозначно приду ещё! Спасибо 🙏"</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">E</div>
-                    <div><span class="block font-display uppercase text-sm">Евгения</span><span class="text-[10px] text-gray-500 font-mono">INSTAGRAM</span></div>
-                </div>
-            </article>
-            <article class="flex-shrink-0 w-[85vw] max-w-[340px] p-8 border border-gray-200 flex flex-col justify-between bg-white cursor-hover">
-                <div class="mb-6 text-2xl text-black">★★★★★</div>
-                <p class="font-light text-base mb-8 leading-relaxed">"Я в восторге, Катя! Ресницы нравятся... Подкручены, более яркие, глаза будто больше стали) Спасибо тебе большое... было супер комфортно на процедуре 🥺🫶"</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">K</div>
-                    <div><span class="block font-display uppercase text-sm">Карина</span><span class="text-[10px] text-gray-500 font-mono">WHATSAPP</span></div>
-                </div>
-            </article>
-        </div>
-
-        <!-- Original review grid (desktop) -->
-        <div class="desktop-only grid grid-cols-1 md:grid-cols-3 border-t border-gray-200">
-            <article class="p-10 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col justify-between h-full bg-white cursor-hover">
-                <div class="mb-6 text-2xl text-black">★★★★★</div>
-                <p class="font-light text-lg mb-8 leading-relaxed">"Все супер. Ресницы не путаются, красиво лежат, получила множество комплиментов. Спасибо за твою работу ❤️"</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">A</div>
-                    <div><span class="block font-display uppercase text-sm">Клиент</span><span class="text-xs text-gray-500 font-mono">WHATSAPP</span></div>
-                </div>
-            </article>
-            <article class="p-10 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col justify-between h-full bg-white cursor-hover">
-                <div class="mb-6 text-2xl text-black">★★★★★</div>
-                <p class="font-light text-lg mb-8 leading-relaxed">"Была у мастера на оформлении бровей и осталась в восторге! Получила именно тот естественный эффект, который хотела. Всё прошло очень комфортно... Однозначно приду ещё! Спасибо 🙏"</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">E</div>
-                    <div><span class="block font-display uppercase text-sm">Евгения</span><span class="text-xs text-gray-500 font-mono">INSTAGRAM</span></div>
-                </div>
-            </article>
-            <article class="p-10 flex flex-col justify-between h-full bg-white cursor-hover">
-                <div class="mb-6 text-2xl text-black">★★★★★</div>
-                <p class="font-light text-lg mb-8 leading-relaxed">"Я в восторге, Катя! Ресницы нравятся... Подкручены, более яркие, глаза будто больше стали) Спасибо тебе большое... было супер комфортно на процедуре 🥺🫶"</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-display text-xl">K</div>
-                    <div><span class="block font-display uppercase text-sm">Карина</span><span class="text-xs text-gray-500 font-mono">WHATSAPP</span></div>
-                </div>
-            </article>
-        </div>
-        <div class="text-center mt-10">
-            <a href="/reviews/" class="inline-block border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition">
-                Все отзывы → Яндекс и клиенты
-            </a>
-        </div>
-    </section>
-
-    <!-- ===== SCREEN 6 — Special Offers (dark bg) ===== -->
-    <section class="py-16 px-6 bg-black text-white">
-        <div class="max-w-[1600px] mx-auto">
-            <h2 class="reveal-on-scroll font-display text-4xl md:text-5xl uppercase mb-10">Спецпредложения и обучение</h2>
-
-            <div class="flex flex-col gap-6">
-                <!-- Club card -->
-                <article class="bg-white/5 text-white p-8 border border-gray-700 flex flex-col md:flex-row justify-between items-center md:items-start relative overflow-hidden group cursor-hover">
-                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition duration-700"></div>
-                    <div class="max-w-xl z-10">
-                        <span class="inline-block border border-white px-3 py-1 text-xs font-mono uppercase tracking-widest mb-6">Subscription 2026</span>
-                        <h3 class="font-display text-3xl md:text-5xl uppercase mb-4 leading-tight">Годовой<br>Бьюти Клуб</h3>
-                        <p class="font-light text-gray-300 text-sm md:text-base leading-relaxed mb-4">6 процедур ламинирования ресниц с окрашиванием и уходовым комплексом + окрашивание бровей с коррекцией.</p>
-                        <p class="font-mono text-[10px] text-gray-400 uppercase leading-tight italic max-w-xs">(количество посещений рассчитано на год с рекомендуемым интервалом)</p>
-                    </div>
-                    <div class="mt-8 md:mt-0 text-center md:text-right z-10">
-                        <span class="block font-display text-4xl md:text-6xl mb-2 whitespace-nowrap">13 500₽</span>
-                        <button onclick="openModal('telegram')" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4 cursor-pointer">Вступить в клуб</button>
-                    </div>
-                </article>
-
-                <!-- Education card -->
-                <article class="bg-white/5 text-white p-8 border border-gray-700 flex flex-col md:flex-row justify-between items-center md:items-start relative overflow-hidden group cursor-hover">
-                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition duration-700"></div>
-                    <div class="max-w-xl z-10">
-                        <span class="inline-block border border-white px-3 py-1 text-xs font-mono uppercase tracking-widest mb-6">Education 2026</span>
-                        <h3 class="font-display text-3xl md:text-5xl uppercase mb-4 leading-tight">Обучение<br>Ламинированию</h3>
-                        <p class="font-light text-gray-300 text-sm md:text-base leading-relaxed mb-6">Индивидуальный курс по ламинированию ресниц или бровей. Постановка руки, разбор составов, отработка на моделях.</p>
-                        <div class="flex items-center gap-4 text-sm font-mono text-gray-400"><span>// <span id="dynamic-month"></span></span><span>// ПРЕДЗАПИСЬ</span></div>
-                    </div>
-                    <div class="mt-8 md:mt-0 text-center md:text-right z-10">
-                        <span class="block font-display text-4xl md:text-6xl mb-2 whitespace-nowrap">от 10 000₽</span>
-                        <button onclick="openModal('telegram')" class="inline-block bg-white text-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-200 transition mt-4 cursor-pointer">Забронировать место</button>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SCREEN 7 — Location + Contacts ===== -->
-    <section id="location" class="py-16 px-6">
-        <div class="max-w-[1600px] mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-8">
-                <h2 class="reveal-on-scroll font-display text-4xl md:text-6xl uppercase">Локация и комфорт</h2>
-                <span class="font-mono text-gray-500 mt-2 md:mt-0 text-xs">КОНТАКТЫ</span>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-8">
-                <figure class="studio-item group relative aspect-[4/3] overflow-hidden border border-gray-200">
-                    <img src="/images/studio-1.webp" class="studio-img w-full h-full object-cover" alt="Кабинет OSTIN KOSMO" loading="lazy">
-                </figure>
-                <figure class="studio-item group relative aspect-[4/3] overflow-hidden border border-gray-200">
-                    <img src="/images/studio-2.webp" class="studio-img w-full h-full object-cover" alt="Интерьер студии OSTIN KOSMO" loading="lazy">
-                </figure>
-                <figure class="studio-item group relative aspect-[4/3] overflow-hidden border border-gray-200">
-                    <img src="/images/studio-3.webp" class="studio-img w-full h-full object-cover" alt="Рабочее место мастера" loading="lazy">
-                </figure>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div>
-                    <h3 class="font-display text-2xl md:text-3xl uppercase mb-4">Локация и комфорт</h3>
-                    <p class="font-light text-gray-700 leading-relaxed mb-4 text-sm md:text-base">Москва, <strong>5 минут пешком от м. Белорусская (выход №4)</strong>.</p>
-                    <p class="font-light text-gray-700 leading-relaxed mb-4 text-sm md:text-base">Принимаю в закрытом камерном пространстве бизнес-центра класса А. Никаких домашних студий, посторонних людей и сложных пропусков. Только вы, тишина, приятная музыка и чай/кофе на ваш выбор.</p>
-                    <div class="flex flex-col gap-2 mt-6">
-                        <p class="font-mono text-xs md:text-sm text-gray-500">Тверская-Ямская улица, 25 ст2</p>
-                        <a href="https://yandex.ru/maps/-/CCU6uXh8wC" target="_blank" rel="noopener noreferrer nofollow" class="text-[10px] font-mono text-gray-400 border-b border-gray-300 w-fit hover:text-black transition">ОТКРЫТЬ В НАВИГАТОРЕ ↗</a>
-                        <a href="tel:+796****9466" class="font-display text-xl md:text-2xl hover:text-gray-500 transition mt-2">+7 963 732 94 66</a>
-                        <a href="/belorusskaya/" class="group inline-flex items-center gap-2 mt-6 px-6 py-3 border border-black hover:bg-black hover:text-white transition duration-300">
-                            <span class="font-display text-sm uppercase tracking-widest">Подробный маршрут</span>
-                            <span class="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <div class="map-container h-[300px] md:h-[350px] w-full">
-                        <iframe src="https://yandex.ru/map-widget/v1/?ll=37.585601%2C55.775608&z=17&pt=37.585601%2C55.775608%2Cpm2rdm" width="100%" height="350" frameborder="0" allowfullscreen="true" title="Карта проезда — OSTIN KOSMO"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== FAQ ===== -->
     <section id="faq" class="py-16 px-6 bg-offwhite">
         <div class="max-w-[1000px] mx-auto">
             <h2 class="reveal-on-scroll font-display text-4xl md:text-5xl uppercase mb-12 text-center">Частые Вопросы</h2>
             <div class="border-t border-black">
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Сколько держится результат?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Ламинирование ресниц и бровей сохраняет эффект от 1.5 до 2.5 месяцев, в зависимости от скорости обновления ваших натуральных волосков.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Ламинирование ресниц и бровей сохраняет эффект от 1.5 до 2.5 месяцев, в зависимости от скорости обновления ваших натуральных волосков.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Как подготовиться к процедуре?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Особой подготовки не требуется. Рекомендуется приходить без макияжа глаз и бровей. Контактные линзы нужно снять перед ламинированием ресниц.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Особой подготовки не требуется. Рекомендуется приходить без макияжа глаз и бровей. Контактные линзы нужно снять перед ламинированием ресниц.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Это безопасно для своих ресниц и бровей?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Абсолютно. Мы работаем на сертифицированных материалах, которые не только создают визуальный эффект, но и ухаживают за волосками.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Абсолютно. Мы работаем на сертифицированных материалах, которые не только создают визуальный эффект, но и ухаживают за волосками.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Какой состав вы используете?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Мы используем профессиональные составы премиум-сегмента: кератиновые фиксаторы, гипоаллергенные красители на водной основе и ботокс-сыворотки с ухаживающими компонентами. Все материалы имеют сертификаты соответствия.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Мы используем профессиональные составы премиум-сегмента: кератиновые фиксаторы, гипоаллергенные красители на водной основе и ботокс-сыворотки с ухаживающими компонентами. Все материалы имеют сертификаты соответствия.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Можно ли делать при беременности и лактации?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Прямого запрета нет, но гормональный фон может изменить реакцию волоса на состав. Мы рекомендуем проконсультироваться с врачом и обязательно предупредить мастера — для беременных мы проводим предварительный патч-тест.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Прямого запрета нет, но гормональный фон может изменить реакцию волоса на состав. Мы рекомендуем проконсультироваться с врачом и обязательно предупредить мастера — для беременных мы проводим предварительный патч-тест.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Есть ли противопоказания?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Процедуру не проводят при аллергии на компоненты состава, воспалительных процессах в области глаз, инфекционных заболеваниях кожи, после офтальмологических операций (нужно выждать не менее 3 месяцев) и при химиотерапии.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Процедуру не проводят при аллергии на компоненты состава, воспалительных процессах в области глаз, инфекционных заболеваниях кожи, после офтальмологических операций (нужно выждать не менее 3 месяцев) и при химиотерапии.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Что нельзя делать после процедуры?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Первые 24 часа: не мочить, не тереть, не посещать баню/сауну/солярий, не наносить макияж. Первую неделю не используйте масла и жирные средства для демакияжа — они растворяют липидный слой, запечатывающий кутикулу.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Первые 24 часа: не мочить, не тереть, не посещать баню/сауну/солярий, не наносить макияж. Первую неделю не используйте масла и жирные средства для демакияжа — они растворяют липидный слой, запечатывающий кутикулу.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Даёте ли вы гарантию на результат?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Мы гарантируем качество процедуры: используем только проверенные составы, соблюдаем технологию и время выдержки. Если эффект держится меньше заявленного срока при соблюдении рекомендаций по уходу — мы бесплатно проведём коррекцию в течение 2 недель.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Мы гарантируем качество процедуры: используем только проверенные составы, соблюдаем технологию и время выдержки. Если эффект держится меньше заявленного срока при соблюдении рекомендаций по уходу — мы бесплатно проведём коррекцию в течение 2 недель.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Как часто можно повторять процедуру?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Оптимальный интервал — 1.5 — 2 месяца. Чаще делать не рекомендуется: волосу нужно время на восстановление. Накопительный эффект работает — при регулярном уходе волоски становятся плотнее и дольше держат форму.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Оптимальный интервал — 1.5 — 2 месяца. Чаще делать не рекомендуется: волосу нужно время на восстановление. Накопительный эффект работает — при регулярном уходе волоски становятся плотнее и дольше держат форму.</p></div>
                 </article>
                 <article class="faq-item border-b border-black cursor-pointer group" onclick="toggleFaq(this)">
-                    <div class="py-6 flex justify-between items-center cursor-hover">
+                    <div class="py-5 flex justify-between items-center cursor-hover">
                         <h3 class="font-display text-lg md:text-xl uppercase">Как записаться на процедуру?</h3>
-                        <span class="faq-icon text-2xl">+</span>
+                        <span class="faq-icon text-xl flex-shrink-0 ml-4">+</span>
                     </div>
-                    <div class="faq-answer"><p class="pb-6 font-light text-gray-600 leading-relaxed">Записаться можно через Telegram — @KateOstin666, ВКонтакте — vk.com/katespanjen, или просто позвонить по телефону +7 963 732 94 66. Мы на связи ежедневно с 10:00 до 21:00.</p></div>
+                    <div class="faq-answer"><p class="pb-5 font-light text-gray-600 leading-relaxed">Записаться можно через Telegram — @KateOstin666, ВКонтакте — vk.com/katespanjen, или просто позвонить по телефону +7 963 732 94 66. Мы на связи ежедневно с 10:00 до 21:00.</p></div>
                 </article>
             </div>
         </div>
@@ -917,12 +823,12 @@
 
     </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer id="contact" class="bg-black text-white pt-16 pb-10 px-6">
-        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 border-b border-gray-800 pb-16">
+    <!-- Footer -->
+    <footer id="contact" class="bg-black text-white pt-16 pb-8 px-6">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-gray-800 pb-12">
             <div>
                 <h2 class="font-display text-4xl md:text-7xl uppercase mb-6 leading-none">Готовы к<br>переменам?</h2>
-                <div class="flex flex-col gap-4">
+                <div class="flex flex-col gap-3">
                     <button onclick="openModal('telegram')" class="cursor-hover inline-block border border-white px-8 py-4 font-display uppercase hover:bg-white hover:text-black transition">
                         Telegram / Запись
                     </button>
@@ -935,32 +841,30 @@
                 <div class="text-left md:text-right space-y-4">
                     <p class="font-display text-2xl md:text-3xl uppercase tracking-wider">Москва</p>
                     <div class="flex flex-col gap-1">
-                        <p class="font-mono text-xs md:text-sm text-gray-500 uppercase tracking-tighter">Тверская-Ямская улица, 25 ст2</p>
-                        <a href="https://yandex.ru/maps/-/CCU6uXh8wC" target="_blank" rel="noopener noreferrer nofollow" class="text-[10px] font-mono text-gray-400 border-b border-gray-700 w-fit md:ml-auto hover:text-white transition" rel="noopener noreferrer nofollow">ОТКРЫТЬ В НАВИГАТОРЕ ↗</a>
+                        <p class="font-mono text-sm text-gray-500 uppercase tracking-tighter">Тверская-Ямская улица, 25 ст2</p>
+                        <a href="https://yandex.ru/maps/-/CCU6uXh8wC" target="_blank" rel="noopener noreferrer nofollow" class="text-[10px] font-mono text-gray-400 border-b border-gray-700 w-fit ml-auto hover:text-white transition">ОТКРЫТЬ В НАВИГАТОРЕ ↗</a>
                     </div>
                     <p><a href="tel:+796****9466" onclick="reachGoal('zvonok_tel')" class="font-display text-2xl md:text-3xl hover:text-gray-400 transition cursor-hover">+7 963 732 94 66</a></p>
                     <div class="flex flex-col gap-2 pt-4">
-                        <a href="https://t.me/ostinkosmo" target="_blank" rel="noopener noreferrer nofollow" class="font-mono text-xs md:text-sm text-gray-400 hover:text-white transition tracking-wider">Наш канал в Telegram ↗</a>
-                        <a href="https://vk.com/katespanjen" target="_blank" rel="noopener noreferrer nofollow" class="font-mono text-xs md:text-sm text-gray-400 hover:text-white transition tracking-wider">Смотреть портфолио и отзывы в ВКонтакте ↗</a>
-                        <a href="https://vk.me/katespanjen" target="_blank" rel="noopener noreferrer nofollow" class="font-mono text-xs md:text-sm text-gray-400 hover:text-white transition tracking-wider">Задать вопрос мастеру в ВКонтакте ↗</a>
+                        <a href="https://t.me/ostinkosmo" target="_blank" rel="noopener noreferrer nofollow" class="font-mono text-sm text-gray-400 hover:text-white transition tracking-wider">Наш канал в Telegram ↗</a>
+                        <a href="https://vk.com/katespanjen" target="_blank" rel="noopener noreferrer nofollow" class="font-mono text-sm text-gray-400 hover:text-white transition tracking-wider">Смотреть портфолио и отзывы в ВКонтакте ↗</a>
+                        <a href="https://vk.me/katespanjen" target="_blank" rel="noopener noreferrer nofollow" class="font-mono text-sm text-gray-400 hover:text-white transition tracking-wider">Задать вопрос мастеру в ВКонтакте ↗</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="max-w-[1600px] mx-auto mt-8 flex justify-between text-[10px] md:text-xs font-mono text-gray-600 uppercase">
+        <div class="max-w-[1600px] mx-auto mt-8 flex flex-col md:flex-row justify-between gap-4 text-xs font-mono text-gray-600 uppercase">
             <span>© 2026 OSTIN KOSMO</span>
             <a href="/privacy/" class="hover:text-white transition">Политика конфиденциальности</a>
         </div>
     </footer>
 
-    <!-- Floating CTA (mobile only) -->
-    <div class="sticky-cta-wrapper fixed bottom-6 right-6 z-[55]">
-        <button onclick="openModal('telegram')" class="bg-black text-white px-5 py-3 rounded-full font-display uppercase tracking-widest text-xs shadow-lg hover:bg-gray-800 transition cursor-pointer">
-            Записаться
-        </button>
+    <!-- Floating CTA button -->
+    <div class="float-cta">
+        <button onclick="openModal('telegram')" class="float-cta-btn">Записаться</button>
     </div>
 
-    <!-- ===== BOOKING MODAL ===== -->
+    <!-- ===== BOOKING MODAL (exact original) ===== -->
     <div id="booking-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex justify-center items-center px-4">
         <div class="modal-content bg-white w-full max-w-md p-8 md:p-10 relative">
             <button onclick="closeModal()" class="modal-close-btn" aria-label="Закрыть">[×]</button>
@@ -1027,21 +931,8 @@
         </div>
     </div>
 
-    <!-- ===== SCRIPTS ===== -->
+    <!-- ===== SCRIPTS (original) ===== -->
     <script>
-    function togglePhilosophy() {
-        const content = document.getElementById('phil-content');
-        const arrow = document.getElementById('phil-arrow');
-        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-        if (isOpen) {
-            content.style.maxHeight = '0px';
-            arrow.style.transform = 'rotate(0deg)';
-        } else {
-            content.style.maxHeight = content.scrollHeight + 'px';
-            arrow.style.transform = 'rotate(180deg)';
-        }
-    }
-
     function toggleMobileMenu() {
         const menu = document.getElementById('mobile-menu');
         const b1 = document.getElementById('burger-1'), b2 = document.getElementById('burger-2');
@@ -1049,6 +940,14 @@
         const open = menu.classList.contains('open');
         b1.style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
         b2.style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
+    }
+
+    function togglePhilosophy() {
+        const body = document.getElementById('phil-body');
+        const arrow = document.getElementById('phil-arrow');
+        const isOpen = body.style.display !== 'none';
+        body.style.display = isOpen ? 'none' : 'block';
+        arrow.textContent = isOpen ? '↓' : '↑';
     }
 
     // ── Modal State ──
@@ -1262,7 +1161,7 @@
         if (!isActive) { element.classList.add('active'); element.querySelector('.faq-icon').textContent = '−'; }
     }
 
-    // ── Custom Cursor ──
+    // ── Cursor ──
     const cursor = document.getElementById('cursor');
     const hoverEls = document.querySelectorAll('.cursor-hover, a, button, .portfolio-item, .faq-item, .group, .service-btn, .time-btn, .cal-day');
     document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
@@ -1296,10 +1195,10 @@
     // ── Smooth scroll ──
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const target = document.querySelector(targetId);
+            const target = document.querySelector(href);
             if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
@@ -1308,7 +1207,7 @@
     const months = ['ЯНВАРЬ','ФЕВРАЛЬ','МАРТ','АПРЕЛЬ','МАЙ','ИЮНЬ','ИЮЛЬ','АВГУСТ','СЕНТЯБРЬ','ОКТЯБРЬ','НОЯБРЬ','ДЕКАБРЬ'];
     document.getElementById('dynamic-month').textContent = months[new Date().getMonth()];
 
-    // ── Special offer (vk_ads traffic) ──
+    // ── Special offer (vk_ads) ──
     const monthGenitive = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
     const offerMonth = document.getElementById('offer-month');
     if (offerMonth) offerMonth.textContent = monthGenitive[new Date().getMonth()];
