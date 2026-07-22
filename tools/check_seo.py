@@ -19,7 +19,7 @@ from typing import Any
 TOKEN_DIR = Path(__file__).parent / ".seo_tokens"
 TOKEN_DIR.mkdir(exist_ok=True)
 
-SITE_URL = "https://www.ostinkosmo.ru"
+SITE_URL = "https://ostinkosmo.ru"
 OLD_SITE = "https://www.ostinkosmo.online"
 
 

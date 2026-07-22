@@ -3,7 +3,7 @@ from datetime import date
 from pathlib import Path
 
 SITE_DIR = Path(__file__).parent
-BASE_URL = "https://www.ostinkosmo.ru"
+BASE_URL = "https://ostinkosmo.ru"
 TODAY = date.today().isoformat()
 
 SITEMAP_HEAD = '''<?xml version="1.0" encoding="UTF-8"?>

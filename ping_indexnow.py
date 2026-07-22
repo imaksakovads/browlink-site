@@ -1,9 +1,9 @@
 """IndexNow ping tool — уведомляет поисковики об изменениях на сайте.
 
 Usage:
-    python3 ping_indexnow.py --url https://www.ostinkosmo.ru/
+    python3 ping_indexnow.py --url https://ostinkosmo.ru/
     python3 ping_indexnow.py --urls https://example.com/a https://example.com/b
-    python3 ping_indexnow.py --sitemap https://www.ostinkosmo.ru/sitemap.xml
+    python3 ping_indexnow.py --sitemap https://ostinkosmo.ru/sitemap.xml
     python3 ping_indexnow.py --all        # все URL из sitemap
 """
 import argparse
@@ -19,7 +19,7 @@ from typing import Optional
 import certifi
 
 INDEXNOW_KEY = "2ea4787e-3231-41fb-b812-744372ff4a32"
-BASE_URL = "https://www.ostinkosmo.ru"
+BASE_URL = "https://ostinkosmo.ru"
 INDEXNOW_API = "https://api.indexnow.org/indexnow"
 YANDEX_INDEXNOW = "https://yandex.com/indexnow"
 

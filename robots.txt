@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.ostinkosmo.ru/sitemap.xml
+Sitemap: https://ostinkosmo.ru/sitemap.xml
