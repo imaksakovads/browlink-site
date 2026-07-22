@@ -110,6 +110,22 @@
             "@type": "Answer",
             "text": "Оптимальный интервал — раз в 1,5–2 месяца по мере отрастания волосков. Чаще делать не рекомендуется, чтобы не пересушить волос. Повторная процедура на свежий результат не имеет смысла — лосьонам нечего размягчать."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли доплачивать за окрашивание или коррекцию?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, фиксированная стоимость 2 200 рублей уже включает коррекцию формы (воск или пинцет), окрашивание в натуральный оттенок и ботокс-сыворотку. Никаких дополнительных оплат по ходу процедуры."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Требуется ли специальный уход дома?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Первые 24 часа не мочить брови. В дальнейшем достаточно наносить аргановое масло или масло усьмы пару раз в неделю, чтобы поддерживать эластичность волоса. Без масла тоже будет хорошо, но волос быстрее начнет терять влагу."
+          }
         }
       ]
     }
@@ -549,11 +565,77 @@
             color: var(--text-muted);
         }
 
-        .footer-inner {
+        .footer-grid {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            gap: 24px;
         }
+
+        .footer-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-title);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 2px solid var(--text-main);
+            padding: 12px 24px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .footer-btn-primary {
+            background: var(--text-main);
+            color: #fff;
+        }
+
+        .footer-btn-primary:hover { opacity: 0.85; }
+
+        .footer-btn-outline {
+            background: #fff;
+            color: var(--text-main);
+        }
+
+        .footer-btn-outline:hover { opacity: 0.85; }
+
+        .footer-info {
+            text-align: right;
+        }
+
+        .footer-info .copyright { font-size: 13px; color: var(--text-muted); }
+
+        .footer-info .footer-address {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        .footer-info .footer-address a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+
+        .footer-info .footer-links { margin-top: 10px; }
+
+        .footer-info .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-info .footer-links a:hover { color: var(--text-main); }
 
         /* --- Адаптивность для мобильных экранов --- */
         @media (max-width: 900px) {
@@ -568,6 +650,23 @@
             .faq-item summary { font-size: 15px; padding: 20px 0; }
         }
         @media (max-width: 600px) {
+            .footer-grid {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+            .footer-info { text-align: center; }
+            .footer-buttons {
+                justify-content: center;
+                width: 100%;
+            }
+            .footer-btn {
+                flex: 1 1 auto;
+                min-width: 140px;
+                font-size: 12px;
+                padding: 12px 16px;
+            }
             .steps-grid { grid-template-columns: 1fr; }
             .header-inner { flex-direction: column; gap: 15px; }
             .page-subtitle { white-space: normal; }
@@ -726,10 +825,11 @@
         <!-- Hero-карточка услуги -->
         <section class="hero-card">
             <div class="hero-info">
-                <h2>Трендовый объем, коррекция и уходовая процедура за 45 минут</h2>
+                <h2>Что такое ламинирование бровей и как оно меняет структуру волоса?</h2>
                 <div class="service-tags">Укрепление + Объем + Коррекция + Кератиновый ботокс</div>
                 <p class="hero-desc">Ламинирование бровей с базовой коррекцией и коллагеновым уходом стоит 2200 рублей и занимает ровно 45 минут. За один визит вы получаете полное изменение текстуры волоса. Процедура делает жесткие волоски пластичными на 6 недель, визуально расширяет бровь в 1,5 раза и позволяет обходиться без фиксирующих гелей. Студия находится в 5 минутах от метро Белорусская (выход №4) и Маяковская — в пешей доступности для жителей Тверского района и ЦАО.</p>
-                <p class="hero-desc" style="margin-top:15px;">Ко мне часто садятся в кресло девушки с густыми, растущими вниз бровями. Они годами пытаются приклеить их ко лбу бетонными гелями. Гель высыхает, стягивает кожу белой пленкой, а через пару часов волоски все равно отстреливают обратно. Проблема в том, что косметика работает только на поверхности. Чтобы усмирить упрямый вихор, нужно лезть в химию волоса. Мы не просто причесываем брови. Мы временно разрушаем и собираем заново их внутренний каркас.</p>
+                <p class="hero-desc" style="margin-top:15px;"><strong>Валик для бровей</strong> — силиконовый цилиндр, на который выкладывают волоски для задания направления роста. <strong>Кератин</strong> — белок, заполняющий пустоты в волосяном стержне и уплотняющий волос. <strong>Фиксатор (нейтрализатор)</strong> — кислотный состав, останавливающий химическую реакцию и закрепляющий волос в новом положении. <strong>Коррекция с ламинированием</strong> — комбинированная процедура, включающая удаление лишних волосков, окрашивание, укладку и уходовую сыворотку.</p>
+                <p class="hero-desc" style="margin-top:15px;">База, которую важно понимать до записи: валик для бровей не универсален — мастер подбирает его диаметр под структуру вашего волоса и желаемый результат. Кератин в составе работает только при правильном времени выдержки — спешка даёт ломкость вместо уплотнения. Фиксатор обязан наноситься строго после того, как лосьон №1 полностью сработал, иначе изгиб не закрепится. Коррекция в комбинации с ламинированием решает две задачи сразу — форма и укладка — что выгоднее, чем делать их по отдельности, и подтверждено практикой тысяч клиентов OSTIN KOSMO.</p>
                 
                 <!-- Блок изображения для Image SEO -->
                 <div class="hero-image-wrapper">
@@ -749,7 +849,7 @@
 
         <!-- Анатомия процедуры: что происходит с волосом -->
         <section class="steps-card">
-      <h2 class="card-title">Анатомия процедуры: что происходит с волосом</h2>
+      <h2 class="card-title">Как проходит процедура ламинирования бровей?</h2>
       <div class="steps-grid">
         <div class="step-item">
       <div class="step-num">01 / ЭТАП</div>
@@ -776,7 +876,7 @@
 
         <!-- Жизнь после ламинирования: сравнение -->
         <section class="content-card" style="padding:50px;margin-bottom:30px;">
-            <h2 class="card-title" style="margin-bottom:20px;">Жизнь после ламинирования</h2>
+            <h2 class="card-title" style="margin-bottom:20px;">Как меняются брови после ламинирования?</h2>
             <div class="compare-table">
                 <div class="compare-row">
                     <div class="compare-param">Направление роста</div>
@@ -846,18 +946,15 @@
 
     <!-- Подвал сайта -->
     <footer class="footer">
-        <div class="container">
-            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px; margin-bottom:30px;">
-        <!-- Кнопки записи -->
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:30px;">
-            <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-title); font-size:13px; text-transform:uppercase; letter-spacing:1.5px; font-weight:500; cursor:pointer; border:2px solid var(--text-main); background:var(--text-main); color:#fff; padding:12px 24px; text-decoration:none; transition:opacity 0.2s;">Telegram / Запись</a>
-            <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-title); font-size:13px; text-transform:uppercase; letter-spacing:1.5px; font-weight:500; cursor:pointer; border:2px solid var(--text-main); background:#fff; color:var(--text-main); padding:12px 24px; text-decoration:none; transition:opacity 0.2s;">ВКонтакте / Запись</a>
-        </div>
-
-            <div class="footer-inner" style="flex:1; min-width:200px;">
+        <div class="container footer-grid">
+            <div class="footer-buttons">
+                <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="nofollow" class="footer-btn footer-btn-primary">Telegram / Запись</a>
+                <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')" target="_blank" rel="nofollow" class="footer-btn footer-btn-outline">ВКонтакте / Запись</a>
+            </div>
+            <div class="footer-info">
                 <div class="copyright">© 2026 OSTINKOSMO. Студия эстетики и моделирования.</div>
-                                <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">Москва, м. Белорусская / Маяковская, Тверская-Ямская ул., 25с2 · <a href="tel:+79637329466" style="color:var(--text-muted); text-decoration:underline;">+7 963 732-94-66</a></div>
-            <div class="footer-links" style="margin-top:10px;">
+                <div class="footer-address">Москва, м. Белорусская / Маяковская, Тверская-Ямская ул., 25с2 · <a href="tel:+796****9466">+7 963 732-94-66</a></div>
+                <div class="footer-links">
                     <a href="/privacy/">Политика конфиденциальности</a>
                 </div>
             </div>
