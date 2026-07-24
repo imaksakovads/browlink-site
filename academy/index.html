@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BROW MASTER COURSE — Базовый курс бровиста | OSTIN KOSMO</title>
+    <style>
+        /* ============================================================
+           BROW MASTER COURSE — v3
+           Brand: OSTIN KOSMO
+           Palette: Black #0A0A0A / White #FFF / Offwhite #F4F4F4
+           Fonts: System sans-serif (no external deps)
+           Layout: Full-width landscape, top navigation
+           Corners: Sharp 4px
+           ============================================================ */
+
+        :root {
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --offwhite: #F4F4F4;
+            --gray-200: #E5E5E5;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+
+            --font-display: -apple-system, 'Helvetica Neue', 'Arial', sans-serif;
+            --font-sans: -apple-system, 'Helvetica Neue', 'Arial', sans-serif;
+
+            --text-base: 15px;
+            --leading-normal: 1.7;
+            --leading-tight: 1.1;
+
+            --shadow-sm: 0 1px 3px rgba(10,10,10,0.06);
+            --shadow-md: 0 4px 12px rgba(10,10,10,0.08);
+
+            --radius: 4px;
+
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 40px;
+            --space-xl: 64px;
+            --space-2xl: 96px;
+
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+            --z-progress: 200;
+            --z-topnav: 100;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 110px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--white);
+            color: var(--black);
+            line-height: var(--leading-normal);
+            font-size: var(--text-base);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ============================================================
+           PROGRESS BAR
+           ============================================================ */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--black);
+            z-index: var(--z-progress);
+            transition: width 0.3s var(--ease-out);
+            pointer-events: none;
+        }
+
+        /* ============================================================
+           TOP NAVIGATION — OSTIN KOSMO style
+           ============================================================ */
+        .topnav {
+            position: sticky;
+            top: 3px;
+            z-index: var(--z-topnav);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .topnav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--space-xl);
+            height: 56px;
+            gap: var(--space-md);
+        }
+
+        .topnav-brand {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--black);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .topnav-brand span {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--gray-500);
+            display: block;
+            margin-top: 1px;
+        }
+
+        .topnav-links {
+            display: flex;
+            gap: 2px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .topnav-links::-webkit-scrollbar { display: none; }
+
+        .topnav-link {
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            text-decoration: none;
+            padding: 8px 14px;
+            white-space: nowrap;
+            border-radius: var(--radius);
+            transition: all 0.15s var(--ease-out);
+            border: 1px solid transparent;
+        }
+
+        .topnav-link:hover {
+            color: var(--black);
+            background: var(--offwhite);
+        }
+
+        .topnav-link.active {
+            color: var(--white);
+            background: var(--black);
+            border-color: var(--black);
+        }
+
+        /* ============================================================
+           MAIN CONTENT — Full-width landscape
+           ============================================================ */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+
+        /* ============================================================
+           COVER — OSTIN KOSMO brand
+           ============================================================ */
+        .cover {
+            background: var(--black);
+            color: var(--white);
+            padding: var(--space-2xl) var(--space-xl);
+            margin-bottom: var(--space-xl);
+            border-radius: var(--radius);
+        }
+
+        .cover-tag {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 14px;
+            border-radius: var(--radius);
+            margin-bottom: 36px;
+        }
+
+        .cover h1 {
+            font-family: var(--font-display);
+            font-size: 88px;
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 28px;
+            max-width: 900px;
+        }
+
+        .cover p {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .cover-meta {
+            display: flex;
+            gap: 48px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-label {
+            font-family: var(--font-display);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-400);
+        }
+
+        .meta-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        /* ============================================================
+           SECTIONS
+           ============================================================ */
+        .section {
+            padding: var(--space-2xl) 0;
+            border-bottom: 1px solid var(--gray-200);
+            scroll-margin-top: 110px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: var(--leading-tight);
+            color: var(--black);
+        }
+
+        .section-subtitle {
+            font-family: var(--font-display);
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--black);
+            margin: 48px 0 20px 0;
+        }
+
+        h4 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--black);
+            margin: 32px 0 16px 0;
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: var(--black);
+            max-width: 800px;
+        }
+
+        /* ============================================================
+           LEAD
+           ============================================================ */
+        .lead {
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--black);
+            background: var(--offwhite);
+            padding: 24px 28px;
+            border-left: 3px solid var(--black);
+            margin: 28px 0;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+
+        /* ============================================================
+           TABLES
+           ============================================================ */
+        .table-container {
+            overflow-x: auto;
+            margin: 32px 0;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            max-width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--offwhite);
+            color: var(--black);
+            font-family: var(--font-display);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 12px;
+        }
+
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--black);
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background: rgba(244,244,244,0.4); }
+
+        /* ============================================================
+           CARDS — Border → fill pattern
+           ============================================================ */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin: 28px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin: 28px 0;
+        }
+
+        .card {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 28px 26px;
+            transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+            background: var(--white);
+        }
+
+        .card:hover {
+            border-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--black);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            line-height: 1.2;
+        }
+
+        .badge {
+            font-family: var(--font-display);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: var(--radius);
+            white-space: nowrap;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* ============================================================
+           TABS
+           ============================================================ */
+        .tabs {
+            margin: 36px 0;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            border-bottom: 1px solid var(--gray-200);
+            margin-bottom: 28px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 1px solid transparent;
+            padding: 10px 18px;
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            cursor: pointer;
+            border-radius: var(--radius);
+            transition: all 0.15s var(--ease-out);
+            white-space: nowrap;
+            min-height: 44px;
+        }
+
+        .tab-btn:hover {
+            color: var(--black);
+            background: var(--offwhite);
+        }
+
+        .tab-btn.active {
+            color: var(--white);
+            background: var(--black);
+            border-color: var(--black);
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeSlideIn 0.3s var(--ease-out);
+        }
+
+        .tab-pane.active { display: block; }
+
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================================
+           CHECKLISTS
+           ============================================================ */
+        .checklist {
+            list-style: none;
+            margin: 28px 0;
+            background: var(--offwhite);
+            padding: 32px;
+            border-radius: var(--radius);
+            max-width: 800px;
+        }
+
+        .checklist-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--black);
+            margin-bottom: 22px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            font-size: 14px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checklist-item:last-child { margin-bottom: 0; }
+
+        .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--black);
+            border-radius: 3px;
+            margin-right: 14px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.15s ease;
+            background: var(--white);
+            margin-top: 1px;
+        }
+
+        .checklist-item.checked .checkbox-custom {
+            background: var(--black);
+            border-color: var(--black);
+        }
+
+        .checklist-item.checked .checkbox-custom::after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            animation: checkPop 0.2s cubic-bezier(0.2, 0, 0, 1.4);
+        }
+
+        .checklist-item.checked span {
+            text-decoration: line-through;
+            color: var(--gray-500);
+        }
+
+        @keyframes checkPop {
+            from { transform: scale(0); }
+            to   { transform: scale(1); }
+        }
+
+        /* ============================================================
+           STEP-BY-STEP PROTOCOL
+           ============================================================ */
+        .protocol-steps {
+            position: relative;
+            margin: 36px 0;
+            padding-left: 36px;
+            border-left: 2px solid var(--gray-200);
+            max-width: 800px;
+        }
+
+        .step-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .step-item:last-child { margin-bottom: 0; }
+
+        .step-num {
+            position: absolute;
+            left: -47px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            border: 2px solid var(--white);
+        }
+
+        .step-content h5 {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--black);
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        /* ============================================================
+           CALLOUT CARDS
+           ============================================================ */
+        .color-mix-card {
+            background: var(--offwhite);
+            border-left: 3px solid var(--black);
+            padding: 22px 24px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 18px 0;
+            max-width: 800px;
+        }
+
+        /* ============================================================
+           FOOTER BRAND
+           ============================================================ */
+        .brand-footer {
+            text-align: center;
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--gray-200);
+            color: var(--gray-500);
+            font-size: 13px;
+        }
+
+        .brand-footer strong {
+            font-family: var(--font-display);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+
+        @media (max-width: 1100px) {
+            .cover h1 { font-size: 60px; }
+            .section-title { font-size: 36px; }
+            .main-content { padding: var(--space-xl) var(--space-lg); }
+            .topnav-inner { padding: 0 var(--space-lg); }
+        }
+
+        @media (max-width: 768px) {
+            .topnav-links {
+                gap: 0;
+            }
+            .topnav-link {
+                font-size: 11px;
+                letter-spacing: 1px;
+                padding: 8px 10px;
+            }
+            .topnav-brand {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+            .main-content {
+                padding: var(--space-lg) var(--space-md);
+            }
+            .cover {
+                padding: var(--space-xl) var(--space-md);
+            }
+            .cover h1 {
+                font-size: 40px;
+            }
+            .cover p {
+                font-size: 15px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topnav-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px var(--space-sm);
+                gap: 8px;
+            }
+            .topnav-links {
+                width: 100%;
+            }
+            .main-content {
+                padding: var(--space-md) var(--space-sm);
+            }
+            .cover {
+                padding: var(--space-lg) var(--space-md);
+            }
+            .cover h1 {
+                font-size: 32px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .cover-meta {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .section {
+                padding: var(--space-lg) 0;
+            }
+            .card {
+                padding: 20px 18px;
+            }
+            .checklist {
+                padding: 24px 20px;
+            }
+            body {
+                font-size: 14px;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 12mm 15mm;
+            }
+            .topnav, .progress-bar { display: none !important; }
+            .main-content { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+            .section { 
+                break-inside: avoid; 
+                border-bottom: 1px solid #ccc !important;
+                padding: 24px 0 !important;
+                margin-bottom: 0 !important;
+            }
+            .cover {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background: #0A0A0A !important;
+                color: #FFFFFF !important;
+                padding: 40px 30px !important;
+                border-radius: 0 !important;
+            }
+            .cover h1 { font-size: 42pt !important; color: #FFFFFF !important; }
+            .cover p { color: rgba(255,255,255,0.7) !important; }
+            .cover-meta { border-top-color: rgba(255,255,255,0.15) !important; }
+            .meta-value { color: #FFFFFF !important; }
+            .meta-label { color: #9CA3AF !important; }
+            h3, h4 { break-after: avoid; }
+            .card, .checklist, .protocol-steps, .color-mix-card, .table-container { 
+                break-inside: avoid; 
+            }
+            body { 
+                background: white !important; 
+                font-size: 10pt !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top Navigation -->
+<nav class="topnav" id="topnav">
+    <div class="topnav-inner">
+        <a href="#" class="topnav-brand">
+            OSTIN KOSMO
+            <span>Academy Guide 2026</span>
+        </a>
+        <div class="topnav-links">
+            <a href="#block-0" class="topnav-link active">Введение</a>
+            <a href="#block-1" class="topnav-link">Анатомия</a>
+            <a href="#block-2" class="topnav-link">Санитария</a>
+            <a href="#block-3" class="topnav-link">Окрашивание</a>
+            <a href="#block-4" class="topnav-link">Ламинирование</a>
+            <a href="#block-5" class="topnav-link">Уход</a>
+            <a href="#block-6" class="topnav-link">Бизнес</a>
+            <a href="#block-7" class="topnav-link">Практика</a>
+            <a href="#block-9" class="topnav-link">Особые</a>
+            <a href="#block-10" class="topnav-link">Чек-лист</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content — Full Width Landscape -->
+<main class="main-content">
+
+    <!-- Cover -->
+    <section class="cover" id="cover">
+        <h1>Профессия Мастер-Бровист</h1>
+        <p>Полное практическое руководство от анатомии волоса и химии составов до построения успешного бьюти-бизнеса и работы со сложными клиентами.</p>
+        <div class="cover-meta">
+            <div class="meta-item">
+                <span class="meta-label">Формат</span>
+                <span class="meta-value">Интенсив (теория + практика)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Актуальность</span>
+                <span class="meta-value">2025–2026 год</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Уровень</span>
+                <span class="meta-value">С нуля до Топ-мастера</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 0 -->
+    <section id="block-0" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Введение в профессию</h2>
+            <span class="section-subtitle">Блок 0</span>
+        </div>
+
+        <div class="lead">
+            Бровист — одна из самых востребованных профессий в эстетической нише с низким порогом входа, быстрым стартом и высокой возвращаемостью клиентов.
+        </div>
+
+        <h3>Анализ рынка бьюти-услуг (2025-2026)</h3>
+        <p>По данным агрегаторов (Авито Услуги, hh.ru), спрос на услуги бровистов стабильно превышает предложение в регионах. В мегаполисах конкуренция выше, но и средний чек значительно крупнее. В малых городах грамотный мастер с современным сервисом способен занять лидирующую нишу всего за <b>2–3 месяца</b>.</p>
+
+        <h4>Ключевые тренды индустрии:</h4>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title">Натуральность <span class="badge">Тренд #1</span></div>
+                <p>Клиенты массово отказываются от графичных, темных «штампованных» форм в пользу естественных, «своих» ухоженных бровей с мягкой текстурой.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Комплексные услуги <span class="badge">Удобство</span></div>
+                <p>Окрашивание + долговременная укладка + глубокий SPA-уход в одной процедуре. Клиент ценит готовое решение.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Скорость без потери качества <span class="badge">Тайминг</span></div>
+                <p>Запрос на экспресс-процедуры за <b>30–40 минут</b>. Современный ритм жизни диктует высокие требования к таймингу мастера.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Прозрачность сервиса <span class="badge">Доверие</span></div>
+                <p>Клиент хочет точно понимать, какие составы наносятся на его лицо, как они работают и почему выбран именно этот протокол.</p>
+            </div>
+        </div>
+
+        <h3>Карьерная карта мастера-бровиста</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Уровень</th>
+                        <th>Опыт</th>
+                        <th>Ключевые услуги</th>
+                        <th>Средний чек</th>
+                        <th>Месячный доход</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Новичок</b></td>
+                        <td>0–3 мес.</td>
+                        <td>Оформление (окрашивание + коррекция)</td>
+                        <td>800 – 1 200 ₽</td>
+                        <td>20 000 – 40 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td><b>Практикующий мастер</b></td>
+                        <td>3–12 мес.</td>
+                        <td>Оформление, ламинирование, уход</td>
+                        <td>1 200 – 2 000 ₽</td>
+                        <td>50 000 – 80 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td><b>Топ-мастер</b></td>
+                        <td>1–3 года</td>
+                        <td>Полный спектр, мужские/подростковые, осветление</td>
+                        <td>2 000 – 3 500 ₽</td>
+                        <td>90 000 – 130 000+ ₽</td>
+                    </tr>
+                    <tr>
+                        <td><b>Преподаватель / Тренер</b></td>
+                        <td>3+ лет</td>
+                        <td>Обучение, наставничество, запуск курсов</td>
+                        <td>от 3 500 ₽ (курс)</td>
+                        <td>150 000+ ₽</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p><b>Реалистичный сценарий роста:</b> 3–6 месяцев до стабильной базы из 20–30 постоянных клиентов. Первые 1–2 месяца — инвестиционная фаза (закупка материалов, отработка скорости и работа на портфолио по себестоимости). Рост возможен только при активной рекламе и качественной обратной связи с клиентами.</p>
+    </section>
+
+    <!-- Блок 1 -->
+    <section id="block-1" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Анатомия, физиология кожи и волос. Колористика</h2>
+            <span class="section-subtitle">Блок 1</span>
+        </div>
+
+        <div class="lead">
+            Цель модуля: безошибочно определять тип кожи клиента, подбирать правильный химический протокол подготовки и понимать влияние фаз роста волоса на стойкость результата.
+        </div>
+
+        <h3>1.1. Типы кожи и подготовка к окрашиванию</h3>
+        <p>Кожа состоит из трех слоев: <b>Эпидермис</b> (верхний рабочий слой, обновляется, содержит пигмент), <b>Дерма</b> (сосуды, фолликулы, коллаген) и <b>Гиподерма</b> (жировая клетчатка). Для бровиста критичен эпидермис: его состояние и работа сальных желез (выделение себума) определяют стойкость отпечатка.</p>
+
+        <div class="tabs">
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="openTab(event, 'skin-fat')">Жирная / Комбинированная</button>
+                <button class="tab-btn" onclick="openTab(event, 'skin-dry')">Сухая кожа</button>
+                <button class="tab-btn" onclick="openTab(event, 'skin-norm')">Нормальная кожа</button>
+            </div>
+            <div id="skin-fat" class="tab-pane active">
+                <div class="card">
+                    <h4>Характеристики и протокол для Жирной кожи</h4>
+                    <p><b>Как определить:</b> заметный блеск, расширенные поры, комедоны, черные точки. Высокий уровень себума мешает сцепке красителя с кожей.</p>
+                    <hr style="margin: 16px 0; border: none; border-top: 1px solid var(--gray-200);">
+                    <p><b>Пошаговая подготовка:</b></p>
+                    <ol style="padding-left: 20px; margin-top: 8px;">
+                        <li>Демакияж мицеллярной водой (если есть косметика).</li>
+                        <li>Очищение специальной пенкой для бровей с помощью круговых движений щеточкой.</li>
+                        <li>Снятие остатков влажным ватным диском.</li>
+                        <li><b>Обязательное обезжиривание!</b> (Себум — главный враг стойкого окрашивания на коже).</li>
+                    </ol>
+                </div>
+            </div>
+            <div id="skin-dry" class="tab-pane">
+                <div class="card">
+                    <h4>Характеристики и протокол для Сухой кожи</h4>
+                    <p><b>Как определить:</b> тонкая, матовая кожа, незаметные поры, возможны шелушения и чувство стянутости. Риск пересушить и получить «пятнистый» грязный отпечаток.</p>
+                    <hr style="margin: 16px 0; border: none; border-top: 1px solid var(--gray-200);">
+                    <p><b>Пошаговая подготовка:</b></p>
+                    <ol style="padding-left: 20px; margin-top: 8px;">
+                        <li>Используем только щадящие средства БЕЗ спирта!</li>
+                        <li>Деликатное очищение мягкой пенкой для бровей.</li>
+                        <li>Протираем влажным ватным диском.</li>
+                        <li><b>Обязательное глубокое увлажнение</b> (сыворотка 17 в 1, эмульсия или тоник Payot) до нанесения красителя!</li>
+                    </ol>
+                </div>
+            </div>
+            <div id="skin-norm" class="tab-pane">
+                <div class="card">
+                    <h4>Характеристики и протокол для Нормальной кожи</h4>
+                    <p><b>Как определить:</b> бархатистая, гладкая на ощупь, здоровое сияние, поры малозаметны, нет шелушений. Самый простой и благодарный в работе тип.</p>
+                    <hr style="margin: 16px 0; border: none; border-top: 1px solid var(--gray-200);">
+                    <p><b>Пошаговая подготовка:</b></p>
+                    <ol style="padding-left: 20px; margin-top: 8px;">
+                        <li>Очищаем пенкой для бровей с помощью щеточки.</li>
+                        <li>Протираем влажным ватным диском.</li>
+                        <li>Наносим базовый увлажняющий тоник.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <h3>1.2. Строение волоса и фазы роста</h3>
+        <p>Волос состоит из невидимого <b>корня</b> (живая луковица в фолликуле) и видимого <b>стержня</b> (омертвевшие клетки). Мы работаем именно со стержнем волоса, который имеет 3 слоя:</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-title">Кутикула <span class="badge">Защита</span></div>
+                <p>Внешний чешуйчатый слой. Отвечает за блеск и скольжение. При окрашивании и ламинировании химические составы раскрывают кутикулу.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Кортекс <span class="badge">Сердце</span></div>
+                <p>Основной слой, отвечающий за прочность, эластичность, влагу и цвет (здесь находится пигмент меланин и дисульфидные связи).</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Медулла <span class="badge">Центр</span></div>
+                <p>Центральный стержень из неороговевших клеток. Отвечает за терморегуляцию. В пушковых волосах часто отсутствует.</p>
+            </div>
+        </div>
+
+        <h4>Фазы роста волоса:</h4>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Фаза</th>
+                        <th>Биологический процесс</th>
+                        <th>Значение для бровиста</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Анаген</b><br><small>Активный рост</small></td>
+                        <td>Клетки луковицы активно делятся. Волос максимально крепко сидит в коже.</td>
+                        <td>Удаление пинцетом болезненно. Окрашивание и ламинирование на таких волосах держатся максимально долго (весь цикл).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Катаген</b><br><small>Переход</small></td>
+                        <td>Фолликул сморщивается, питание прекращается. Волос движется к поверхности.</td>
+                        <td>Волос уже не растет, но еще стабильно удерживается в дерме.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Телоген</b><br><small>Выпадение</small></td>
+                        <td>Волос удерживается слабо. Под ним в фолликуле зарождается новый волос в фазе анагена.</td>
+                        <td>Удаление пинцетом абсолютно безболезненно. Если волос выпадает через неделю после лами — это телоген, нормальный физиологический процесс!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>1.3. Основы колористики и УГТ</h3>
+        <p><b>Цветотип внешности</b> складывается из подтона кожи, цвета глаз и натуральной базы волос. Мы подбираем оттенок бровей, ориентируясь на цвет корней волос клиента (если нет иного авторского запроса).</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h4>Цветотипы и рекомендации</h4>
+                <ul style="padding-left: 20px; font-size: 14px;">
+                    <li><b>Зима (холодный, контрастный):</b> графит, холодные темно-коричневые тона.</li>
+                    <li><b>Лето (холодный, мягкий):</b> пепельно-русый, мягкий коричневый без рыжины.</li>
+                    <li><b>Осенний (теплый, насыщенный):</b> теплые коричневые, медные, шоколадные оттенки.</li>
+                    <li><b>Весенний (теплый, светлый):</b> пшеничные, светло-коричневые, мягкие тона.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Цветовой круг Иттена (Нейтрализация)</h4>
+                <p style="font-size: 14px;">Цвета напротив друг друга гасят (нейтрализуют) нежелательный подтон:</p>
+                <ul style="padding-left: 20px; font-size: 14px;">
+                    <li><b style="color:#d32f2f;">Красный / Рыжий</b> → нейтрализуется <b style="color:#388e3c;">Зеленым</b> пигментом (микстоном).</li>
+                    <li><b style="color:#fbc02d;">Желтый (блонд)</b> → нейтрализуется <b style="color:#7b1fa2;">Фиолетовым / Пепельным</b>.</li>
+                    <li><b style="color:#1976d2;">Синий / Серый отпечаток</b> → нейтрализуется <b style="color:#f57c00;">Оранжевым / Теплым золотистым</b>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="color-mix-card">
+            <h4>Что такое УГТ (Уровень глубины тона)?</h4>
+            <p>Это градация натурального цвета волос по светлоте от <b>1 (черный)</b> до <b>10 (платиновый блонд)</b>. Первая цифра в номере краски всегда обозначает УГТ. Помните: густые брови визуально кажутся на 1-2 тона темнее из-за плотности волосков, поэтому для густых бровей часто берут краситель на тон светлее желаемого!</p>
+        </div>
+
+        <ul class="checklist" id="chk-block-1">
+            <div class="checklist-title">★ Чек-лист: Анализ клиента перед процедурой</div>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Визуально определила тип кожи (жирная / сухая / нормальная)</span></li>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Провела правильную подготовку (обезжирила жирную / увлажнила сухую)</span></li>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Определила цветотип и натуральный УГТ корней волос</span></li>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Собрала аллергоанамнез и уточнила прием ретиноидов / гормонов</span></li>
+        </ul>
+    </section>
+
+    <!-- Блок 2 -->
+    <section id="block-2" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Санитария, дезинфекция и безопасность</h2>
+            <span class="section-subtitle">Блок 2</span>
+        </div>
+
+        <div class="lead">
+            Работа по СанПиН 2.1.3678-20 — это ваша юридическая безопасность и главное основание доверия клиентов премиум-сегмента.
+        </div>
+
+        <h3>2.1. Три этапа обработки многоразового инструмента</h3>
+        <p>Все металлические многоразовые инструменты (пинцеты, ножницы) строго проходят трехступенчатый цикл обработки после каждого использования:</p>
+
+        <div class="protocol-steps">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h5>Дезинфекция (Химическое погружение)</h5>
+                    <p>Пинцет погружается в бокс с дезинфицирующим раствором (например, Оптимакс Проф, Аламинол, Эстилодез) строго по инструкции. <b>Важно:</b> раствор должен покрывать инструменты минимум на 1 см! Время выдержки — обычно 15 минут. Вынимать только в перчатках или пинцетом.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h5>ПСО (Предстерилизационная очистка)</h5>
+                    <p>Инструмент промывается проточной водой в течение 1 минуты с механической очисткой щеточкой. Цель — полностью удалить остатки белковых загрязнений, кожи и химии. Без ПСО стерилизация не работает (органика «запекается» и защищает вирусы).</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h5>Стерилизация (Сухожар или Автоклав)</h5>
+                    <p>Инструмент тщательно сушится на одноразовом полотенце, запечатывается в индивидуальный крафт-пакет с индикатором и помещается в стерилизатор. При клиенте вскрывается только остывший крафт-пакет с сменившим цвет индикатором!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h4>Сухожаровой шкаф</h4>
+                <p><b>Режим:</b> 180°C — 60 минут.<br><b>Плюсы:</b> доступность, инструменты не ржавеют при сухой обработке.<br><b>Минусы:</b> длительный цикл, подходит только для термостойкого металла.</p>
+            </div>
+            <div class="card">
+                <h4>Автоклав (Паровой)</h4>
+                <p><b>Режим:</b> 134°C — 5 минут.<br><b>Плюсы:</b> ультра-быстро, щадяще для заточки инструмента.<br><b>Минусы:</b> дорогое оборудование, требует дистиллированной воды.</p>
+            </div>
+        </div>
+
+        <h3>2.2. Химическая безопасность и аптечка</h3>
+        <p>Аллергопроба проводится за 24–48 часов на сгибе локтя или за ухом при первом окрашивании/ламинировании. В кабинете всегда должна быть готовая аптечка первой помощи.</p>
+
+        <div class="color-mix-card" style="border-left-color: #c62828; background: #FFF5F5;">
+            <h4 style="color: #c62828;">⚠️ Первая помощь при острой аллергии / ожоге:</h4>
+            <ol style="padding-left: 20px; font-size: 14px;">
+                <li>Немедленно удалить состав и обильно промыть зону прохладной водой.</li>
+                <li>Принять антигистаминное средство (Зиртек, Супрастин, Цетрин из аптечки).</li>
+                <li>При химическом ожоге или раздражении воском — нанести плотный слой Пантенола.</li>
+                <li>При первых признаках отека Квинке (затруднение дыхания, отек губ/век) — <b>немедленно вызвать скорую (112)</b>!</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Блок 3 -->
+    <section id="block-3" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Построение формы и окрашивание</h2>
+            <span class="section-subtitle">Блок 3</span>
+        </div>
+
+        <div class="lead">
+            Архитектура брови строится по анатомическим точкам лица, а выбор красителя зависит от желаемого эффекта — натуральная тень на волосках или четкая графика на коже.
+        </div>
+
+        <h3>3.1. Анатомическое построение формы (3 опорные точки)</h3>
+        <p>Для создания идеальной симметричной формы мы используем разметочную кисть, белую пасту или нить:</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-title">1. Начало <span class="badge">Точка А</span></div>
+                <p>Линия проходит вертикально от крыла носа через внутренний уголок глаза вверх к телу брови.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">2. Апекс <span class="badge">Точка В</span></div>
+                <p>Наивысшая точка (излом). Линия от крыла носа проходит строго через <b>центр зрачка</b> (клиент смотрит прямо).</p>
+            </div>
+            <div class="card">
+                <div class="card-title">3. Хвост <span class="badge">Точка С</span></div>
+                <p>Линия от крыла носа проходит через внешний уголок глаза. Хвост никогда не должен опускаться ниже уровня Точки А!</p>
+            </div>
+        </div>
+
+        <h3>3.2. Работа с красителями: рецепты и миксы</h3>
+        <p>Мы разделяем красители на 3 основные группы: работающие с волосом (Estel Enigma), гибридные с отпечатком на коже (Loca, SHIK, Bronsun, RefectoCil) и натуральную хну (Brow Xenna).</p>
+
+        <div class="tabs">
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="openTab(event, 'mix-loca')">Гибридная краска Loca</button>
+                <button class="tab-btn" onclick="openTab(event, 'mix-estel')">Estel Enigma</button>
+                <button class="tab-btn" onclick="openTab(event, 'mix-henna')">Биотатуаж Хной</button>
+            </div>
+            <div id="mix-loca" class="tab-pane active">
+                <div class="card">
+                    <h4>Loca — гибридный порошковый краситель</h4>
+                    <p>Окрашивает и волос, и кожу. Базовый набор бровиста требует всего 2 цвета: <b>Коричневый</b> и <b>Натуральный черный</b>.</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>Эффект</th><th>Пропорция микса</th><th>Чем разводить</th><th>Консистенция</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><b>Натуральная тень</b></td><td>80% Коричневый + 20% Черный</td><td>Вода / Увл. эмульсия</td><td>Жидкая (соевый соус)</td></tr>
+                                <tr><td><b>Средняя плотность</b></td><td>50% Коричневый + 50% Черный</td><td>Спец. растворитель</td><td>Средняя (жидкий крем)</td></tr>
+                                <tr><td><b>Графика / Графит</b></td><td>40% Коричневый + 60% Черный</td><td>Оксид (3%)</td><td>Густая (сметана)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><small>💡 <b>Техника нанесения омбре:</b> выкладываем плотный слой по нижней границе, верхнюю тушуем. Счесываем начало брови щеточкой через 2-3 минуты после нанесения для мягкого старта.</small></p>
+                </div>
+            </div>
+            <div id="mix-estel" class="tab-pane">
+                <div class="card">
+                    <h4>Estel Enigma — классический кремовый краситель</h4>
+                    <p>Работает исключительно с волосом, практически не оставляя следов на коже. Идеален для натуральных блондинок, мужчин и клиентов с густыми бровями, желающих избежать графики.</p>
+                    <hr style="margin: 16px 0; border: none; border-top: 1px solid var(--gray-200);">
+                    <p><b>Правила работы:</b></p>
+                    <ul style="padding-left: 20px; font-size: 14px;">
+                        <li>Смешивается в пропорции <b>1:1</b> с родным оксидом.</li>
+                        <li>Можно наносить без разметки плотным слоем на все полотно брови (случайные отпечатки на коже легко убираются ремувером).</li>
+                        <li>Отлично прокрашивает пушковый волос, визуально увеличивая густоту.</li>
+                        <li><b>Время выдержки:</b> 6–8 минут (проверять готовность сухой ватной палочкой у основания).</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mix-henna" class="tab-pane">
+                <div class="card">
+                    <h4>Биотатуаж хной (Натуральный порошок лавсонии)</h4>
+                    <p>Дает самый плотный графичный отпечаток на коже (держится 5–14 дней на коже, до 6 недель на волосках). Не содержит аммиак и PPD, но <b>требует осторожности с аллергиками</b>!</p>
+                    <hr style="margin: 16px 0; border: none; border-top: 1px solid var(--gray-200);">
+                    <p><b>Техника заваривания и нанесения:</b></p>
+                    <ol style="padding-left: 20px; font-size: 14px;">
+                        <li>Смешать порошок с теплой минеральной водой (не кипяток!) до густоты соевого соуса.</li>
+                        <li>Дать настояться 15 минут для раскрытия пигмента.</li>
+                        <li>Наносить <b>послойно</b>: нанесли 1 слой → дождались полного высыхания → нанесли 2 слой в местах, где нужна глубина.</li>
+                        <li>Смывать только после полного высыхания кочки влажным ватным диском с маслом или водой.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="protocol-steps">
+            <h4 style="margin-bottom: 20px;">Краткий протокол окрашивания:</h4>
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content"><h5>Очищение</h5><p>Пенка → смываем водой → обезжириватель (при необходимости).</p></div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content"><h5>Разметка</h5><p>Построение формы пастой или карандашом (для Estel можно пропустить).</p></div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content"><h5>Нанесение</h5><p>Плотный слой по нижней границе и хвосту, мягкий растушеванный слой в начале.</p></div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-content"><h5>Снятие и коррекция</h5><p>Смываем прохладной водой. Выполняем коррекцию формы воском и пинцетом.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 4 -->
+    <section id="block-4" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Коррекция и долговременная укладка (Лами)</h2>
+            <span class="section-subtitle">Блок 4</span>
+        </div>
+
+        <div class="lead">
+            Ламинирование — это химическая перестройка дисульфидных связей волоса. Процедура требует строжайшего соблюдения тайминга и углов вычесывания.
+        </div>
+
+        <h3>4.1. Коррекция: Воск и Пинцет</h3>
+        <p>Мы используем полимерный пленочный воск (рабочая температура 38–42°C, не обжигает кожу) в комбинации с точечной доработкой пинцетом.</p>
+
+        <div class="color-mix-card">
+            <h4>🚫 Строгие противопоказания к депиляции воском:</h4>
+            <p style="font-size: 14px; margin-bottom: 0;"><b>Прием системных или топических РЕТИНОИДОВ (Роаккутан, Акнекутан, Дифферин, Адапален)!</b> Кожа истончается в разы, воск гарантированно сорвет эпидермис до кровавой раны. Также исключаем воск при: недавних пилингах (менее 2 нед.), ботоксе (менее 1 нед.), свежем загаре, родинках, герпесе и сахарном диабете.</p>
+        </div>
+
+        <h4>Техника работы воском:</h4>
+        <ol style="padding-left: 20px; margin-bottom: 24px;">
+            <li>Наносим воск шпателем <b>по росту волос</b>, формируя ровный лепесток с «бортиками» и зоной срыва.</li>
+            <li>Начинаем аппликацию с отступом 5 мм от рабочей формы, плавно подтягивая материал к границе.</li>
+            <li>Фиксируем кожу натяжением и срываем лепесток резким движением <b>строго против роста волос</b>, параллельно коже!</li>
+            <li>Сразу прикладываем палец к зоне срыва (система «антистресс»).</li>
+        </ol>
+
+        <h3>4.2. Химия ламинирования: 3 состава</h3>
+        <div class="grid-3">
+            <div class="card" style="border-left: 4px solid #e57373;">
+                <div class="card-title">Состав №1 <span class="badge" style="background:#ffcdd2; color:#b71c1c;">pH 9-10</span></div>
+                <p><b>Лифтинг / Разрыхление.</b><br>Актив: Тиогликолят аммония.<br>Раскрывает кутикулу, разрывает дисульфидные связи в кортексе. Волос становится мягким и податливым.</p>
+            </div>
+            <div class="card" style="border-left: 4px solid #64b5f6;">
+                <div class="card-title">Состав №2 <span class="badge" style="background:#bbdefb; color:#0d47a1;">pH 3-5</span></div>
+                <p><b>Фиксация / Нейтрализация.</b><br>Актив: Перекись водорода / Бромат натрия.<br>Останавливает щелочную реакцию, восстанавливает связи в новом заданном направлении.</p>
+            </div>
+            <div class="card" style="border-left: 4px solid #81c784;">
+                <div class="card-title">Состав №3 <span class="badge" style="background:#c8e6c9; color:#1b5e20;">pH 5-6</span></div>
+                <p><b>Уход / Питание.</b><br>Актив: Кератин, масла, пантенол.<br>Закрывает кутикулу, восполняет потерю влаги, обволакивает волос защитной пленкой.</p>
+            </div>
+        </div>
+
+        <h4>📐 Правило углов вычесывания при ламинировании:</h4>
+        <p>Чтобы не переломать корни волосков и не получить эффект «вздыбленных» бровей, мы задаем правильный вектор щеткой при выдержке 1-го и 2-го составов:</p>
+
+        <div class="grid-2">
+            <div class="card" style="background: var(--offwhite);">
+                <ul style="list-style: none; font-size: 15px; font-weight: 500;">
+                    <li style="margin-bottom: 10px;">🟢 <b>Начало (Головка):</b> строго вверх под углом <b>90°</b></li>
+                    <li style="margin-bottom: 10px;">🟡 <b>Тело брови:</b> диагонально под углом <b>60°</b></li>
+                    <li style="margin-bottom: 10px;">🟠 <b>Апекс (Излом):</b> мягко к виску под углом <b>40°</b></li>
+                    <li>🔴 <b>Хвостик:</b> горизонтально по росту под углом <b>0°</b></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>⏱️ Формула расчета времени:</h4>
+                <p><b>Время Состава №1:</b> от 3 до 8 мин (зависит от толщины волоса, проверяем на послушность каждые 2 мин).</p>
+                <p style="margin-bottom:0;"><b>Время Состава №2 = (Время №1 ÷ 2) + 1 минута!</b><br><i>Пример: если №1 держали 6 мин, то №2 держим: (6 ÷ 2) + 1 = 4 минуты.</i></p>
+            </div>
+        </div>
+
+        <ul class="checklist" id="chk-block-4">
+            <div class="checklist-title">★ Чек-лист: Идеальное ламинирование без ожогов</div>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Убедилась, что клиент не окрашивал брови хной менее 2 недель назад</span></li>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Нанесла Состав №1 быстро и равномерно, вычесала под углами 90-60-40-0°</span></li>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Смыла Состав №1 строго СУХИМ ватным диском (вода разрушит процесс!)</span></li>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Нанесла Состав №2 на каждый волосок от корня до кончика, рассчитала время</span></li>
+            <li class="checklist-item" onclick="toggleCheck(this)"><div class="checkbox-custom"></div><span>Смыла Состав №2 ВЛАЖНЫМ диском, нанесла питательный уход (Состав №3 / Ботокс)</span></li>
+        </ul>
+    </section>
+
+    <!-- Блок 5 -->
+    <section id="block-5" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Уходовые процедуры и восстановление</h2>
+            <span class="section-subtitle">Блок 5</span>
+        </div>
+
+        <div class="lead">
+            Уходовые процедуры повышают ваш средний чек на 30–40% и заботятся о качестве волоса клиента между химическими воздействиями.
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3 style="margin-top: 0; font-size: 20px; font-family: var(--font-display); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">5.1. Ботокс для бровей</h3>
+                <p>В отличие от ламинирования, ботокс <b>не меняет направление</b> роста волоса и не разрушает дисульфидные связи. Это глубокая реконструкция кортекса.</p>
+                <p><b>Состав:</b> гидролизованный кератин, коллаген, гиалуроновая кислота, токоферол, аргановое масло.</p>
+                <p><b>Когда применять:</b> после ламинирования (вместо Состава №3), после осветления или как самостоятельную SPA-услугу для пересушенных, ломких бровей.</p>
+            </div>
+            <div class="card">
+                <h3 style="margin-top: 0; font-size: 20px; font-family: var(--font-display); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">5.2. ТОП уходовых продуктов</h3>
+                <p><b>🌿 Зеленая маска BROWXENNA SPA:</b><br>90% растительных компонентов. Наносится плотным слоем под пленку на 10-15 минут. Мгновенно уплотняет и питает волос, снимает покраснение кожи после коррекции.</p>
+                <hr style="margin: 12px 0; border: none; border-top: 1px solid var(--gray-200);">
+                <p><b>💧 Сыворотка LENA LEVI 7в1:</b><br>Многофункциональный уход. Отлично работает как фиксатор цвета после окрашивания, продлевая носку на 3–5 дней, и как домашний уход для стимуляции роста.</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Основная процедура</th><th>Идеальный сопутствующий уход в салоне</th><th>Домашняя рекомендация клиенту</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Окрашивание краской / хной</b></td><td>Фиксатор цвета (LENA LEVI 7в1 или SHIK)</td><td>Избегать скрабов в зоне бровей, наносить легкое масло перед душем.</td></tr>
+                    <tr><td><b>Ламинирование бровей</b></td><td>Состав №3 ИЛИ Ботокс / Зеленая маска под пленку</td><td><b>24 часа без бани, сауны и солярия!</b> Ежедневно укладывать гелем/воском с аргановым маслом.</td></tr>
+                    <tr><td><b>Осветление бровей</b></td><td>Глубокое кератиновое наполнение (обязательно!)</td><td>Питательные маски 2 раза в неделю, защита от ультрафиолета (SPF).</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Блок 6 -->
+    <section id="block-6" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Бизнес, продвижение и маркетинг</h2>
+            <span class="section-subtitle">Блок 6</span>
+        </div>
+
+        <div class="lead">
+            Умение делать красивые брови — это 50% успеха. Остальные 50% — это грамотное позиционирование, сервис, CRM-система и легальный статус.
+        </div>
+
+        <h3>6.1. Каналы привлечения первых клиентов</h3>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-title">Локальное СЕО <span class="badge">Авито / Карты</span></div>
+                <p>Оформление карточек на Авито, Яндекс.Услугах и 2ГИС. Горячий трафик людей, ищущих мастера «рядом с домом». Собирайте первые отзывы от знакомых.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Кросс-промоушн <span class="badge">Партнеры</span></div>
+                <p>Взаимопиар с мастерами смежных ниш: маникюр, волосы, ресницы. Обмен сертификатами со скидкой для клиентов друг друга.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Микро-блогеры <span class="badge">Бартер</span></div>
+                <p>Приглашайте локальных девушек с активной аудиторией от 1 до 5 тыс. подписчиков на бесплатную процедуру за искренний видео-отзыв в сторис.</p>
+            </div>
+        </div>
+
+        <h3>6.2. SMM и формула контента 75/25</h3>
+        <p>В социальных сетях (Instagram, Telegram, VK) работайте по золотому правилу: <b>75% экспертного и вовлекающего контента</b> (процесс работы, бэкстейдж, польза ухода, до/после, личная жизнь мастера) и только <b>25% прямых продаж</b> (свободные окошки, акции, прайс).</p>
+
+        <div class="card" style="background: var(--offwhite); border-left: 4px solid var(--black);">
+            <h4 style="font-family: var(--font-display); letter-spacing: 1px; text-transform: uppercase;">💬 Эффективные скрипты для рассылок (в Instagram / WA):</h4>
+            <p><i>«Привет, [Имя]! Я Катя, сертифицированный мастер-бровист в нашем районе. Сейчас я расширяю клиентскую базу и дарю скидку -30% на комплекс (окрашивание + архитектура + уход) за честный отзыв. Цена составит всего 1200 ₽ вместо 1800 ₽. Подсказать свободные окошки на эту неделю?»</i></p>
+            <p><small>📌 <b>Секрет конверсии:</b> всегда обращайтесь по имени, отправляйте не более 20–30 сообщений в день вручную (чтобы избежать бана) и заканчивайте сообщение вопросом!</small></p>
+        </div>
+
+        <h3>6.3. Юридическая легализация бизнеса</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Форма</th><th>Налоги и взносы</th><th>Плюсы</th><th>Минусы</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Самозанятость (НПД)</b><br><small>Идеальный старт</small></td><td>4% от физлиц<br>6% от юрлиц</td><td>Регистрация за 5 мин в приложении «Мой налог», нет отчетов, нет кассы, нет страховых взносов.</td><td>Лимит дохода — 2.4 млн ₽ в год. Нельзя нанимать сотрудников по трудовому договору.</td></tr>
+                    <tr><td><b>ИП на Патенте (ПСН)</b><br><small>Для студии</small></td><td>Фиксированная стоимость патента в год + страх. взносы</td><td>Выгодно при высоких оборотах, можно нанимать мастеров, официальный статус.</td><td>Нужно вести учет, платить фиксированные взносы даже без дохода, нужна онлайн-касса.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Блок 7 -->
+    <section id="block-7" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Практика, аттестация и портфолио</h2>
+            <span class="section-subtitle">Блоки 7 – 8</span>
+        </div>
+
+        <div class="lead">
+            Обучение бровиста — это 20% теории и 80% поставленной руки на реальных моделях с разным типом кожи, волоса и асимметрией.
+        </div>
+
+        <div class="protocol-steps">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content"><h5>Показ преподавателя (Демонстрация)</h5><p>Наблюдение за работой тренера от встречи клиента до красивой съемки готовой работы. Разбор каждого движения кисти и шпателя.</p></div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content"><h5>Практика под контролем (2–3 модели)</h5><p>Самостоятельная отработка полного протокола. Преподаватель ставит руку, контролирует натяжение кожи при работе пинцетом и проверяет симметрию разметки.</p></div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content"><h5>Самостоятельная отработка с фото-контролем</h5><p>Ученик выполняет работы автономно, отправляя макро-фотографии тренеру в детальном ракурсе для разбора ошибок.</p></div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-content"><h5>Финальная аттестация и Защита портфолио</h5><p>Сдача дипломной работы на сложной модели (асимметрия / перещипанные брови) + презентация портфолио из 5 готовых кейсов.</p></div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 30px;">
+            <h4 style="font-family: var(--font-display); letter-spacing: 1px; text-transform: uppercase;">📸 Секреты продающего портфолио (До/После):</h4>
+            <ul style="padding-left: 20px; font-size: 14px;">
+                <li><b>Освещение:</b> используйте качественный видеосвет или кольцевую лампу. Свет должен падать под углом 45°, не создавая жестких теней.</li>
+                <li><b>Ракурс:</b> снимайте строго на одном уровне с лицом клиента. Фотографии «До» и «После» должны быть в абсолютно идентичном масштабе и повороте головы!</li>
+                <li><b>Эстетика кожи:</b> перед съемкой уберите покраснения успокаивающим тоником, промокните жирный блеск сухой салфеткой. Не используйте жесткие размывающие фильтры!</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Блок 9 -->
+    <section id="block-9" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Особые клиенты и Осветление бровей</h2>
+            <span class="section-subtitle">Блоки 9 – 10</span>
+        </div>
+
+        <h3>9.1. Мужская и Подростковая коррекция</h3>
+        <div class="grid-2">
+            <div class="card">
+                <h4 style="font-family: var(--font-display); letter-spacing: 1px; text-transform: uppercase;">🧔 Мужские брови</h4>
+                <p><b>Главное правило — 100% незаметность вмешательства!</b> Никакой графики, четких нижних линий и женских изломов.</p>
+                <p>Убираем только монобровь (межбровку) и явно отдельно растущие волоски на веках и висках. При седине используем тонирование на 1-2 тона светлее натуральной базы (цель — приглушить седину, а не закрасить ее в плотный цвет).</p>
+            </div>
+            <div class="card">
+                <h4 style="font-family: var(--font-display); letter-spacing: 1px; text-transform: uppercase;">👧 Подростковые брови (12–17 лет)</h4>
+                <p>Работать <b>исключительно пинцетом</b> (молодая кожа слишком нежная для восковой депиляции!).</p>
+                <p>Сохраняем природный объем и ширину (тренд на юность). Ламинирование и стойкое окрашивание хной допустимо проводить только с 16 лет и строго при наличии согласия родителей.</p>
+            </div>
+        </div>
+
+        <h3>9.2. Камуфляж шрамов и работа со старым татуажем</h3>
+        <p>Шрамы на бровях лишены волосяных фолликулов, краска на рубцовой ткани держится плохо. Решение: волосковая прорисовка пигментом прямого действия (Estel Browie) или стойким маркером. При работе со старым инвертированным татуажем (синий/зеленый) обязательно добавляем в краситель теплый оранжевый корректор.</p>
+
+        <h3>10. Осветление бровей (Деколоризация)</h3>
+        <p>Осветление применяется, когда натуральный цвет бровей слишком темный для окрашенных блондинок, или для создания модного editorial-эффекта «выбеленных» бровей.</p>
+        <div class="protocol-steps">
+            <div class="step-item">
+                <div class="step-num">!</div>
+                <div class="step-content">
+                    <h5>Протокол безопасного осветления:</h5>
+                    <p>Смешиваем осветляющий крем/пасту с 3% оксидом (пропорция по бренду, обычно 1:1 или 1:2). Наносим плотным слоем на волоски. Время выдержки от 3 до 10 минут (постоянный визуальный контроль!).<br>
+                    <b>ОБЯЗАТЕЛЬНО:</b> после осветления структура волоса становится пустой и пористой. Строго необходимо завершить процедуру <b>кератиновым наполнением или ботоксом</b>!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Приложение -->
+    <section id="block-10" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Приложение: Чек-лист покупок бровиста</h2>
+            <span class="section-subtitle">Стартовый набор</span>
+        </div>
+
+        <div class="lead">
+            Оптимизированный список базовых материалов и инструментов, проверенный на практике. Ничего лишнего для старта работы!
+        </div>
+
+        <h3>1. Инструменты и оборудование</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Позиция</th><th>Назначение / Рекомендация</th><th>Где искать</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Пинцет скошенный ручной заточки (2 шт)</b></td><td>Для точечной и чистовой коррекции.</td><td>WB / Ozon / Проф. магазины</td></tr>
+                    <tr><td><b>Воскоплав мини (на 200–400 мл) + Воск пленочный</b></td><td>Для быстрой коррекции пушка и построения чистых линий.</td><td>WB / Ozon</td></tr>
+                    <tr><td><b>Набор кистей (3 шт)</b></td><td>Скошенная упругая (для краски), тонкая прямая (для разметки), пушистая (для нанесения составов).</td><td>WB / SHIK / Creator</td></tr>
+                    <tr><td><b>Бокс для дезинфекции + Крафт-пакеты (100 шт)</b></td><td>Для соблюдения норм СанПиН по обработке инструмента.</td><td>Проф. медтехника / WB</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>2. Красители, составы и химия</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Позиция</th><th>Назначение / Цвета</th><th>Где искать</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Гибридный краситель Loca (Порошок)</b></td><td>Коричневый + Натуральный черный (мини-форматы по 3 г). Растворитель Loca.</td><td>WB / Ozon</td></tr>
+                    <tr><td><b>Краска Estel Enigma + Оксид</b></td><td>Коричневый + Светло-коричневый (для блондинок и натуральных техник).</td><td>WB / Ozon / Estel</td></tr>
+                    <tr><td><b>Пигмент прямого действия Estel Browie</b></td><td>Коричневый оттенок (для прорисовки пустот и шрамов).</td><td>WB / Ozon</td></tr>
+                    <tr><td><b>Набор для ламинирования Inlei или Freiaviver</b></td><td>Составы №1 (Лифтинг), №2 (Фиксация), №3 (Питание/Кератин).</td><td>Проф. магазины бьюти</td></tr>
+                    <tr><td><b>Дезинфектант концентрат (Оптимакс Проф)</b></td><td>Для приготовления раствора для дезинфекции пинцетов и поверхностей.</td><td>WB / Ozon</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>3. Расходные материалы и уход</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Позиция</th><th>Назначение</th><th>Где искать</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Пенка для бровей + Шампунь</b></td><td>Глубокое и мягкое очищение кожи перед процедурой.</td><td>WB / Ozon</td></tr>
+                    <tr><td><b>Белая разметочная паста + Нить</b></td><td>Для построения архитектурного эскиза формы бровей.</td><td>WB / Ozon</td></tr>
+                    <tr><td><b>Одноразовые расходники</b></td><td>Щеточки (50 шт), микробраши (100 шт), ватные диски и палочки, шпатели деревянные (100 шт), перчатки нитриловые.</td><td>WB / Ozon / Магазины расходников</td></tr>
+                    <tr><td><b>Пантенол / Зеленая маска BROWXENNA SPA / LENA LEVI 7в1</b></td><td>Успокаивающий и восстанавливающий финишный уход после процедур.</td><td>WB / Ozon</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="brand-footer">
+            <p><strong>OSTIN KOSMO</strong> Academy Guide • Разработано на основе практического курса и СанПиН 2.1.3678-20 • 2026 год</p>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    // Progress Bar
+    (function() {
+        var bar = document.getElementById('progressBar');
+        window.addEventListener('scroll', function() {
+            var pct = Math.min((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100, 100);
+            bar.style.width = pct + '%';
+        }, { passive: true });
+    })();
+
+    // Topnav Scroll-Spy
+    (function() {
+        var links = document.querySelectorAll('.topnav-link');
+        var sections = document.querySelectorAll('.section');
+        window.addEventListener('scroll', function() {
+            var current = '';
+            sections.forEach(function(s) {
+                if (pageYOffset >= s.offsetTop - 130) current = s.getAttribute('id');
+            });
+            links.forEach(function(l) {
+                l.classList.remove('active');
+                if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+            });
+        }, { passive: true });
+    })();
+
+    // Tab Switcher
+    function openTab(evt, tabName) {
+        var c = evt.currentTarget.closest('.tabs');
+        c.querySelectorAll('.tab-pane').forEach(function(p) { p.classList.remove('active'); });
+        c.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.getElementById(tabName).classList.add('active');
+        evt.currentTarget.classList.add('active');
+    }
+
+    // Checkboxes
+    function toggleCheck(item) { item.classList.toggle('checked'); }
+</script>
+
+<!-- Password Protection -->
+<div id="login-overlay" style="position:fixed;inset:0;z-index:9999;background:#0A0A0A;display:flex;align-items:center;justify-content:center;font-family:-apple-system,sans-serif;">
+  <div style="text-align:center;max-width:400px;padding:40px;">
+    <div style="font-size:32px;color:#fff;font-weight:700;margin-bottom:8px;">OSTIN KOSMO</div>
+    <div style="font-size:14px;color:#999;margin-bottom:32px;">Academy Access</div>
+    <input id="pass-input" type="password" placeholder="Введите код доступа" autofocus 
+      style="width:100%;padding:14px 16px;background:transparent;border:1px solid #444;color:#fff;font-size:16px;text-align:center;border-radius:4px;outline:none;box-sizing:border-box;"
+      onkeydown="if(event.key==='Enter')checkPass()">
+    <button onclick="checkPass()" style="width:100%;margin-top:12px;padding:14px;background:#fff;color:#000;border:none;font-size:14px;font-weight:600;cursor:pointer;border-radius:4px;text-transform:uppercase;letter-spacing:1px;">
+      Открыть курс
+    </button>
+    <p id="pass-error" style="color:#e74c3c;font-size:13px;margin-top:16px;display:none;">Неверный код. Попробуйте ещё раз.</p>
+  </div>
+</div>
+
+<script>
+const validHashes = [
+  'eae25802d6067dbcee3989fbeff70156dd8a082aff0622cad7dce97c3715ae9c',
+  'f1903beb2f697b2271d04678bdd3c1b3404945c30f01461e6d73f9397b9a4ab4',
+];
+async function sha256(str) {
+  const buf = new TextEncoder().encode(str);
+  const hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+async function checkPass() {
+  const input = document.getElementById('pass-input').value.trim();
+  if (!input) return;
+  const hash = await sha256(input);
+  if (validHashes.includes(hash)) {
+    sessionStorage.setItem('ostin_academy', '1');
+    document.getElementById('login-overlay').style.display = 'none';
+  } else {
+    document.getElementById('pass-error').style.display = 'block';
+  }
+}
+if (sessionStorage.getItem('ostin_academy') === '1') {
+  document.getElementById('login-overlay').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

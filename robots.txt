@@ -1,6 +1,7 @@
 # Правила для Яндекса
 User-agent: Yandex
 Disallow: /admin/
+Disallow: /academy/
 Disallow: /*?
 Clean-param: tag /blog/
 Clean-param: page /blog/
@@ -18,6 +19,7 @@ Sitemap: https://www.ostinkosmo.ru/sitemap.xml
 # Правила для всех остальных роботов
 User-agent: *
 Disallow: /admin/
+Disallow: /academy/
 Disallow: /*?
 Allow: /blog/?$
 Sitemap: https://www.ostinkosmo.ru/sitemap.xml
