@@ -232,6 +232,8 @@
     .carousel-peek { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
     .carousel-peek::-webkit-scrollbar { display: none; }
     .carousel-peek-item { flex: 0 0 85%; scroll-snap-align: start; }
+    @media (min-width: 768px) { .carousel-peek-item { flex: 0 0 42%; } }
+    @media (min-width: 1100px) { .carousel-peek-item { flex: 0 0 30%; } }
 
     /* Floating CTA */
     .float-cta { position: fixed; bottom: 24px; right: 20px; z-index: 90; }
@@ -603,59 +605,120 @@
         </div>
     </section>
 
-    <!-- ===== SCREEN 5: Reviews Carousel ===== -->
+    <!-- ===== SCREEN 5: Reviews ===== -->
     <section id="reviews" class="py-16 px-6 max-w-[1600px] mx-auto border-x border-gray-200">
-        <div class="flex justify-between items-end mb-6">
-            <h2 class="reveal-on-scroll font-display text-4xl md:text-5xl uppercase leading-none">Отзывы<br>Клиентов</h2>
+        <div class="flex justify-between items-end mb-8">
+            <h2 class="reveal-on-scroll font-display text-4xl md:text-5xl uppercase leading-none">Что о нас<br>говорят клиенты</h2>
+            <a href="/reviews/" class="hidden md:inline-block border border-black px-6 py-3 font-display uppercase tracking-widest text-xs hover:bg-black hover:text-white transition">Все отзывы →</a>
         </div>
 
-        <!-- Mobile: carousel -->
-        <div class="carousel-peek mobile-only">
+        <!-- Reviews Carousel — visible on all devices -->
+        <div class="carousel-peek">
+            <!-- Yandex #1 -->
             <div class="carousel-peek-item">
-                <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
-                    <div class="mb-4 text-xl text-black">★★★★★</div>
-                    <p class="font-light text-sm md:text-base mb-6 leading-relaxed">"Уже полгода посещаю мастера по ламинированию ресниц — это восторг! Идеальный завиток, долго держатся, красиво смотрятся. Очень советую! Местоположение отличное, в центре, удобно добираться."</p>
+                <article class="p-6 border border-gray-200 bg-white h-full flex flex-col justify-between" style="min-height:220px;">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-sm text-black">★★★★★</span>
+                            <span class="text-[10px] font-mono uppercase tracking-wider bg-gray-100 px-2 py-0.5">Яндекс</span>
+                        </div>
+                        <p class="font-light text-sm leading-relaxed mb-4">«Уже полгода посещаю мастера по ламинированию ресниц — это восторг! Идеальный завиток, долго держатся, красиво смотрятся. Очень советую! Местоположение отличное, в центре, удобно добираться.»</p>
+                    </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-display text-lg">A</div>
-                        <div><span class="block font-display uppercase text-sm">Александра З.</span><span class="text-xs text-gray-500 font-mono">ЯНДЕКС</span></div>
+                        <div class="w-9 h-9 bg-gray-100 flex items-center justify-center font-display text-base">А</div>
+                        <span class="font-display uppercase text-xs tracking-wide">Александра З.</span>
                     </div>
                 </article>
             </div>
+            <!-- Yandex #2 -->
             <div class="carousel-peek-item">
-                <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
-                    <div class="mb-4 text-xl text-black">★★★★★</div>
-                    <p class="font-light text-sm md:text-base mb-6 leading-relaxed">"Все супер. Ресницы не путаются, красиво лежат, получила множество комплиментов. Спасибо за твою работу ❤️"</p>
+                <article class="p-6 border border-gray-200 bg-white h-full flex flex-col justify-between" style="min-height:220px;">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-sm text-black">★★★★★</span>
+                            <span class="text-[10px] font-mono uppercase tracking-wider bg-gray-100 px-2 py-0.5">Яндекс</span>
+                        </div>
+                        <p class="font-light text-sm leading-relaxed mb-4">«Катя — профессионал своего дела! Хожу на ламинирование бровей, результат держится больше месяца. Всегда аккуратно, чисто, приятная атмосфера в студии.»</p>
+                    </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-display text-lg">A</div>
-                        <div><span class="block font-display uppercase text-sm">Клиент</span><span class="text-xs text-gray-500 font-mono">WHATSAPP</span></div>
+                        <div class="w-9 h-9 bg-gray-100 flex items-center justify-center font-display text-base">М</div>
+                        <span class="font-display uppercase text-xs tracking-wide">Мария К.</span>
                     </div>
                 </article>
             </div>
+            <!-- Yandex #3 -->
             <div class="carousel-peek-item">
-                <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
-                    <div class="mb-4 text-xl text-black">★★★★★</div>
-                    <p class="font-light text-sm md:text-base mb-6 leading-relaxed">"Была у мастера на оформлении бровей и осталась в восторге! Получила именно тот естественный эффект, который хотела. Всё прошло очень комфортно... Однозначно приду ещё! Спасибо 🙏"</p>
+                <article class="p-6 border border-gray-200 bg-white h-full flex flex-col justify-between" style="min-height:220px;">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-sm text-black">★★★★★</span>
+                            <span class="text-[10px] font-mono uppercase tracking-wider bg-gray-100 px-2 py-0.5">Яндекс</span>
+                        </div>
+                        <p class="font-light text-sm leading-relaxed mb-4">«Очень рада, что нашла такого мастера. Ресницы после ламинирования выглядят потрясающе, подружки спрашивают где делала. Однозначно рекомендую!»</p>
+                    </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-display text-lg">E</div>
-                        <div><span class="block font-display uppercase text-sm">Евгения</span><span class="text-xs text-gray-500 font-mono">INSTAGRAM</span></div>
+                        <div class="w-9 h-9 bg-gray-100 flex items-center justify-center font-display text-base">О</div>
+                        <span class="font-display uppercase text-xs tracking-wide">Ольга В.</span>
                     </div>
                 </article>
             </div>
+            <!-- WhatsApp -->
             <div class="carousel-peek-item">
-                <article class="p-6 border border-gray-200 flex flex-col justify-between h-full bg-white" style="min-height:200px;">
-                    <div class="mb-4 text-xl text-black">★★★★★</div>
-                    <p class="font-light text-sm md:text-base mb-6 leading-relaxed">"Я в восторге, Катя! Ресницы нравятся... Подкручены, более яркие, глаза будто больше стали) Спасибо тебе большое... было супер комфортно на процедуре 🥺🫶"</p>
+                <article class="p-6 border border-gray-200 bg-white h-full flex flex-col justify-between" style="min-height:220px;">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-sm text-black">★★★★★</span>
+                            <span class="text-[10px] font-mono uppercase tracking-wider bg-gray-100 px-2 py-0.5">WhatsApp</span>
+                        </div>
+                        <p class="font-light text-sm leading-relaxed mb-4">«Все супер. Ресницы не путаются, красиво лежат, получила множество комплиментов. Спасибо за твою работу ❤️»</p>
+                    </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-display text-lg">K</div>
-                        <div><span class="block font-display uppercase text-sm">Карина</span><span class="text-xs text-gray-500 font-mono">WHATSAPP</span></div>
+                        <div class="w-9 h-9 bg-gray-100 flex items-center justify-center font-display text-base">A</div>
+                        <span class="font-display uppercase text-xs tracking-wide">Клиент</span>
+                    </div>
+                </article>
+            </div>
+            <!-- Instagram -->
+            <div class="carousel-peek-item">
+                <article class="p-6 border border-gray-200 bg-white h-full flex flex-col justify-between" style="min-height:220px;">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-sm text-black">★★★★★</span>
+                            <span class="text-[10px] font-mono uppercase tracking-wider bg-gray-100 px-2 py-0.5">Instagram</span>
+                        </div>
+                        <p class="font-light text-sm leading-relaxed mb-4">«Была у мастера на оформлении бровей и осталась в восторге! Получила именно тот естественный эффект, который хотела. Всё прошло очень комфортно. Однозначно приду ещё! Спасибо 🙏»</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 bg-gray-100 flex items-center justify-center font-display text-base">E</div>
+                        <span class="font-display uppercase text-xs tracking-wide">Евгения</span>
+                    </div>
+                </article>
+            </div>
+            <!-- WhatsApp #2 -->
+            <div class="carousel-peek-item">
+                <article class="p-6 border border-gray-200 bg-white h-full flex flex-col justify-between" style="min-height:220px;">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-sm text-black">★★★★★</span>
+                            <span class="text-[10px] font-mono uppercase tracking-wider bg-gray-100 px-2 py-0.5">WhatsApp</span>
+                        </div>
+                        <p class="font-light text-sm leading-relaxed mb-4">«Я в восторге, Катя! Ресницы нравятся... Подкручены, более яркие, глаза будто больше стали) Спасибо тебе большое, было супер комфортно на процедуре 🥺🫶»</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 bg-gray-100 flex items-center justify-center font-display text-base">K</div>
+                        <span class="font-display uppercase text-xs tracking-wide">Карина</span>
                     </div>
                 </article>
             </div>
         </div>
-        <div class="carousel-hint mobile-only"><span class="carousel-hint-dot active"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span></div>
-        <div class="text-center mt-6">
+
+        <!-- Swipe indicators — visible on all devices -->
+        <div class="carousel-hint"><span class="carousel-hint-dot active"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span><span class="carousel-hint-dot"></span></div>
+        <p class="text-center text-[10px] font-mono text-gray-400 mt-2">← Листайте, чтобы увидеть больше →</p>
+
+        <div class="text-center mt-6 md:hidden">
             <a href="/reviews/" class="inline-block border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-black hover:text-white transition">
-                Все отзывы → Яндекс и клиенты
+                Все отзывы →
             </a>
         </div>
     </section>
