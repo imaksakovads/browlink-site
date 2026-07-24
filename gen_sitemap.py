@@ -1,9 +1,9 @@
-"""Regenerate sitemap.xml and robots.txt for ostinkosmo.ru (GitHub Pages)."""
+"""Regenerate sitemap.xml and robots.txt for www.ostinkosmo.ru (GitHub Pages)."""
 from datetime import date
 from pathlib import Path
 
 SITE_DIR = Path(__file__).parent
-BASE_URL = "https://ostinkosmo.ru"
+BASE_URL = "https://www.ostinkosmo.ru"
 TODAY = date.today().isoformat()
 
 SITEMAP_HEAD = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -67,7 +67,7 @@ def main() -> None:
     if robots.exists():
         content = robots.read_text(encoding="utf-8")
         if "ostinkosmo.online" in content:
-            content = content.replace("ostinkosmo.online", "ostinkosmo.ru")
+            content = content.replace("ostinkosmo.online", "www.ostinkosmo.ru")
             robots.write_text(content, encoding="utf-8")
             print("robots.txt — fixed .online → .ru")
 
