@@ -1,4 +1,23 @@
-User-agent: *
-Disallow:
+# Правила для Яндекса
+User-agent: Yandex
+Disallow: /admin/
+Disallow: /*?
+Clean-param: tag /blog/
+Clean-param: page /blog/
+Clean-param: utm_source
+Clean-param: utm_medium
+Clean-param: utm_campaign
+Clean-param: utm_content
+Clean-param: utm_term
+Clean-param: yclid
+Clean-param: _openstat
+Clean-param: from
+Host: https://ostinkosmo.ru
+Sitemap: https://ostinkosmo.ru/sitemap.xml
 
+# Правила для всех остальных роботов
+User-agent: *
+Disallow: /admin/
+Disallow: /*?
+Allow: /blog/?$
 Sitemap: https://ostinkosmo.ru/sitemap.xml
