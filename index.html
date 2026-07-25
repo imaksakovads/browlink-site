@@ -203,26 +203,37 @@
     .hero-h1 { font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 600; line-height: 1.2; margin-bottom: 20px; color: #111111; text-transform: uppercase; }
     .hero-intro { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 1rem; color: #333333; line-height: 1.5; margin-bottom: 32px; }
 
-    /* Price grid: show all 4 cards natively (no carousel) */
-    .price-card-name { font-family: 'Oswald', sans-serif; font-size: 18px; text-transform: uppercase; }
-    .price-card-price .val { font-family: 'Oswald', sans-serif; font-size: 20px; }
-    .price-card-price .time { font-size: 11px; color: #9ca3af; font-family: 'Inter', sans-serif; }
-    .price-card-tag { font-size: 10px; color: #9ca3af; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    /* Price cards — premium redesign */
+    .price-card-name { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #111111; }
+    .price-card-price { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+    .price-card-price .val { font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; color: #111111; line-height: 1; }
+    .price-card-price .time { font-size: 11px; color: #888888; font-family: 'Oswald', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+    .price-card-tag { font-size: 11px; color: #888888; font-family: 'Oswald', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .price-card-desc { font-size: 14px; color: #4A4A4A; font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 0; }
+    .price-card-divider { height: 1px; background: #eaeaea; margin: 20px 0 0 0; flex-shrink: 0; }
+    .price-card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 0; }
+    .price-card-link { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #111111; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
+    .price-card-link:hover { gap: 12px; }
+    .price-card-cta { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #fff; border: 1px solid #fff; background: #111111; padding: 12px 22px; cursor: pointer; transition: all 0.2s ease; flex-shrink: 0; }
+    .price-card-cta:hover { background: transparent; color: #111111; border-color: #111111; }
+    .price-card-cta-white { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #111111; border: 1px solid #111111; background: #fff; padding: 12px 22px; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; text-decoration: none; }
+    .price-card-cta-white:hover { background: #111111; color: #fff; }
     @media (max-width: 900px) {
-        .price-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        .price-card { background: #fff; border: 1px solid #e5e7eb; padding: 16px; display: flex; flex-direction: column; position: relative; }
-        .price-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-        .price-card-desc { font-size: 13px; color: #6b7280; line-height: 1.5; margin-bottom: 16px; }
-        .price-card-actions { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f3f4f6; padding-top: 12px; }
+        .price-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .price-card { background: #FBFBFB; border: 1px solid #E5E5E5; padding: 24px 20px; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0, 0.03); transition: box-shadow 0.3s ease, transform 0.3s ease; }
+        .price-card:active { box-shadow: 0 8px 30px rgba(0,0,0, 0.06); transform: translateY(-1px); }
+        .price-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+        .price-card-desc { font-size: 13px; color: #4A4A4A; font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 0; }
+        .price-card-actions, .price-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 0; }
         .swipe-hint { display: none; }
     }
     @media (min-width: 901px) {
-        .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e5e7eb; border: 1px solid #e5e7eb; }
-        .price-card { background: #fff; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 300px; transition: all 0.5s; }
-        .price-card:hover { background: #0a0a0a; color: #fff; }
-        .price-card:hover .price-card-desc { color: #fff; opacity: 0.8; }
-        .price-card:hover .price-card-price .time { color: #fff; opacity: 0.6; }
-        .price-card:hover .price-card-actions { border-color: #333; }
+        .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: transparent; border: none; }
+        .price-card { background: #FBFBFB; border: 1px solid #E5E5E5; padding: 36px 32px; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0, 0.03); transition: box-shadow 0.3s ease, transform 0.3s ease; }
+        .price-card:hover { box-shadow: 0 8px 30px rgba(0,0,0, 0.06); transform: translateY(-2px); }
+        .price-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+        .price-card-desc { font-size: 14px; color: #4A4A4A; font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 0; }
+        .price-card-actions, .price-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 0; }
     }
 
     /* Cases & Reviews carousel with peek + swipe hint */
@@ -429,78 +440,91 @@
             </div>
 
             <div class="price-grid">
-                <!-- 1 -->
+                <!-- 1: Оформление бровей -->
                 <div class="price-card">
                     <a href="/services/oformlenie-brovey.html" class="block flex-1">
                         <div class="price-card-top">
                             <h3 class="price-card-name">Оформление бровей</h3>
                             <div class="price-card-price">
-                                <span class="val">1 800₽</span>
+                                <span class="val">1 800 ₽</span>
                                 <div class="time">35 минут</div>
                             </div>
                         </div>
                         <div class="price-card-tag">Окрашивание + коррекция</div>
                         <p class="price-card-desc">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
                     </a>
-                    <div class="price-card-actions">
-                        <a href="/services/oformlenie-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
-                        <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
+                    <div class="price-card-divider"></div>
+                    <div class="price-card-footer">
+                        <div class="flex gap-3">
+                            <a href="/services/oformlenie-brovey.html" class="price-card-cta-white">Подробнее</a>
+                            <button onclick="openModal('telegram')" class="price-card-cta">Онлайн запись в 1 клик</button>
+                        </div>
                     </div>
                 </div>
-                <!-- 2 -->
+                <!-- 2: Ламинирование бровей -->
                 <div class="price-card">
                     <a href="/services/laminirovanie-brovey.html" class="block flex-1">
                         <div class="price-card-top">
                             <h3 class="price-card-name">Ламинирование бровей</h3>
                             <div class="price-card-price">
-                                <span class="val">2 200₽</span>
+                                <span class="val">2 200 ₽</span>
                                 <div class="time">45 минут</div>
                             </div>
                         </div>
                         <div class="price-card-tag">Долговременная укладка</div>
                         <p class="price-card-desc">Фиксация формы, питание и восстановление. Брови выглядят ухоженными.</p>
                     </a>
-                    <div class="price-card-actions">
-                        <a href="/services/laminirovanie-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
-                        <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
+                    <div class="price-card-divider"></div>
+                    <div class="price-card-footer">
+                        <div class="flex gap-3">
+                            <a href="/services/laminirovanie-brovey.html" class="price-card-cta-white">Подробнее</a>
+                            <button onclick="openModal('telegram')" class="price-card-cta">Онлайн запись в 1 клик</button>
+                        </div>
                     </div>
                 </div>
-                <!-- 3 -->
+                <!-- 3: Ламинирование ресниц -->
                 <div class="price-card">
                     <a href="/services/laminirovanie-resnic.html" class="block flex-1">
                         <div class="price-card-top">
                             <h3 class="price-card-name">Ламинирование ресниц</h3>
                             <div class="price-card-price">
-                                <span class="val">2 700₽</span>
+                                <span class="val">2 700 ₽</span>
                                 <div class="time">35 минут</div>
                             </div>
                         </div>
                         <div class="price-card-tag">Изгиб + окрашивание</div>
                         <p class="price-card-desc">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
                     </a>
-                    <div class="price-card-actions">
-                        <a href="/services/laminirovanie-resnic.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
-                        <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
+                    <div class="price-card-divider"></div>
+                    <div class="price-card-footer">
+                        <div class="flex gap-3">
+                            <a href="/services/laminirovanie-resnic.html" class="price-card-cta-white">Подробнее</a>
+                            <button onclick="openModal('telegram')" class="price-card-cta">Онлайн запись в 1 клик</button>
+                        </div>
                     </div>
                 </div>
-                <!-- 4 -->
+                <!-- 4: Коррекция бровей -->
                 <div class="price-card">
                     <a href="/services/korrekciya-brovey.html" class="block flex-1">
                         <div class="price-card-top">
                             <h3 class="price-card-name">Коррекция бровей</h3>
                             <div class="price-card-price">
-                                <span class="val">1 500₽</span>
+                                <span class="val">1 500 ₽</span>
                                 <div class="time">20 минут</div>
                             </div>
                         </div>
                         <div class="price-card-tag">Пинцет или воск</div>
                         <p class="price-card-desc">Поддержание формы между основными процедурами.</p>
                     </a>
-                    <div class="price-card-actions">
-                        <a href="/services/korrekciya-brovey.html" class="text-xs uppercase font-display tracking-widest hover:underline">Подробнее →</a>
-                        <button onclick="openModal('telegram')" class="text-[10px] uppercase font-display tracking-widest border border-black px-3 py-1.5 hover:bg-black hover:text-white transition cursor-pointer">Записаться</button>
+                    <div class="price-card-divider"></div>
+                    <div class="price-card-footer">
+                        <div class="flex gap-3">
+                            <a href="/services/korrekciya-brovey.html" class="price-card-cta-white">Подробнее</a>
+                            <button onclick="openModal('telegram')" class="price-card-cta">Онлайн запись в 1 клик</button>
+                        </div>
                     </div>
                 </div>
+            </div>
             </div>
     </section>
 
