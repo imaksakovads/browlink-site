@@ -106,7 +106,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -114,7 +114,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Manrope', 'sans-serif'], display: ['Oswald', 'sans-serif'] },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Oswald', 'sans-serif'] },
                     colors: { black: '#0a0a0a', offwhite: '#f4f4f4' }
                 }
             }
@@ -173,24 +173,24 @@
     .service-btn.selected { border-color: #0a0a0a; background: #0a0a0a; color: #fff; }
     .time-btn { display: block; width: 100%; padding: 18px 24px; border: 1px solid #e8e8e8; background: #fff; text-align: center; cursor: pointer; transition: all 0.2s; font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 0.03em; color: #0a0a0a; }
     .time-btn:hover { border-color: #0a0a0a; background: #fafafa; }
-    .back-link { cursor: pointer; font-size: 12px; color: #9ca3af; letter-spacing: 0.05em; text-transform: uppercase; font-family: 'Manrope', sans-serif; }
+    .back-link { cursor: pointer; font-size: 12px; color: #9ca3af; letter-spacing: 0.05em; text-transform: uppercase; font-family: 'Inter', sans-serif; }
     .back-link:hover { color: #0a0a0a; }
     .cal-weekday-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
-    .cal-weekday { text-align: center; font-size: 11px; color: #9ca3af; font-family: 'Manrope', sans-serif; text-transform: uppercase; padding: 8px 0; letter-spacing: 0.05em; }
+    .cal-weekday { text-align: center; font-size: 11px; color: #9ca3af; font-family: 'Inter', sans-serif; text-transform: uppercase; padding: 8px 0; letter-spacing: 0.05em; }
     .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
-    .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; font-family: 'Manrope', sans-serif; border-radius: 50%; transition: all 0.15s; color: #0a0a0a; }
+    .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; font-family: 'Inter', sans-serif; border-radius: 50%; transition: all 0.15s; color: #0a0a0a; }
     .cal-day:hover { background: #f4f4f4; }
     .cal-day.past { color: #d1d5db; cursor: default; }
     .cal-day.today { border: 1px solid #0a0a0a; }
     .cal-day.selected { background: #0a0a0a; color: #fff; }
     .contact-form-step { display: none; }
     .contact-form-step.active { display: block; }
-    .phone-input { width: 100%; padding: 14px 16px; border: none; border-bottom: 2px solid #d1d5db; font-family: 'Manrope', sans-serif; font-size: 20px; outline: none; transition: border-color 0.2s; text-align: center; background: transparent; letter-spacing: 0.05em; }
+    .phone-input { width: 100%; padding: 14px 16px; border: none; border-bottom: 2px solid #d1d5db; font-family: 'Inter', sans-serif; font-size: 20px; outline: none; transition: border-color 0.2s; text-align: center; background: transparent; letter-spacing: 0.05em; }
     .phone-input:focus { border-color: #0a0a0a; }
     .contact-submit-btn { display: block; width: 100%; padding: 18px 24px; background: #0a0a0a; color: #fff; border: none; font-family: 'Oswald', sans-serif; font-size: 18px; letter-spacing: 0.03em; cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
     .contact-submit-btn:hover { background: #333; }
     .contact-submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-    .callback-link { display: block; text-align: center; margin-top: 24px; padding: 12px 16px; border: 1px solid #d1d5db; font-size: 14px; color: #4b5563; cursor: pointer; font-family: 'Manrope', sans-serif; transition: all 0.2s; }
+    .callback-link { display: block; text-align: center; margin-top: 24px; padding: 12px 16px; border: 1px solid #d1d5db; font-size: 14px; color: #4b5563; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
     .callback-link:hover { border-color: #0a0a0a; color: #0a0a0a; background: #fafafa; }
     .studio-img { transition: transform 0.8s ease; }
     .studio-item:hover .studio-img { transform: scale(1.05); }
@@ -199,15 +199,15 @@
     .step-fade { transition: opacity 0.25s ease; }
 
     /* Mobile spacing fix - screen 1 */
-    .hero-subtitle { font-size: 12px; color: #9ca3af; font-family: 'Manrope', sans-serif; margin-bottom: 20px; line-height: 1.4; }
-    .hero-h1 { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; line-height: 1.15; margin-bottom: 16px; }
-    .hero-intro { font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 1.7rem; color: #000; line-height: 1.15; margin-bottom: 24px; }
+    .hero-subtitle { font-size: 12px; color: #555555; font-family: 'Inter', sans-serif; font-weight: 400; margin-bottom: 20px; line-height: 1.4; }
+    .hero-h1 { font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 600; line-height: 1.2; margin-bottom: 20px; color: #111111; text-transform: uppercase; }
+    .hero-intro { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 1rem; color: #333333; line-height: 1.5; margin-bottom: 32px; }
 
     /* Price grid: show all 4 cards natively (no carousel) */
     .price-card-name { font-family: 'Oswald', sans-serif; font-size: 18px; text-transform: uppercase; }
     .price-card-price .val { font-family: 'Oswald', sans-serif; font-size: 20px; }
-    .price-card-price .time { font-size: 11px; color: #9ca3af; font-family: 'Manrope', sans-serif; }
-    .price-card-tag { font-size: 10px; color: #9ca3af; font-family: 'Manrope', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .price-card-price .time { font-size: 11px; color: #9ca3af; font-family: 'Inter', sans-serif; }
+    .price-card-tag { font-size: 10px; color: #9ca3af; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
     @media (max-width: 900px) {
         .price-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
         .price-card { background: #fff; border: 1px solid #e5e7eb; padding: 20px; display: flex; flex-direction: column; position: relative; }
@@ -272,8 +272,9 @@
 
     /* Desktop overrides */
     @media (min-width: 901px) {
-        .hero-h1 { font-size: 4.5rem; margin-bottom: 32px; }
-        .hero-intro { font-size: 2.95rem; }
+        .hero-subtitle { font-size: 14px; }
+        .hero-h1 { font-size: 3.265rem; margin-bottom: 24px; }
+        .hero-intro { font-size: 1.25rem; }
         .mobile-only { display: none !important; }
         .float-cta { display: none !important; }
     }
@@ -350,17 +351,17 @@
     <section class="min-h-screen flex items-start pt-28 lg:pt-40 px-6 max-w-[1600px] mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center pb-12">
             <div class="lg:col-span-7 flex flex-col justify-center">
-                <p class="hero-subtitle reveal-text" style="transition-delay: 0.1s">Основано 2021 // Москва, м. Белорусская / Маяковская // Ежедневно 10:00–21:00</p>
-                <h1 class="hero-h1 reveal-text" style="transition-delay: 0.2s">Ламинирование бровей<br>и ресниц с ноской<br>без заломов<br>до 6 недель в Москве</h1>
+                <p class="hero-subtitle reveal-text" style="transition-delay: 0.1s">Студия с 2021 года • м. Белорусская / Маяковская • Ежедневно 10:00–21:00</p>
+                <h1 class="hero-h1 reveal-text" style="transition-delay: 0.2s">Ламинирование бровей и ресниц<br>с ноской без заломов<br>до 6 недель в Москве</h1>
                 <p class="hero-intro reveal-text" style="transition-delay: 0.3s">
-                    Твой личный мастер рядом с м. Белорусская<br>
-                    Результат без пересушенных кончиков, графичных чёрных полос и других сюрпризов
+                    Твой личный мастер в 5 минутах от м. Белорусская.<br>
+                    Получи выразительный взгляд без пересушенных кончиков, графичных чёрных полос и непредсказуемого результата.
                 </p>
 
                 <div id="hero-buttons" class="reveal-text" style="transition-delay: 0.4s">
                     <div class="flex flex-col sm:flex-row gap-3">
-                        <button onclick="openModal('telegram')" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300">
-                           Выбрать время / Записаться
+                        <button onclick="openModal('telegram')" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-sans font-semibold tracking-wide text-sm hover:bg-white hover:text-black transition duration-300 rounded-lg">
+                           Выбрать время и записаться
                         </button>
                         <div class="flex gap-2 items-center sm:pl-2">
                             <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')" target="_blank" rel="noopener noreferrer nofollow" class="w-11 h-11 flex items-center justify-center border border-gray-300 hover:border-black transition text-xs font-display uppercase tracking-widest cursor-hover">TG</a>
