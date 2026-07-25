@@ -267,6 +267,8 @@
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     .fade-in { animation: fadeIn 0.35s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+    .offer-animate { animation: offerSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes offerSlide { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
     /* Desktop overrides */
     @media (min-width: 901px) {
@@ -369,14 +371,22 @@
                     </div>
                 </div>
 
-                <!-- Special offer banner (vk_ads traffic) -->
-                <div id="special-offer" class="hidden mt-6 border border-gray-300 bg-gray-50 p-4">
-                    <div class="flex items-start gap-3">
-                        <span class="text-lg flex-shrink-0 mt-0.5">⚡</span>
-                        <div>
-                            <p class="font-display text-sm uppercase tracking-widest text-gray-500 mb-1">Специальное предложение <span id="offer-month"></span></p>
-                            <p class="text-sm text-black leading-relaxed">Комплекс <strong>«Брови + Ресницы»</strong> = Гель для бровей и&nbsp;скидка&nbsp;10% для новых клиентов</p>
+                <!-- Special offer banner (vk_ads) — 15% personalised -->
+                <div id="special-offer" class="hidden mt-6 border border-black bg-black text-white p-5 md:p-6">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl flex-shrink-0 leading-none mt-0.5">🎁</span>
+                            <div>
+                                <p class="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-1 font-sans">Персональное предложение</p>
+                                <p class="text-base md:text-lg font-display uppercase tracking-wider leading-tight mb-1">
+                                    Вы из VK? Скидка&nbsp;<strong class="text-[#e8c97a]">15%</strong> на первое посещение
+                                </p>
+                                <p class="text-sm text-gray-400 leading-relaxed">На любую процедуру: ламинирование ресниц, бровей или комплекс «Брови + Ресницы»</p>
+                            </div>
                         </div>
+                        <a href="#services" onclick="reachGoal('vk_offer_cta')" class="flex-shrink-0 font-display text-sm uppercase tracking-widest bg-white text-black px-8 py-4 hover:bg-gray-200 transition duration-300 text-center w-full sm:w-auto">
+                            ЗАПИСАТЬСЯ →
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1287,14 +1297,14 @@
     const months = ['ЯНВАРЬ','ФЕВРАЛЬ','МАРТ','АПРЕЛЬ','МАЙ','ИЮНЬ','ИЮЛЬ','АВГУСТ','СЕНТЯБРЬ','ОКТЯБРЬ','НОЯБРЬ','ДЕКАБРЬ'];
     document.getElementById('dynamic-month').textContent = months[new Date().getMonth()];
 
-    // ── Special offer (vk_ads) ──
-    const monthGenitive = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
-    const offerMonth = document.getElementById('offer-month');
-    if (offerMonth) offerMonth.textContent = monthGenitive[new Date().getMonth()];
+    // ── Special offer (vk_ads) — 15% ──
     const params = new URLSearchParams(window.location.search);
     if (params.get('utm_source') === 'vk_ads') {
         const el = document.getElementById('special-offer');
-        if (el) el.classList.remove('hidden');
+        if (el) {
+            el.classList.remove('hidden');
+            setTimeout(() => el.classList.add('offer-animate'), 10);
+        }
     }
 
     // ── Quiz ──
