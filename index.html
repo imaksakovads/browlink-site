@@ -201,7 +201,7 @@
     /* Mobile spacing fix - screen 1 */
     .hero-subtitle { font-size: 12px; color: #9ca3af; font-family: 'Manrope', sans-serif; margin-bottom: 20px; line-height: 1.4; }
     .hero-h1 { font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 700; text-transform: uppercase; line-height: 1.15; margin-bottom: 16px; }
-    .hero-intro { font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
+    .hero-intro { line-height: 1.6; margin-bottom: 24px; }
 
     /* Price grid: show all 4 cards natively (no carousel) */
     .price-card-name { font-family: 'Oswald', sans-serif; font-size: 18px; text-transform: uppercase; }
@@ -273,7 +273,7 @@
     /* Desktop overrides */
     @media (min-width: 901px) {
         .hero-h1 { font-size: 5.5rem; margin-bottom: 32px; }
-        .hero-intro { font-size: 1.25rem; }
+        .hero-intro { }
         .mobile-only { display: none !important; }
         .float-cta { display: none !important; }
     }
@@ -351,13 +351,11 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center pb-12">
             <div class="lg:col-span-7 flex flex-col justify-center">
                 <p class="hero-subtitle reveal-text" style="transition-delay: 0.1s">Основано 2021 // Москва, м. Белорусская / Маяковская // Ежедневно 10:00–21:00</p>
-                <h1 class="hero-h1 reveal-text" style="transition-delay: 0.2s">Естественное ламинирование бровей и ресниц в Москве</h1>
-                <p class="hero-intro reveal-text" style="transition-delay: 0.3s">Создаем выразительный взгляд без наращивания и ежедневного макияжа.</p>
-
-                <div class="reveal-text mb-6" style="transition-delay: 0.35s">
-                    <button onclick="togglePhilosophy()" id="phil-btn" class="inline-flex items-center gap-1 text-xs font-mono text-gray-400 hover:text-black transition cursor-pointer bg-transparent border-none">Читать философию студии <span id="phil-arrow">↓</span></button>
-                    <div id="phil-body" style="display:none; margin-top:10px; font-size:14px; color:#6b7280; line-height:1.6;">В эпоху фильтров мы выбираем честность: наша работа выглядит безупречно даже с расстояния 5 см.</div>
-                </div>
+                <h1 class="hero-h1 reveal-text" style="transition-delay: 0.2s">Ламинирование бровей и ресниц с ноской до 6 недель без заломов в Москве</h1>
+                <p class="hero-intro reveal-text font-mono text-sm text-gray-400 leading-relaxed" style="transition-delay: 0.3s">
+                    Твой личный мастер рядом с м. Белорусская<br>
+                    Результат без пересушенных кончиков, графичных чёрных полос и других сюрпризов
+                </p>
 
                 <div id="hero-buttons" class="reveal-text" style="transition-delay: 0.4s">
                     <div class="flex flex-col sm:flex-row gap-3">
@@ -1030,14 +1028,6 @@
         const open = menu.classList.contains('open');
         b1.style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
         b2.style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
-    }
-
-    function togglePhilosophy() {
-        const body = document.getElementById('phil-body');
-        const arrow = document.getElementById('phil-arrow');
-        const isOpen = body.style.display !== 'none';
-        body.style.display = isOpen ? 'none' : 'block';
-        arrow.textContent = isOpen ? '↓' : '↑';
     }
 
     // ── Modal State ──
