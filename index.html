@@ -235,11 +235,11 @@
     @media (min-width: 768px) { .carousel-peek-item { flex: 0 0 42%; } }
     @media (min-width: 1100px) { .carousel-peek-item { flex: 0 0 30%; } }
 
-    /* Floating CTA */
-    .float-cta { position: fixed; bottom: 24px; right: 20px; z-index: 90; }
-    .float-cta-btn { display: flex; align-items: center; gap: 8px; background: #0a0a0a; color: #fff; border: none; padding: 14px 24px; font-family: 'Oswald', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: opacity 0.2s; }
-    .float-cta-btn:hover { opacity: 0.85; }
-    .float-cta-btn:active { transform: scale(0.97); }
+    /* Floating CTA — Sticky Bottom Bar */
+    .float-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; }
+    .float-cta-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 56px; background: #0a0a0a; color: #fff; border: 1px solid #fff; padding: 0 24px; font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; }
+    .float-cta-btn:hover { opacity: 0.9; }
+    .float-cta-btn:active { opacity: 0.75; }
     @media (min-width: 901px) { .float-cta { display: none !important; } }
 
     /* Quiz styling (original) */
@@ -360,7 +360,7 @@
 
                 <div id="hero-buttons" class="reveal-text" style="transition-delay: 0.4s">
                     <div class="flex flex-col sm:flex-row gap-3">
-                        <button onclick="openModal('telegram')" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-sans font-semibold tracking-wide text-sm hover:bg-white hover:text-black transition duration-300 rounded-lg">
+                        <button onclick="openModal('telegram')" class="cursor-hover inline-block bg-black text-white border border-black px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-white hover:text-black transition duration-300 rounded-lg">
                            Выбрать время и записаться
                         </button>
                         <div class="flex gap-2 items-center sm:pl-2">
@@ -950,7 +950,7 @@
 
     <!-- Floating CTA button -->
     <div class="float-cta">
-        <button onclick="openModal('telegram')" class="float-cta-btn">Записаться</button>
+        <button onclick="openModal('telegram')" class="float-cta-btn">Записаться в 1 клик</button>
     </div>
 
     <!-- ===== BOOKING MODAL (exact original) ===== -->
