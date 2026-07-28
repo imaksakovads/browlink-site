@@ -62,14 +62,46 @@ def main() -> None:
     (SITE_DIR / "sitemap.xml").write_text(sitemap, encoding="utf-8")
     print(f"sitemap.xml — {sitemap.count('<loc>')} URLs")
 
-    # robots.txt (ensure correct sitemap URL)
+    # robots.txt — create or fix
     robots = SITE_DIR / "robots.txt"
-    if robots.exists():
+    robots_content = """# Правила для Яндекса
+User-agent: Yandex
+Disallow: /admin/
+Disallow: /academy/
+Disallow: /*?
+Clean-param: tag /blog/
+Clean-param: page /blog/
+Clean-param: utm_source
+Clean-param: utm_medium
+Clean-param: utm_campaign
+Clean-param: utm_content
+Clean-param: utm_term
+Clean-param: yclid
+Clean-param: _openstat
+Clean-param: from
+Host: https://www.ostinkosmo.ru
+Sitemap: https://www.ostinkosmo.ru/sitemap.xml
+
+# Правила для всех остальных роботов
+User-agent: *
+Disallow: /admin/
+Disallow: /academy/
+Disallow: /*?
+Allow: /blog/?$
+Sitemap: https://www.ostinkosmo.ru/sitemap.xml
+"""
+    if not robots.exists():
+        robots.write_text(robots_content, encoding="utf-8")
+        print("robots.txt — created")
+    else:
         content = robots.read_text(encoding="utf-8")
         if "ostinkosmo.online" in content:
             content = content.replace("ostinkosmo.online", "www.ostinkosmo.ru")
             robots.write_text(content, encoding="utf-8")
             print("robots.txt — fixed .online → .ru")
+        elif "Sitemap:" not in content:
+            robots.write_text(robots_content, encoding="utf-8")
+            print("robots.txt — regenerated (missing Sitemap)")
 
 
 if __name__ == "__main__":
