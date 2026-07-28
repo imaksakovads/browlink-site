@@ -19,7 +19,7 @@ from typing import Optional
 import certifi
 
 INDEXNOW_KEY = "2ea4787e-3231-41fb-b812-744372ff4a32"
-BASE_URL = "https://ostinkosmo.ru"
+BASE_URL = "https://www.ostinkosmo.ru"
 INDEXNOW_API = "https://api.indexnow.org/indexnow"
 YANDEX_INDEXNOW = "https://yandex.com/indexnow"
 
