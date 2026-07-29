@@ -367,9 +367,9 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center pb-12">
             <div class="lg:col-span-7 flex flex-col justify-center">
                 <p class="hero-subtitle reveal-text" style="transition-delay: 0.1s">Студия с 2021 года • м. Белорусская / Маяковская • Ежедневно 10:00–21:00</p>
-                <h1 class="hero-h1 reveal-text" style="transition-delay: 0.2s">Ламинирование бровей и ресниц<br>с ноской без заломов<br>до 6 недель в Москве</h1>
+                <h1 class="hero-h1 reveal-text" style="transition-delay: 0.2s">Ламинирование бровей и ресниц<br>с ноской до 6 недель в Москве<br>от 1500 руб.</h1>
                 <p class="hero-intro reveal-text" style="transition-delay: 0.3s">
-                    Твой личный мастер в 5 минутах от м. Белорусская.<br>
+                    Твой личный мастер в 5 минутах от <span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:#8B5A3C; color:#fff; font-family:'Oswald',sans-serif; font-size:10px; font-weight:700; line-height:1; vertical-align:middle; margin:0 2px;">5</span> м. Белорусская.<br>
                     Получи выразительный взгляд без пересушенных кончиков, графичных чёрных полос и непредсказуемого результата.
                 </p>
 
@@ -440,23 +440,24 @@
             </div>
 
             <div class="price-grid">
-                <!-- 1: Оформление бровей -->
-                <div class="price-card">
-                    <a href="/services/oformlenie-brovey.html" class="block flex-1">
+                <!-- 1: Ламинирование ресниц — самые дорогие, якорь -->
+                <div class="price-card" style="position:relative;">
+                    <span style="position:absolute; top:12px; right:12px; background:#0a0a0a; color:#fff; font-family:'Oswald',sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; padding:4px 10px;">Выбор клиентов</span>
+                    <a href="/services/laminirovanie-resnic.html" class="block flex-1">
                         <div class="price-card-top">
-                            <h3 class="price-card-name">Оформление бровей</h3>
+                            <h3 class="price-card-name">Ламинирование ресниц</h3>
                             <div class="price-card-price">
-                                <span class="val">1 800 ₽</span>
+                                <span class="val">2 700 ₽</span>
                                 <div class="time">35 минут</div>
                             </div>
                         </div>
-                        <div class="price-card-tag">Окрашивание + коррекция</div>
-                        <p class="price-card-desc">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
+                        <div class="price-card-tag">Изгиб + окрашивание</div>
+                        <p class="price-card-desc">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
                     </a>
                     <div class="price-card-divider"></div>
                     <div class="price-card-footer">
                         <div class="flex gap-3">
-                            <a href="/services/oformlenie-brovey.html" class="price-card-cta-white">Подробнее</a>
+                            <a href="/services/laminirovanie-resnic.html" class="price-card-cta-white">Подробнее</a>
                             <button onclick="openModal('telegram')" class="price-card-cta">Онлайн запись в 1 клик</button>
                         </div>
                     </div>
@@ -482,23 +483,23 @@
                         </div>
                     </div>
                 </div>
-                <!-- 3: Ламинирование ресниц -->
+                <!-- 3: Оформление бровей -->
                 <div class="price-card">
-                    <a href="/services/laminirovanie-resnic.html" class="block flex-1">
+                    <a href="/services/oformlenie-brovey.html" class="block flex-1">
                         <div class="price-card-top">
-                            <h3 class="price-card-name">Ламинирование ресниц</h3>
+                            <h3 class="price-card-name">Оформление бровей</h3>
                             <div class="price-card-price">
-                                <span class="val">2 700 ₽</span>
+                                <span class="val">1 800 ₽</span>
                                 <div class="time">35 минут</div>
                             </div>
                         </div>
-                        <div class="price-card-tag">Изгиб + окрашивание</div>
-                        <p class="price-card-desc">Выразительный завиток, визуальное удлинение, насыщенный цвет.</p>
+                        <div class="price-card-tag">Окрашивание + коррекция</div>
+                        <p class="price-card-desc">Индивидуальный подбор формы и оттенка. Окрашивание премиум-краской.</p>
                     </a>
                     <div class="price-card-divider"></div>
                     <div class="price-card-footer">
                         <div class="flex gap-3">
-                            <a href="/services/laminirovanie-resnic.html" class="price-card-cta-white">Подробнее</a>
+                            <a href="/services/oformlenie-brovey.html" class="price-card-cta-white">Подробнее</a>
                             <button onclick="openModal('telegram')" class="price-card-cta">Онлайн запись в 1 клик</button>
                         </div>
                     </div>
@@ -777,6 +778,7 @@
                     </div>
                     <div class="mt-6 md:mt-0 text-center md:text-right z-10">
                         <span class="block font-display text-3xl md:text-6xl mb-2 whitespace-nowrap">13 500₽</span>
+                        <span class="block font-mono text-xs text-gray-400 uppercase tracking-widest mb-3">≈ 1 125 ₽/мес</span>
                         <button onclick="openModal('telegram')" class="inline-block bg-black text-white px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-gray-800 transition mt-4 cursor-pointer">Вступить в клуб</button>
                     </div>
                 </article>
@@ -785,7 +787,7 @@
                         <span class="inline-block border border-black px-3 py-1 text-xs font-mono uppercase tracking-widest mb-4">Education 2026</span>
                         <h3 class="font-display text-2xl md:text-5xl uppercase mb-3 leading-tight">Обучение<br>Ламинированию</h3>
                         <p class="font-light text-gray-700 text-sm md:text-base leading-relaxed mb-4">Индивидуальный курс по ламинированию ресниц или бровей. Постановка руки, разбор составов, отработка на моделях.</p>
-                        <div class="flex items-center gap-4 text-sm font-mono text-gray-400"><span>// <span id="dynamic-month"></span></span><span>// ПРЕДЗАПИСЬ</span></div>
+                        <div class="flex items-center gap-4 text-sm font-mono text-gray-400"><span>// <span id="dynamic-month"></span></span><span>// Осталось 1 место</span></div>
                     </div>
                     <div class="mt-6 md:mt-0 text-center md:text-right z-10">
                         <span class="block font-display text-3xl md:text-6xl mb-2 whitespace-nowrap">от 10 000₽</span>
@@ -944,7 +946,7 @@
     <footer id="contact" class="bg-black text-white pt-16 pb-8 px-6">
         <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-gray-800 pb-12">
             <div>
-                <h2 class="font-display text-4xl md:text-7xl uppercase mb-6 leading-none">Готовы к<br>переменам?</h2>
+                <h2 class="font-display text-4xl md:text-7xl uppercase mb-6 leading-none">Ваш выразительный<br>взгляд — здесь</h2>
                 <div class="flex flex-col gap-3">
                     <button onclick="openModal('telegram')" class="cursor-hover inline-block border border-white px-8 py-4 font-display uppercase hover:bg-white hover:text-black transition">
                         Telegram / Запись
