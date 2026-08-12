@@ -137,10 +137,19 @@
         .section-lead { color: var(--text-muted); font-size: 15px; margin-bottom: 22px; }
 
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-
         .card { border: 1px solid var(--border-color); padding: 24px; }
         .card h3 { font-size: 17px; margin-bottom: 8px; }
         .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+        .gallery-item { position: relative; overflow: hidden; border: 1px solid var(--border-color); aspect-ratio: 1 / 1; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-label { position: absolute; left: 0; bottom: 0; background: rgba(10,10,10,0.82); color: #fff; font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; padding: 8px 12px; font-family: var(--font-title); }
+
+        .studio-imgs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+        .studio-imgs img { width: 100%; height: 200px; object-fit: cover; display: block; border: 1px solid var(--border-color); }
+        @media (max-width: 700px) { .studio-imgs { grid-template-columns: 1fr; } .studio-imgs img { height: 240px; } }
 
         .price-row { border-top: 1px solid var(--border-color); padding: 16px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
         .price-row:last-of-type { border-bottom: 1px solid var(--border-color); }
@@ -250,6 +259,17 @@
     </section>
 
     <section class="section">
+        <h2 class="section-title">Результаты наших клиентов</h2>
+        <p class="section-lead">Реальные работы мастера у метро Белорусская — ламинирование ресниц и бровей, архитектура и коррекция.</p>
+        <div class="gallery">
+            <div class="gallery-item"><img src="/images/review-1.webp" alt="Ламинирование ресниц у метро Белорусская — результат" width="800" height="800" loading="lazy"><div class="gallery-label">Ламинирование ресниц</div></div>
+            <div class="gallery-item"><img src="/images/review-2.webp" alt="Архитектура бровей у метро Белорусская — форма и цвет" width="747" height="800" loading="lazy"><div class="gallery-label">Архитектура бровей</div></div>
+            <div class="gallery-item"><img src="/images/review-3.webp" alt="Ламинирование ресниц в Москве — выразительный взгляд" width="907" height="800" loading="lazy"><div class="gallery-label">Выразительный взгляд</div></div>
+            <div class="gallery-item"><img src="/images/review-5.webp" alt="Натуральный изгиб после ламинирования ресниц" width="925" height="800" loading="lazy"><div class="gallery-label">Натуральный изгиб</div></div>
+        </div>
+    </section>
+
+    <section class="section">
         <h2 class="section-title">Прайс-лист</h2>
         <div class="price-row"><div><div class="price-row-name">Ламинирование ресниц</div><div class="price-row-desc">Изгиб + окрашивание, 35 минут</div></div><div class="price-row-value">2&nbsp;700&nbsp;₽</div></div>
         <div class="price-row"><div><div class="price-row-name">Ламинирование бровей</div><div class="price-row-desc">Долговременная укладка, 45 минут</div></div><div class="price-row-value">2&nbsp;200&nbsp;₽</div></div>
@@ -273,6 +293,11 @@
             <p><strong>Часы работы:</strong> ежедневно 10:00–21:00</p>
             <p><strong>Запись:</strong> <a href="https://t.me/KateOstin666" onclick="reachGoal('zakaz_whatsapp')">Telegram @KateOstin666</a> · <a href="https://vk.com/katespanjen" onclick="reachGoal('booking_vk')">ВКонтакте</a> · <a href="tel:+79637329466" onclick="reachGoal('zvonok_tel')">+7 963 732 94 66</a></p>
             <p><a href="https://yandex.ru/maps/-/CCU6uXh8wC" target="_blank" rel="nofollow noopener">Открыть в навигаторе ↗</a></p>
+        </div>
+        <div class="studio-imgs">
+            <img src="/images/studio-1.webp" alt="Кабинет OSTINKOSMO у метро Белорусская" width="640" height="391" loading="lazy">
+            <img src="/images/studio-2.webp" alt="Интерьер студии OSTINKOSMO у метро Белорусская" width="640" height="370" loading="lazy">
+            <img src="/images/studio-3.webp" alt="Рабочее место мастера у метро Белорусская" width="640" height="480" loading="lazy">
         </div>
     </section>
 
