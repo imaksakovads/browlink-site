@@ -7,3 +7,8 @@ tools/.seo_tokens/
 tools/yandex_token.txt
 tools/yandex_oauth.env
 tools/deepseek_token.txt
+
+# VK proxy secrets (Cloudflare Worker)
+vk-proxy/.dev.vars
+vk-proxy/.env
+vk-proxy/.wrangler/

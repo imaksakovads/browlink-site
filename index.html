@@ -1337,18 +1337,18 @@ body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; }
         btn.disabled = true; btn.textContent = 'Отправляем...';
 
         const svcName = SERVICE_NAMES[modalState.service] || '—';
-        const channelNames = { telegram: 'Telegram', vk: 'ВКонтакте' };
-        const chName = channelNames[modalState.channel] || 'Telegram';
-        const dateStr = modalState.date ? ' на ' + modalState.date : '';
-        const tgMessage = '⚡ <b>Новая заявка с сайта!</b>\n📱 Канал: ' + chName + '\n👤 Услуга: ' + svcName + dateStr + '\n📞 Телефон: <b>' + fullPhone + '</b>\n⏱ Ответить нужно быстро, пока клиент "горячий".';
+        const chName = 'ВКонтакте';
+        const dateStr = modalState.date || '';
+
+        const VK_PROXY_URL = 'https://ostinkosmo-vk-proxy.ostinkosmo.workers.dev';
 
         try {
-            const resp = await fetch('https://api.telegram.org/bot8417480040:***/sendMessage', {
+            const resp = await fetch(VK_PROXY_URL, {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: '-5284221305', text: tgMessage, parse_mode: 'HTML' })
+                body: JSON.stringify({ phone: fullPhone, service: svcName, date: dateStr, channel: chName })
             });
             const data = await resp.json();
-            console.log('[Telegram callback] response:', JSON.stringify(data));
+            console.log('[VK proxy] response:', JSON.stringify(data));
             if (data.ok) {
                 reachGoal('booking_done_' + modalState.channel);
                 status.textContent = '✅ Заявка отправлена!'; status.style.color = '#22c55e'; status.style.display = 'block'; btn.textContent = 'Отправлено';
@@ -1356,8 +1356,7 @@ body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; }
                     closeModal();
                     const overlay = document.getElementById('success-overlay');
                     overlay.classList.add('open');
-                    const links = { telegram: ['t.me/ostinkosmo','Перейти в Telegram'], vk: ['vk.com/katespanjen','Перейти в ВКонтакте'] };
-                    const l = links[modalState.channel] || links.telegram;
+                    const l = ['vk.com/ostin_kosmo_msk','Перейти в ВКонтакте'];
                     overlay.querySelector('.success-link').href = 'https://' + l[0];
                     overlay.querySelector('.success-link').textContent = l[1];
                 }, 1000);
@@ -1366,7 +1365,7 @@ body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; }
                 btn.disabled = false; btn.textContent = 'Жду варианты';
             }
         } catch(e) {
-            console.error('[Telegram callback] network error:', e);
+            console.error('[VK proxy] network error:', e);
             status.textContent = '❌ Ошибка соединения.'; status.style.color = '#ef4444';
             btn.disabled = false; btn.textContent = 'Жду варианты';
         }
@@ -1455,7 +1454,6 @@ body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; }
     }
 
     // ── Quiz ──
-    const QUIZ_CONFIG = { botToken: '8749828521:***', chatId: '-5284221305' };
     const quizData = [
         { question: "Какая главная задача стоит перед вами при уходе за взглядом?", options: ["Сэкономить время на макияже каждое утро","Уложить жесткие или непослушные волоски бровей","Сделать ресницы яркими и подкрученными без туши","Восстановить волоски после неудачного опыта"] },
         { question: "Опишите состояние ваших ресниц и бровей:", options: ["Светлые, тонкие, не хватает объема","Прямые, растут вниз, не держат изгиб","Густые, жесткие, сложно уложить","Ослабленные после агрессивных составов"] },
@@ -1490,7 +1488,7 @@ body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; }
         if (!name || !contact) { alert('Заполните поля.'); return; }
         let msg = '<b>⚡ Новый лид из квиза</b>\n\n<b>Имя:</b> ' + name + '\n<b>Контакт:</b> ' + contact + '\n\n';
         quizData.forEach((s, i) => { msg += '<i>' + (i+1) + '. ' + s.question + '</i>\n— ' + (answers[i] || 'Нет ответа') + '\n\n'; });
-        fetch('https://api.telegram.org/bot' + QUIZ_CONFIG.botToken + '/sendMessage', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ chat_id:QUIZ_CONFIG.chatId, text:msg, parse_mode:'HTML' }) }).then(r => r.json()).then(d => console.log('[Telegram quiz] response:', JSON.stringify(d))).catch(e => console.error('[Telegram quiz] error:', e));
+        fetch('https://ostinkosmo-vk-proxy.ostinkosmo.workers.dev', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ text: msg, channel: 'Квиз' }) }).then(r => r.json()).then(d => console.log('[VK quiz] response:', JSON.stringify(d))).catch(e => console.error('[VK quiz] error:', e));
         document.getElementById('quiz-steps').innerHTML = '<div style="text-align:center;padding:20px 0;"><div class="question-title">Благодарим вас, ' + name + '.</div><p style="color:#666;font-size:14px;">Разбор будет отправлен в течение нескольких минут.</p></div>';
     }
     renderStep();
