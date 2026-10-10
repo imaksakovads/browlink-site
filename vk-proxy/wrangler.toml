@@ -1,8 +1,0 @@
-name = "ostinkosmo-vk-proxy"
-main = "src/worker.js"
-compatibility_date = "2025-06-01"
-
-# Переменные. Токен НЕ кладём сюда (public repo) — он в .dev.vars / Cloudflare Secret.
-[vars]
-VK_GROUP = "216964714"
-VK_PEER  = "11249666"
