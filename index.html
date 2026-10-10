@@ -1340,7 +1340,7 @@ body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; }
         const chName = 'ВКонтакте';
         const dateStr = modalState.date || '';
 
-        const VK_PROXY_URL = 'https://ostinkosmo-vk-proxy.ostinkosmo.workers.dev';
+        const VK_PROXY_URL = 'https://d5decflrs03o4j87stpa.764nr5vy.apigw.yandexcloud.net/vk-lead';
 
         try {
             const resp = await fetch(VK_PROXY_URL, {
@@ -1488,7 +1488,7 @@ body { background-color: #ffffff; color: #0a0a0a; overflow-x: hidden; }
         if (!name || !contact) { alert('Заполните поля.'); return; }
         let msg = '<b>⚡ Новый лид из квиза</b>\n\n<b>Имя:</b> ' + name + '\n<b>Контакт:</b> ' + contact + '\n\n';
         quizData.forEach((s, i) => { msg += '<i>' + (i+1) + '. ' + s.question + '</i>\n— ' + (answers[i] || 'Нет ответа') + '\n\n'; });
-        fetch('https://ostinkosmo-vk-proxy.ostinkosmo.workers.dev', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ text: msg, channel: 'Квиз' }) }).then(r => r.json()).then(d => console.log('[VK quiz] response:', JSON.stringify(d))).catch(e => console.error('[VK quiz] error:', e));
+        fetch('https://d5decflrs03o4j87stpa.764nr5vy.apigw.yandexcloud.net/vk-lead', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ text: msg, channel: 'Квиз' }) }).then(r => r.json()).then(d => console.log('[VK quiz] response:', JSON.stringify(d))).catch(e => console.error('[VK quiz] error:', e));
         document.getElementById('quiz-steps').innerHTML = '<div style="text-align:center;padding:20px 0;"><div class="question-title">Благодарим вас, ' + name + '.</div><p style="color:#666;font-size:14px;">Разбор будет отправлен в течение нескольких минут.</p></div>';
     }
     renderStep();
