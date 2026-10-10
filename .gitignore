@@ -12,3 +12,6 @@ tools/deepseek_token.txt
 vk-proxy/.dev.vars
 vk-proxy/.env
 vk-proxy/.wrangler/
+
+# Yandex Cloud service-account key (not in git)
+# vk-proxy-yandex has no secrets committed
